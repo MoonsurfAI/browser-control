@@ -11,6 +11,8 @@ Moonsurf is a Model Context Protocol (MCP) server built from the ground up for A
 - [Architecture](#architecture)
 - [Installation](#installation)
 - [Quick Start](#quick-start)
+- [IDE and AI Tool Configuration](#ide-and-ai-tool-configuration)
+- [Usage Examples](#usage-examples)
 - [Configuration](#configuration)
 - [API Reference](#api-reference)
 - [MCP Tools](#mcp-tools)
@@ -128,61 +130,229 @@ Moonsurf uses a layered architecture that separates AI communication from browse
 ### Prerequisites
 
 - Node.js 18 or higher
-- npm or yarn
 - Chrome, Chrome for Testing, or Chromium browser
 - Moonsurf Browser Extension (installed in browser)
 
-### Install Dependencies
+### Install from npm
 
 ```bash
+npm install -g @moonsurf/browser-control
+```
+
+### Run with npx (no install)
+
+```bash
+npx @moonsurf/browser-control
+```
+
+### Run from Source
+
+```bash
+git clone https://github.com/MoonsurfAI/browser-control.git
+cd browser-control
 npm install
-```
-
-### Build
-
-```bash
 npm run build
-```
-
-### Run
-
-```bash
 npm start
-```
-
-For development with auto-rebuild:
-
-```bash
-npm run dev
 ```
 
 ## Quick Start
 
-### Start the Server
+### Using npx
 
-1. Build and start Moonsurf:
+The fastest way to start Moonsurf:
 
 ```bash
-npm run build && npm start
+npx @moonsurf/browser-control
 ```
 
-2. The server starts on `http://localhost:3300` by default.
+The server starts on `http://localhost:3300` by default.
 
-### Connect Your AI Assistant
+### Using Global Install
 
-3. Connect your MCP-enabled AI to the SSE endpoint:
+```bash
+# Install globally
+npm install -g @moonsurf/browser-control
 
-```
-GET http://localhost:3300/sse
-```
-
-4. The AI sends tool calls to:
-
-```
-POST http://localhost:3300/message?sessionId=<session-id>
+# Run from anywhere
+moonsurf
 ```
 
-### Launch a Browser Instance
+### With Environment Variables
+
+```bash
+PORT=3400 npx @moonsurf/browser-control
+```
+
+## IDE and AI Tool Configuration
+
+Moonsurf works with any MCP-compatible AI assistant. Below are configuration examples for popular tools.
+
+### Claude Code CLI
+
+Add to your Claude Code MCP settings (`~/.claude/settings.json`):
+
+```json
+{
+  "mcpServers": {
+    "browser": {
+      "command": "npx",
+      "args": ["@moonsurf/browser-control"]
+    }
+  }
+}
+```
+
+Or with environment variables:
+
+```json
+{
+  "mcpServers": {
+    "browser": {
+      "command": "npx",
+      "args": ["@moonsurf/browser-control"],
+      "env": {
+        "PORT": "3300",
+        "BROWSER_DEFAULT_MODE": "chromium"
+      }
+    }
+  }
+}
+```
+
+### Claude Desktop
+
+Add to your Claude Desktop configuration:
+
+**macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+
+**Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+
+```json
+{
+  "mcpServers": {
+    "browser": {
+      "command": "npx",
+      "args": ["@moonsurf/browser-control"]
+    }
+  }
+}
+```
+
+### Cursor IDE
+
+Add to Cursor MCP settings (`.cursor/mcp.json` in your project or global config):
+
+```json
+{
+  "mcpServers": {
+    "browser": {
+      "command": "npx",
+      "args": ["@moonsurf/browser-control"]
+    }
+  }
+}
+```
+
+### Windsurf IDE
+
+Add to Windsurf MCP configuration (`~/.windsurf/mcp.json`):
+
+```json
+{
+  "mcpServers": {
+    "browser": {
+      "command": "npx",
+      "args": ["@moonsurf/browser-control"]
+    }
+  }
+}
+```
+
+### Antigravity IDE
+
+Add to Antigravity settings:
+
+```json
+{
+  "mcp": {
+    "servers": {
+      "browser": {
+        "command": "npx",
+        "args": ["@moonsurf/browser-control"]
+      }
+    }
+  }
+}
+```
+
+### Gemini CLI
+
+Add to Gemini CLI MCP configuration:
+
+```json
+{
+  "mcpServers": {
+    "browser": {
+      "command": "npx",
+      "args": ["@moonsurf/browser-control"]
+    }
+  }
+}
+```
+
+### Codex CLI
+
+Add to Codex CLI configuration:
+
+```json
+{
+  "mcpServers": {
+    "browser": {
+      "command": "npx",
+      "args": ["@moonsurf/browser-control"]
+    }
+  }
+}
+```
+
+### Generic MCP Client
+
+For any MCP-compatible client, use:
+
+```json
+{
+  "command": "npx",
+  "args": ["@moonsurf/browser-control"],
+  "env": {
+    "PORT": "3300"
+  }
+}
+```
+
+Or connect directly to a running server:
+
+```
+SSE Endpoint: http://localhost:3300/sse
+Message Endpoint: http://localhost:3300/message
+```
+
+## Usage Examples
+
+Once configured, your AI assistant can control browsers. Here are example prompts:
+
+**Basic Navigation:**
+> "Open a browser and go to github.com"
+
+**Form Interaction:**
+> "Go to google.com and search for 'MCP protocol'"
+
+**Screenshot:**
+> "Take a screenshot of the current page"
+
+**Multi-step Task:**
+> "Go to Hacker News, find the top 5 stories, and save their titles"
+
+### Example Tool Call
 
 The AI can launch a browser with a single tool call:
 
