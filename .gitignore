@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Test coverage
+coverage/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# TLS certificates (for local development)
+*.pem
+*.key
+*.crt
+
+# Chrome profiles created by Moonsurf
+.moonsurf/

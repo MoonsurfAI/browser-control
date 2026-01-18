@@ -1,0 +1,38 @@
+# Source files (only dist is published)
+src/
+tsconfig.json
+
+# Development files
+.git/
+.gitignore
+.env
+.env.*
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test and coverage
+coverage/
+*.test.ts
+*.spec.ts
+__tests__/
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+tmp/
+temp/
+
+# Local certificates
+*.pem
+*.key
+*.crt
