@@ -12,6 +12,7 @@ Moonsurf is a Model Context Protocol (MCP) server built from the ground up for A
 - [Installation](#installation)
 - [Quick Start](#quick-start)
 - [IDE and AI Tool Configuration](#ide-and-ai-tool-configuration)
+- [Claude Skill Installation](#claude-skill-installation)
 - [Usage Examples](#usage-examples)
 - [Configuration](#configuration)
 - [API Reference](#api-reference)
@@ -335,6 +336,76 @@ Or connect directly to a running server:
 SSE Endpoint: http://localhost:3300/sse
 Message Endpoint: http://localhost:3300/message
 ```
+
+## Claude Skill Installation
+
+Moonsurf includes a Claude Skill that teaches Claude how to effectively use the browser automation tools. Installing the skill improves Claude's understanding of the tools and enables automatic activation when you request browser-related tasks.
+
+### Install the Skill
+
+```bash
+# Install the skill to ~/.claude/skills/
+npx @moonsurf/browser-control --install-skill
+```
+
+Or if you have Moonsurf installed globally:
+
+```bash
+moonsurf --install-skill
+```
+
+### Verify Installation
+
+```bash
+npx @moonsurf/browser-control --skill-status
+```
+
+### Uninstall the Skill
+
+```bash
+npx @moonsurf/browser-control --uninstall-skill
+```
+
+### Manual Installation
+
+If you prefer to install manually, copy the skill files from the package:
+
+```bash
+# Create the skills directory
+mkdir -p ~/.claude/skills/moonsurf-browser
+
+# Copy from the installed package (adjust path as needed)
+cp -r node_modules/@moonsurf/browser-control/skills/moonsurf-browser/* ~/.claude/skills/moonsurf-browser/
+```
+
+Or download directly from the repository:
+
+```bash
+mkdir -p ~/.claude/skills/moonsurf-browser
+curl -o ~/.claude/skills/moonsurf-browser/SKILL.md \
+  https://raw.githubusercontent.com/MoonsurfAI/browser-control/main/skills/moonsurf-browser/SKILL.md
+curl -o ~/.claude/skills/moonsurf-browser/REFERENCE.md \
+  https://raw.githubusercontent.com/MoonsurfAI/browser-control/main/skills/moonsurf-browser/REFERENCE.md
+```
+
+### What the Skill Provides
+
+The Moonsurf skill includes:
+
+- **Quick start workflows** for common browser automation tasks
+- **Detailed documentation** for all 9 browser tools
+- **Code examples** for every action and parameter
+- **Common workflows** like login, form filling, and data scraping
+- **Best practices** for reliable browser automation
+- **Troubleshooting guide** for common issues
+
+Once installed, Claude will automatically use this skill when you ask it to:
+- Open or control browsers
+- Navigate to websites
+- Take screenshots
+- Fill forms or click buttons
+- Scrape web content
+- Perform any browser automation task
 
 ## Usage Examples
 
