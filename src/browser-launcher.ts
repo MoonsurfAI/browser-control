@@ -1,9 +1,10 @@
-import { spawn, ChildProcess, execSync } from 'child_process';
+import { spawn, ChildProcess } from 'child_process';
 import { existsSync, readFileSync, readdirSync, mkdirSync, createWriteStream, unlinkSync, rmSync } from 'fs';
 import { dirname, resolve, join } from 'path';
 import { fileURLToPath } from 'url';
 import { homedir } from 'os';
 import https from 'https';
+import AdmZip from 'adm-zip';
 import { instanceManager } from './instance-manager.js';
 import { downloadWatcher, getSystemDownloadDir } from './download-watcher.js';
 import type { BrowserInstance } from './types.js';
@@ -117,19 +118,8 @@ class BrowserLauncher {
     }
 
     private extractZip(zipPath: string, destDir: string): void {
-        // Use system unzip command (available on Linux/macOS)
-        // On Windows, PowerShell's Expand-Archive could be used
-        const platform = process.platform;
-
-        if (platform === 'win32') {
-            execSync(`powershell -Command "Expand-Archive -Path '${zipPath}' -DestinationPath '${destDir}' -Force"`, {
-                stdio: 'pipe',
-            });
-        } else {
-            execSync(`unzip -o -q "${zipPath}" -d "${destDir}"`, {
-                stdio: 'pipe',
-            });
-        }
+        const zip = new AdmZip(zipPath);
+        zip.extractAllTo(destDir, true);
     }
 
     async ensureExtension(): Promise<void> {
