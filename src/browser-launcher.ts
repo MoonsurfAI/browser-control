@@ -1,14 +1,18 @@
 import { spawn, ChildProcess } from 'child_process';
-import { existsSync, readFileSync, readdirSync } from 'fs';
+import { existsSync, readFileSync, readdirSync, mkdirSync, createWriteStream, unlinkSync, rmSync } from 'fs';
 import { dirname, resolve, join } from 'path';
 import { fileURLToPath } from 'url';
 import { homedir } from 'os';
+import https from 'https';
+import AdmZip from 'adm-zip';
 import { instanceManager } from './instance-manager.js';
 import { downloadWatcher, getSystemDownloadDir } from './download-watcher.js';
 import type { BrowserInstance } from './types.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
+const EXTENSION_CDN_URL = 'https://moonsurf.sgp1.cdn.digitaloceanspaces.com/chrome-extension-releases/moonsurf-browser-control-latest.zip';
 
 type BrowserMode = 'chrome' | 'testing' | 'chromium';
 
@@ -57,10 +61,126 @@ type LaunchResult = LaunchSuccess | ProfileSelectionRequired;
 class BrowserLauncher {
     private instances = new Map<string, LaunchedInstance>();
     private extensionPath: string;
+    private extensionReady: boolean = false;
 
     constructor() {
-        // Extension path relative to mcp-server directory
-        this.extensionPath = resolve(__dirname, '../../chrome-extension/dist');
+        // Extension is downloaded to ~/.moonsurf/extension
+        this.extensionPath = join(homedir(), '.moonsurf', 'extension');
+    }
+
+    private async downloadFile(url: string, destPath: string): Promise<void> {
+        return new Promise((resolve, reject) => {
+            const file = createWriteStream(destPath);
+
+            const request = https.get(url, (response) => {
+                // Handle redirects
+                if (response.statusCode === 301 || response.statusCode === 302) {
+                    const redirectUrl = response.headers.location;
+                    if (redirectUrl) {
+                        file.close();
+                        unlinkSync(destPath);
+                        this.downloadFile(redirectUrl, destPath).then(resolve).catch(reject);
+                        return;
+                    }
+                }
+
+                if (response.statusCode !== 200) {
+                    file.close();
+                    unlinkSync(destPath);
+                    reject(new Error(`Failed to download: HTTP ${response.statusCode}`));
+                    return;
+                }
+
+                response.pipe(file);
+
+                file.on('finish', () => {
+                    file.close();
+                    resolve();
+                });
+            });
+
+            request.on('error', (err) => {
+                file.close();
+                if (existsSync(destPath)) {
+                    unlinkSync(destPath);
+                }
+                reject(err);
+            });
+
+            file.on('error', (err) => {
+                file.close();
+                if (existsSync(destPath)) {
+                    unlinkSync(destPath);
+                }
+                reject(err);
+            });
+        });
+    }
+
+    private extractZip(zipPath: string, destDir: string): void {
+        const zip = new AdmZip(zipPath);
+        zip.extractAllTo(destDir, true);
+    }
+
+    async ensureExtension(): Promise<void> {
+        if (this.extensionReady) {
+            return;
+        }
+
+        const moonsurfDir = join(homedir(), '.moonsurf');
+        const zipPath = join(moonsurfDir, 'extension.zip');
+        const manifestPath = join(this.extensionPath, 'manifest.json');
+
+        // Check if extension already exists
+        if (existsSync(manifestPath)) {
+            console.error('[BrowserLauncher] Extension already installed');
+            this.extensionReady = true;
+            return;
+        }
+
+        console.error('[BrowserLauncher] Downloading extension from CDN...');
+
+        // Ensure ~/.moonsurf directory exists
+        if (!existsSync(moonsurfDir)) {
+            mkdirSync(moonsurfDir, { recursive: true });
+        }
+
+        // Clean up any existing extension directory
+        if (existsSync(this.extensionPath)) {
+            rmSync(this.extensionPath, { recursive: true, force: true });
+        }
+
+        try {
+            // Download the zip file
+            await this.downloadFile(EXTENSION_CDN_URL, zipPath);
+            console.error('[BrowserLauncher] Download complete, extracting...');
+
+            // Create extension directory
+            mkdirSync(this.extensionPath, { recursive: true });
+
+            // Extract the zip
+            this.extractZip(zipPath, this.extensionPath);
+
+            // Clean up zip file
+            unlinkSync(zipPath);
+
+            // Verify extraction
+            if (!existsSync(manifestPath)) {
+                throw new Error('Extension extraction failed: manifest.json not found');
+            }
+
+            console.error('[BrowserLauncher] Extension installed successfully');
+            this.extensionReady = true;
+        } catch (error) {
+            // Clean up on failure
+            if (existsSync(zipPath)) {
+                unlinkSync(zipPath);
+            }
+            if (existsSync(this.extensionPath)) {
+                rmSync(this.extensionPath, { recursive: true, force: true });
+            }
+            throw new Error(`Failed to download/install extension: ${error instanceof Error ? error.message : String(error)}`);
+        }
     }
 
     private findChromeForTesting(): string | null {
@@ -352,6 +472,9 @@ class BrowserLauncher {
 
         // Auto-load extension for testing and chromium modes
         if (autoLoadExtension) {
+            // Ensure extension is downloaded and ready
+            await this.ensureExtension();
+
             const additionalExtensions = (options.extensions || []).filter(ext => existsSync(ext));
             const allExtensions = [this.extensionPath, ...additionalExtensions];
             args.push(`--load-extension=${allExtensions.join(',')}`);
