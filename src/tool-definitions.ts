@@ -132,14 +132,14 @@ export const toolDefinitions = [
     },
     {
         name: 'browser_content',
-        description: 'Get page content. Actions: screenshot, pdf, get (page content), query (find elements), attribute (get element attribute)',
+        description: 'Get page content. Actions: screenshot, pdf, get (page content), query (find elements), attribute (get element attribute), get_viewport_dom (visible elements with layout)',
         inputSchema: {
             type: 'object' as const,
             properties: {
                 action: {
                     type: 'string',
-                    enum: ['screenshot', 'pdf', 'get', 'query', 'attribute'],
-                    description: 'Action: screenshot | pdf | get | query | attribute',
+                    enum: ['screenshot', 'pdf', 'get', 'query', 'attribute', 'get_viewport_dom'],
+                    description: 'Action: screenshot | pdf | get | query | attribute | get_viewport_dom',
                 },
                 instanceId: {
                     type: 'string',
@@ -188,6 +188,22 @@ export const toolDefinitions = [
                 paperHeight: {
                     type: 'number',
                     description: 'Paper height in inches (pdf)',
+                },
+                maxElements: {
+                    type: 'number',
+                    description: 'Maximum elements to return (for get_viewport_dom, default: 500)',
+                },
+                domDepth: {
+                    type: 'number',
+                    description: 'Max depth of nested children in DOM output (for get_viewport_dom, default: 2)',
+                },
+                includeHidden: {
+                    type: 'boolean',
+                    description: 'Include hidden elements (for get_viewport_dom)',
+                },
+                minSize: {
+                    type: 'number',
+                    description: 'Minimum width/height in pixels to filter elements (for get_viewport_dom)',
                 },
             },
             required: ['action'],
@@ -581,6 +597,7 @@ export const actionToToolMap: Record<string, Record<string, string>> = {
         get: 'browser_get_content',
         query: 'browser_query_selector',
         attribute: 'browser_get_attribute',
+        get_viewport_dom: 'browser_get_viewport_dom',
     },
     browser_interact: {
         click: 'browser_mouse_click',

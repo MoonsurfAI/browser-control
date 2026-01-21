@@ -1,6 +1,6 @@
 {
     "name": "@moonsurf/browser-control",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "AI-native browser automation. MCP server that gives AI agents complete control over web browsers.",
     "type": "module",
     "main": "dist/index.js",
@@ -60,13 +60,13 @@
         "access": "public"
     },
     "dependencies": {
-        "adm-zip": "^0.5.16",
         "ws": "^8.18.0"
     },
     "devDependencies": {
         "@types/adm-zip": "^0.5.7",
         "@types/node": "^22.10.2",
         "@types/ws": "^8.5.13",
+        "adm-zip": "^0.5.16",
         "typescript": "^5.7.2"
     }
 }
