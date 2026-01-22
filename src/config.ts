@@ -9,6 +9,7 @@ export interface ServerConfig {
     // Server binding
     host: string;
     port: number;
+    publicUrl?: string;  // Public URL for client-facing endpoints (remote deployments)
 
     // WebSocket configuration
     wsHost: string;
@@ -78,6 +79,7 @@ export function loadConfig(): ServerConfig {
         // Server binding - use 0.0.0.0 for remote mode to accept external connections
         host: process.env.HOST || (isRemote ? '0.0.0.0' : 'localhost'),
         port: parseNumber(process.env.PORT, 3300),
+        publicUrl: process.env.PUBLIC_URL || undefined,
 
         // WebSocket configuration (always localhost - extension connects locally)
         wsHost: 'localhost',
@@ -187,6 +189,9 @@ export function printConfigSummary(config: ServerConfig): void {
     console.error('[Config] Server Configuration:');
     console.error(`[Config]   Mode: ${isRemote ? 'REMOTE' : 'LOCAL'}`);
     console.error(`[Config]   HTTP: ${config.tls.enabled ? 'https' : 'http'}://${config.host}:${config.port}`);
+    if (config.publicUrl) {
+        console.error(`[Config]   Public URL: ${config.publicUrl}`);
+    }
     console.error(`[Config]   WebSocket: ${config.tls.enabled ? 'wss' : 'ws'}://${config.wsHost}:${config.wsPortStart}-${config.wsPortEnd}`);
     console.error(`[Config]   Auth: ${config.auth.enabled ? 'ENABLED' : 'disabled'} (tokens: ${config.auth.tokens.length})`);
     console.error(`[Config]   TLS: ${config.tls.enabled ? 'ENABLED' : 'disabled'}`);

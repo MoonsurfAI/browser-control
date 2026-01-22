@@ -457,6 +457,7 @@ Configuration is managed through environment variables. The server supports two 
 | `REMOTE_MODE` | `false` | Enable remote mode (0.0.0.0 binding) |
 | `HOST` | `localhost` | Server bind address |
 | `PORT` | `3300` | HTTP server port |
+| `PUBLIC_URL` | (none) | Public URL for remote clients (e.g., `http://1.2.3.4:3300`) |
 | `WS_PORT_START` | `3301` | WebSocket port range start |
 | `WS_PORT_END` | `3399` | WebSocket port range end |
 
@@ -518,6 +519,7 @@ npm start
 
 ```bash
 export REMOTE_MODE=true
+export PUBLIC_URL=http://your-server-ip:3300  # Required for remote MCP clients
 export AUTH_ENABLED=true
 export AUTH_TOKENS=token1,token2,token3
 export TLS_ENABLED=true
@@ -526,6 +528,8 @@ export TLS_KEY_PATH=/path/to/key.pem
 export RATE_LIMIT_ENABLED=true
 npm start
 ```
+
+> **Note:** `PUBLIC_URL` is required when running in remote mode. Without it, MCP clients will receive `localhost` URLs which won't work for remote connections.
 
 ## API Reference
 

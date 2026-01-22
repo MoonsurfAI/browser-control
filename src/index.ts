@@ -20,6 +20,7 @@ Options:
 Environment Variables:
   PORT                    HTTP server port (default: 3300)
   HOST                    Server bind address (default: localhost)
+  PUBLIC_URL              Public URL for remote clients (e.g., http://1.2.3.4:3300)
   REMOTE_MODE             Enable remote mode with 0.0.0.0 binding
   BROWSER_DEFAULT_MODE    Default browser: chromium | chrome | testing
   HEADLESS_DEFAULT        Run browsers in headless mode
@@ -38,7 +39,7 @@ Documentation: https://github.com/MoonsurfAI/browser-control
 
 function showVersion(): void {
     // Version is read from package.json at build time
-    console.error('Moonsurf Browser Control v1.0.1');
+    console.error('Moonsurf Browser Control v1.0.3');
 }
 
 async function main(): Promise<void> {
@@ -75,9 +76,14 @@ async function main(): Promise<void> {
     const isRemote = config.host === '0.0.0.0';
     const protocol = config.tls.enabled ? 'https' : 'http';
 
+    // Determine SSE endpoint URL (use PUBLIC_URL if set)
+    const sseEndpoint = config.publicUrl
+        ? `${config.publicUrl.replace(/\/$/, '')}/sse`
+        : `${protocol}://${config.host}:${config.port}/sse`;
+
     console.error('[Moonsurf] Server starting...');
     console.error(`[Server] Mode: ${isRemote ? 'REMOTE' : 'LOCAL'}`);
-    console.error(`[Server] SSE endpoint: ${protocol}://${config.host}:${config.port}/sse`);
+    console.error(`[Server] SSE endpoint: ${sseEndpoint}`);
 
     startHttpServer();
 }

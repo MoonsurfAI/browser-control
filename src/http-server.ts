@@ -55,6 +55,10 @@ function getClientIP(req: IncomingMessage): string {
 }
 
 function getServerBaseUrl(config: ServerConfig): string {
+    // Use PUBLIC_URL if set (for remote deployments)
+    if (config.publicUrl) {
+        return config.publicUrl.replace(/\/$/, ''); // Remove trailing slash
+    }
     const protocol = config.tls.enabled ? 'https' : 'http';
     const host = config.host === '0.0.0.0' ? 'localhost' : config.host;
     return `${protocol}://${host}:${config.port}`;
@@ -504,13 +508,12 @@ export function startHttpServer(): void {
     }
 
     server.listen(config.port, config.host, () => {
-        const protocol = config.tls.enabled ? 'https' : 'http';
-        const displayHost = config.host === '0.0.0.0' ? 'localhost' : config.host;
+        const baseUrl = getServerBaseUrl(config);
 
         console.error(`[HTTP] Server listening on ${config.host}:${config.port}`);
-        console.error(`[HTTP] MCP SSE endpoint: ${protocol}://${displayHost}:${config.port}/sse`);
-        console.error(`[HTTP] Extension registration: ${protocol}://${displayHost}:${config.port}/register`);
-        console.error(`[HTTP] Health check: ${protocol}://${displayHost}:${config.port}/health`);
+        console.error(`[HTTP] MCP SSE endpoint: ${baseUrl}/sse`);
+        console.error(`[HTTP] Extension registration: ${baseUrl}/register`);
+        console.error(`[HTTP] Health check: ${baseUrl}/health`);
 
         if (config.auth.enabled) {
             console.error(`[HTTP] Authentication: REQUIRED (use Bearer token or ?token= parameter)`);
