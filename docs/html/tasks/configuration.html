@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configuration - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html" class="active">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Configuration</h1>
+<p>This document covers all configuration options for the Task Execution System.</p>
+<h2>Environment Variables</h2>
+<p>Configure the task system using environment variables.</p>
+<div class="table-wrapper"><table><thead><tr><th>Variable</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td><code>TASKS_ENABLED</code></td><td><code>true</code></td><td>Enable/disable the task execution feature</td></tr><tr><td><code>TASKS_WS_PORT</code></td><td><code>3400</code></td><td>WebSocket server port for task operations</td></tr><tr><td><code>TASKS_COMMAND_TIMEOUT</code></td><td><code>60000</code></td><td>Per-command timeout in milliseconds</td></tr><tr><td><code>TASKS_MAX_QUEUE_SIZE</code></td><td><code>100</code></td><td>Maximum tasks per instance queue</td></tr></tbody></table></div><h2>Detailed Configuration</h2>
+<h3>TASKS_ENABLED</h3>
+<p>Enable or disable the entire task execution system.</p>
+<pre><code class="language-bash"># Disable task system
+TASKS_ENABLED=false npm start
+
+# Enable (default)
+TASKS_ENABLED=true npm start</code></pre><p>When disabled:</p>
+<ul>
+<li>Task WebSocket server does not start</li>
+<li>REST endpoints for tasks return 404</li>
+<li>Task Manager is not initialized</li>
+</ul>
+<p>Use case: Disable when you only need MCP tool access without the task batching feature.</p>
+<h3>TASKS_WS_PORT</h3>
+<p>Port for the task WebSocket server.</p>
+<pre><code class="language-bash"># Use custom port
+TASKS_WS_PORT=4000 npm start</code></pre><p><strong>Notes:</strong></p>
+<ul>
+<li>Must not conflict with HTTP server port (default 3300)</li>
+<li>Must not conflict with instance WebSocket ports (default 3301-3399)</li>
+<li>Clients must connect to this port for task operations</li>
+</ul>
+<h3>TASKS_COMMAND_TIMEOUT</h3>
+<p>Maximum time allowed for a single command to complete.</p>
+<pre><code class="language-bash"># Increase timeout to 2 minutes
+TASKS_COMMAND_TIMEOUT=120000 npm start
+
+# Reduce timeout to 30 seconds
+TASKS_COMMAND_TIMEOUT=30000 npm start</code></pre><p><strong>Notes:</strong></p>
+<ul>
+<li>Value is in milliseconds</li>
+<li>Applies per-command, not per-task</li>
+<li>If a command times out, the task fails</li>
+<li>Consider page load times, typing speed, and network latency</li>
+</ul>
+<p>Recommended values:</p>
+<ul>
+<li><strong>Fast pages</strong>: 30000 (30s)</li>
+<li><strong>Normal pages</strong>: 60000 (60s, default)</li>
+<li><strong>Slow pages/heavy operations</strong>: 120000-180000 (2-3 min)</li>
+</ul>
+<h3>TASKS_MAX_QUEUE_SIZE</h3>
+<p>Maximum number of tasks that can be queued per browser instance.</p>
+<pre><code class="language-bash"># Allow more queued tasks
+TASKS_MAX_QUEUE_SIZE=500 npm start
+
+# Reduce queue size
+TASKS_MAX_QUEUE_SIZE=20 npm start</code></pre><p><strong>Notes:</strong></p>
+<ul>
+<li>Applies per browser instance</li>
+<li>When queue is full, new submissions return <code>QUEUE_FULL</code> error</li>
+<li>Helps prevent memory issues with many pending tasks</li>
+</ul>
+<hr>
+<h2>Configuration Examples</h2>
+<h3>Development</h3>
+<pre><code class="language-bash"># Relaxed settings for development
+TASKS_ENABLED=true \
+TASKS_WS_PORT=3400 \
+TASKS_COMMAND_TIMEOUT=120000 \
+TASKS_MAX_QUEUE_SIZE=50 \
+npm start</code></pre><h3>Production</h3>
+<pre><code class="language-bash"># Strict settings for production
+TASKS_ENABLED=true \
+TASKS_WS_PORT=3400 \
+TASKS_COMMAND_TIMEOUT=60000 \
+TASKS_MAX_QUEUE_SIZE=100 \
+npm start</code></pre><h3>High-Volume</h3>
+<pre><code class="language-bash"># For high-volume task processing
+TASKS_ENABLED=true \
+TASKS_WS_PORT=3400 \
+TASKS_COMMAND_TIMEOUT=30000 \
+TASKS_MAX_QUEUE_SIZE=500 \
+npm start</code></pre><h3>Local Development with Extension</h3>
+<pre><code class="language-bash"># Using local Chrome extension
+EXTENSION_PATH=../chrome-extension/dist \
+TASKS_ENABLED=true \
+npm start</code></pre><hr>
+<h2>Server Configuration Context</h2>
+<p>The task system is part of the larger Moonsurf server configuration. Here&#39;s how it fits:</p>
+<pre><code class="language-plaintext">Server Configuration
+├── HTTP Server
+│   ├── PORT (default: 3300)
+│   └── /tasks REST endpoints
+├── MCP Server
+│   ├── SSE endpoint
+│   └── Tool handlers
+├── Instance WebSockets
+│   ├── WS_PORT_START (default: 3301)
+│   └── WS_PORT_END (default: 3399)
+└── Task System ← You are here
+    ├── TASKS_ENABLED
+    ├── TASKS_WS_PORT
+    ├── TASKS_COMMAND_TIMEOUT
+    └── TASKS_MAX_QUEUE_SIZE</code></pre><hr>
+<h2>Programmatic Configuration</h2>
+<p>The configuration is loaded in <code>src/config.ts</code>:</p>
+<pre><code class="language-typescript">export interface ServerConfig {
+  // ... other config
+  tasks: {
+    enabled: boolean;
+    wsPort: number;
+    commandTimeout: number;
+    maxQueueSize: number;
+  };
+}
+
+function loadConfig(): ServerConfig {
+  return {
+    // ... other config
+    tasks: {
+      enabled: parseBoolean(process.env.TASKS_ENABLED, true),
+      wsPort: parseNumber(process.env.TASKS_WS_PORT, 3400),
+      commandTimeout: parseNumber(process.env.TASKS_COMMAND_TIMEOUT, 60000),
+      maxQueueSize: parseNumber(process.env.TASKS_MAX_QUEUE_SIZE, 100),
+    },
+  };
+}</code></pre><hr>
+<h2>Startup Verification</h2>
+<p>When the server starts, it logs the task configuration:</p>
+<pre><code class="language-plaintext">[Config] Server Configuration:
+[Config]   Mode: LOCAL
+[Config]   HTTP: http://localhost:3300
+[Config]   WebSocket: ws://localhost:3301-3399
+[Config]   ...
+[Config]   Tasks: ENABLED (port: 3400, timeout: 60000ms)</code></pre><p>Or if disabled:</p>
+<pre><code class="language-plaintext">[Config]   Tasks: DISABLED</code></pre><hr>
+<h2>Runtime Behavior</h2>
+<h3>Queue Limits</h3>
+<p>When the queue is full:</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;task_submit_response&quot;,
+  &quot;success&quot;: false,
+  &quot;error&quot;: &quot;Queue full: max 100 tasks allowed&quot;
+}</code></pre><p><strong>Handling:</strong></p>
+<ol>
+<li>Wait for tasks to complete</li>
+<li>Cancel unnecessary pending tasks</li>
+<li>Increase <code>TASKS_MAX_QUEUE_SIZE</code></li>
+</ol>
+<h3>Timeout Behavior</h3>
+<p>When a command times out:</p>
+<ol>
+<li>Command is marked as <code>error</code> with code <code>COMMAND_TIMEOUT</code></li>
+<li>Task is marked as <code>failed</code></li>
+<li>Remaining commands are marked as <code>skipped</code></li>
+<li><code>task_complete</code> is emitted with error details</li>
+</ol>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;task_complete&quot;,
+  &quot;status&quot;: &quot;failed&quot;,
+  &quot;error&quot;: {
+    &quot;code&quot;: &quot;COMMAND_TIMEOUT&quot;,
+    &quot;message&quot;: &quot;Command timeout after 60000ms&quot;,
+    &quot;commandId&quot;: &quot;task_123_cmd_1&quot;
+  }
+}</code></pre><hr>
+<h2>Related Configuration</h2>
+<h3>Server-wide Settings</h3>
+<p>These affect the task system indirectly:</p>
+<div class="table-wrapper"><table><thead><tr><th>Variable</th><th>Default</th><th>Impact on Tasks</th></tr></thead><tbody><tr><td><code>PORT</code></td><td><code>3300</code></td><td>HTTP server for REST task endpoints</td></tr><tr><td><code>WS_PORT_START</code></td><td><code>3301</code></td><td>First port for browser instance WebSockets</td></tr><tr><td><code>WS_PORT_END</code></td><td><code>3399</code></td><td>Last port for browser instance WebSockets</td></tr><tr><td><code>CORS_ENABLED</code></td><td><code>false</code></td><td>Enable CORS for browser-based task clients</td></tr></tbody></table></div><h3>Browser Settings</h3>
+<div class="table-wrapper"><table><thead><tr><th>Variable</th><th>Default</th><th>Impact on Tasks</th></tr></thead><tbody><tr><td><code>HEADLESS</code></td><td><code>false</code></td><td>Run browser headlessly (affects command execution)</td></tr><tr><td><code>EXTENSION_PATH</code></td><td>-</td><td>Path to local Chrome extension</td></tr></tbody></table></div><hr>
+<h2>Validation</h2>
+<p>The server validates configuration at startup:</p>
+<ol>
+<li><strong>Port conflicts</strong>: Ensures <code>TASKS_WS_PORT</code> doesn&#39;t conflict with other ports</li>
+<li><strong>Timeout sanity</strong>: Warns if timeout is very short (&lt; 5000ms)</li>
+<li><strong>Queue size</strong>: Warns if queue size is very large (&gt; 1000)</li>
+</ol>
+<hr>
+<h2>Changing Configuration</h2>
+<p>Configuration is read at server startup. To apply changes:</p>
+<ol>
+<li>Stop the server</li>
+<li>Set new environment variables</li>
+<li>Restart the server</li>
+</ol>
+<pre><code class="language-bash"># Stop server (Ctrl+C or kill process)
+
+# Set new config
+export TASKS_COMMAND_TIMEOUT=120000
+
+# Restart
+npm start</code></pre><p>There is no hot-reload of configuration. This ensures predictable behavior during task execution.</p>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

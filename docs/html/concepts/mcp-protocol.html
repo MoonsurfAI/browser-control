@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCP Protocol - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html" class="active">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>MCP Protocol</h1>
+<p>Moonsurf implements the Model Context Protocol (MCP), a standard for connecting AI assistants to external tools. This document explains how Moonsurf uses MCP.</p>
+<h2>What is MCP?</h2>
+<p>The Model Context Protocol is a specification for:</p>
+<ul>
+<li>Discovering available tools</li>
+<li>Calling tools with arguments</li>
+<li>Receiving results</li>
+</ul>
+<p>It enables AI assistants to interact with external systems in a standardized way.</p>
+<h2>Protocol Version</h2>
+<p>Moonsurf implements MCP protocol version <code>2024-11-05</code>.</p>
+<h2>Transport Layer</h2>
+<h3>Server-Sent Events (SSE)</h3>
+<p>Moonsurf uses SSE as the transport layer for MCP:</p>
+<p><strong>SSE Endpoint:</strong> <code>GET /sse</code></p>
+<p>When a client connects:</p>
+<ol>
+<li>Server sends an <code>endpoint</code> event with the message URL</li>
+<li>Client uses this URL for all subsequent requests</li>
+<li>Server sends <code>message</code> events with responses</li>
+</ol>
+<pre><code class="language-plaintext">Client                                          Server
+  │                                               │
+  │  GET /sse                                     │
+  │ ─────────────────────────────────────────────►│
+  │                                               │
+  │  event: endpoint                              │
+  │  data: http://localhost:3300/message?sessionId=xxx
+  │ ◄─────────────────────────────────────────────│
+  │                                               │
+  │  POST /message?sessionId=xxx                  │
+  │  {&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;initialize&quot;,...}  │
+  │ ─────────────────────────────────────────────►│
+  │                                               │
+  │  event: message                               │
+  │  data: {&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;result&quot;:{...}}       │
+  │ ◄─────────────────────────────────────────────│</code></pre><h3>Message Endpoint</h3>
+<p><strong>Message Endpoint:</strong> <code>POST /message?sessionId={sessionId}</code></p>
+<p>All MCP requests are sent here. The <code>sessionId</code> ties requests to SSE connections.</p>
+<h2>Message Format</h2>
+<p>All messages use JSON-RPC 2.0:</p>
+<p><strong>Request:</strong></p>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 1,
+  &quot;method&quot;: &quot;method_name&quot;,
+  &quot;params&quot;: { ... }
+}</code></pre><p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 1,
+  &quot;result&quot;: { ... }
+}</code></pre><p><strong>Error:</strong></p>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 1,
+  &quot;error&quot;: {
+    &quot;code&quot;: -32600,
+    &quot;message&quot;: &quot;Invalid Request&quot;
+  }
+}</code></pre><h2>MCP Methods</h2>
+<h3>initialize</h3>
+<p>Initializes the connection and returns server capabilities.</p>
+<p><strong>Request:</strong></p>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 1,
+  &quot;method&quot;: &quot;initialize&quot;,
+  &quot;params&quot;: {}
+}</code></pre><p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 1,
+  &quot;result&quot;: {
+    &quot;protocolVersion&quot;: &quot;2024-11-05&quot;,
+    &quot;serverInfo&quot;: {
+      &quot;name&quot;: &quot;moonsurf-mcp&quot;,
+      &quot;version&quot;: &quot;2.0.0&quot;
+    },
+    &quot;capabilities&quot;: {
+      &quot;tools&quot;: {}
+    }
+  }
+}</code></pre><h3>initialized</h3>
+<p>Client acknowledgment that initialization is complete.</p>
+<p><strong>Request:</strong></p>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 2,
+  &quot;method&quot;: &quot;initialized&quot;,
+  &quot;params&quot;: {}
+}</code></pre><p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 2,
+  &quot;result&quot;: {}
+}</code></pre><h3>tools/list</h3>
+<p>Lists all available tools.</p>
+<p><strong>Request:</strong></p>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 3,
+  &quot;method&quot;: &quot;tools/list&quot;
+}</code></pre><p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 3,
+  &quot;result&quot;: {
+    &quot;tools&quot;: [
+      {
+        &quot;name&quot;: &quot;browser_instance&quot;,
+        &quot;description&quot;: &quot;Manage browser instances...&quot;,
+        &quot;inputSchema&quot;: {
+          &quot;type&quot;: &quot;object&quot;,
+          &quot;properties&quot;: {
+            &quot;action&quot;: { &quot;type&quot;: &quot;string&quot;, &quot;enum&quot;: [&quot;list&quot;, &quot;new&quot;, &quot;close&quot;, &quot;profiles&quot;] },
+            ...
+          },
+          &quot;required&quot;: [&quot;action&quot;]
+        }
+      },
+      ...
+    ]
+  }
+}</code></pre><h3>tools/call</h3>
+<p>Executes a tool with given arguments.</p>
+<p><strong>Request:</strong></p>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 4,
+  &quot;method&quot;: &quot;tools/call&quot;,
+  &quot;params&quot;: {
+    &quot;name&quot;: &quot;browser_instance&quot;,
+    &quot;arguments&quot;: {
+      &quot;action&quot;: &quot;new&quot;,
+      &quot;mode&quot;: &quot;chromium&quot;
+    }
+  }
+}</code></pre><p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 4,
+  &quot;result&quot;: {
+    &quot;content&quot;: [
+      {
+        &quot;type&quot;: &quot;text&quot;,
+        &quot;text&quot;: &quot;{\&quot;instanceId\&quot;:\&quot;inst_xxx\&quot;,\&quot;browserType\&quot;:\&quot;Chromium\&quot;,...}&quot;
+      }
+    ]
+  }
+}</code></pre><h3>ping</h3>
+<p>Keep-alive message.</p>
+<p><strong>Request:</strong></p>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 5,
+  &quot;method&quot;: &quot;ping&quot;
+}</code></pre><p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 5,
+  &quot;result&quot;: {}
+}</code></pre><h2>Tool Result Format</h2>
+<p>Tool results are returned in the MCP content format:</p>
+<pre><code class="language-json">{
+  &quot;content&quot;: [
+    {
+      &quot;type&quot;: &quot;text&quot;,
+      &quot;text&quot;: &quot;JSON-encoded result&quot;
+    }
+  ]
+}</code></pre><p>For errors:</p>
+<pre><code class="language-json">{
+  &quot;content&quot;: [
+    {
+      &quot;type&quot;: &quot;text&quot;,
+      &quot;text&quot;: &quot;{\&quot;error\&quot;:{\&quot;code\&quot;:\&quot;ERROR_CODE\&quot;,\&quot;message\&quot;:\&quot;Error description\&quot;}}&quot;
+    }
+  ],
+  &quot;isError&quot;: true
+}</code></pre><h2>Error Codes</h2>
+<h3>JSON-RPC Errors</h3>
+<div class="table-wrapper"><table><thead><tr><th>Code</th><th>Message</th><th>Description</th></tr></thead><tbody><tr><td>-32700</td><td>Parse error</td><td>Invalid JSON</td></tr><tr><td>-32600</td><td>Invalid Request</td><td>Missing required fields</td></tr><tr><td>-32601</td><td>Method not found</td><td>Unknown MCP method</td></tr><tr><td>-32602</td><td>Invalid params</td><td>Invalid method parameters</td></tr><tr><td>-32603</td><td>Internal error</td><td>Server error</td></tr></tbody></table></div><h3>Tool Errors</h3>
+<p>Tool-specific errors are returned in the result:</p>
+<pre><code class="language-json">{
+  &quot;content&quot;: [{
+    &quot;type&quot;: &quot;text&quot;,
+    &quot;text&quot;: &quot;{\&quot;error\&quot;:{\&quot;code\&quot;:\&quot;NO_INSTANCE\&quot;,\&quot;message\&quot;:\&quot;Instance not found\&quot;}}&quot;
+  }],
+  &quot;isError&quot;: true
+}</code></pre><p>Common tool error codes:</p>
+<ul>
+<li><code>NO_INSTANCE</code> - Browser instance not found</li>
+<li><code>NOT_CONNECTED</code> - Instance not connected</li>
+<li><code>TOOL_TIMEOUT</code> - Tool call timed out</li>
+<li><code>TOOL_ERROR</code> - General tool error</li>
+</ul>
+<h2>Connection Lifecycle</h2>
+<pre><code class="language-plaintext">1. Client connects to /sse
+   └─► Receives sessionId via &#039;endpoint&#039; event
+
+2. Client sends &#039;initialize&#039; request
+   └─► Server returns capabilities
+
+3. Client sends &#039;initialized&#039; acknowledgment
+   └─► Connection ready
+
+4. Client discovers tools with &#039;tools/list&#039;
+   └─► Server returns available tools
+
+5. Client calls tools with &#039;tools/call&#039;
+   └─► Server executes and returns results
+
+6. Client disconnects
+   └─► Server cleans up session</code></pre><h2>Timeouts</h2>
+<ul>
+<li><strong>Tool call timeout:</strong> 30 seconds (default)</li>
+<li><strong>SSE keep-alive:</strong> 30 second pings</li>
+<li><strong>Connection timeout:</strong> No explicit limit</li>
+</ul>
+<h2>Authentication</h2>
+<p>When authentication is enabled:</p>
+<p><strong>SSE Connection:</strong></p>
+<pre><code class="language-plaintext">GET /sse?token=your-token</code></pre><p><strong>Message Requests:</strong></p>
+<pre><code class="language-plaintext">POST /message?sessionId=xxx
+Authorization: Bearer your-token</code></pre><h2>Example Session</h2>
+<pre><code class="language-bash"># 1. Connect to SSE (in background)
+curl -N &quot;http://localhost:3300/sse&quot; &amp;
+
+# Output:
+# event: endpoint
+# data: http://localhost:3300/message?sessionId=abc-123
+
+# 2. Initialize
+curl -X POST &quot;http://localhost:3300/message?sessionId=abc-123&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#039;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:1,&quot;method&quot;:&quot;initialize&quot;,&quot;params&quot;:{}}&#039;
+
+# 3. List tools
+curl -X POST &quot;http://localhost:3300/message?sessionId=abc-123&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#039;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:2,&quot;method&quot;:&quot;tools/list&quot;}&#039;
+
+# 4. Launch browser
+curl -X POST &quot;http://localhost:3300/message?sessionId=abc-123&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#039;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:3,&quot;method&quot;:&quot;tools/call&quot;,&quot;params&quot;:{&quot;name&quot;:&quot;browser_instance&quot;,&quot;arguments&quot;:{&quot;action&quot;:&quot;new&quot;,&quot;mode&quot;:&quot;chromium&quot;}}}&#039;</code></pre><h2>Related Topics</h2>
+<ul>
+<li><a href="architecture.html">Architecture</a> - System architecture</li>
+<li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a> - All HTTP routes</li>
+<li><a href="../api-reference/sse-protocol.html">SSE Protocol</a> - SSE details</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

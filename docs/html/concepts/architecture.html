@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Architecture - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html" class="active">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Architecture</h1>
+<p>Moonsurf uses a three-layer architecture that separates concerns and enables flexible deployment options.</p>
+<h2>Overview</h2>
+<pre><code class="language-plaintext">┌─────────────────────────────────────────────────────────────────────────────┐
+│                              AI Client Layer                                 │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────┐ │
+│  │   Claude    │  │   Cursor    │  │  Custom AI  │  │  Other MCP Clients  │ │
+│  └──────┬──────┘  └──────┬──────┘  └──────┬──────┘  └──────────┬──────────┘ │
+└─────────┼────────────────┼────────────────┼────────────────────┼────────────┘
+          │                │                │                    │
+          │ HTTP/SSE       │ HTTP/SSE       │ HTTP/SSE           │ HTTP/SSE
+          │ (MCP Protocol) │                │                    │
+          ▼                ▼                ▼                    ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                            MCP Server Layer                                  │
+│  ┌──────────────────────────────────────────────────────────────────────┐   │
+│  │                      Moonsurf MCP Server                              │   │
+│  │  ┌────────────┐  ┌────────────┐  ┌────────────┐  ┌────────────────┐  │   │
+│  │  │ HTTP/SSE   │  │  MCP       │  │  Instance  │  │  Browser       │  │   │
+│  │  │ Server     │  │  Handler   │  │  Manager   │  │  Launcher      │  │   │
+│  │  │ :3300      │  │            │  │            │  │                │  │   │
+│  │  └────────────┘  └────────────┘  └────────────┘  └────────────────┘  │   │
+│  │  ┌────────────┐  ┌────────────┐  ┌────────────┐  ┌────────────────┐  │   │
+│  │  │ Task       │  │ Task WS    │  │ Download   │  │  Tool          │  │   │
+│  │  │ Manager    │  │ Server     │  │ Watcher    │  │  Definitions   │  │   │
+│  │  │            │  │ :3400      │  │            │  │                │  │   │
+│  │  └────────────┘  └────────────┘  └────────────┘  └────────────────┘  │   │
+│  └──────────────────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────────────────┘
+          │
+          │ WebSocket (localhost:3301-3399)
+          │
+          ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                          Browser Extension Layer                             │
+│  ┌─────────────────────────────────────────────────────────────────────────┐│
+│  │                    Moonsurf Chrome Extension                             ││
+│  │  ┌────────────┐  ┌────────────┐  ┌────────────┐  ┌────────────────────┐ ││
+│  │  │ Background │  │  Content   │  │  DevTools  │  │  DOM               │ ││
+│  │  │ Script     │  │  Scripts   │  │  Protocol  │  │  Interaction       │ ││
+│  │  └────────────┘  └────────────┘  └────────────┘  └────────────────────┘ ││
+│  └─────────────────────────────────────────────────────────────────────────┘│
+│                                    │                                         │
+│                                    ▼                                         │
+│  ┌─────────────────────────────────────────────────────────────────────────┐│
+│  │                         Browser Instance                                 ││
+│  │                    (Chrome / Chromium / Testing)                         ││
+│  └─────────────────────────────────────────────────────────────────────────┘│
+└─────────────────────────────────────────────────────────────────────────────┘</code></pre><h2>Layer Details</h2>
+<h3>AI Client Layer</h3>
+<p><strong>Purpose:</strong> Interface for AI assistants to request browser operations.</p>
+<p><strong>Components:</strong></p>
+<ul>
+<li>Any MCP-compatible client (Claude, Cursor, custom implementations)</li>
+<li>Connects via HTTP/SSE to the MCP server</li>
+</ul>
+<p><strong>Communication:</strong></p>
+<ul>
+<li>Protocol: HTTP with Server-Sent Events (SSE)</li>
+<li>Port: 3300 (configurable)</li>
+<li>Format: JSON-RPC 2.0 over MCP</li>
+</ul>
+<h3>MCP Server Layer</h3>
+<p><strong>Purpose:</strong> Process tool requests, manage browser instances, orchestrate operations.</p>
+<p><strong>Components:</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Component</th><th>Responsibility</th></tr></thead><tbody><tr><td>HTTP/SSE Server</td><td>Accept client connections, route requests</td></tr><tr><td>MCP Handler</td><td>Parse MCP protocol, execute tool calls</td></tr><tr><td>Instance Manager</td><td>Track browser instances, route messages</td></tr><tr><td>Browser Launcher</td><td>Spawn browser processes, load extensions</td></tr><tr><td>Task Manager</td><td>Queue and execute batched commands</td></tr><tr><td>Task WS Server</td><td>Real-time task progress via WebSocket</td></tr><tr><td>Download Watcher</td><td>Monitor file downloads</td></tr><tr><td>Tool Definitions</td><td>Define 9 consolidated tools</td></tr></tbody></table></div><p><strong>Ports:</strong></p>
+<ul>
+<li><code>3300</code> - HTTP/SSE server for MCP clients</li>
+<li><code>3301-3399</code> - WebSocket servers for browser instances</li>
+<li><code>3400</code> - WebSocket server for task updates</li>
+</ul>
+<h3>Browser Extension Layer</h3>
+<p><strong>Purpose:</strong> Execute commands within the browser context.</p>
+<p><strong>Components:</strong></p>
+<ul>
+<li>Background Script - WebSocket connection, message routing</li>
+<li>Content Scripts - DOM interaction on pages</li>
+<li>DevTools Protocol - Low-level browser control</li>
+</ul>
+<p><strong>Communication:</strong></p>
+<ul>
+<li>Protocol: WebSocket</li>
+<li>Host: Always <code>localhost</code> (security)</li>
+<li>Port: Assigned dynamically (3301-3399)</li>
+</ul>
+<h2>Data Flow</h2>
+<h3>Tool Call Flow</h3>
+<pre><code class="language-plaintext">1. AI Client sends tool/call request
+   └─► HTTP POST to /message?sessionId=xxx
+
+2. MCP Server receives and parses request
+   └─► handleMCPRequest() in mcp-handler.ts
+
+3. Tool is resolved and routed
+   └─► Consolidated tool → Original tool name
+   └─► Server-side tool → Execute locally
+   └─► Extension tool → Route to browser
+
+4. Extension executes command
+   └─► WebSocket message to browser
+   └─► Extension executes in browser context
+
+5. Result returns through same path
+   └─► Extension → Server → SSE → Client</code></pre><h3>Browser Launch Flow</h3>
+<pre><code class="language-plaintext">1. AI requests browser_instance action:new
+   └─► browser_instance tool call
+
+2. Browser Launcher prepares environment
+   └─► Ensure extension downloaded
+   └─► Determine browser path
+   └─► Set up user data directory
+
+3. Browser process spawned
+   └─► Chrome/Chromium started with flags
+   └─► Extension auto-loaded (or manual)
+
+4. Extension connects to server
+   └─► POST /register with instance info
+   └─► Server assigns WebSocket port
+   └─► Extension connects via WebSocket
+
+5. Instance registered and ready
+   └─► Instance added to manager
+   └─► Download watcher started
+   └─► Instance ID returned to AI</code></pre><h2>Port Allocation</h2>
+<div class="table-wrapper"><table><thead><tr><th>Port Range</th><th>Purpose</th><th>Configurable</th></tr></thead><tbody><tr><td>3300</td><td>HTTP/SSE server</td><td><code>PORT</code> env var</td></tr><tr><td>3301-3399</td><td>Instance WebSockets</td><td><code>WS_PORT_START</code>, <code>WS_PORT_END</code></td></tr><tr><td>3400</td><td>Task WebSocket</td><td><code>TASKS_WS_PORT</code></td></tr></tbody></table></div><p><strong>Maximum Concurrent Instances:</strong> 99 (ports 3301-3399)</p>
+<h2>Security Boundaries</h2>
+<h3>Remote vs Local</h3>
+<pre><code class="language-plaintext">                    ┌──────────────────────────┐
+  Remote Network    │     MCP Server           │    Local Only
+        │           │    ┌─────────────┐       │         │
+        │           │    │             │       │         │
+   AI Client ────────────►  HTTP :3300 ├───────────► Browser Extension
+        │           │    │             │       │    (localhost:3301-3399)
+        │           │    └─────────────┘       │         │
+                    └──────────────────────────┘         │
+                                                         ▼
+                                                    Browser Process</code></pre><p>Key security properties:</p>
+<ul>
+<li>AI clients can connect remotely (with auth)</li>
+<li>Browser extension ONLY connects via localhost</li>
+<li>WebSocket ports never exposed externally</li>
+<li>All browser state stays local</li>
+</ul>
+<h3>Authentication Points</h3>
+<ol>
+<li><strong>HTTP/SSE endpoint</strong> - Bearer token or query parameter</li>
+<li><strong>WebSocket (instance)</strong> - Instance ID validation</li>
+<li><strong>WebSocket (task)</strong> - No additional auth (localhost only)</li>
+</ol>
+<h2>Scaling Considerations</h2>
+<h3>Horizontal</h3>
+<p>Not directly supported - each server manages its own browser instances. For horizontal scaling:</p>
+<ul>
+<li>Deploy multiple Moonsurf instances</li>
+<li>Use a load balancer for AI client connections</li>
+<li>Each instance manages its own browsers</li>
+</ul>
+<h3>Vertical</h3>
+<p>Single server can handle:</p>
+<ul>
+<li>Up to 99 concurrent browser instances</li>
+<li>Multiple AI clients connected simultaneously</li>
+<li>Parallel tool calls within reason</li>
+</ul>
+<h3>Resource Usage</h3>
+<p>Per browser instance:</p>
+<ul>
+<li>~150-300MB RAM (varies by page content)</li>
+<li>One WebSocket connection</li>
+<li>File system watcher for downloads</li>
+</ul>
+<p>Per AI client:</p>
+<ul>
+<li>One SSE connection</li>
+<li>Minimal memory</li>
+</ul>
+<h2>Related Topics</h2>
+<ul>
+<li><a href="mcp-protocol.html">MCP Protocol</a> - Protocol details</li>
+<li><a href="instance-lifecycle.html">Instance Lifecycle</a> - Instance management</li>
+<li><a href="extension-communication.html">Extension Communication</a> - WebSocket protocol</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Filling Guide - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html" class="active">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Form Filling Guide</h1>
+<p>Automate form interactions with Moonsurf, from simple text inputs to complex multi-step forms.</p>
+<h2>Basic Text Input</h2>
+<h3>Single Field</h3>
+<pre><code class="language-plaintext">browser_interact
+  action: &quot;type&quot;
+  selector: &quot;#email&quot;
+  text: &quot;user@example.com&quot;</code></pre><h3>Clear Before Typing</h3>
+<pre><code class="language-plaintext">browser_interact
+  action: &quot;type&quot;
+  selector: &quot;#search&quot;
+  text: &quot;new search term&quot;
+  clearFirst: true</code></pre><h3>Type with Delay (Human-like)</h3>
+<pre><code class="language-plaintext">browser_interact
+  action: &quot;type&quot;
+  selector: &quot;#message&quot;
+  text: &quot;Hello, this types slowly&quot;
+  delay: 50</code></pre><h2>Clicking Elements</h2>
+<h3>Basic Click</h3>
+<pre><code class="language-plaintext">browser_interact
+  action: &quot;click&quot;
+  selector: &quot;#submit-button&quot;</code></pre><h3>Double Click</h3>
+<pre><code class="language-plaintext">browser_interact
+  action: &quot;click&quot;
+  selector: &quot;.item&quot;
+  clickCount: 2</code></pre><h3>Right Click (Context Menu)</h3>
+<pre><code class="language-plaintext">browser_interact
+  action: &quot;click&quot;
+  selector: &quot;.file&quot;
+  button: &quot;right&quot;</code></pre><h3>Click at Position</h3>
+<pre><code class="language-plaintext">browser_interact
+  action: &quot;click&quot;
+  selector: &quot;#canvas&quot;
+  position: { &quot;x&quot;: 100, &quot;y&quot;: 50 }</code></pre><h2>Dropdown Selection</h2>
+<h3>Select by Value</h3>
+<pre><code class="language-plaintext">browser_interact
+  action: &quot;select&quot;
+  selector: &quot;#country&quot;
+  value: &quot;us&quot;</code></pre><h3>Select by Label Text</h3>
+<pre><code class="language-plaintext">browser_interact
+  action: &quot;select&quot;
+  selector: &quot;#country&quot;
+  label: &quot;United States&quot;</code></pre><h3>Select Multiple Options</h3>
+<p>For <code>&lt;select multiple&gt;</code>:</p>
+<pre><code class="language-plaintext">browser_interact
+  action: &quot;select&quot;
+  selector: &quot;#interests&quot;
+  values: [&quot;sports&quot;, &quot;music&quot;, &quot;travel&quot;]</code></pre><h2>Checkboxes and Radio Buttons</h2>
+<h3>Check a Checkbox</h3>
+<pre><code class="language-plaintext">browser_interact
+  action: &quot;check&quot;
+  selector: &quot;#agree-terms&quot;</code></pre><h3>Uncheck a Checkbox</h3>
+<pre><code class="language-plaintext">browser_interact
+  action: &quot;uncheck&quot;
+  selector: &quot;#subscribe-newsletter&quot;</code></pre><h3>Select Radio Button</h3>
+<pre><code class="language-plaintext">browser_interact
+  action: &quot;click&quot;
+  selector: &quot;input[name=&#039;payment&#039;][value=&#039;credit&#039;]&quot;</code></pre><h3>Toggle Checkbox</h3>
+<p>Check state first, then toggle:</p>
+<pre><code class="language-plaintext"># Get current state
+browser_execute
+  action: &quot;evaluate&quot;
+  script: &quot;document.querySelector(&#039;#remember-me&#039;).checked&quot;
+
+# Toggle based on result
+browser_interact
+  action: &quot;click&quot;
+  selector: &quot;#remember-me&quot;</code></pre><h2>File Uploads</h2>
+<h3>Single File</h3>
+<pre><code class="language-plaintext">browser_interact
+  action: &quot;upload&quot;
+  selector: &quot;input[type=&#039;file&#039;]&quot;
+  files: [&quot;/path/to/document.pdf&quot;]</code></pre><h3>Multiple Files</h3>
+<pre><code class="language-plaintext">browser_interact
+  action: &quot;upload&quot;
+  selector: &quot;input[type=&#039;file&#039;][multiple]&quot;
+  files: [&quot;/path/to/file1.pdf&quot;, &quot;/path/to/file2.pdf&quot;]</code></pre><h3>Drag-and-Drop Upload Zone</h3>
+<p>For dropzone-style uploads:</p>
+<pre><code class="language-plaintext"># Some dropzones have hidden file inputs
+browser_interact
+  action: &quot;upload&quot;
+  selector: &quot;.dropzone input[type=&#039;file&#039;]&quot;
+  files: [&quot;/path/to/image.jpg&quot;]</code></pre><h2>Keyboard Actions</h2>
+<h3>Press Single Key</h3>
+<pre><code class="language-plaintext">browser_interact
+  action: &quot;press&quot;
+  key: &quot;Enter&quot;</code></pre><h3>Keyboard Shortcuts</h3>
+<pre><code class="language-plaintext">browser_interact
+  action: &quot;press&quot;
+  key: &quot;Control+a&quot;</code></pre><p>Common shortcuts:</p>
+<ul>
+<li><code>Control+a</code> - Select all</li>
+<li><code>Control+c</code> - Copy</li>
+<li><code>Control+v</code> - Paste</li>
+<li><code>Escape</code> - Close dialogs</li>
+<li><code>Tab</code> - Next field</li>
+<li><code>Shift+Tab</code> - Previous field</li>
+</ul>
+<h3>Type Special Characters</h3>
+<pre><code class="language-plaintext">browser_interact
+  action: &quot;type&quot;
+  selector: &quot;#search&quot;
+  text: &quot;query&quot;
+
+browser_interact
+  action: &quot;press&quot;
+  key: &quot;Enter&quot;</code></pre><h2>Complete Login Form Example</h2>
+<h3>Simple Login</h3>
+<pre><code class="language-plaintext"># 1. Navigate to login page
+browser_navigate
+  action: &quot;goto&quot;
+  url: &quot;https://example.com/login&quot;
+
+# 2. Enter username
+browser_interact
+  action: &quot;type&quot;
+  selector: &quot;#username&quot;
+  text: &quot;myuser&quot;
+
+# 3. Enter password
+browser_interact
+  action: &quot;type&quot;
+  selector: &quot;#password&quot;
+  text: &quot;mypassword&quot;
+
+# 4. Click login button
+browser_interact
+  action: &quot;click&quot;
+  selector: &quot;#login-button&quot;
+
+# 5. Wait for redirect and verify
+browser_navigate
+  action: &quot;waitForNavigation&quot;
+  timeout: 10000
+
+browser_content
+  action: &quot;extract&quot;
+  selector: &quot;.welcome-message&quot;</code></pre><h3>Login with Remember Me</h3>
+<pre><code class="language-plaintext"># Fill credentials
+browser_interact action=&quot;type&quot; selector=&quot;#email&quot; text=&quot;user@example.com&quot;
+browser_interact action=&quot;type&quot; selector=&quot;#password&quot; text=&quot;secret123&quot;
+
+# Check remember me
+browser_interact action=&quot;check&quot; selector=&quot;#remember-me&quot;
+
+# Submit
+browser_interact action=&quot;click&quot; selector=&quot;button[type=&#039;submit&#039;]&quot;</code></pre><h2>Multi-Step Forms</h2>
+<h3>Wizard-Style Form</h3>
+<pre><code class="language-plaintext"># Step 1: Personal Info
+browser_interact action=&quot;type&quot; selector=&quot;#first-name&quot; text=&quot;John&quot;
+browser_interact action=&quot;type&quot; selector=&quot;#last-name&quot; text=&quot;Doe&quot;
+browser_interact action=&quot;click&quot; selector=&quot;#next-step-1&quot;
+
+# Wait for step 2 to load
+browser_interact action=&quot;click&quot; selector=&quot;#step-2-field&quot; waitForSelector=true
+
+# Step 2: Address
+browser_interact action=&quot;type&quot; selector=&quot;#address&quot; text=&quot;123 Main St&quot;
+browser_interact action=&quot;type&quot; selector=&quot;#city&quot; text=&quot;New York&quot;
+browser_interact action=&quot;select&quot; selector=&quot;#state&quot; value=&quot;NY&quot;
+browser_interact action=&quot;type&quot; selector=&quot;#zip&quot; text=&quot;10001&quot;
+browser_interact action=&quot;click&quot; selector=&quot;#next-step-2&quot;
+
+# Step 3: Review and Submit
+browser_interact action=&quot;click&quot; selector=&quot;#confirm-checkbox&quot;
+browser_interact action=&quot;click&quot; selector=&quot;#submit-form&quot;</code></pre><h3>Tab-Based Form</h3>
+<pre><code class="language-plaintext"># Click on tab
+browser_interact action=&quot;click&quot; selector=&quot;[data-tab=&#039;billing&#039;]&quot;
+
+# Wait for tab content
+browser_interact
+  action: &quot;click&quot;
+  selector: &quot;#billing-address&quot;
+  waitForSelector: true
+
+# Fill billing info
+browser_interact action=&quot;type&quot; selector=&quot;#billing-address&quot; text=&quot;456 Oak Ave&quot;</code></pre><h2>Dynamic Forms</h2>
+<h3>Forms with AJAX Validation</h3>
+<pre><code class="language-plaintext"># Type email - triggers validation
+browser_interact action=&quot;type&quot; selector=&quot;#email&quot; text=&quot;user@example.com&quot;
+
+# Tab out to trigger blur validation
+browser_interact action=&quot;press&quot; key=&quot;Tab&quot;
+
+# Wait for validation response
+browser_execute
+  action: &quot;evaluate&quot;
+  script: &quot;await new Promise(r =&gt; setTimeout(r, 1000))&quot;
+
+# Check for validation error
+browser_content
+  action: &quot;extract&quot;
+  selector: &quot;#email-error&quot;</code></pre><h3>Auto-Complete Fields</h3>
+<pre><code class="language-plaintext"># Type partial text
+browser_interact action=&quot;type&quot; selector=&quot;#city-autocomplete&quot; text=&quot;New Y&quot;
+
+# Wait for suggestions
+browser_interact
+  action: &quot;click&quot;
+  selector: &quot;.autocomplete-suggestion:first-child&quot;
+  waitForSelector: true
+  timeout: 5000</code></pre><h3>Dependent Dropdowns</h3>
+<pre><code class="language-plaintext"># Select country - triggers state/province dropdown load
+browser_interact action=&quot;select&quot; selector=&quot;#country&quot; value=&quot;US&quot;
+
+# Wait for states to load
+browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    await new Promise(resolve =&gt; {
+      const check = () =&gt; {
+        const options = document.querySelectorAll(&#039;#state option&#039;);
+        if (options.length &gt; 1) resolve();
+        else setTimeout(check, 100);
+      };
+      check();
+    });
+
+# Now select state
+browser_interact action=&quot;select&quot; selector=&quot;#state&quot; value=&quot;CA&quot;</code></pre><h2>Form Validation</h2>
+<h3>Check for Errors</h3>
+<pre><code class="language-plaintext"># Try to submit
+browser_interact action=&quot;click&quot; selector=&quot;#submit&quot;
+
+# Check for validation errors
+browser_content
+  action: &quot;extract&quot;
+  selector: &quot;.error-message&quot;
+  multiple: true</code></pre><h3>Verify Required Fields</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const required = document.querySelectorAll(&#039;[required]&#039;);
+    return Array.from(required).map(el =&gt; ({
+      name: el.name,
+      filled: el.value.length &gt; 0
+    }));</code></pre><h2>Handling Special Input Types</h2>
+<h3>Date Pickers</h3>
+<pre><code class="language-plaintext"># Native date input
+browser_interact
+  action: &quot;type&quot;
+  selector: &quot;input[type=&#039;date&#039;]&quot;
+  text: &quot;2024-03-15&quot;
+
+# Or via JavaScript for complex date pickers
+browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const picker = document.querySelector(&#039;.date-picker&#039;);
+    picker.value = &#039;2024-03-15&#039;;
+    picker.dispatchEvent(new Event(&#039;change&#039;, { bubbles: true }));</code></pre><h3>Range Sliders</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const slider = document.querySelector(&#039;input[type=&quot;range&quot;]&#039;);
+    slider.value = 75;
+    slider.dispatchEvent(new Event(&#039;input&#039;, { bubbles: true }));</code></pre><h3>Color Pickers</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const colorInput = document.querySelector(&#039;input[type=&quot;color&quot;]&#039;);
+    colorInput.value = &#039;#ff5500&#039;;
+    colorInput.dispatchEvent(new Event(&#039;change&#039;, { bubbles: true }));</code></pre><h3>Content Editable</h3>
+<pre><code class="language-plaintext">browser_interact
+  action: &quot;click&quot;
+  selector: &quot;[contenteditable=&#039;true&#039;]&quot;
+
+browser_interact
+  action: &quot;type&quot;
+  selector: &quot;[contenteditable=&#039;true&#039;]&quot;
+  text: &quot;Rich text content&quot;</code></pre><h2>Rich Text Editors</h2>
+<h3>TinyMCE</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    tinymce.activeEditor.setContent(&#039;&lt;p&gt;My content here&lt;/p&gt;&#039;);</code></pre><h3>CKEditor</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    CKEDITOR.instances[Object.keys(CKEDITOR.instances)[0]]
+      .setData(&#039;&lt;p&gt;My content&lt;/p&gt;&#039;);</code></pre><h3>Quill</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const quill = Quill.find(document.querySelector(&#039;.ql-editor&#039;));
+    quill.setText(&#039;My content&#039;);</code></pre><h3>Generic iFrame Editor</h3>
+<pre><code class="language-plaintext"># Switch to editor iframe
+browser_tab action=&quot;list&quot;  # Find iframe
+browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const iframe = document.querySelector(&#039;.editor-iframe&#039;);
+    iframe.contentDocument.body.innerHTML = &#039;&lt;p&gt;Content&lt;/p&gt;&#039;;</code></pre><h2>Form Data Extraction</h2>
+<h3>Get All Form Values</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const form = document.querySelector(&#039;#my-form&#039;);
+    const formData = new FormData(form);
+    return Object.fromEntries(formData);</code></pre><h3>Get Specific Field Value</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: &quot;document.querySelector(&#039;#email&#039;).value&quot;</code></pre><h2>Best Practices</h2>
+<h3>1. Wait for Elements</h3>
+<p>Always ensure elements are ready:</p>
+<pre><code class="language-plaintext">browser_interact
+  action: &quot;type&quot;
+  selector: &quot;#dynamic-field&quot;
+  text: &quot;value&quot;
+  waitForSelector: true
+  timeout: 10000</code></pre><h3>2. Clear Fields First</h3>
+<p>For edit forms with existing data:</p>
+<pre><code class="language-plaintext">browser_interact
+  action: &quot;type&quot;
+  selector: &quot;#name&quot;
+  text: &quot;New Name&quot;
+  clearFirst: true</code></pre><h3>3. Verify Submission</h3>
+<p>Always check that forms submitted successfully:</p>
+<pre><code class="language-plaintext"># Submit
+browser_interact action=&quot;click&quot; selector=&quot;#submit&quot;
+
+# Verify success
+browser_content
+  action: &quot;extract&quot;
+  selector: &quot;.success-message&quot;
+
+# Or check URL changed
+browser_tab action=&quot;list&quot;  # Check current URL</code></pre><h3>4. Handle Loading States</h3>
+<pre><code class="language-plaintext"># Click submit
+browser_interact action=&quot;click&quot; selector=&quot;#submit&quot;
+
+# Wait for loading to complete
+browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    await new Promise(resolve =&gt; {
+      const check = () =&gt; {
+        const loading = document.querySelector(&#039;.loading&#039;);
+        if (!loading) resolve();
+        else setTimeout(check, 100);
+      };
+      check();
+    });</code></pre><h2>Troubleshooting</h2>
+<h3>Element Not Found</h3>
+<ol>
+<li>Check selector is correct</li>
+<li>Wait for element to appear</li>
+<li>Check if element is in iframe</li>
+<li>Verify page has loaded</li>
+</ol>
+<h3>Cannot Type in Field</h3>
+<ol>
+<li>Check field is not disabled</li>
+<li>Check field is not readonly</li>
+<li>Try clicking field first</li>
+<li>Check for overlapping elements</li>
+</ol>
+<h3>Form Not Submitting</h3>
+<ol>
+<li>Check all required fields are filled</li>
+<li>Look for JavaScript validation errors</li>
+<li>Check network tab for failed requests</li>
+<li>Try clicking submit button instead of pressing Enter</li>
+</ol>
+<h2>Related</h2>
+<ul>
+<li><a href="../tools/browser-interact.html">browser_interact</a> - Full interaction tool reference</li>
+<li><a href="../tools/browser-execute.html">browser_execute</a> - JavaScript execution</li>
+<li><a href="handling-popups.html">Handling Popups</a> - Deal with form dialogs</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

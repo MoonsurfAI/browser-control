@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TLS Setup - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html" class="active">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>TLS Setup</h1>
+<p>Enable HTTPS for secure communication between AI clients and the Moonsurf server.</p>
+<h2>Overview</h2>
+<p>TLS (HTTPS) encrypts communication and provides:</p>
+<ul>
+<li>Data encryption in transit</li>
+<li>Server authentication</li>
+<li>Protection against man-in-the-middle attacks</li>
+</ul>
+<h2>Basic Configuration</h2>
+<pre><code class="language-bash">TLS_ENABLED=true \
+TLS_CERT_PATH=/path/to/cert.pem \
+TLS_KEY_PATH=/path/to/key.pem \
+moonsurf</code></pre><h2>Certificate Options</h2>
+<h3>Option 1: Let&#39;s Encrypt (Production)</h3>
+<p>Free, automated, and widely trusted certificates.</p>
+<h4>Using Certbot</h4>
+<pre><code class="language-bash"># Install certbot
+sudo apt install certbot
+
+# Get certificate
+sudo certbot certonly --standalone -d mcp.example.com
+
+# Certificate locations
+# /etc/letsencrypt/live/mcp.example.com/fullchain.pem
+# /etc/letsencrypt/live/mcp.example.com/privkey.pem</code></pre><h4>Running Moonsurf</h4>
+<pre><code class="language-bash">TLS_ENABLED=true \
+TLS_CERT_PATH=/etc/letsencrypt/live/mcp.example.com/fullchain.pem \
+TLS_KEY_PATH=/etc/letsencrypt/live/mcp.example.com/privkey.pem \
+AUTH_TOKENS=secret-token \
+moonsurf</code></pre><h4>Auto-renewal</h4>
+<p>Certbot sets up auto-renewal. After renewal, restart Moonsurf:</p>
+<pre><code class="language-bash"># Certbot renewal hook
+sudo certbot renew --deploy-hook &quot;systemctl restart moonsurf&quot;</code></pre><h3>Option 2: Self-Signed (Development/Testing)</h3>
+<p>For development or internal use.</p>
+<h4>Generate Certificate</h4>
+<pre><code class="language-bash"># Create private key
+openssl genrsa -out key.pem 2048
+
+# Create certificate signing request
+openssl req -new -key key.pem -out csr.pem \
+  -subj &quot;/CN=localhost&quot;
+
+# Create self-signed certificate (valid for 365 days)
+openssl x509 -req -days 365 -in csr.pem \
+  -signkey key.pem -out cert.pem
+
+# Clean up
+rm csr.pem</code></pre><h4>With Subject Alternative Names</h4>
+<p>For multiple hostnames:</p>
+<pre><code class="language-bash"># Create config file
+cat &gt; openssl.cnf &lt;&lt; EOF
+[req]
+default_bits = 2048
+prompt = no
+default_md = sha256
+req_extensions = req_ext
+distinguished_name = dn
+
+[dn]
+CN = localhost
+
+[req_ext]
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = localhost
+DNS.2 = mcp.local
+IP.1 = 127.0.0.1
+EOF
+
+# Generate key and certificate
+openssl req -x509 -nodes -days 365 \
+  -newkey rsa:2048 \
+  -keyout key.pem \
+  -out cert.pem \
+  -config openssl.cnf</code></pre><h4>Running Moonsurf</h4>
+<pre><code class="language-bash">TLS_ENABLED=true \
+TLS_CERT_PATH=./cert.pem \
+TLS_KEY_PATH=./key.pem \
+moonsurf</code></pre><h4>Client Configuration</h4>
+<p>For self-signed certificates, clients may need to:</p>
+<p><strong>Node.js:</strong></p>
+<pre><code class="language-javascript">process.env.NODE_TLS_REJECT_UNAUTHORIZED = &#039;0&#039;;</code></pre><p><strong>curl:</strong></p>
+<pre><code class="language-bash">curl -k https://localhost:3300/health</code></pre><h3>Option 3: Reverse Proxy (Recommended for Production)</h3>
+<p>Let a reverse proxy handle TLS:</p>
+<pre><code class="language-plaintext">Internet ──HTTPS──► Nginx/Caddy ──HTTP──► Moonsurf
+                      (TLS)                (No TLS)</code></pre><h4>Nginx</h4>
+<pre><code class="language-nginx">server {
+    listen 443 ssl http2;
+    server_name mcp.example.com;
+
+    ssl_certificate /etc/letsencrypt/live/mcp.example.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/mcp.example.com/privkey.pem;
+
+    location / {
+        proxy_pass http://127.0.0.1:3300;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection &quot;upgrade&quot;;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_buffering off;
+        proxy_read_timeout 86400;
+    }
+}</code></pre><p>Run Moonsurf without TLS:</p>
+<pre><code class="language-bash">REMOTE_MODE=true \
+PUBLIC_URL=https://mcp.example.com \
+AUTH_TOKENS=secret-token \
+TLS_ENABLED=false \
+moonsurf</code></pre><h4>Caddy</h4>
+<pre><code class="language-plaintext">mcp.example.com {
+    reverse_proxy localhost:3300
+}</code></pre><p>Caddy automatically handles TLS certificates.</p>
+<h2>Verification</h2>
+<h3>Check Server</h3>
+<pre><code class="language-bash"># With valid certificate
+curl https://mcp.example.com/health
+
+# With self-signed certificate
+curl -k https://localhost:3300/health</code></pre><h3>Check Certificate</h3>
+<pre><code class="language-bash">openssl s_client -connect localhost:3300 -servername localhost</code></pre><h3>Check Configuration</h3>
+<p>Server output shows TLS status:</p>
+<pre><code class="language-plaintext">[Config]   TLS: ENABLED</code></pre><h2>Client Configuration</h2>
+<h3>Claude Code</h3>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;moonsurf&quot;: {
+      &quot;url&quot;: &quot;https://mcp.example.com/sse?token=secret&quot;
+    }
+  }
+}</code></pre><h3>Custom Client</h3>
+<pre><code class="language-javascript">// HTTPS works automatically with valid certificates
+const eventSource = new EventSource(
+  &#039;https://mcp.example.com/sse?token=secret&#039;
+);</code></pre><h2>Certificate Formats</h2>
+<h3>PEM Format (Required)</h3>
+<p>Moonsurf requires PEM format certificates:</p>
+<p><strong>Certificate:</strong></p>
+<pre><code class="language-plaintext">-----BEGIN CERTIFICATE-----
+MIIDXTCCAkWgAwIBAgIJAJC1...
+-----END CERTIFICATE-----</code></pre><p><strong>Private Key:</strong></p>
+<pre><code class="language-plaintext">-----BEGIN PRIVATE KEY-----
+MIIEvgIBADANBgkqhkiG9w0B...
+-----END PRIVATE KEY-----</code></pre><h3>Converting from Other Formats</h3>
+<p><strong>From PFX/PKCS12:</strong></p>
+<pre><code class="language-bash">openssl pkcs12 -in cert.pfx -out cert.pem -nodes
+openssl pkcs12 -in cert.pfx -out key.pem -nodes -nocerts</code></pre><p><strong>From DER:</strong></p>
+<pre><code class="language-bash">openssl x509 -inform DER -in cert.der -out cert.pem
+openssl rsa -inform DER -in key.der -out key.pem</code></pre><h2>Certificate Chain</h2>
+<p>For certificates with intermediate CAs, combine into one file:</p>
+<pre><code class="language-bash">cat domain.crt intermediate.crt root.crt &gt; fullchain.pem</code></pre><h2>Troubleshooting</h2>
+<h3>&quot;TLS enabled but cert/key paths not provided&quot;</h3>
+<p>Both paths are required:</p>
+<pre><code class="language-bash">TLS_ENABLED=true \
+TLS_CERT_PATH=/path/to/cert.pem \
+TLS_KEY_PATH=/path/to/key.pem \
+moonsurf</code></pre><h3>&quot;ENOENT: no such file&quot;</h3>
+<p>Check file paths exist and are readable:</p>
+<pre><code class="language-bash">ls -la /path/to/cert.pem /path/to/key.pem</code></pre><h3>&quot;Certificate has expired&quot;</h3>
+<p>Renew the certificate:</p>
+<pre><code class="language-bash"># Let&#039;s Encrypt
+sudo certbot renew</code></pre><h3>&quot;Self-signed certificate&quot; errors</h3>
+<p>For testing, configure clients to accept self-signed certs or use a valid certificate.</p>
+<h3>Permission denied</h3>
+<p>Ensure the process can read the certificate files:</p>
+<pre><code class="language-bash">sudo chmod 644 cert.pem
+sudo chmod 600 key.pem</code></pre><h2>Security Best Practices</h2>
+<ol>
+<li><strong>Use Let&#39;s Encrypt</strong> for production (free, trusted)</li>
+<li><strong>Automate renewal</strong> to avoid expiration</li>
+<li><strong>Protect private keys</strong> (chmod 600)</li>
+<li><strong>Use strong ciphers</strong> (proxy configuration)</li>
+<li><strong>Enable HSTS</strong> for web clients (proxy configuration)</li>
+</ol>
+<h2>Related</h2>
+<ul>
+<li><a href="remote-mode.html">Remote Mode</a> - Production deployment</li>
+<li><a href="authentication.html">Authentication</a> - Token security</li>
+<li><a href="security-hardening.html">Security Hardening</a> - Additional measures</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

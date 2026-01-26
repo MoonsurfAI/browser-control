@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CI/CD Integration - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html" class="active">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>CI/CD Integration</h1>
+<p>Run Moonsurf in continuous integration and deployment pipelines for automated browser testing.</p>
+<h2>Overview</h2>
+<p>Moonsurf works well in CI/CD environments for:</p>
+<ul>
+<li>End-to-end testing</li>
+<li>Visual regression testing</li>
+<li>Screenshot capture</li>
+<li>Browser-based integration tests</li>
+</ul>
+<h2>Requirements</h2>
+<ul>
+<li>Node.js 18+</li>
+<li>Chrome or Chromium browser</li>
+<li>Headless mode (for CI without display)</li>
+</ul>
+<h2>GitHub Actions</h2>
+<h3>Basic Workflow</h3>
+<pre><code class="language-yaml">name: E2E Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  e2e-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: &#039;20&#039;
+          cache: &#039;npm&#039;
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Chromium
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y chromium-browser
+
+      - name: Start application
+        run: npm run start &amp;
+        env:
+          PORT: 3000
+
+      - name: Wait for app
+        run: npx wait-on http://localhost:3000
+
+      - name: Start Moonsurf
+        run: |
+          npx @moonsurf/browser-control &amp;
+          sleep 5
+        env:
+          BROWSER_DEFAULT_MODE: chromium
+          HEADLESS_DEFAULT: true
+          LOG_LEVEL: info
+
+      - name: Run E2E tests
+        run: npm run test:e2e
+
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: test-screenshots/
+          retention-days: 7</code></pre><h3>With Matrix Testing</h3>
+<pre><code class="language-yaml">name: Cross-Browser Tests
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        browser: [chromium, chrome]
+        viewport: [desktop, mobile]
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: &#039;20&#039;
+
+      - name: Install Chrome
+        if: matrix.browser == &#039;chrome&#039;
+        run: |
+          wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo dpkg -i google-chrome-stable_current_amd64.deb
+
+      - name: Install Chromium
+        if: matrix.browser == &#039;chromium&#039;
+        run: sudo apt-get install -y chromium-browser
+
+      - name: Start Moonsurf
+        run: npx @moonsurf/browser-control &amp;
+        env:
+          BROWSER_DEFAULT_MODE: ${{ matrix.browser }}
+          HEADLESS_DEFAULT: true
+
+      - name: Run tests
+        run: npm run test:e2e -- --viewport=${{ matrix.viewport }}</code></pre><h3>Scheduled Visual Regression</h3>
+<pre><code class="language-yaml">name: Visual Regression
+
+on:
+  schedule:
+    - cron: &#039;0 6 * * *&#039;  # Daily at 6 AM
+  workflow_dispatch:
+
+jobs:
+  visual:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup
+        uses: actions/setup-node@v4
+        with:
+          node-version: &#039;20&#039;
+
+      - name: Install
+        run: |
+          npm ci
+          sudo apt-get install -y chromium-browser
+
+      - name: Capture screenshots
+        run: |
+          npx @moonsurf/browser-control &amp;
+          sleep 5
+          npm run visual-regression
+        env:
+          BROWSER_DEFAULT_MODE: chromium
+          HEADLESS_DEFAULT: true
+
+      - name: Compare with baseline
+        run: npm run compare-screenshots
+
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-diff
+          path: visual-results/</code></pre><h2>GitLab CI</h2>
+<h3>Basic Pipeline</h3>
+<pre><code class="language-yaml"># .gitlab-ci.yml
+
+stages:
+  - test
+
+e2e-tests:
+  stage: test
+  image: node:20
+
+  services:
+    - name: chromium/chromium:latest
+      alias: browser
+
+  before_script:
+    - apt-get update &amp;&amp; apt-get install -y chromium
+    - npm ci
+
+  script:
+    - npm run start &amp;
+    - npx wait-on http://localhost:3000
+    - |
+      BROWSER_DEFAULT_MODE=chromium \
+      HEADLESS_DEFAULT=true \
+      npx @moonsurf/browser-control &amp;
+    - sleep 5
+    - npm run test:e2e
+
+  artifacts:
+    when: always
+    paths:
+      - test-screenshots/
+    expire_in: 1 week</code></pre><h3>With Docker</h3>
+<pre><code class="language-yaml">e2e-docker:
+  stage: test
+  image: docker:latest
+  services:
+    - docker:dind
+
+  script:
+    - docker build -t e2e-tests .
+    - docker run --rm e2e-tests npm run test:e2e
+
+  artifacts:
+    when: always
+    paths:
+      - test-screenshots/</code></pre><h2>Docker Configuration</h2>
+<h3>Dockerfile</h3>
+<pre><code class="language-dockerfile">FROM node:20-slim
+
+# Install Chrome dependencies
+RUN apt-get update &amp;&amp; apt-get install -y \
+    chromium \
+    fonts-liberation \
+    libasound2 \
+    libatk-bridge2.0-0 \
+    libatk1.0-0 \
+    libcups2 \
+    libdbus-1-3 \
+    libgbm1 \
+    libgtk-3-0 \
+    libnspr4 \
+    libnss3 \
+    libxcomposite1 \
+    libxdamage1 \
+    libxrandr2 \
+    xdg-utils \
+    --no-install-recommends \
+    &amp;&amp; rm -rf /var/lib/apt/lists/*
+
+# Set Chrome path
+ENV CHROME_PATH=/usr/bin/chromium
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies
+RUN npm ci
+
+# Copy source
+COPY . .
+
+# Environment for CI
+ENV BROWSER_DEFAULT_MODE=chromium
+ENV HEADLESS_DEFAULT=true
+ENV NODE_ENV=test
+
+# Run tests
+CMD [&quot;npm&quot;, &quot;run&quot;, &quot;test:e2e&quot;]</code></pre><h3>Docker Compose</h3>
+<pre><code class="language-yaml"># docker-compose.ci.yml
+version: &#039;3.8&#039;
+
+services:
+  app:
+    build: .
+    ports:
+      - &quot;3000:3000&quot;
+    healthcheck:
+      test: [&quot;CMD&quot;, &quot;curl&quot;, &quot;-f&quot;, &quot;http://localhost:3000/health&quot;]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  moonsurf:
+    image: node:20-slim
+    command: npx @moonsurf/browser-control
+    environment:
+      - BROWSER_DEFAULT_MODE=chromium
+      - HEADLESS_DEFAULT=true
+    depends_on:
+      app:
+        condition: service_healthy
+
+  tests:
+    build: .
+    command: npm run test:e2e
+    environment:
+      - APP_URL=http://app:3000
+      - MOONSURF_URL=http://moonsurf:3300
+    depends_on:
+      - moonsurf</code></pre><p>Run:</p>
+<pre><code class="language-bash">docker-compose -f docker-compose.ci.yml up --exit-code-from tests</code></pre><h2>CircleCI</h2>
+<pre><code class="language-yaml"># .circleci/config.yml
+version: 2.1
+
+jobs:
+  e2e-tests:
+    docker:
+      - image: cimg/node:20.0-browsers
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - v1-deps-{{ checksum &quot;package-lock.json&quot; }}
+
+      - run:
+          name: Install dependencies
+          command: npm ci
+
+      - save_cache:
+          key: v1-deps-{{ checksum &quot;package-lock.json&quot; }}
+          paths:
+            - node_modules
+
+      - run:
+          name: Start application
+          command: npm run start
+          background: true
+
+      - run:
+          name: Start Moonsurf
+          command: |
+            BROWSER_DEFAULT_MODE=chromium \
+            HEADLESS_DEFAULT=true \
+            npx @moonsurf/browser-control
+          background: true
+
+      - run:
+          name: Wait for services
+          command: |
+            npx wait-on http://localhost:3000
+            npx wait-on http://localhost:3300/health
+
+      - run:
+          name: Run E2E tests
+          command: npm run test:e2e
+
+      - store_artifacts:
+          path: test-screenshots
+          destination: screenshots
+
+workflows:
+  test:
+    jobs:
+      - e2e-tests</code></pre><h2>Jenkins</h2>
+<h3>Jenkinsfile</h3>
+<pre><code class="language-groovy">pipeline {
+    agent {
+        docker {
+            image &#039;node:20-slim&#039;
+            args &#039;-u root&#039;
+        }
+    }
+
+    environment {
+        BROWSER_DEFAULT_MODE = &#039;chromium&#039;
+        HEADLESS_DEFAULT = &#039;true&#039;
+    }
+
+    stages {
+        stage(&#039;Setup&#039;) {
+            steps {
+                sh &#039;&#039;&#039;
+                    apt-get update
+                    apt-get install -y chromium
+                    npm ci
+                &#039;&#039;&#039;
+            }
+        }
+
+        stage(&#039;Start Services&#039;) {
+            steps {
+                sh &#039;&#039;&#039;
+                    npm run start &amp;
+                    npx @moonsurf/browser-control &amp;
+                    sleep 10
+                &#039;&#039;&#039;
+            }
+        }
+
+        stage(&#039;Test&#039;) {
+            steps {
+                sh &#039;npm run test:e2e&#039;
+            }
+        }
+    }
+
+    post {
+        always {
+            archiveArtifacts artifacts: &#039;test-screenshots/**/*&#039;, allowEmptyArchive: true
+        }
+    }
+}</code></pre><h2>Environment Configuration</h2>
+<h3>Required Variables</h3>
+<pre><code class="language-bash"># Browser mode (use chromium for CI)
+BROWSER_DEFAULT_MODE=chromium
+
+# Always headless in CI
+HEADLESS_DEFAULT=true
+
+# Logging
+LOG_LEVEL=info
+
+# Optional: Task system
+TASKS_ENABLED=false  # Disable if not needed</code></pre><h3>Testing Mode</h3>
+<p>Use <code>testing</code> mode for isolated tests:</p>
+<pre><code class="language-bash">BROWSER_DEFAULT_MODE=testing</code></pre><p>This creates fresh browser profiles for each instance.</p>
+<h2>Test Framework Integration</h2>
+<h3>Jest Example</h3>
+<pre><code class="language-javascript">// jest.setup.js
+const { MoonsurfClient } = require(&#039;./moonsurf-client&#039;);
+
+let client;
+
+beforeAll(async () =&gt; {
+  client = new MoonsurfClient(&#039;http://localhost:3300&#039;);
+  await client.connect();
+  global.moonsurf = client;
+});
+
+afterAll(async () =&gt; {
+  await client.callTool(&#039;browser_instance&#039;, { action: &#039;close_all&#039; });
+  client.disconnect();
+});
+
+// test.js
+describe(&#039;E2E Tests&#039;, () =&gt; {
+  let instanceId;
+
+  beforeEach(async () =&gt; {
+    const result = await moonsurf.callTool(&#039;browser_instance&#039;, {
+      action: &#039;launch&#039;,
+      mode: &#039;testing&#039;
+    });
+    instanceId = result.instanceId;
+  });
+
+  afterEach(async () =&gt; {
+    await moonsurf.callTool(&#039;browser_instance&#039;, {
+      action: &#039;close&#039;,
+      instanceId
+    });
+  });
+
+  test(&#039;homepage loads&#039;, async () =&gt; {
+    await moonsurf.callTool(&#039;browser_navigate&#039;, {
+      action: &#039;goto&#039;,
+      url: process.env.APP_URL,
+      instanceId
+    });
+
+    const content = await moonsurf.callTool(&#039;browser_content&#039;, {
+      action: &#039;text&#039;,
+      instanceId
+    });
+
+    expect(content).toContain(&#039;Welcome&#039;);
+  });
+});</code></pre><h3>Mocha Example</h3>
+<pre><code class="language-javascript">const { expect } = require(&#039;chai&#039;);
+const { MoonsurfClient } = require(&#039;./moonsurf-client&#039;);
+
+describe(&#039;E2E Tests&#039;, function() {
+  this.timeout(60000);
+
+  let client;
+
+  before(async () =&gt; {
+    client = new MoonsurfClient();
+    await client.connect();
+    await client.callTool(&#039;browser_instance&#039;, { action: &#039;launch&#039; });
+  });
+
+  after(async () =&gt; {
+    await client.callTool(&#039;browser_instance&#039;, { action: &#039;close&#039; });
+    client.disconnect();
+  });
+
+  it(&#039;should load homepage&#039;, async () =&gt; {
+    await client.callTool(&#039;browser_navigate&#039;, {
+      action: &#039;goto&#039;,
+      url: &#039;http://localhost:3000&#039;
+    });
+
+    const content = await client.callTool(&#039;browser_content&#039;, {
+      action: &#039;text&#039;
+    });
+
+    expect(content).to.include(&#039;Welcome&#039;);
+  });
+});</code></pre><h2>Debugging CI Failures</h2>
+<h3>Capture Screenshots on Failure</h3>
+<pre><code class="language-javascript">afterEach(async function() {
+  if (this.currentTest.state === &#039;failed&#039;) {
+    const screenshot = await moonsurf.callTool(&#039;browser_content&#039;, {
+      action: &#039;screenshot&#039;,
+      fullPage: true
+    });
+
+    // Save screenshot with test name
+    const filename = `failure-${this.currentTest.title}.png`;
+    fs.writeFileSync(`test-screenshots/${filename}`, screenshot, &#039;base64&#039;);
+  }
+});</code></pre><h3>Increase Timeouts</h3>
+<pre><code class="language-yaml"># In CI config
+env:
+  TASKS_COMMAND_TIMEOUT: 120000  # 2 minutes per command</code></pre><h3>Enable Debug Logging</h3>
+<pre><code class="language-yaml">env:
+  LOG_LEVEL: debug</code></pre><h3>Save Full Logs</h3>
+<pre><code class="language-yaml">- name: Run tests
+  run: npm run test:e2e 2&gt;&amp;1 | tee test.log
+
+- name: Upload logs
+  if: failure()
+  uses: actions/upload-artifact@v4
+  with:
+    name: test-logs
+    path: test.log</code></pre><h2>Best Practices</h2>
+<h3>1. Use Headless Mode</h3>
+<p>Always enable headless in CI:</p>
+<pre><code class="language-bash">HEADLESS_DEFAULT=true</code></pre><h3>2. Use Testing Mode</h3>
+<p>For clean state in each test:</p>
+<pre><code class="language-bash">BROWSER_DEFAULT_MODE=testing</code></pre><h3>3. Add Health Checks</h3>
+<p>Wait for services before testing:</p>
+<pre><code class="language-bash">npx wait-on http://localhost:3300/health</code></pre><h3>4. Set Appropriate Timeouts</h3>
+<p>Browser operations can be slow in CI:</p>
+<pre><code class="language-javascript">// Increase wait times
+{ timeout: 30000 }</code></pre><h3>5. Capture Artifacts</h3>
+<p>Always save screenshots and logs:</p>
+<pre><code class="language-yaml">artifacts:
+  when: always
+  paths:
+    - test-screenshots/</code></pre><h3>6. Parallelize When Possible</h3>
+<p>Run independent tests in parallel:</p>
+<pre><code class="language-yaml">strategy:
+  matrix:
+    test-suite: [auth, checkout, search]</code></pre><h3>7. Cache Dependencies</h3>
+<pre><code class="language-yaml">- name: Cache node modules
+  uses: actions/cache@v3
+  with:
+    path: node_modules
+    key: ${{ runner.os }}-node-${{ hashFiles(&#039;package-lock.json&#039;) }}</code></pre><h2>Related</h2>
+<ul>
+<li><a href="../guides/testing-workflows.html">Testing Workflows</a> - Testing patterns</li>
+<li><a href="../configuration/remote-mode.md#docker-deployment">Docker Deployment</a> - Docker setup</li>
+<li><a href="../configuration/README.html">Configuration</a> - Environment variables</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

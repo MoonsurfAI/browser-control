@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testing Workflows Guide - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html" class="active">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Testing Workflows Guide</h1>
+<p>Use Moonsurf for automated testing including UI testing, regression testing, and CI/CD integration.</p>
+<h2>Overview</h2>
+<p>Moonsurf is well-suited for automated testing because:</p>
+<ul>
+<li>Real browser execution (no mocked environments)</li>
+<li>Consistent state with testing mode</li>
+<li>Screenshot capture for visual comparison</li>
+<li>Network monitoring for API testing</li>
+<li>Flexible JavaScript execution</li>
+</ul>
+<h2>Testing Browser Mode</h2>
+<p>Use the <code>testing</code> browser mode for isolated test runs:</p>
+<pre><code class="language-bash">BROWSER_DEFAULT_MODE=testing moonsurf</code></pre><p>This mode:</p>
+<ul>
+<li>Uses a fresh profile for each instance</li>
+<li>No cached data between runs</li>
+<li>Clean extensions state</li>
+<li>Predictable starting point</li>
+</ul>
+<h2>Basic Test Pattern</h2>
+<h3>1. Setup</h3>
+<pre><code class="language-plaintext"># Launch browser in testing mode
+browser_instance
+  action: &quot;launch&quot;
+  mode: &quot;testing&quot;
+  headless: true</code></pre><h3>2. Navigate</h3>
+<pre><code class="language-plaintext">browser_navigate
+  action: &quot;goto&quot;
+  url: &quot;https://app.example.com&quot;
+  waitUntil: &quot;networkidle&quot;</code></pre><h3>3. Interact</h3>
+<pre><code class="language-plaintext">browser_interact action=&quot;type&quot; selector=&quot;#email&quot; text=&quot;test@example.com&quot;
+browser_interact action=&quot;type&quot; selector=&quot;#password&quot; text=&quot;testpass123&quot;
+browser_interact action=&quot;click&quot; selector=&quot;#login-button&quot;</code></pre><h3>4. Assert</h3>
+<pre><code class="language-plaintext"># Wait for expected element
+browser_interact
+  action: &quot;click&quot;
+  selector: &quot;.dashboard&quot;
+  waitForSelector: true
+  timeout: 10000
+
+# Extract and verify content
+browser_content
+  action: &quot;extract&quot;
+  selector: &quot;.welcome-message&quot;</code></pre><h3>5. Teardown</h3>
+<pre><code class="language-plaintext">browser_instance action=&quot;close&quot;</code></pre><h2>UI Testing Examples</h2>
+<h3>Login Flow Test</h3>
+<pre><code class="language-plaintext"># Test: Valid login redirects to dashboard
+
+# Setup
+browser_instance action=&quot;launch&quot; mode=&quot;testing&quot; headless=true
+browser_navigate action=&quot;goto&quot; url=&quot;https://app.example.com/login&quot;
+
+# Action
+browser_interact action=&quot;type&quot; selector=&quot;#email&quot; text=&quot;user@test.com&quot;
+browser_interact action=&quot;type&quot; selector=&quot;#password&quot; text=&quot;validpass&quot;
+browser_interact action=&quot;click&quot; selector=&quot;#submit&quot;
+
+# Wait for navigation
+browser_navigate action=&quot;waitForNavigation&quot; timeout=10000
+
+# Assert
+browser_content action=&quot;extract&quot; selector=&quot;h1&quot;
+# Expected: &quot;Dashboard&quot; or similar
+
+# Verify URL changed
+browser_tab action=&quot;list&quot;
+# URL should be /dashboard
+
+# Cleanup
+browser_instance action=&quot;close&quot;</code></pre><h3>Form Validation Test</h3>
+<pre><code class="language-plaintext"># Test: Empty form shows validation errors
+
+browser_instance action=&quot;launch&quot; mode=&quot;testing&quot; headless=true
+browser_navigate action=&quot;goto&quot; url=&quot;https://app.example.com/register&quot;
+
+# Submit empty form
+browser_interact action=&quot;click&quot; selector=&quot;#submit&quot;
+
+# Check for validation errors
+browser_content
+  action: &quot;extract&quot;
+  selector: &quot;.error&quot;
+  multiple: true
+
+# Verify errors appear for required fields
+# Expected: Array of error messages
+
+browser_instance action=&quot;close&quot;</code></pre><h3>Navigation Test</h3>
+<pre><code class="language-plaintext"># Test: All main navigation links work
+
+browser_instance action=&quot;launch&quot; mode=&quot;testing&quot; headless=true
+browser_navigate action=&quot;goto&quot; url=&quot;https://app.example.com&quot;
+
+const navLinks = [&#039;#nav-home&#039;, &#039;#nav-about&#039;, &#039;#nav-products&#039;, &#039;#nav-contact&#039;];
+
+for (const link of navLinks) {
+  browser_interact action=&quot;click&quot; selector=link
+  browser_navigate action=&quot;waitForNavigation&quot;
+
+  # Verify page loaded
+  browser_content action=&quot;text&quot;
+  # Should have content
+}
+
+browser_instance action=&quot;close&quot;</code></pre><h2>Visual Regression Testing</h2>
+<h3>Capture Baseline</h3>
+<pre><code class="language-plaintext"># First run: capture baseline screenshots
+browser_instance action=&quot;launch&quot; mode=&quot;testing&quot; headless=true
+browser_navigate action=&quot;goto&quot; url=&quot;https://app.example.com&quot;
+
+# Full page screenshot
+browser_content
+  action: &quot;screenshot&quot;
+  fullPage: true
+# Save as baseline/homepage.png
+
+# Key components
+browser_content action=&quot;screenshot&quot; selector=&quot;#header&quot;
+# Save as baseline/header.png
+
+browser_content action=&quot;screenshot&quot; selector=&quot;#footer&quot;
+# Save as baseline/footer.png
+
+browser_instance action=&quot;close&quot;</code></pre><h3>Compare Against Baseline</h3>
+<pre><code class="language-plaintext"># Subsequent runs: capture and compare
+browser_instance action=&quot;launch&quot; mode=&quot;testing&quot; headless=true
+browser_navigate action=&quot;goto&quot; url=&quot;https://app.example.com&quot;
+
+browser_content action=&quot;screenshot&quot; fullPage=true
+# Save as current/homepage.png
+
+# Compare with image diff tool
+# Flag differences for review
+
+browser_instance action=&quot;close&quot;</code></pre><h3>Responsive Testing</h3>
+<pre><code class="language-plaintext"># Test at different viewport sizes
+const viewports = [
+  { width: 1920, height: 1080, name: &#039;desktop&#039; },
+  { width: 1024, height: 768, name: &#039;tablet&#039; },
+  { width: 375, height: 667, name: &#039;mobile&#039; }
+];
+
+browser_instance action=&quot;launch&quot; mode=&quot;testing&quot; headless=true
+browser_navigate action=&quot;goto&quot; url=&quot;https://app.example.com&quot;
+
+for (const vp of viewports) {
+  browser_emulate
+    action: &quot;setViewport&quot;
+    width: vp.width
+    height: vp.height
+
+  browser_content action=&quot;screenshot&quot; fullPage=true
+  # Save as screenshots/{vp.name}.png
+}
+
+browser_instance action=&quot;close&quot;</code></pre><h2>API Response Testing</h2>
+<h3>Verify API Calls</h3>
+<pre><code class="language-plaintext"># Start intercepting
+browser_network action=&quot;intercept&quot; patterns=[&quot;**/api/**&quot;]
+
+browser_instance action=&quot;launch&quot; mode=&quot;testing&quot; headless=true
+browser_navigate action=&quot;goto&quot; url=&quot;https://app.example.com&quot;
+
+# Trigger action that calls API
+browser_interact action=&quot;click&quot; selector=&quot;#load-data&quot;
+
+# Check captured requests
+browser_network action=&quot;requests&quot;
+
+# Verify expected API was called with correct parameters
+# Check response status and data
+
+browser_instance action=&quot;close&quot;</code></pre><h3>Mock API Responses</h3>
+<pre><code class="language-plaintext"># Set up mock before navigation
+browser_network
+  action: &quot;intercept&quot;
+  patterns: [&quot;**/api/users&quot;]
+  mock: {
+    &quot;status&quot;: 200,
+    &quot;body&quot;: &quot;{\&quot;users\&quot;: [{\&quot;id\&quot;: 1, \&quot;name\&quot;: \&quot;Test User\&quot;}]}&quot;
+  }
+
+browser_navigate action=&quot;goto&quot; url=&quot;https://app.example.com/users&quot;
+
+# Page should show mocked data
+browser_content action=&quot;extract&quot; selector=&quot;.user-name&quot;
+# Expected: &quot;Test User&quot;</code></pre><h3>Test Error Handling</h3>
+<pre><code class="language-plaintext"># Mock error response
+browser_network
+  action: &quot;intercept&quot;
+  patterns: [&quot;**/api/data&quot;]
+  mock: {
+    &quot;status&quot;: 500,
+    &quot;body&quot;: &quot;{\&quot;error\&quot;: \&quot;Server error\&quot;}&quot;
+  }
+
+browser_navigate action=&quot;goto&quot; url=&quot;https://app.example.com&quot;
+browser_interact action=&quot;click&quot; selector=&quot;#fetch-data&quot;
+
+# Verify error is displayed
+browser_content action=&quot;extract&quot; selector=&quot;.error-message&quot;
+# Expected: Error message to user</code></pre><h2>End-to-End Test Suites</h2>
+<h3>E-commerce Checkout Flow</h3>
+<pre><code class="language-plaintext"># Test complete purchase flow
+
+browser_instance action=&quot;launch&quot; mode=&quot;testing&quot; headless=true
+
+# 1. Browse products
+browser_navigate action=&quot;goto&quot; url=&quot;https://shop.example.com&quot;
+browser_interact action=&quot;click&quot; selector=&quot;.product:first-child&quot;
+
+# 2. Add to cart
+browser_interact action=&quot;click&quot; selector=&quot;#add-to-cart&quot;
+browser_content action=&quot;extract&quot; selector=&quot;.cart-count&quot;
+# Verify: count increased
+
+# 3. Go to cart
+browser_interact action=&quot;click&quot; selector=&quot;#cart-icon&quot;
+browser_content action=&quot;extract&quot; selector=&quot;.cart-item&quot;
+# Verify: item in cart
+
+# 4. Checkout
+browser_interact action=&quot;click&quot; selector=&quot;#checkout&quot;
+
+# 5. Fill shipping
+browser_interact action=&quot;type&quot; selector=&quot;#name&quot; text=&quot;Test User&quot;
+browser_interact action=&quot;type&quot; selector=&quot;#address&quot; text=&quot;123 Test St&quot;
+browser_interact action=&quot;type&quot; selector=&quot;#city&quot; text=&quot;Test City&quot;
+browser_interact action=&quot;select&quot; selector=&quot;#state&quot; value=&quot;CA&quot;
+browser_interact action=&quot;type&quot; selector=&quot;#zip&quot; text=&quot;12345&quot;
+browser_interact action=&quot;click&quot; selector=&quot;#continue&quot;
+
+# 6. Fill payment (test card)
+browser_interact action=&quot;type&quot; selector=&quot;#card&quot; text=&quot;4111111111111111&quot;
+browser_interact action=&quot;type&quot; selector=&quot;#expiry&quot; text=&quot;12/25&quot;
+browser_interact action=&quot;type&quot; selector=&quot;#cvv&quot; text=&quot;123&quot;
+
+# 7. Place order
+browser_interact action=&quot;click&quot; selector=&quot;#place-order&quot;
+
+# 8. Verify confirmation
+browser_navigate action=&quot;waitForNavigation&quot;
+browser_content action=&quot;extract&quot; selector=&quot;.order-confirmation&quot;
+# Verify: Order number present
+
+browser_instance action=&quot;close&quot;</code></pre><h3>User Registration Flow</h3>
+<pre><code class="language-plaintext">browser_instance action=&quot;launch&quot; mode=&quot;testing&quot; headless=true
+
+# Generate unique test email
+const testEmail = `test+${Date.now()}@example.com`;
+
+# 1. Go to registration
+browser_navigate action=&quot;goto&quot; url=&quot;https://app.example.com/register&quot;
+
+# 2. Fill form
+browser_interact action=&quot;type&quot; selector=&quot;#email&quot; text=testEmail
+browser_interact action=&quot;type&quot; selector=&quot;#password&quot; text=&quot;SecurePass123!&quot;
+browser_interact action=&quot;type&quot; selector=&quot;#confirm&quot; text=&quot;SecurePass123!&quot;
+browser_interact action=&quot;check&quot; selector=&quot;#terms&quot;
+
+# 3. Submit
+browser_interact action=&quot;click&quot; selector=&quot;#register&quot;
+
+# 4. Verify success
+browser_navigate action=&quot;waitForNavigation&quot;
+browser_content action=&quot;extract&quot; selector=&quot;.success-message&quot;
+
+# 5. Verify can login
+browser_navigate action=&quot;goto&quot; url=&quot;https://app.example.com/login&quot;
+browser_interact action=&quot;type&quot; selector=&quot;#email&quot; text=testEmail
+browser_interact action=&quot;type&quot; selector=&quot;#password&quot; text=&quot;SecurePass123!&quot;
+browser_interact action=&quot;click&quot; selector=&quot;#login&quot;
+
+browser_navigate action=&quot;waitForNavigation&quot;
+# Verify: Logged in successfully
+
+browser_instance action=&quot;close&quot;</code></pre><h2>CI/CD Integration</h2>
+<h3>GitHub Actions</h3>
+<pre><code class="language-yaml">name: E2E Tests
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: &#039;20&#039;
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Start app
+        run: npm start &amp;
+        env:
+          PORT: 3000
+
+      - name: Wait for app
+        run: npx wait-on http://localhost:3000
+
+      - name: Start Moonsurf
+        run: |
+          npx @moonsurf/browser-control &amp;
+          sleep 5
+        env:
+          BROWSER_DEFAULT_MODE: testing
+          HEADLESS_DEFAULT: true
+
+      - name: Run tests
+        run: npm run test:e2e
+
+      - name: Upload screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: test-screenshots/</code></pre><h3>Docker-based Testing</h3>
+<pre><code class="language-dockerfile">FROM node:20-slim
+
+# Install Chrome
+RUN apt-get update &amp;&amp; apt-get install -y \
+    chromium \
+    --no-install-recommends \
+    &amp;&amp; rm -rf /var/lib/apt/lists/*
+
+# Install Moonsurf
+RUN npm install -g @moonsurf/browser-control
+
+WORKDIR /app
+COPY . .
+
+ENV BROWSER_DEFAULT_MODE=testing
+ENV HEADLESS_DEFAULT=true
+
+CMD [&quot;npm&quot;, &quot;run&quot;, &quot;test:e2e&quot;]</code></pre><h3>Parallel Test Execution</h3>
+<p>Run multiple browser instances:</p>
+<pre><code class="language-plaintext"># Instance 1: Test suite A
+browser_instance action=&quot;launch&quot; mode=&quot;testing&quot; headless=true
+# Run tests...
+browser_instance action=&quot;close&quot;
+
+# Instance 2: Test suite B (can run in parallel)
+browser_instance action=&quot;launch&quot; mode=&quot;testing&quot; headless=true
+# Run tests...
+browser_instance action=&quot;close&quot;</code></pre><h2>Test Utilities</h2>
+<h3>Wait for Element</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    await new Promise((resolve, reject) =&gt; {
+      const timeout = setTimeout(() =&gt; reject(new Error(&#039;Timeout&#039;)), 10000);
+
+      const check = () =&gt; {
+        const el = document.querySelector(&#039;.expected-element&#039;);
+        if (el) {
+          clearTimeout(timeout);
+          resolve();
+        } else {
+          setTimeout(check, 100);
+        }
+      };
+      check();
+    });</code></pre><h3>Retry Failed Actions</h3>
+<pre><code class="language-plaintext">const maxRetries = 3;
+let attempt = 0;
+
+while (attempt &lt; maxRetries) {
+  try {
+    browser_interact action=&quot;click&quot; selector=&quot;#flaky-button&quot;
+    break;
+  } catch (error) {
+    attempt++;
+    if (attempt === maxRetries) throw error;
+    browser_execute
+      action: &quot;evaluate&quot;
+      script: &quot;await new Promise(r =&gt; setTimeout(r, 1000))&quot;
+  }
+}</code></pre><h3>Screenshot on Failure</h3>
+<pre><code class="language-plaintext">try {
+  # Test actions...
+} catch (error) {
+  # Capture state for debugging
+  browser_content action=&quot;screenshot&quot; fullPage=true
+  # Save screenshot with test name
+
+  browser_content action=&quot;html&quot;
+  # Save page HTML
+
+  throw error;
+}</code></pre><h3>Generate Test Data</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const timestamp = Date.now();
+    return {
+      email: `test+${timestamp}@example.com`,
+      username: `user_${timestamp}`,
+      password: `Pass${timestamp}!`
+    };</code></pre><h2>Performance Testing</h2>
+<h3>Measure Page Load</h3>
+<pre><code class="language-plaintext">browser_navigate
+  action: &quot;goto&quot;
+  url: &quot;https://app.example.com&quot;
+  waitUntil: &quot;networkidle&quot;
+
+browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const perf = performance.getEntriesByType(&#039;navigation&#039;)[0];
+    return {
+      domContentLoaded: perf.domContentLoadedEventEnd,
+      loadComplete: perf.loadEventEnd,
+      firstPaint: performance.getEntriesByName(&#039;first-paint&#039;)[0]?.startTime,
+      firstContentfulPaint: performance.getEntriesByName(&#039;first-contentful-paint&#039;)[0]?.startTime
+    };</code></pre><h3>Measure Interaction Time</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const start = performance.now();
+    document.querySelector(&#039;#action-button&#039;).click();
+
+    await new Promise(resolve =&gt; {
+      const check = () =&gt; {
+        if (document.querySelector(&#039;.result&#039;)) {
+          resolve();
+        } else {
+          requestAnimationFrame(check);
+        }
+      };
+      check();
+    });
+
+    return performance.now() - start;</code></pre><h2>Best Practices</h2>
+<h3>1. Use Testing Mode</h3>
+<p>Always use <code>testing</code> mode for tests to ensure clean state:</p>
+<pre><code class="language-plaintext">browser_instance action=&quot;launch&quot; mode=&quot;testing&quot;</code></pre><h3>2. Run Headless in CI</h3>
+<pre><code class="language-bash">HEADLESS_DEFAULT=true moonsurf</code></pre><h3>3. Use Explicit Waits</h3>
+<p>Don&#39;t use fixed delays:</p>
+<pre><code class="language-plaintext"># Bad
+browser_execute action=&quot;evaluate&quot; script=&quot;await new Promise(r =&gt; setTimeout(r, 5000))&quot;
+
+# Good
+browser_navigate action=&quot;waitForNavigation&quot;
+browser_interact action=&quot;click&quot; selector=&quot;.result&quot; waitForSelector=true</code></pre><h3>4. Isolate Tests</h3>
+<p>Each test should be independent:</p>
+<pre><code class="language-plaintext"># Setup fresh state
+browser_instance action=&quot;launch&quot; mode=&quot;testing&quot;
+
+# Run test
+
+# Cleanup
+browser_instance action=&quot;close&quot;</code></pre><h3>5. Capture Evidence on Failure</h3>
+<pre><code class="language-plaintext">try {
+  # Test code
+} catch (e) {
+  browser_content action=&quot;screenshot&quot;
+  browser_content action=&quot;html&quot;
+  throw e;
+}</code></pre><h3>6. Use Stable Selectors</h3>
+<p>Prefer:</p>
+<ul>
+<li><code>[data-testid=&quot;submit&quot;]</code></li>
+<li><code>#login-form</code></li>
+<li><code>[name=&quot;email&quot;]</code></li>
+</ul>
+<p>Avoid:</p>
+<ul>
+<li><code>.btn-primary:nth-child(2)</code></li>
+<li>Dynamic class names</li>
+</ul>
+<h2>Troubleshooting</h2>
+<h3>Test Flakiness</h3>
+<ol>
+<li>Add explicit waits for elements</li>
+<li>Check for race conditions</li>
+<li>Verify test isolation</li>
+<li>Look for timing-dependent code</li>
+</ol>
+<h3>Elements Not Found</h3>
+<ol>
+<li>Wait for element to appear</li>
+<li>Check if element is in iframe</li>
+<li>Verify selector is correct</li>
+<li>Check page has fully loaded</li>
+</ol>
+<h3>Tests Pass Locally, Fail in CI</h3>
+<ol>
+<li>Ensure headless mode works</li>
+<li>Check for screen size differences</li>
+<li>Verify all dependencies installed</li>
+<li>Check network conditions</li>
+</ol>
+<h2>Related</h2>
+<ul>
+<li><a href="../tools/browser-instance.html">browser_instance</a> - Browser lifecycle</li>
+<li><a href="../tools/browser-content.html">browser_content</a> - Screenshots and extraction</li>
+<li><a href="../tools/browser-network.html">browser_network</a> - API mocking</li>
+<li><a href="../integration/ci-cd.html">CI/CD Integration</a> - Pipeline setup</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

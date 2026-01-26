@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>browser_network - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html" class="active">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>browser_network</h1>
+<p>Control network and storage. Manage cookies, set custom headers, intercept requests, and access localStorage/sessionStorage.</p>
+<h2>Actions</h2>
+<div class="table-wrapper"><table><thead><tr><th>Action</th><th>Description</th></tr></thead><tbody><tr><td><code>get_cookies</code></td><td>Get cookies</td></tr><tr><td><code>set_cookie</code></td><td>Set a cookie</td></tr><tr><td><code>clear_cookies</code></td><td>Clear cookies</td></tr><tr><td><code>set_headers</code></td><td>Set custom HTTP headers</td></tr><tr><td><code>intercept</code></td><td>Intercept network requests</td></tr><tr><td><code>get_storage</code></td><td>Get localStorage/sessionStorage values</td></tr><tr><td><code>set_storage</code></td><td>Set localStorage/sessionStorage values</td></tr><tr><td><code>clear_storage</code></td><td>Clear localStorage/sessionStorage</td></tr></tbody></table></div><h2>Parameters</h2>
+<div class="table-wrapper"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>action</code></td><td>string</td><td>Yes</td><td>One of the actions above</td></tr><tr><td><code>instanceId</code></td><td>string</td><td>No</td><td>Target browser instance</td></tr><tr><td><code>tabId</code></td><td>number</td><td>No</td><td>Target tab ID</td></tr><tr><td><code>name</code></td><td>string</td><td>For cookies</td><td>Cookie name</td></tr><tr><td><code>value</code></td><td>string</td><td>For cookies/storage</td><td>Cookie or storage value</td></tr><tr><td><code>key</code></td><td>string</td><td>For storage</td><td>Storage key</td></tr><tr><td><code>url</code></td><td>string</td><td>For cookies</td><td>Cookie URL</td></tr><tr><td><code>urls</code></td><td>string[]</td><td>For <code>get_cookies</code></td><td>URLs to get cookies for</td></tr><tr><td><code>domain</code></td><td>string</td><td>For cookies</td><td>Cookie domain</td></tr><tr><td><code>path</code></td><td>string</td><td>For cookies</td><td>Cookie path</td></tr><tr><td><code>secure</code></td><td>boolean</td><td>For cookies</td><td>Secure flag</td></tr><tr><td><code>httpOnly</code></td><td>boolean</td><td>For cookies</td><td>HttpOnly flag</td></tr><tr><td><code>sameSite</code></td><td>string</td><td>For cookies</td><td>SameSite attribute: <code>Strict</code>, <code>Lax</code>, <code>None</code></td></tr><tr><td><code>expires</code></td><td>number</td><td>For cookies</td><td>Expiration (Unix timestamp)</td></tr><tr><td><code>headers</code></td><td>object</td><td>For <code>set_headers</code></td><td>Header key-value pairs</td></tr><tr><td><code>enabled</code></td><td>boolean</td><td>For <code>intercept</code></td><td>Enable/disable interception</td></tr><tr><td><code>patterns</code></td><td>array</td><td>For <code>intercept</code></td><td>URL patterns to intercept</td></tr><tr><td><code>storageType</code></td><td>string</td><td>For storage</td><td><code>localStorage</code>, <code>sessionStorage</code>, or <code>all</code></td></tr></tbody></table></div><h2>Action: get_cookies</h2>
+<p>Get cookies for the current page or specific URLs.</p>
+<h3>Get All Cookies</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_network&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;get_cookies&quot;
+  }
+}</code></pre><h3>Get Cookies for Specific URLs</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_network&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;get_cookies&quot;,
+    &quot;urls&quot;: [&quot;https://example.com&quot;, &quot;https://api.example.com&quot;]
+  }
+}</code></pre><h3>Response</h3>
+<pre><code class="language-json">{
+  &quot;cookies&quot;: [
+    {
+      &quot;name&quot;: &quot;session_id&quot;,
+      &quot;value&quot;: &quot;abc123...&quot;,
+      &quot;domain&quot;: &quot;.example.com&quot;,
+      &quot;path&quot;: &quot;/&quot;,
+      &quot;secure&quot;: true,
+      &quot;httpOnly&quot;: true,
+      &quot;sameSite&quot;: &quot;Lax&quot;,
+      &quot;expires&quot;: 1735689600
+    }
+  ]
+}</code></pre><h2>Action: set_cookie</h2>
+<p>Set a cookie.</p>
+<h3>Basic Cookie</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_network&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;set_cookie&quot;,
+    &quot;name&quot;: &quot;user_preference&quot;,
+    &quot;value&quot;: &quot;dark_mode&quot;,
+    &quot;url&quot;: &quot;https://example.com&quot;
+  }
+}</code></pre><h3>Secure Session Cookie</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_network&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;set_cookie&quot;,
+    &quot;name&quot;: &quot;session_id&quot;,
+    &quot;value&quot;: &quot;abc123xyz&quot;,
+    &quot;url&quot;: &quot;https://example.com&quot;,
+    &quot;secure&quot;: true,
+    &quot;httpOnly&quot;: true,
+    &quot;sameSite&quot;: &quot;Strict&quot;
+  }
+}</code></pre><h3>Cookie with Expiration</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_network&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;set_cookie&quot;,
+    &quot;name&quot;: &quot;remember_me&quot;,
+    &quot;value&quot;: &quot;user123&quot;,
+    &quot;url&quot;: &quot;https://example.com&quot;,
+    &quot;domain&quot;: &quot;.example.com&quot;,
+    &quot;path&quot;: &quot;/&quot;,
+    &quot;expires&quot;: 1735689600
+  }
+}</code></pre><h3>Response</h3>
+<pre><code class="language-json">{
+  &quot;success&quot;: true,
+  &quot;cookie&quot;: {
+    &quot;name&quot;: &quot;user_preference&quot;,
+    &quot;value&quot;: &quot;dark_mode&quot;
+  }
+}</code></pre><h2>Action: clear_cookies</h2>
+<p>Clear cookies.</p>
+<h3>Clear All Cookies</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_network&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;clear_cookies&quot;
+  }
+}</code></pre><h3>Clear Specific Domain</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_network&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;clear_cookies&quot;,
+    &quot;domain&quot;: &quot;example.com&quot;
+  }
+}</code></pre><h2>Action: set_headers</h2>
+<p>Set custom HTTP headers for all requests.</p>
+<h3>Set Authorization Header</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_network&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;set_headers&quot;,
+    &quot;headers&quot;: {
+      &quot;Authorization&quot;: &quot;Bearer your-token-here&quot;
+    }
+  }
+}</code></pre><h3>Set Multiple Headers</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_network&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;set_headers&quot;,
+    &quot;headers&quot;: {
+      &quot;Authorization&quot;: &quot;Bearer token&quot;,
+      &quot;X-Custom-Header&quot;: &quot;custom-value&quot;,
+      &quot;Accept-Language&quot;: &quot;en-US&quot;
+    }
+  }
+}</code></pre><h3>Clear Custom Headers</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_network&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;set_headers&quot;,
+    &quot;headers&quot;: {}
+  }
+}</code></pre><h2>Action: intercept</h2>
+<p>Intercept and modify network requests.</p>
+<h3>Enable Interception</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_network&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;intercept&quot;,
+    &quot;enabled&quot;: true,
+    &quot;patterns&quot;: [
+      { &quot;urlPattern&quot;: &quot;*://*.example.com/*&quot; }
+    ]
+  }
+}</code></pre><h3>Intercept Specific Resource Types</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_network&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;intercept&quot;,
+    &quot;enabled&quot;: true,
+    &quot;patterns&quot;: [
+      { &quot;urlPattern&quot;: &quot;*&quot;, &quot;resourceType&quot;: &quot;Image&quot; },
+      { &quot;urlPattern&quot;: &quot;*&quot;, &quot;resourceType&quot;: &quot;Script&quot; }
+    ]
+  }
+}</code></pre><h3>Disable Interception</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_network&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;intercept&quot;,
+    &quot;enabled&quot;: false
+  }
+}</code></pre><h2>Action: get_storage</h2>
+<p>Get localStorage or sessionStorage values.</p>
+<h3>Get All localStorage</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_network&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;get_storage&quot;,
+    &quot;storageType&quot;: &quot;localStorage&quot;
+  }
+}</code></pre><h3>Get Specific Key</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_network&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;get_storage&quot;,
+    &quot;storageType&quot;: &quot;localStorage&quot;,
+    &quot;key&quot;: &quot;user_settings&quot;
+  }
+}</code></pre><h3>Get sessionStorage</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_network&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;get_storage&quot;,
+    &quot;storageType&quot;: &quot;sessionStorage&quot;
+  }
+}</code></pre><h3>Response</h3>
+<pre><code class="language-json">{
+  &quot;storage&quot;: {
+    &quot;user_settings&quot;: &quot;{\&quot;theme\&quot;:\&quot;dark\&quot;}&quot;,
+    &quot;last_visit&quot;: &quot;2024-01-15&quot;
+  },
+  &quot;storageType&quot;: &quot;localStorage&quot;
+}</code></pre><h2>Action: set_storage</h2>
+<p>Set localStorage or sessionStorage values.</p>
+<h3>Set localStorage Value</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_network&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;set_storage&quot;,
+    &quot;storageType&quot;: &quot;localStorage&quot;,
+    &quot;key&quot;: &quot;user_settings&quot;,
+    &quot;value&quot;: &quot;{\&quot;theme\&quot;:\&quot;dark\&quot;,\&quot;notifications\&quot;:true}&quot;
+  }
+}</code></pre><h3>Set sessionStorage Value</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_network&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;set_storage&quot;,
+    &quot;storageType&quot;: &quot;sessionStorage&quot;,
+    &quot;key&quot;: &quot;form_data&quot;,
+    &quot;value&quot;: &quot;{\&quot;step\&quot;:2}&quot;
+  }
+}</code></pre><h2>Action: clear_storage</h2>
+<p>Clear localStorage or sessionStorage.</p>
+<h3>Clear All localStorage</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_network&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;clear_storage&quot;,
+    &quot;storageType&quot;: &quot;localStorage&quot;
+  }
+}</code></pre><h3>Clear sessionStorage</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_network&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;clear_storage&quot;,
+    &quot;storageType&quot;: &quot;sessionStorage&quot;
+  }
+}</code></pre><h3>Clear Both</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_network&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;clear_storage&quot;,
+    &quot;storageType&quot;: &quot;all&quot;
+  }
+}</code></pre><h2>Examples</h2>
+<h3>Persist Login Session</h3>
+<pre><code class="language-json">// 1. Get current cookies
+{ &quot;name&quot;: &quot;browser_network&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;get_cookies&quot; }}
+
+// 2. Save important cookie for later
+// Response: { &quot;cookies&quot;: [{ &quot;name&quot;: &quot;auth_token&quot;, &quot;value&quot;: &quot;xyz...&quot; }] }
+
+// 3. Later, restore the cookie
+{ &quot;name&quot;: &quot;browser_network&quot;, &quot;arguments&quot;: {
+  &quot;action&quot;: &quot;set_cookie&quot;,
+  &quot;name&quot;: &quot;auth_token&quot;,
+  &quot;value&quot;: &quot;xyz...&quot;,
+  &quot;url&quot;: &quot;https://example.com&quot;,
+  &quot;secure&quot;: true,
+  &quot;httpOnly&quot;: true
+}}</code></pre><h3>Clear All Session Data</h3>
+<pre><code class="language-json">// 1. Clear cookies
+{ &quot;name&quot;: &quot;browser_network&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;clear_cookies&quot; }}
+
+// 2. Clear storage
+{ &quot;name&quot;: &quot;browser_network&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;clear_storage&quot;, &quot;storageType&quot;: &quot;all&quot; }}
+
+// 3. Reload page
+{ &quot;name&quot;: &quot;browser_navigate&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;reload&quot; }}</code></pre><h3>Set API Authentication</h3>
+<pre><code class="language-json">// Set auth header for all requests
+{ &quot;name&quot;: &quot;browser_network&quot;, &quot;arguments&quot;: {
+  &quot;action&quot;: &quot;set_headers&quot;,
+  &quot;headers&quot;: {
+    &quot;Authorization&quot;: &quot;Bearer eyJhbGciOiJIUzI1NiIs...&quot;
+  }
+}}</code></pre><h3>Block Images to Speed Up Loading</h3>
+<pre><code class="language-json">// Intercept and block images
+{ &quot;name&quot;: &quot;browser_network&quot;, &quot;arguments&quot;: {
+  &quot;action&quot;: &quot;intercept&quot;,
+  &quot;enabled&quot;: true,
+  &quot;patterns&quot;: [
+    { &quot;urlPattern&quot;: &quot;*&quot;, &quot;resourceType&quot;: &quot;Image&quot; }
+  ]
+}}</code></pre><h3>Preserve User Preferences</h3>
+<pre><code class="language-json">// 1. Get current preferences
+{ &quot;name&quot;: &quot;browser_network&quot;, &quot;arguments&quot;: {
+  &quot;action&quot;: &quot;get_storage&quot;,
+  &quot;storageType&quot;: &quot;localStorage&quot;,
+  &quot;key&quot;: &quot;preferences&quot;
+}}
+
+// 2. After clearing, restore preferences
+{ &quot;name&quot;: &quot;browser_network&quot;, &quot;arguments&quot;: {
+  &quot;action&quot;: &quot;set_storage&quot;,
+  &quot;storageType&quot;: &quot;localStorage&quot;,
+  &quot;key&quot;: &quot;preferences&quot;,
+  &quot;value&quot;: &quot;{\&quot;theme\&quot;:\&quot;dark\&quot;}&quot;
+}}</code></pre><h2>Cookie Attributes</h2>
+<div class="table-wrapper"><table><thead><tr><th>Attribute</th><th>Description</th></tr></thead><tbody><tr><td><code>name</code></td><td>Cookie name</td></tr><tr><td><code>value</code></td><td>Cookie value</td></tr><tr><td><code>domain</code></td><td>Domain the cookie belongs to</td></tr><tr><td><code>path</code></td><td>URL path the cookie applies to</td></tr><tr><td><code>secure</code></td><td>Only send over HTTPS</td></tr><tr><td><code>httpOnly</code></td><td>Not accessible via JavaScript</td></tr><tr><td><code>sameSite</code></td><td>Cross-site request behavior</td></tr><tr><td><code>expires</code></td><td>Expiration time (Unix timestamp)</td></tr></tbody></table></div><h2>Notes</h2>
+<ul>
+<li>Cookie operations may be restricted by browser security policies</li>
+<li>HttpOnly cookies can be set but not read via JavaScript</li>
+<li>Custom headers apply to all subsequent requests</li>
+<li>Storage operations are per-origin</li>
+<li>Intercepted requests can be blocked or modified</li>
+</ul>
+<h2>Errors</h2>
+<div class="table-wrapper"><table><thead><tr><th>Error</th><th>Cause</th><th>Solution</th></tr></thead><tbody><tr><td>&quot;Cannot set cookie&quot;</td><td>Invalid cookie parameters</td><td>Check domain, path, and URL</td></tr><tr><td>&quot;Storage not available&quot;</td><td>Storage disabled or blocked</td><td>Check browser settings</td></tr></tbody></table></div><h2>Related</h2>
+<ul>
+<li><a href="browser-execute.html">browser_execute</a> - JavaScript access to storage</li>
+<li><a href="browser-emulate.html">browser_emulate</a> - Network throttling</li>
+<li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

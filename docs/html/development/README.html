@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Development - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html" class="active">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Development</h1>
+<p>Documentation for contributing to and extending Moonsurf Browser Control.</p>
+<h2>Overview</h2>
+<p>This section covers development workflows, architecture internals, and how to extend Moonsurf.</p>
+<h2>Getting Started</h2>
+<h3>Prerequisites</h3>
+<ul>
+<li>Node.js 18+</li>
+<li>Chrome or Chromium browser</li>
+<li>Git</li>
+<li>TypeScript knowledge</li>
+</ul>
+<h3>Quick Start</h3>
+<pre><code class="language-bash"># Clone the repository
+git clone https://github.com/MoonsurfAI/browser-control
+cd browser-control
+
+# Install dependencies
+npm install
+
+# Build
+npm run build
+
+# Run
+npm start</code></pre><h2>Documentation Sections</h2>
+<h3><a href="project-structure.html">Project Structure</a></h3>
+<p>Overview of the codebase organization and key files.</p>
+<h3><a href="local-setup.html">Local Setup</a></h3>
+<p>Complete local development environment setup.</p>
+<h3><a href="extension-development.html">Extension Development</a></h3>
+<p>Developing the Chrome extension alongside the server.</p>
+<h3><a href="adding-tools.html">Adding Tools</a></h3>
+<p>How to add new MCP tools to Moonsurf.</p>
+<h3><a href="testing.html">Testing</a></h3>
+<p>Running tests and writing new test cases.</p>
+<h3><a href="debugging.html">Debugging</a></h3>
+<p>Debug logging, troubleshooting, and diagnostics.</p>
+<h3><a href="release-process.html">Release Process</a></h3>
+<p>Versioning, changelog, and publishing releases.</p>
+<h3><a href="internals.html">Internals</a></h3>
+<p>Deep dive into Moonsurf&#39;s internal architecture.</p>
+<h2>Development Workflow</h2>
+<h3>1. Make Changes</h3>
+<pre><code class="language-bash"># Start TypeScript compiler in watch mode
+npm run dev
+
+# In another terminal, run the server
+npm start</code></pre><h3>2. Test Changes</h3>
+<pre><code class="language-bash"># Run with debug logging
+LOG_LEVEL=debug npm start
+
+# Test with curl
+curl http://localhost:3300/health</code></pre><h3>3. Build for Production</h3>
+<pre><code class="language-bash">npm run build</code></pre><h3>4. Run Type Checks</h3>
+<pre><code class="language-bash">npm run typecheck</code></pre><h2>Code Style</h2>
+<ul>
+<li>TypeScript strict mode enabled</li>
+<li>ES modules (import/export)</li>
+<li>Functional style where appropriate</li>
+<li>Clear error messages</li>
+</ul>
+<h2>Directory Structure</h2>
+<pre><code class="language-plaintext">browser-control/
+├── src/                    # TypeScript source code
+│   ├── index.ts           # CLI entry point
+│   ├── config.ts          # Configuration management
+│   ├── http-server.ts     # HTTP/SSE server
+│   └── ...                # Other modules
+├── dist/                   # Compiled JavaScript
+├── docs/                   # Documentation
+├── skills/                 # Claude skill files
+└── package.json           # Package configuration</code></pre><h2>Key Technologies</h2>
+<div class="table-wrapper"><table><thead><tr><th>Technology</th><th>Purpose</th></tr></thead><tbody><tr><td>TypeScript</td><td>Type-safe JavaScript</td></tr><tr><td>Node.js</td><td>Server runtime</td></tr><tr><td>WebSocket</td><td>Extension communication</td></tr><tr><td>SSE</td><td>MCP client transport</td></tr><tr><td>Express-style routing</td><td>HTTP handling</td></tr></tbody></table></div><h2>Contributing Guidelines</h2>
+<h3>Pull Requests</h3>
+<ol>
+<li>Fork the repository</li>
+<li>Create a feature branch</li>
+<li>Make your changes</li>
+<li>Write/update tests</li>
+<li>Submit a pull request</li>
+</ol>
+<h3>Code Review</h3>
+<ul>
+<li>All changes require review</li>
+<li>Tests must pass</li>
+<li>TypeScript must compile cleanly</li>
+<li>Documentation updates required for new features</li>
+</ul>
+<h3>Commit Messages</h3>
+<p>Use conventional commits:</p>
+<ul>
+<li><code>feat:</code> New features</li>
+<li><code>fix:</code> Bug fixes</li>
+<li><code>docs:</code> Documentation changes</li>
+<li><code>refactor:</code> Code refactoring</li>
+<li><code>test:</code> Test updates</li>
+</ul>
+<h2>Getting Help</h2>
+<ul>
+<li>Check existing documentation</li>
+<li>Search GitHub issues</li>
+<li>Open a new issue with details</li>
+<li>Join discussions</li>
+</ul>
+<h2>Related</h2>
+<ul>
+<li><a href="project-structure.html">Project Structure</a> - Start here for code navigation</li>
+<li><a href="local-setup.html">Local Setup</a> - Environment setup</li>
+<li><a href="../concepts/README.html">Concepts</a> - Architecture overview</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

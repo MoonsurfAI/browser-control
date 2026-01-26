@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Reference - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html" class="active">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>API Reference</h1>
+<p>Complete reference for Moonsurf&#39;s HTTP, SSE, and WebSocket APIs.</p>
+<h2>Overview</h2>
+<p>Moonsurf exposes multiple APIs for different use cases:</p>
+<div class="table-wrapper"><table><thead><tr><th>API</th><th>Transport</th><th>Port</th><th>Purpose</th></tr></thead><tbody><tr><td>HTTP REST</td><td>HTTP/HTTPS</td><td>3300</td><td>Health checks, info, instance management</td></tr><tr><td>MCP</td><td>SSE + HTTP</td><td>3300</td><td>AI client tool integration</td></tr><tr><td>Tasks</td><td>WebSocket</td><td>3400</td><td>Batched command execution</td></tr><tr><td>Extension</td><td>WebSocket</td><td>3301-3399</td><td>Browser extension communication</td></tr></tbody></table></div><h2>Documentation</h2>
+<h3><a href="http-endpoints.html">HTTP Endpoints</a></h3>
+<p>REST API for server management, health checks, and task operations.</p>
+<h3><a href="sse-protocol.html">SSE Protocol</a></h3>
+<p>Server-Sent Events protocol for MCP client connections.</p>
+<h3><a href="websocket-protocol.html">WebSocket Protocol</a></h3>
+<p>Task execution WebSocket API for real-time command batching.</p>
+<h3><a href="error-codes.html">Error Codes</a></h3>
+<p>Error codes, meanings, and troubleshooting guidance.</p>
+<h2>Quick Reference</h2>
+<h3>Base URLs</h3>
+<p><strong>Local Mode:</strong></p>
+<pre><code class="language-plaintext">HTTP:      http://localhost:3300
+WebSocket: ws://localhost:3400 (tasks)
+WebSocket: ws://localhost:3301-3399 (extension)</code></pre><p><strong>Remote Mode:</strong></p>
+<pre><code class="language-plaintext">HTTP:      https://your-server.com:3300
+WebSocket: wss://your-server.com:3400 (tasks)</code></pre><h3>Authentication</h3>
+<p><strong>Query Parameter:</strong></p>
+<pre><code class="language-plaintext">GET /sse?token=your-secret-token</code></pre><p><strong>Authorization Header:</strong></p>
+<pre><code class="language-plaintext">Authorization: Bearer your-secret-token</code></pre><h3>Common Headers</h3>
+<pre><code class="language-plaintext">Content-Type: application/json
+Authorization: Bearer your-token</code></pre><h2>Endpoint Summary</h2>
+<h3>Unprotected Endpoints</h3>
+<div class="table-wrapper"><table><thead><tr><th>Method</th><th>Path</th><th>Description</th></tr></thead><tbody><tr><td>GET</td><td><code>/health</code></td><td>Server health check</td></tr><tr><td>GET</td><td><code>/info</code></td><td>Server information</td></tr><tr><td>GET</td><td><code>/.well-known/oauth-authorization-server</code></td><td>OAuth metadata</td></tr><tr><td>GET</td><td><code>/oauth/authorize</code></td><td>OAuth authorization</td></tr><tr><td>POST</td><td><code>/oauth/token</code></td><td>OAuth token</td></tr><tr><td>POST</td><td><code>/oauth/register</code></td><td>OAuth client registration</td></tr></tbody></table></div><h3>Protected Endpoints</h3>
+<div class="table-wrapper"><table><thead><tr><th>Method</th><th>Path</th><th>Description</th></tr></thead><tbody><tr><td>GET</td><td><code>/sse</code></td><td>SSE connection for MCP</td></tr><tr><td>POST</td><td><code>/message</code></td><td>MCP request handling</td></tr><tr><td>POST</td><td><code>/register</code></td><td>Extension registration</td></tr><tr><td>GET</td><td><code>/instances</code></td><td>List browser instances</td></tr><tr><td>GET</td><td><code>/tasks</code></td><td>List tasks</td></tr><tr><td>POST</td><td><code>/tasks</code></td><td>Submit new task</td></tr><tr><td>GET</td><td><code>/tasks/:id</code></td><td>Get task details</td></tr><tr><td>POST</td><td><code>/tasks/:id/cancel</code></td><td>Cancel a task</td></tr></tbody></table></div><h2>Response Format</h2>
+<h3>Success Response</h3>
+<pre><code class="language-json">{
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;data&quot;: { ... }
+}</code></pre><h3>Error Response</h3>
+<pre><code class="language-json">{
+  &quot;error&quot;: &quot;Error message&quot;
+}</code></pre><h3>MCP Response</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 1,
+  &quot;result&quot;: { ... }
+}</code></pre><h3>MCP Error</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 1,
+  &quot;error&quot;: {
+    &quot;code&quot;: -32600,
+    &quot;message&quot;: &quot;Invalid request&quot;
+  }
+}</code></pre><h2>Rate Limiting</h2>
+<p>When enabled, requests are limited per IP:</p>
+<p><strong>Response when rate limited:</strong></p>
+<pre><code class="language-plaintext">HTTP/1.1 429 Too Many Requests
+Retry-After: 45
+
+{&quot;error&quot;: &quot;Too many requests&quot;, &quot;retryAfter&quot;: 45}</code></pre><p><strong>Default limits:</strong></p>
+<ul>
+<li>100 requests per minute per IP</li>
+<li>10 concurrent connections per IP</li>
+</ul>
+<h2>CORS</h2>
+<p>CORS headers are included in all responses:</p>
+<pre><code class="language-plaintext">Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET, POST, OPTIONS
+Access-Control-Allow-Headers: Content-Type, Authorization</code></pre><p>When <code>CORS_ORIGINS</code> is set, origin checking is enforced.</p>
+<h2>TLS/HTTPS</h2>
+<p>When TLS is enabled:</p>
+<ul>
+<li>All HTTP endpoints use HTTPS</li>
+<li>Use <code>https://</code> in URLs</li>
+<li>Certificate must be valid (or use <code>-k</code> with curl for self-signed)</li>
+</ul>
+<h2>Version</h2>
+<p>Current API version: <code>2.0.0</code></p>
+<p>Check via health endpoint:</p>
+<pre><code class="language-bash">curl http://localhost:3300/health</code></pre><h2>Related</h2>
+<ul>
+<li><a href="../configuration/README.html">Configuration</a> - Server configuration</li>
+<li><a href="../tools/README.html">Tools Reference</a> - MCP tools</li>
+<li><a href="../integration/custom-clients.html">Custom Clients</a> - Client integration</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

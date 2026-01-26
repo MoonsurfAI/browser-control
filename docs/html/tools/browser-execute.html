@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>browser_execute - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html" class="active">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>browser_execute</h1>
+<p>Execute JavaScript in the page context. Run custom code, access page variables, and perform operations not covered by other tools.</p>
+<h2>Parameters</h2>
+<div class="table-wrapper"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>instanceId</code></td><td>string</td><td>No</td><td>Target browser instance</td></tr><tr><td><code>tabId</code></td><td>number</td><td>No</td><td>Target tab ID</td></tr><tr><td><code>expression</code></td><td>string</td><td>Yes</td><td>JavaScript code to execute</td></tr><tr><td><code>awaitPromise</code></td><td>boolean</td><td>No</td><td>Wait for promise resolution</td></tr></tbody></table></div><p><strong>Note:</strong> This tool does not have an <code>action</code> parameter. It directly executes JavaScript.</p>
+<h2>Basic Usage</h2>
+<h3>Get Page Title</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_execute&quot;,
+  &quot;arguments&quot;: {
+    &quot;expression&quot;: &quot;document.title&quot;
+  }
+}</code></pre><h3>Response</h3>
+<pre><code class="language-json">{
+  &quot;result&quot;: &quot;Example Domain&quot;
+}</code></pre><h3>Get Page URL</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_execute&quot;,
+  &quot;arguments&quot;: {
+    &quot;expression&quot;: &quot;window.location.href&quot;
+  }
+}</code></pre><h3>Get Element Text</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_execute&quot;,
+  &quot;arguments&quot;: {
+    &quot;expression&quot;: &quot;document.querySelector(&#039;#main&#039;).textContent&quot;
+  }
+}</code></pre><h2>Working with Promises</h2>
+<h3>Fetch API Data</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_execute&quot;,
+  &quot;arguments&quot;: {
+    &quot;expression&quot;: &quot;fetch(&#039;/api/user&#039;).then(r =&gt; r.json())&quot;,
+    &quot;awaitPromise&quot;: true
+  }
+}</code></pre><h3>Wait for Condition</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_execute&quot;,
+  &quot;arguments&quot;: {
+    &quot;expression&quot;: &quot;new Promise(resolve =&gt; { const check = () =&gt; { if (window.dataLoaded) resolve(true); else setTimeout(check, 100); }; check(); })&quot;,
+    &quot;awaitPromise&quot;: true
+  }
+}</code></pre><h2>Returning Data</h2>
+<h3>Return Object</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_execute&quot;,
+  &quot;arguments&quot;: {
+    &quot;expression&quot;: &quot;({ title: document.title, url: location.href, scrollY: window.scrollY })&quot;
+  }
+}</code></pre><h3>Response</h3>
+<pre><code class="language-json">{
+  &quot;result&quot;: {
+    &quot;title&quot;: &quot;Example&quot;,
+    &quot;url&quot;: &quot;https://example.com/&quot;,
+    &quot;scrollY&quot;: 500
+  }
+}</code></pre><h3>Return Array</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_execute&quot;,
+  &quot;arguments&quot;: {
+    &quot;expression&quot;: &quot;Array.from(document.querySelectorAll(&#039;a&#039;)).map(a =&gt; ({ text: a.textContent, href: a.href }))&quot;
+  }
+}</code></pre><h2>DOM Manipulation</h2>
+<h3>Scroll to Element</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_execute&quot;,
+  &quot;arguments&quot;: {
+    &quot;expression&quot;: &quot;document.querySelector(&#039;#section&#039;).scrollIntoView({ behavior: &#039;smooth&#039; })&quot;
+  }
+}</code></pre><h3>Click Hidden Button</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_execute&quot;,
+  &quot;arguments&quot;: {
+    &quot;expression&quot;: &quot;document.querySelector(&#039;#hidden-submit&#039;).click()&quot;
+  }
+}</code></pre><h3>Set Input Value</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_execute&quot;,
+  &quot;arguments&quot;: {
+    &quot;expression&quot;: &quot;document.querySelector(&#039;#date-picker&#039;).value = &#039;2024-01-15&#039;&quot;
+  }
+}</code></pre><h3>Trigger Events</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_execute&quot;,
+  &quot;arguments&quot;: {
+    &quot;expression&quot;: &quot;document.querySelector(&#039;#input&#039;).dispatchEvent(new Event(&#039;change&#039;, { bubbles: true }))&quot;
+  }
+}</code></pre><h2>Accessing Page Variables</h2>
+<h3>Get React State</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_execute&quot;,
+  &quot;arguments&quot;: {
+    &quot;expression&quot;: &quot;window.__REDUX_STATE__ || window.__NEXT_DATA__&quot;
+  }
+}</code></pre><h3>Get Application Data</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_execute&quot;,
+  &quot;arguments&quot;: {
+    &quot;expression&quot;: &quot;window.APP_CONFIG&quot;
+  }
+}</code></pre><h3>Check if Library Loaded</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_execute&quot;,
+  &quot;arguments&quot;: {
+    &quot;expression&quot;: &quot;typeof jQuery !== &#039;undefined&#039;&quot;
+  }
+}</code></pre><h2>Multi-Line Scripts</h2>
+<p>For complex scripts, use template literals or concatenation:</p>
+<h3>Extract Table Data</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_execute&quot;,
+  &quot;arguments&quot;: {
+    &quot;expression&quot;: &quot;(() =&gt; { const rows = document.querySelectorAll(&#039;table tr&#039;); return Array.from(rows).map(row =&gt; { const cells = row.querySelectorAll(&#039;td, th&#039;); return Array.from(cells).map(cell =&gt; cell.textContent.trim()); }); })()&quot;
+  }
+}</code></pre><h3>Infinite Scroll Handler</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_execute&quot;,
+  &quot;arguments&quot;: {
+    &quot;expression&quot;: &quot;(() =&gt; { let count = document.querySelectorAll(&#039;.item&#039;).length; window.scrollTo(0, document.body.scrollHeight); return new Promise(resolve =&gt; setTimeout(() =&gt; resolve({ before: count, after: document.querySelectorAll(&#039;.item&#039;).length }), 2000)); })()&quot;,
+    &quot;awaitPromise&quot;: true
+  }
+}</code></pre><h2>Error Handling</h2>
+<h3>Handle Missing Elements</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_execute&quot;,
+  &quot;arguments&quot;: {
+    &quot;expression&quot;: &quot;document.querySelector(&#039;#maybe-exists&#039;)?.textContent || &#039;Not found&#039;&quot;
+  }
+}</code></pre><h3>Try-Catch</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_execute&quot;,
+  &quot;arguments&quot;: {
+    &quot;expression&quot;: &quot;(() =&gt; { try { return JSON.parse(document.querySelector(&#039;#data&#039;).textContent); } catch (e) { return { error: e.message }; } })()&quot;
+  }
+}</code></pre><h2>Examples</h2>
+<h3>Check Login State</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_execute&quot;,
+  &quot;arguments&quot;: {
+    &quot;expression&quot;: &quot;!!document.querySelector(&#039;.user-avatar&#039;) || document.cookie.includes(&#039;auth_token&#039;)&quot;
+  }
+}</code></pre><h3>Get All Form Data</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_execute&quot;,
+  &quot;arguments&quot;: {
+    &quot;expression&quot;: &quot;Object.fromEntries(new FormData(document.querySelector(&#039;form&#039;)))&quot;
+  }
+}</code></pre><h3>Measure Performance</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_execute&quot;,
+  &quot;arguments&quot;: {
+    &quot;expression&quot;: &quot;({ timing: performance.timing.loadEventEnd - performance.timing.navigationStart, entries: performance.getEntriesByType(&#039;resource&#039;).length })&quot;
+  }
+}</code></pre><h3>Interact with Shadow DOM</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_execute&quot;,
+  &quot;arguments&quot;: {
+    &quot;expression&quot;: &quot;document.querySelector(&#039;custom-element&#039;).shadowRoot.querySelector(&#039;#inner-button&#039;).click()&quot;
+  }
+}</code></pre><h3>Call Page Functions</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_execute&quot;,
+  &quot;arguments&quot;: {
+    &quot;expression&quot;: &quot;window.myApp.refreshData()&quot;,
+    &quot;awaitPromise&quot;: true
+  }
+}</code></pre><h2>Return Value Serialization</h2>
+<p>The result is JSON-serialized. This means:</p>
+<ul>
+<li>Primitives (strings, numbers, booleans) work directly</li>
+<li>Objects and arrays are converted to JSON</li>
+<li>Functions cannot be returned (they become null/undefined)</li>
+<li>DOM elements return a limited representation</li>
+<li>Circular references will cause errors</li>
+</ul>
+<h3>What Works</h3>
+<pre><code class="language-javascript">&quot;string value&quot;                    // ✓
+42                                // ✓
+true                              // ✓
+{ key: &quot;value&quot; }                  // ✓
+[1, 2, 3]                         // ✓
+null                              // ✓</code></pre><h3>What Doesn&#39;t Work</h3>
+<pre><code class="language-javascript">document.body                     // ✗ DOM element (limited info)
+function() {}                     // ✗ Function (becomes null)
+window                            // ✗ Circular reference</code></pre><h2>Security Notes</h2>
+<ul>
+<li>Code runs in the page context with full access</li>
+<li>Can read cookies, localStorage, sessionStorage</li>
+<li>Can modify the DOM</li>
+<li>Can make network requests (subject to CORS)</li>
+<li>Cannot access browser APIs outside the page</li>
+</ul>
+<h2>Notes</h2>
+<ul>
+<li>Expression is evaluated in the page&#39;s JavaScript context</li>
+<li><code>awaitPromise: true</code> is required for async operations</li>
+<li>Complex scripts should be wrapped in an IIFE: <code>(() =&gt; { ... })()</code></li>
+<li>Results must be JSON-serializable</li>
+</ul>
+<h2>Errors</h2>
+<div class="table-wrapper"><table><thead><tr><th>Error</th><th>Cause</th><th>Solution</th></tr></thead><tbody><tr><td>&quot;Script error&quot;</td><td>JavaScript error in expression</td><td>Check syntax and variable existence</td></tr><tr><td>&quot;Timeout&quot;</td><td>Promise didn&#39;t resolve</td><td>Check async code, increase timeout</td></tr><tr><td>&quot;Cannot serialize&quot;</td><td>Return value not JSON-compatible</td><td>Return primitive or simple object</td></tr></tbody></table></div><h2>Related</h2>
+<ul>
+<li><a href="browser-content.html">browser_content</a> - Get content without custom JS</li>
+<li><a href="browser-interact.html">browser_interact</a> - Standard interactions</li>
+<li><a href="browser-network.html">browser_network</a> - Access cookies/storage</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

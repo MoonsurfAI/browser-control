@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internals - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html" class="active">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Internals</h1>
+<p>Deep dive into Moonsurf&#39;s internal architecture and implementation details.</p>
+<h2>Overview</h2>
+<p>This document covers the internal workings of Moonsurf for developers who want to understand or extend the codebase.</p>
+<h2>System Architecture</h2>
+<pre><code class="language-plaintext">┌─────────────────────────────────────────────────────────────────┐
+│                         AI Client                                │
+│                  (Claude Code, Cursor, etc.)                    │
+└─────────────────────────┬───────────────────────────────────────┘
+                          │ SSE + HTTP
+                          ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                      HTTP Server                                 │
+│                    (http-server.ts)                             │
+│  ┌───────────┐  ┌──────────┐  ┌─────────────┐  ┌────────────┐ │
+│  │   CORS    │  │   Auth   │  │ Rate Limit  │  │   Audit    │ │
+│  └───────────┘  └──────────┘  └─────────────┘  └────────────┘ │
+└─────────────────────────┬───────────────────────────────────────┘
+                          │
+                          ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                     MCP Handler                                  │
+│                   (mcp-handler.ts)                              │
+│  ┌────────────────┐  ┌────────────────┐  ┌──────────────────┐ │
+│  │  tools/list    │  │  tools/call    │  │  initialize      │ │
+│  └────────────────┘  └────────────────┘  └──────────────────┘ │
+└─────────────────────────┬───────────────────────────────────────┘
+                          │
+                          ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                   Tool Definitions                               │
+│                 (tool-definitions.ts)                           │
+│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐          │
+│  │ instance │ │   tab    │ │ navigate │ │ content  │ ...      │
+│  └──────────┘ └──────────┘ └──────────┘ └──────────┘          │
+└─────────────────────────┬───────────────────────────────────────┘
+                          │
+                          ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                  Instance Manager                                │
+│                (instance-manager.ts)                            │
+│  ┌────────────────┐  ┌────────────────┐  ┌──────────────────┐ │
+│  │ Instance Pool  │  │  Call Queue    │  │  Port Manager    │ │
+│  └────────────────┘  └────────────────┘  └──────────────────┘ │
+└─────────────────────────┬───────────────────────────────────────┘
+                          │
+                          ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                  WebSocket Server                                │
+│                (websocket-server.ts)                            │
+│                Per-instance on ports 3301-3399                  │
+└─────────────────────────┬───────────────────────────────────────┘
+                          │ WebSocket
+                          ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                  Chrome Extension                                │
+│  ┌────────────────┐  ┌────────────────┐  ┌──────────────────┐ │
+│  │   Background   │  │ Content Script │  │    Commands      │ │
+│  └────────────────┘  └────────────────┘  └──────────────────┘ │
+└─────────────────────────────────────────────────────────────────┘</code></pre><h2>Request Flow</h2>
+<h3>1. SSE Connection</h3>
+<pre><code class="language-typescript">// Client connects to /sse
+// http-server.ts handles connection
+
+const sessionId = crypto.randomUUID();
+
+// Store client
+sseClients.set(sessionId, { res, sessionId });
+
+// Send endpoint info
+sendSSE(res, &#039;endpoint&#039;, `${baseUrl}/message?sessionId=${sessionId}`);</code></pre><h3>2. MCP Request</h3>
+<pre><code class="language-typescript">// Client POSTs to /message
+// http-server.ts receives request
+
+const body = await parseBody(req);
+const request = JSON.parse(body);
+
+// Route to MCP handler
+const response = await handleMCPRequest(request);
+
+// Send response via HTTP and SSE
+sendJson(res, 200, response);
+if (client) {
+  sendSSE(client.res, &#039;message&#039;, response);
+}</code></pre><h3>3. Tool Execution</h3>
+<pre><code class="language-typescript">// mcp-handler.ts routes tools/call
+
+if (request.method === &#039;tools/call&#039;) {
+  const { name, arguments: args } = request.params;
+  return executeTool(name, args);
+}
+
+// tool-definitions.ts executes tool
+
+async function executeTool(name, args) {
+  switch (name) {
+    case &#039;browser_instance&#039;:
+      return handleBrowserInstance(args);
+    // ... other tools
+  }
+}</code></pre><h3>4. Extension Communication</h3>
+<pre><code class="language-typescript">// instance-manager.ts queues call
+
+async function queueToolCall(instanceId, command, params) {
+  const instance = instances.get(instanceId);
+  const ws = websockets.get(instance.port);
+
+  // Send command to extension
+  ws.send(JSON.stringify({ type: command, params }));
+
+  // Wait for response
+  return new Promise((resolve, reject) =&gt; {
+    const handler = (message) =&gt; {
+      if (message.id === commandId) {
+        resolve(message.result);
+      }
+    };
+    ws.on(&#039;message&#039;, handler);
+  });
+}</code></pre><h2>Instance Management</h2>
+<h3>Instance Lifecycle</h3>
+<pre><code class="language-plaintext">         ┌─────────┐
+         │ Launch  │ ← browser_instance action=&quot;launch&quot;
+         └────┬────┘
+              │
+              ▼
+         ┌─────────┐
+         │ Spawned │ ← Browser process started
+         └────┬────┘
+              │
+              ▼
+         ┌─────────┐
+         │Register │ ← Extension calls POST /register
+         └────┬────┘
+              │
+              ▼
+         ┌─────────┐
+         │ Connect │ ← Extension WebSocket connects
+         └────┬────┘
+              │
+              ▼
+         ┌─────────┐
+         │  Ready  │ ← Instance available for commands
+         └────┬────┘
+              │
+         ┌────┴────┐
+         ▼         ▼
+    ┌─────────┐ ┌─────────┐
+    │  Close  │ │  Lost   │ ← Disconnect or browser crash
+    └─────────┘ └─────────┘</code></pre><h3>Instance Registry</h3>
+<pre><code class="language-typescript">interface BrowserInstance {
+  id: string;           // inst_xxx unique ID
+  port: number;         // WebSocket port (3301-3399)
+  extensionId: string;  // Chrome extension ID
+  userAgent: string;    // Browser user agent
+  windowId: number;     // Chrome window ID
+  connectedAt: Date;    // Connection time
+  lastActivity: Date;   // Last command time
+}
+
+// Stored in Map
+const instances = new Map&lt;string, BrowserInstance&gt;();</code></pre><h3>Port Allocation</h3>
+<pre><code class="language-typescript">const WS_PORT_START = 3301;
+const WS_PORT_END = 3399;
+
+function allocatePort(): number | null {
+  for (let port = WS_PORT_START; port &lt;= WS_PORT_END; port++) {
+    if (!usedPorts.has(port)) {
+      usedPorts.add(port);
+      return port;
+    }
+  }
+  return null; // All ports in use
+}</code></pre><h2>Tool Call Queue</h2>
+<p>Commands are queued per instance to prevent race conditions:</p>
+<pre><code class="language-typescript">class InstanceManager {
+  private queues = new Map&lt;string, Queue&gt;();
+
+  async queueToolCall(instanceId, command, params) {
+    const queue = this.getOrCreateQueue(instanceId);
+
+    return queue.add(async () =&gt; {
+      const result = await this.executeCommand(instanceId, command, params);
+      return result;
+    });
+  }
+}</code></pre><h2>Task Execution Engine</h2>
+<h3>Task States</h3>
+<pre><code class="language-plaintext">         ┌─────────┐
+         │ Queued  │ ← Task submitted
+         └────┬────┘
+              │ Instance available
+              ▼
+         ┌─────────┐
+         │ Running │ ← Commands executing
+         └────┬────┘
+              │
+    ┌─────────┼─────────┐
+    │         │         │
+    ▼         ▼         ▼
+┌─────────┐ ┌─────────┐ ┌───────────┐
+│Complete │ │ Failed  │ │ Cancelled │
+└─────────┘ └─────────┘ └───────────┘</code></pre><h3>Command Execution Loop</h3>
+<pre><code class="language-typescript">async function executeTask(task: Task) {
+  task.status = &#039;running&#039;;
+  task.startedAt = new Date();
+
+  for (let i = 0; i &lt; task.commands.length; i++) {
+    const command = task.commands[i];
+
+    if (task.status === &#039;cancelled&#039;) {
+      command.status = &#039;skipped&#039;;
+      continue;
+    }
+
+    command.status = &#039;running&#039;;
+    emit(&#039;progress&#039;, { taskId: task.id, commandIndex: i, status: &#039;running&#039; });
+
+    try {
+      const result = await executeTool(command.tool_name, command.args);
+      command.status = &#039;success&#039;;
+      command.result = result;
+      emit(&#039;progress&#039;, { taskId: task.id, commandIndex: i, status: &#039;success&#039;, result });
+    } catch (error) {
+      command.status = &#039;error&#039;;
+      command.error = error.message;
+      task.status = &#039;failed&#039;;
+      emit(&#039;progress&#039;, { taskId: task.id, commandIndex: i, status: &#039;error&#039;, error: error.message });
+
+      // Skip remaining commands
+      for (let j = i + 1; j &lt; task.commands.length; j++) {
+        task.commands[j].status = &#039;skipped&#039;;
+      }
+      break;
+    }
+  }
+
+  if (task.status === &#039;running&#039;) {
+    task.status = &#039;completed&#039;;
+  }
+  task.completedAt = new Date();
+  emit(&#039;complete&#039;, task);
+}</code></pre><h2>Configuration System</h2>
+<h3>Configuration Loading</h3>
+<pre><code class="language-typescript">function getConfig(): ServerConfig {
+  return {
+    port: parseInt(process.env.PORT || &#039;3300&#039;),
+    host: process.env.HOST || (isRemote ? &#039;0.0.0.0&#039; : &#039;localhost&#039;),
+    publicUrl: process.env.PUBLIC_URL,
+
+    auth: {
+      enabled: toBool(process.env.AUTH_ENABLED, isRemote),
+      tokens: (process.env.AUTH_TOKENS || &#039;&#039;).split(&#039;,&#039;).filter(Boolean),
+    },
+
+    tls: {
+      enabled: toBool(process.env.TLS_ENABLED, false),
+      cert: process.env.TLS_CERT_PATH,
+      key: process.env.TLS_KEY_PATH,
+    },
+
+    // ... more configuration
+  };
+}</code></pre><h3>Validation</h3>
+<pre><code class="language-typescript">function validateConfig(config: ServerConfig): ValidationResult {
+  const errors: string[] = [];
+
+  if (config.auth.enabled &amp;&amp; config.auth.tokens.length === 0) {
+    errors.push(&#039;Authentication enabled but no tokens configured&#039;);
+  }
+
+  if (config.tls.enabled &amp;&amp; (!config.tls.cert || !config.tls.key)) {
+    errors.push(&#039;TLS enabled but cert/key paths not provided&#039;);
+  }
+
+  return { valid: errors.length === 0, errors };
+}</code></pre><h2>Extension Protocol</h2>
+<h3>Command Message Format</h3>
+<pre><code class="language-typescript">// Server to Extension
+{
+  id: string;      // Unique command ID
+  type: string;    // Command type
+  params: object;  // Command parameters
+}
+
+// Extension to Server
+{
+  id: string;      // Matching command ID
+  success: boolean;
+  result?: any;    // Command result
+  error?: string;  // Error message
+}</code></pre><h3>Command Types</h3>
+<div class="table-wrapper"><table><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>navigate_goto</code></td><td>Navigate to URL</td></tr><tr><td><code>navigate_back</code></td><td>Go back</td></tr><tr><td><code>interact_click</code></td><td>Click element</td></tr><tr><td><code>interact_type</code></td><td>Type text</td></tr><tr><td><code>content_screenshot</code></td><td>Take screenshot</td></tr><tr><td><code>content_extract</code></td><td>Extract content</td></tr><tr><td><code>execute_evaluate</code></td><td>Run JavaScript</td></tr><tr><td>...</td><td>...</td></tr></tbody></table></div><h2>Download Tracking</h2>
+<h3>File Watcher</h3>
+<pre><code class="language-typescript">class DownloadWatcher {
+  private watcher: FSWatcher;
+  private downloads: Map&lt;string, Download&gt;;
+
+  constructor(directory: string) {
+    this.watcher = chokidar.watch(directory, {
+      persistent: true,
+      ignoreInitial: true,
+    });
+
+    this.watcher.on(&#039;add&#039;, (path) =&gt; {
+      this.downloads.set(path, {
+        filename: basename(path),
+        path,
+        size: null,
+        status: &#039;in_progress&#039;,
+        startedAt: new Date(),
+      });
+    });
+
+    this.watcher.on(&#039;change&#039;, (path) =&gt; {
+      const download = this.downloads.get(path);
+      if (download) {
+        const stats = statSync(path);
+        download.size = stats.size;
+        // Check if download complete
+        if (isComplete(path)) {
+          download.status = &#039;completed&#039;;
+          download.completedAt = new Date();
+        }
+      }
+    });
+  }
+}</code></pre><h2>SSE Transport</h2>
+<h3>SSE Message Format</h3>
+<pre><code class="language-plaintext">event: &lt;event-type&gt;
+data: &lt;json-data&gt;
+</code></pre><p>Note the double newline at the end.</p>
+<h3>Keep-Alive</h3>
+<p>SSE connections are kept alive with periodic comments:</p>
+<pre><code class="language-typescript">setInterval(() =&gt; {
+  for (const client of sseClients.values()) {
+    client.res.write(&#039;:keepalive\n\n&#039;);
+  }
+}, 30000);</code></pre><h2>Error Handling</h2>
+<h3>Error Propagation</h3>
+<pre><code class="language-plaintext">Extension Error → WebSocket Message → Instance Manager → Tool Definition → MCP Handler → HTTP Response</code></pre><h3>Error Response Format</h3>
+<pre><code class="language-typescript">// MCP Error
+{
+  jsonrpc: &#039;2.0&#039;,
+  id: requestId,
+  error: {
+    code: -32603,
+    message: &#039;Internal error: Element not found&#039;
+  }
+}
+
+// Tool Result with Error
+{
+  content: [{ type: &#039;text&#039;, text: &#039;Error: Element not found&#039; }],
+  isError: true
+}</code></pre><h2>Memory Management</h2>
+<h3>Instance Cleanup</h3>
+<pre><code class="language-typescript">// When browser disconnects
+function cleanupInstance(instanceId: string) {
+  const instance = instances.get(instanceId);
+  if (instance) {
+    // Release port
+    usedPorts.delete(instance.port);
+
+    // Close WebSocket server
+    wsServers.get(instance.port)?.close();
+    wsServers.delete(instance.port);
+
+    // Clear queues
+    queues.delete(instanceId);
+
+    // Remove instance
+    instances.delete(instanceId);
+  }
+}</code></pre><h3>Rate Limit Cleanup</h3>
+<pre><code class="language-typescript">// Periodic cleanup of expired entries
+setInterval(() =&gt; {
+  const now = Date.now();
+  for (const [ip, entry] of rateLimitMap.entries()) {
+    if (entry.resetAt &lt; now) {
+      rateLimitMap.delete(ip);
+    }
+  }
+}, 60000);</code></pre><h2>Performance Considerations</h2>
+<h3>Concurrent Operations</h3>
+<ul>
+<li>Each instance has its own WebSocket (no contention)</li>
+<li>Tool calls are queued per instance (no race conditions)</li>
+<li>SSE clients are independent (no blocking)</li>
+</ul>
+<h3>Bottlenecks</h3>
+<ul>
+<li>Extension execution (single-threaded browser)</li>
+<li>Page load times (network dependent)</li>
+<li>Screenshot encoding (CPU intensive)</li>
+</ul>
+<h3>Optimization Tips</h3>
+<ul>
+<li>Use headless mode for faster execution</li>
+<li>Minimize screenshots in loops</li>
+<li>Use <code>networkidle</code> only when necessary</li>
+<li>Close unused browser instances</li>
+</ul>
+<h2>Related</h2>
+<ul>
+<li><a href="project-structure.html">Project Structure</a> - File organization</li>
+<li><a href="adding-tools.html">Adding Tools</a> - Extend functionality</li>
+<li><a href="extension-development.html">Extension Development</a> - Chrome extension</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

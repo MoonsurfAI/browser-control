@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SSE Protocol - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html" class="active">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>SSE Protocol</h1>
+<p>Server-Sent Events protocol for MCP client connections.</p>
+<h2>Overview</h2>
+<p>Moonsurf uses SSE (Server-Sent Events) as the transport layer for the Model Context Protocol (MCP). SSE provides a one-way channel from server to client, while HTTP POST is used for client-to-server messages.</p>
+<h2>Connection Flow</h2>
+<pre><code class="language-plaintext">1. Client opens SSE connection to /sse
+2. Server sends &#039;endpoint&#039; event with message URL
+3. Client sends requests via POST to message URL
+4. Server sends responses via SSE &#039;message&#039; events</code></pre><h2>Connecting</h2>
+<h3>Basic Connection</h3>
+<pre><code class="language-javascript">const eventSource = new EventSource(&#039;http://localhost:3300/sse&#039;);
+
+eventSource.onopen = () =&gt; {
+  console.log(&#039;Connected&#039;);
+};
+
+eventSource.onerror = (error) =&gt; {
+  console.error(&#039;Error:&#039;, error);
+};</code></pre><h3>With Authentication</h3>
+<pre><code class="language-javascript">// Token via URL parameter (recommended for SSE)
+const eventSource = new EventSource(
+  &#039;http://localhost:3300/sse?token=your-secret-token&#039;
+);</code></pre><h3>Connection Timeout</h3>
+<p>SSE connections are long-lived. The server keeps the connection open indefinitely.</p>
+<h2>SSE Events</h2>
+<h3>endpoint</h3>
+<p>Sent immediately after connection. Contains the message endpoint URL with session ID.</p>
+<p><strong>Format:</strong></p>
+<pre><code class="language-plaintext">event: endpoint
+data: http://localhost:3300/message?sessionId=abc123-def456-789</code></pre><p><strong>Usage:</strong></p>
+<pre><code class="language-javascript">eventSource.addEventListener(&#039;endpoint&#039;, (event) =&gt; {
+  const messageUrl = event.data;
+  console.log(&#039;Message endpoint:&#039;, messageUrl);
+});</code></pre><h3>message</h3>
+<p>Sent when the server has a response to a request.</p>
+<p><strong>Format:</strong></p>
+<pre><code class="language-plaintext">event: message
+data: {&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:1,&quot;result&quot;:{&quot;tools&quot;:[...]}}</code></pre><p><strong>Usage:</strong></p>
+<pre><code class="language-javascript">eventSource.addEventListener(&#039;message&#039;, (event) =&gt; {
+  const response = JSON.parse(event.data);
+  console.log(&#039;Response:&#039;, response);
+});</code></pre><p>Alternatively, use the generic handler:</p>
+<pre><code class="language-javascript">eventSource.onmessage = (event) =&gt; {
+  const response = JSON.parse(event.data);
+  // Handle response
+};</code></pre><h2>Sending Requests</h2>
+<p>Requests are sent via HTTP POST to the message endpoint.</p>
+<h3>Request Format (JSON-RPC 2.0)</h3>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 1,
+  &quot;method&quot;: &quot;tools/list&quot;,
+  &quot;params&quot;: {}
+}</code></pre><h3>Example: List Tools</h3>
+<pre><code class="language-javascript">const response = await fetch(messageUrl, {
+  method: &#039;POST&#039;,
+  headers: {
+    &#039;Content-Type&#039;: &#039;application/json&#039;,
+    // Authorization header if using token auth
+    // &#039;Authorization&#039;: &#039;Bearer your-token&#039;
+  },
+  body: JSON.stringify({
+    jsonrpc: &#039;2.0&#039;,
+    id: 1,
+    method: &#039;tools/list&#039;
+  })
+});
+
+const result = await response.json();</code></pre><h3>Example: Call Tool</h3>
+<pre><code class="language-javascript">const response = await fetch(messageUrl, {
+  method: &#039;POST&#039;,
+  headers: {
+    &#039;Content-Type&#039;: &#039;application/json&#039;
+  },
+  body: JSON.stringify({
+    jsonrpc: &#039;2.0&#039;,
+    id: 2,
+    method: &#039;tools/call&#039;,
+    params: {
+      name: &#039;browser_instance&#039;,
+      arguments: {
+        action: &#039;launch&#039;,
+        mode: &#039;chromium&#039;
+      }
+    }
+  })
+});</code></pre><h2>MCP Methods</h2>
+<h3>tools/list</h3>
+<p>List all available tools.</p>
+<p><strong>Request:</strong></p>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 1,
+  &quot;method&quot;: &quot;tools/list&quot;
+}</code></pre><p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 1,
+  &quot;result&quot;: {
+    &quot;tools&quot;: [
+      {
+        &quot;name&quot;: &quot;browser_instance&quot;,
+        &quot;description&quot;: &quot;Manage browser instances&quot;,
+        &quot;inputSchema&quot;: { ... }
+      },
+      {
+        &quot;name&quot;: &quot;browser_navigate&quot;,
+        &quot;description&quot;: &quot;Navigate and control page loading&quot;,
+        &quot;inputSchema&quot;: { ... }
+      }
+    ]
+  }
+}</code></pre><h3>tools/call</h3>
+<p>Execute a tool.</p>
+<p><strong>Request:</strong></p>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 2,
+  &quot;method&quot;: &quot;tools/call&quot;,
+  &quot;params&quot;: {
+    &quot;name&quot;: &quot;browser_navigate&quot;,
+    &quot;arguments&quot;: {
+      &quot;action&quot;: &quot;goto&quot;,
+      &quot;url&quot;: &quot;https://example.com&quot;
+    }
+  }
+}</code></pre><p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 2,
+  &quot;result&quot;: {
+    &quot;content&quot;: [
+      {
+        &quot;type&quot;: &quot;text&quot;,
+        &quot;text&quot;: &quot;Navigated to https://example.com&quot;
+      }
+    ]
+  }
+}</code></pre><h3>initialize</h3>
+<p>Initialize MCP session (optional).</p>
+<p><strong>Request:</strong></p>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 0,
+  &quot;method&quot;: &quot;initialize&quot;,
+  &quot;params&quot;: {
+    &quot;protocolVersion&quot;: &quot;2024-11-05&quot;,
+    &quot;capabilities&quot;: {},
+    &quot;clientInfo&quot;: {
+      &quot;name&quot;: &quot;my-client&quot;,
+      &quot;version&quot;: &quot;1.0.0&quot;
+    }
+  }
+}</code></pre><p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 0,
+  &quot;result&quot;: {
+    &quot;protocolVersion&quot;: &quot;2024-11-05&quot;,
+    &quot;capabilities&quot;: {
+      &quot;tools&quot;: {}
+    },
+    &quot;serverInfo&quot;: {
+      &quot;name&quot;: &quot;moonsurf-mcp&quot;,
+      &quot;version&quot;: &quot;2.0.0&quot;
+    }
+  }
+}</code></pre><h3>resources/list</h3>
+<p>List resources (returns empty).</p>
+<p><strong>Request:</strong></p>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 3,
+  &quot;method&quot;: &quot;resources/list&quot;
+}</code></pre><p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 3,
+  &quot;result&quot;: {
+    &quot;resources&quot;: []
+  }
+}</code></pre><h3>prompts/list</h3>
+<p>List prompts (returns empty).</p>
+<p><strong>Request:</strong></p>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 4,
+  &quot;method&quot;: &quot;prompts/list&quot;
+}</code></pre><p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 4,
+  &quot;result&quot;: {
+    &quot;prompts&quot;: []
+  }
+}</code></pre><h2>Complete Client Example</h2>
+<pre><code class="language-javascript">class MoonsurfMCPClient {
+  constructor(baseUrl = &#039;http://localhost:3300&#039;, token = null) {
+    this.baseUrl = baseUrl;
+    this.token = token;
+    this.messageUrl = null;
+    this.eventSource = null;
+    this.requestId = 0;
+    this.pendingRequests = new Map();
+  }
+
+  connect() {
+    return new Promise((resolve, reject) =&gt; {
+      const url = this.token
+        ? `${this.baseUrl}/sse?token=${this.token}`
+        : `${this.baseUrl}/sse`;
+
+      this.eventSource = new EventSource(url);
+
+      this.eventSource.addEventListener(&#039;endpoint&#039;, (event) =&gt; {
+        this.messageUrl = event.data;
+        resolve();
+      });
+
+      this.eventSource.addEventListener(&#039;message&#039;, (event) =&gt; {
+        const response = JSON.parse(event.data);
+        const pending = this.pendingRequests.get(response.id);
+        if (pending) {
+          pending.resolve(response);
+          this.pendingRequests.delete(response.id);
+        }
+      });
+
+      this.eventSource.onerror = (error) =&gt; {
+        reject(error);
+      };
+    });
+  }
+
+  disconnect() {
+    if (this.eventSource) {
+      this.eventSource.close();
+    }
+  }
+
+  async request(method, params = {}) {
+    const id = ++this.requestId;
+
+    const headers = { &#039;Content-Type&#039;: &#039;application/json&#039; };
+    if (this.token) {
+      headers[&#039;Authorization&#039;] = `Bearer ${this.token}`;
+    }
+
+    const fetchPromise = fetch(this.messageUrl, {
+      method: &#039;POST&#039;,
+      headers,
+      body: JSON.stringify({
+        jsonrpc: &#039;2.0&#039;,
+        id,
+        method,
+        params
+      })
+    });
+
+    const response = await fetchPromise;
+    return response.json();
+  }
+
+  async listTools() {
+    const response = await this.request(&#039;tools/list&#039;);
+    return response.result.tools;
+  }
+
+  async callTool(name, args) {
+    const response = await this.request(&#039;tools/call&#039;, {
+      name,
+      arguments: args
+    });
+
+    if (response.error) {
+      throw new Error(response.error.message);
+    }
+
+    return response.result;
+  }
+}
+
+// Usage
+const client = new MoonsurfMCPClient();
+await client.connect();
+
+const tools = await client.listTools();
+console.log(&#039;Available tools:&#039;, tools.map(t =&gt; t.name));
+
+const result = await client.callTool(&#039;browser_instance&#039;, { action: &#039;launch&#039; });
+console.log(&#039;Browser launched:&#039;, result);
+
+client.disconnect();</code></pre><h2>Error Handling</h2>
+<h3>Connection Errors</h3>
+<pre><code class="language-javascript">eventSource.onerror = (event) =&gt; {
+  if (eventSource.readyState === EventSource.CLOSED) {
+    console.error(&#039;Connection closed&#039;);
+    // Reconnect logic
+  } else if (eventSource.readyState === EventSource.CONNECTING) {
+    console.log(&#039;Reconnecting...&#039;);
+  }
+};</code></pre><h3>Request Errors</h3>
+<p>MCP errors are returned in the response:</p>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 1,
+  &quot;error&quot;: {
+    &quot;code&quot;: -32600,
+    &quot;message&quot;: &quot;Invalid request&quot;
+  }
+}</code></pre><h3>Reconnection</h3>
+<p>Implement automatic reconnection:</p>
+<pre><code class="language-javascript">function connect() {
+  const eventSource = new EventSource(url);
+
+  eventSource.onerror = () =&gt; {
+    eventSource.close();
+    setTimeout(connect, 5000); // Retry after 5 seconds
+  };
+}</code></pre><h2>Session Management</h2>
+<p>Each SSE connection has a unique session ID:</p>
+<ul>
+<li>Session ID is embedded in the message URL</li>
+<li>Use the same message URL for all requests in a session</li>
+<li>Session ends when SSE connection closes</li>
+<li>Server tracks session for audit logging</li>
+</ul>
+<h2>Best Practices</h2>
+<h3>1. Keep Connection Alive</h3>
+<p>SSE connections should remain open for the duration of your session.</p>
+<h3>2. Handle Disconnections</h3>
+<p>Implement reconnection logic for robustness.</p>
+<h3>3. Use Request IDs</h3>
+<p>Always use unique, incrementing request IDs.</p>
+<h3>4. Parse Responses Safely</h3>
+<pre><code class="language-javascript">try {
+  const response = JSON.parse(event.data);
+  // Handle response
+} catch (error) {
+  console.error(&#039;Invalid JSON:&#039;, event.data);
+}</code></pre><h3>5. Close When Done</h3>
+<pre><code class="language-javascript">eventSource.close();</code></pre><h2>Browser Compatibility</h2>
+<p>SSE is supported in all modern browsers:</p>
+<ul>
+<li>Chrome 6+</li>
+<li>Firefox 6+</li>
+<li>Safari 5+</li>
+<li>Edge 79+</li>
+</ul>
+<p>For older browsers, consider using a polyfill or the HTTP POST API directly.</p>
+<h2>Related</h2>
+<ul>
+<li><a href="http-endpoints.html">HTTP Endpoints</a> - Full HTTP API</li>
+<li><a href="websocket-protocol.html">WebSocket Protocol</a> - Task execution API</li>
+<li><a href="../integration/custom-clients.html">Custom Clients</a> - Integration guide</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

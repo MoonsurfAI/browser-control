@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moonsurf Browser Control Documentation - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="index.html" class="active">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="getting-started/README.html">Overview</a></li>
+        <li><a href="getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="concepts/README.html">Overview</a></li>
+        <li><a href="concepts/architecture.html">Architecture</a></li>
+        <li><a href="concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="tools/README.html">Overview</a></li>
+        <li><a href="tools/browser-content.html">browser_content</a></li>
+        <li><a href="tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="tools/browser-network.html">browser_network</a></li>
+        <li><a href="tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="configuration/README.html">Overview</a></li>
+        <li><a href="configuration/authentication.html">Authentication</a></li>
+        <li><a href="configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="guides/README.html">Overview</a></li>
+        <li><a href="guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="integration/README.html">Overview</a></li>
+        <li><a href="integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="api-reference/README.html">Overview</a></li>
+        <li><a href="api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="tasks/README.html">Overview</a></li>
+        <li><a href="tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="tasks/configuration.html">Configuration</a></li>
+        <li><a href="tasks/contributing.html">Contributing</a></li>
+        <li><a href="tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="tasks/examples.html">Examples</a></li>
+        <li><a href="tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="tasks/internals.html">Internals</a></li>
+        <li><a href="tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="tasks/task-format.html">Task Format</a></li>
+        <li><a href="tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="development/README.html">Overview</a></li>
+        <li><a href="development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="development/debugging.html">Debugging</a></li>
+        <li><a href="development/extension-development.html">Extension Development</a></li>
+        <li><a href="development/internals.html">Internals</a></li>
+        <li><a href="development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="development/project-structure.html">Project Structure</a></li>
+        <li><a href="development/release-process.html">Release Process</a></li>
+        <li><a href="development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Moonsurf Browser Control Documentation</h1>
+<p>Moonsurf is an AI-native browser automation MCP server that gives AI agents complete control over web browsers. Unlike traditional automation tools designed for human developers, Moonsurf is optimized for how large language models think, communicate, and operate.</p>
+<h2>Quick Links</h2>
+<div class="table-wrapper"><table><thead><tr><th>Getting Started</th><th>Core Concepts</th><th>Reference</th></tr></thead><tbody><tr><td><a href="getting-started/installation.html">Installation</a></td><td><a href="concepts/architecture.html">Architecture</a></td><td><a href="tools/README.html">Tool Reference</a></td></tr><tr><td><a href="getting-started/first-automation.html">First Automation</a></td><td><a href="concepts/browser-modes.html">Browser Modes</a></td><td><a href="api-reference/README.html">API Reference</a></td></tr><tr><td><a href="getting-started/connecting-ai-clients.html">Connecting AI Clients</a></td><td><a href="concepts/mcp-protocol.html">MCP Protocol</a></td><td><a href="configuration/README.html">Configuration</a></td></tr></tbody></table></div><h2>Documentation Structure</h2>
+<h3>Getting Started</h3>
+<p>New to Moonsurf? Start here.</p>
+<ul>
+<li><strong><a href="getting-started/README.html">Overview</a></strong> - Introduction and quick start</li>
+<li><strong><a href="getting-started/installation.html">Installation</a></strong> - npm install, CLI setup, prerequisites</li>
+<li><strong><a href="getting-started/first-automation.html">First Automation</a></strong> - Launch a browser, navigate, take a screenshot</li>
+<li><strong><a href="getting-started/connecting-ai-clients.html">Connecting AI Clients</a></strong> - Claude, Cursor, custom MCP clients</li>
+</ul>
+<h3>Core Concepts</h3>
+<p>Understand how Moonsurf works.</p>
+<ul>
+<li><strong><a href="concepts/architecture.html">Architecture</a></strong> - Three-layer model, data flow</li>
+<li><strong><a href="concepts/mcp-protocol.html">MCP Protocol</a></strong> - Model Context Protocol fundamentals</li>
+<li><strong><a href="concepts/browser-modes.html">Browser Modes</a></strong> - Chrome vs Testing vs Chromium</li>
+<li><strong><a href="concepts/instance-lifecycle.html">Instance Lifecycle</a></strong> - Launch, connect, operate, close</li>
+<li><strong><a href="concepts/extension-communication.html">Extension Communication</a></strong> - Server-extension WebSocket protocol</li>
+</ul>
+<h3>Tools Reference</h3>
+<p>Complete reference for all 9 MCP tools.</p>
+<ul>
+<li><strong><a href="tools/README.html">Tools Overview</a></strong> - Consolidated tool design philosophy</li>
+<li><strong><a href="tools/browser-instance.html">browser_instance</a></strong> - Manage browser instances</li>
+<li><strong><a href="tools/browser-tab.html">browser_tab</a></strong> - Tab management</li>
+<li><strong><a href="tools/browser-navigate.html">browser_navigate</a></strong> - Navigation and waiting</li>
+<li><strong><a href="tools/browser-content.html">browser_content</a></strong> - Screenshots, PDFs, DOM extraction</li>
+<li><strong><a href="tools/browser-interact.html">browser_interact</a></strong> - Click, type, scroll, select</li>
+<li><strong><a href="tools/browser-execute.html">browser_execute</a></strong> - JavaScript execution</li>
+<li><strong><a href="tools/browser-network.html">browser_network</a></strong> - Cookies, headers, storage</li>
+<li><strong><a href="tools/browser-emulate.html">browser_emulate</a></strong> - Device and network emulation</li>
+<li><strong><a href="tools/browser-debug.html">browser_debug</a></strong> - Debugging and monitoring</li>
+</ul>
+<h3>Task Execution</h3>
+<p>Submit batched commands with real-time progress.</p>
+<ul>
+<li><strong><a href="tasks/README.html">Task System Overview</a></strong> - Introduction to task execution</li>
+<li><strong><a href="tasks/getting-started.html">Getting Started with Tasks</a></strong> - Quick start guide</li>
+<li><strong><a href="tasks/websocket-api.html">WebSocket API</a></strong> - Real-time protocol</li>
+<li><strong><a href="tasks/rest-api.html">REST API</a></strong> - HTTP endpoints</li>
+<li><strong><a href="tasks/task-format.html">Task Format</a></strong> - Command structure</li>
+</ul>
+<h3>Configuration</h3>
+<p>Configure Moonsurf for your environment.</p>
+<ul>
+<li><strong><a href="configuration/README.html">Configuration Overview</a></strong> - Configuration concepts</li>
+<li><strong><a href="configuration/environment-variables.html">Environment Variables</a></strong> - Complete reference</li>
+<li><strong><a href="configuration/local-mode.html">Local Mode</a></strong> - Development setup</li>
+<li><strong><a href="configuration/remote-mode.html">Remote Mode</a></strong> - Production deployment</li>
+<li><strong><a href="configuration/authentication.html">Authentication</a></strong> - Token-based auth</li>
+<li><strong><a href="configuration/tls-setup.html">TLS Setup</a></strong> - HTTPS/WSS configuration</li>
+<li><strong><a href="configuration/security-hardening.html">Security Hardening</a></strong> - Rate limiting, CORS, audit logs</li>
+</ul>
+<h3>Practical Guides</h3>
+<p>Learn common patterns and techniques.</p>
+<ul>
+<li><strong><a href="guides/README.html">Guides Overview</a></strong> - Available guides</li>
+<li><strong><a href="guides/form-filling.html">Form Filling</a></strong> - Login flows, multi-step forms</li>
+<li><strong><a href="guides/web-scraping.html">Web Scraping</a></strong> - Content extraction patterns</li>
+<li><strong><a href="guides/file-downloads.html">File Downloads</a></strong> - Download tracking</li>
+<li><strong><a href="guides/testing-workflows.html">Testing Workflows</a></strong> - E2E testing with AI</li>
+<li><strong><a href="guides/handling-popups.html">Handling Popups</a></strong> - Dialogs, new windows</li>
+<li><strong><a href="guides/network-interception.html">Network Interception</a></strong> - Request mocking</li>
+<li><strong><a href="guides/debugging-tips.html">Debugging Tips</a></strong> - Troubleshooting</li>
+</ul>
+<h3>Integration</h3>
+<p>Connect Moonsurf to your tools.</p>
+<ul>
+<li><strong><a href="integration/README.html">Integration Overview</a></strong> - Available integrations</li>
+<li><strong><a href="integration/claude-code.html">Claude Code</a></strong> - Claude Code skill setup</li>
+<li><strong><a href="integration/claude-desktop.html">Claude Desktop</a></strong> - Claude Desktop MCP config</li>
+<li><strong><a href="integration/cursor.html">Cursor</a></strong> - Cursor IDE integration</li>
+<li><strong><a href="integration/custom-clients.html">Custom Clients</a></strong> - Building your own MCP client</li>
+<li><strong><a href="integration/ci-cd.html">CI/CD</a></strong> - GitHub Actions, headless mode</li>
+</ul>
+<h3>API Reference</h3>
+<p>Technical specifications.</p>
+<ul>
+<li><strong><a href="api-reference/README.html">API Overview</a></strong> - Available APIs</li>
+<li><strong><a href="api-reference/http-endpoints.html">HTTP Endpoints</a></strong> - All HTTP routes</li>
+<li><strong><a href="api-reference/sse-protocol.html">SSE Protocol</a></strong> - SSE message format</li>
+<li><strong><a href="api-reference/websocket-protocol.html">WebSocket Protocol</a></strong> - Extension messages</li>
+<li><strong><a href="api-reference/error-codes.html">Error Codes</a></strong> - All error types</li>
+</ul>
+<h3>Development</h3>
+<p>For Moonsurf contributors.</p>
+<ul>
+<li><strong><a href="development/README.html">Development Overview</a></strong> - Contributor guide</li>
+<li><strong><a href="development/project-structure.html">Project Structure</a></strong> - Source file layout</li>
+<li><strong><a href="development/local-setup.html">Local Setup</a></strong> - Development environment</li>
+<li><strong><a href="development/extension-development.html">Extension Development</a></strong> - Chrome extension</li>
+<li><strong><a href="development/adding-tools.html">Adding Tools</a></strong> - Extending Moonsurf</li>
+<li><strong><a href="development/testing.html">Testing</a></strong> - Testing procedures</li>
+<li><strong><a href="development/debugging.html">Debugging</a></strong> - Logs, breakpoints</li>
+<li><strong><a href="development/release-process.html">Release Process</a></strong> - Publishing</li>
+<li><strong><a href="development/internals.html">Internals</a></strong> - Deep dive into state management</li>
+</ul>
+<h2>Key Features</h2>
+<h3>9 Consolidated Tools</h3>
+<p>Moonsurf reduces 50+ individual browser operations to 9 unified tools with action parameters. This significantly reduces context window usage for AI agents while maintaining full functionality.</p>
+<h3>Three Browser Modes</h3>
+<ul>
+<li><strong>Chrome</strong> - Use your existing Chrome with saved profiles and extensions</li>
+<li><strong>Testing</strong> - Temporary Chrome for Testing with clean state</li>
+<li><strong>Chromium</strong> - Persistent Chromium profile optimized for automation</li>
+</ul>
+<h3>Real-time Task Execution</h3>
+<p>Submit batched commands that execute sequentially with real-time progress reporting via WebSocket.</p>
+<h3>Production Ready</h3>
+<p>Built-in support for authentication, TLS, rate limiting, CORS, and audit logging.</p>
+<h2>Support</h2>
+<ul>
+<li><strong>GitHub Issues</strong>: <a href="https://github.com/MoonsurfAI/browser-control/issues">github.com/MoonsurfAI/browser-control/issues</a></li>
+<li><strong>Documentation</strong>: You&#39;re reading it!</li>
+</ul>
+<h2>Version</h2>
+<p>This documentation is for Moonsurf Browser Control v2.0.0.</p>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

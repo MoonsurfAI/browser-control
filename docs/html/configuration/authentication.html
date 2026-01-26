@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Authentication - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html" class="active">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Authentication</h1>
+<p>Moonsurf uses token-based authentication to secure access to the MCP server. This document covers authentication configuration and usage.</p>
+<h2>Overview</h2>
+<p>Authentication is:</p>
+<ul>
+<li><strong>Disabled</strong> by default in local mode</li>
+<li><strong>Enabled</strong> by default in remote mode</li>
+</ul>
+<p>When enabled, clients must provide a valid token to access protected endpoints.</p>
+<h2>Enabling Authentication</h2>
+<h3>Basic Configuration</h3>
+<pre><code class="language-bash">AUTH_ENABLED=true AUTH_TOKENS=your-secret-token moonsurf</code></pre><h3>Multiple Tokens</h3>
+<p>Useful for different clients or token rotation:</p>
+<pre><code class="language-bash">AUTH_TOKENS=token-for-claude,token-for-cursor,token-for-api moonsurf</code></pre><h3>With Remote Mode</h3>
+<p>Remote mode enables auth by default:</p>
+<pre><code class="language-bash">REMOTE_MODE=true AUTH_TOKENS=secret-token moonsurf</code></pre><h2>Token Requirements</h2>
+<ul>
+<li>Tokens can be any string</li>
+<li>No specific format required</li>
+<li>Recommend: Random strings, 32+ characters</li>
+<li>Example generation: <code>openssl rand -hex 32</code></li>
+</ul>
+<h2>Providing Tokens</h2>
+<p>Clients can provide tokens in two ways:</p>
+<h3>1. Authorization Header</h3>
+<pre><code class="language-http">GET /sse HTTP/1.1
+Authorization: Bearer your-secret-token</code></pre><pre><code class="language-http">POST /message?sessionId=xxx HTTP/1.1
+Authorization: Bearer your-secret-token
+Content-Type: application/json</code></pre><h3>2. Query Parameter</h3>
+<p>Useful for SSE connections that can&#39;t set headers:</p>
+<pre><code class="language-plaintext">GET /sse?token=your-secret-token</code></pre><h2>Protected Endpoints</h2>
+<p>Authentication is required for:</p>
+<div class="table-wrapper"><table><thead><tr><th>Endpoint</th><th>Method</th><th>Purpose</th></tr></thead><tbody><tr><td><code>/sse</code></td><td>GET</td><td>SSE connection</td></tr><tr><td><code>/message</code></td><td>POST</td><td>MCP requests</td></tr><tr><td><code>/register</code></td><td>POST</td><td>Extension registration</td></tr><tr><td><code>/instances</code></td><td>GET</td><td>List browser instances</td></tr><tr><td><code>/tasks</code></td><td>GET</td><td>List tasks</td></tr><tr><td><code>/tasks</code></td><td>POST</td><td>Submit task</td></tr><tr><td><code>/tasks/:id</code></td><td>GET</td><td>Get task details</td></tr><tr><td><code>/tasks/:id/cancel</code></td><td>POST</td><td>Cancel task</td></tr></tbody></table></div><h2>Unprotected Endpoints</h2>
+<p>These endpoints don&#39;t require authentication:</p>
+<div class="table-wrapper"><table><thead><tr><th>Endpoint</th><th>Method</th><th>Purpose</th></tr></thead><tbody><tr><td><code>/health</code></td><td>GET</td><td>Server health check</td></tr><tr><td><code>/info</code></td><td>GET</td><td>Server information</td></tr><tr><td><code>/.well-known/oauth-authorization-server</code></td><td>GET</td><td>OAuth metadata</td></tr><tr><td><code>/oauth/*</code></td><td>*</td><td>OAuth endpoints</td></tr></tbody></table></div><h2>Client Configuration</h2>
+<h3>Claude Code</h3>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;moonsurf&quot;: {
+      &quot;url&quot;: &quot;http://localhost:3300/sse?token=your-secret-token&quot;
+    }
+  }
+}</code></pre><h3>Cursor</h3>
+<pre><code class="language-json">{
+  &quot;mcp.servers&quot;: {
+    &quot;moonsurf&quot;: {
+      &quot;url&quot;: &quot;http://localhost:3300/sse?token=your-secret-token&quot;
+    }
+  }
+}</code></pre><h3>Custom Client (JavaScript)</h3>
+<pre><code class="language-javascript">// SSE connection with token
+const eventSource = new EventSource(
+  &#039;http://localhost:3300/sse?token=your-secret-token&#039;
+);
+
+// Or with header (using fetch for messages)
+await fetch(&#039;http://localhost:3300/message?sessionId=xxx&#039;, {
+  method: &#039;POST&#039;,
+  headers: {
+    &#039;Content-Type&#039;: &#039;application/json&#039;,
+    &#039;Authorization&#039;: &#039;Bearer your-secret-token&#039;
+  },
+  body: JSON.stringify({...})
+});</code></pre><h3>Custom Client (Python)</h3>
+<pre><code class="language-python">import requests
+
+headers = {&#039;Authorization&#039;: &#039;Bearer your-secret-token&#039;}
+
+# SSE connection
+response = requests.get(
+    &#039;http://localhost:3300/sse&#039;,
+    headers=headers,
+    stream=True
+)
+
+# Or with query parameter
+response = requests.get(
+    &#039;http://localhost:3300/sse?token=your-secret-token&#039;,
+    stream=True
+)</code></pre><h3>cURL</h3>
+<pre><code class="language-bash"># With header
+curl -H &quot;Authorization: Bearer your-secret-token&quot; \
+  http://localhost:3300/instances
+
+# With query parameter
+curl &quot;http://localhost:3300/instances?token=your-secret-token&quot;</code></pre><h2>Authentication Failures</h2>
+<h3>Response</h3>
+<pre><code class="language-http">HTTP/1.1 401 Unauthorized
+Content-Type: application/json
+
+{&quot;error&quot;: &quot;Authentication required&quot;}</code></pre><h3>Server Logs</h3>
+<pre><code class="language-plaintext">[Auth] No token provided for /sse
+[Auth] Invalid token for /message</code></pre><h3>Audit Logs (if enabled)</h3>
+<pre><code class="language-plaintext">[AUDIT] {&quot;action&quot;:&quot;AUTH_FAILED&quot;,&quot;ip&quot;:&quot;1.2.3.4&quot;,&quot;path&quot;:&quot;/sse&quot;}</code></pre><h2>Token Rotation</h2>
+<p>To rotate tokens with zero downtime:</p>
+<ol>
+<li><p>Add new token to the list:</p>
+<pre><code class="language-bash">AUTH_TOKENS=old-token,new-token moonsurf</code></pre></li>
+<li><p>Update all clients to use new token</p>
+</li>
+<li><p>Remove old token:</p>
+<pre><code class="language-bash">AUTH_TOKENS=new-token moonsurf</code></pre></li>
+</ol>
+<h2>Security Best Practices</h2>
+<h3>Token Generation</h3>
+<p>Use cryptographically secure random tokens:</p>
+<pre><code class="language-bash"># Generate a 32-byte hex token
+openssl rand -hex 32
+
+# Generate a base64 token
+openssl rand -base64 32
+
+# Using Node.js
+node -e &quot;console.log(require(&#039;crypto&#039;).randomBytes(32).toString(&#039;hex&#039;))&quot;</code></pre><h3>Token Storage</h3>
+<ul>
+<li>Store tokens in environment variables, not code</li>
+<li>Use secrets management (AWS Secrets Manager, HashiCorp Vault, etc.)</li>
+<li>Never commit tokens to version control</li>
+</ul>
+<h3>Token Scope</h3>
+<p>Consider using different tokens for:</p>
+<ul>
+<li>Different clients (Claude, Cursor, API)</li>
+<li>Different environments (dev, staging, prod)</li>
+<li>Different permission levels (if implementing custom authorization)</li>
+</ul>
+<h3>HTTPS</h3>
+<p>Always use TLS when transmitting tokens:</p>
+<pre><code class="language-bash">TLS_ENABLED=true \
+TLS_CERT_PATH=/path/to/cert.pem \
+TLS_KEY_PATH=/path/to/key.pem \
+AUTH_TOKENS=secret-token \
+moonsurf</code></pre><h3>Token Expiration</h3>
+<p>Moonsurf doesn&#39;t have built-in token expiration. Implement rotation policies:</p>
+<ul>
+<li>Rotate tokens regularly (monthly, quarterly)</li>
+<li>Rotate immediately if compromised</li>
+<li>Keep token list minimal</li>
+</ul>
+<h2>Troubleshooting</h2>
+<h3>&quot;Authentication enabled but no tokens configured&quot;</h3>
+<pre><code class="language-bash"># Must provide tokens when auth is enabled
+AUTH_ENABLED=true AUTH_TOKENS=your-token moonsurf</code></pre><h3>&quot;Authentication required&quot; error</h3>
+<p>Check:</p>
+<ol>
+<li>Token is being sent correctly</li>
+<li>Token matches one in <code>AUTH_TOKENS</code></li>
+<li>Using correct header format (<code>Bearer </code> prefix)</li>
+</ol>
+<h3>Token not working</h3>
+<p>Verify token exactly matches:</p>
+<pre><code class="language-bash"># Check configured tokens
+echo $AUTH_TOKENS
+
+# Test with curl
+curl -v -H &quot;Authorization: Bearer your-token&quot; http://localhost:3300/instances</code></pre><h2>Related</h2>
+<ul>
+<li><a href="remote-mode.html">Remote Mode</a> - Production configuration</li>
+<li><a href="tls-setup.html">TLS Setup</a> - Secure transport</li>
+<li><a href="security-hardening.html">Security Hardening</a> - Additional security measures</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

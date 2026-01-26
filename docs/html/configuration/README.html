@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configuration - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html" class="active">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Configuration</h1>
+<p>Moonsurf is configured through environment variables, making it easy to customize for different environments and deployment scenarios.</p>
+<h2>Configuration Modes</h2>
+<h3>Local Mode (Default)</h3>
+<p>For development and local use:</p>
+<ul>
+<li>Binds to <code>localhost</code> only</li>
+<li>No authentication required</li>
+<li>No TLS</li>
+<li>No rate limiting</li>
+</ul>
+<pre><code class="language-bash">moonsurf</code></pre><h3>Remote Mode</h3>
+<p>For production deployments accepting external connections:</p>
+<ul>
+<li>Binds to <code>0.0.0.0</code> (all interfaces)</li>
+<li>Authentication enabled by default</li>
+<li>Rate limiting enabled by default</li>
+<li>TLS recommended</li>
+</ul>
+<pre><code class="language-bash">REMOTE_MODE=true AUTH_TOKENS=your-secret-token moonsurf</code></pre><h2>Configuration Topics</h2>
+<h3><a href="environment-variables.html">Environment Variables</a></h3>
+<p>Complete reference of all environment variables:</p>
+<ul>
+<li>Server binding (<code>PORT</code>, <code>HOST</code>)</li>
+<li>Authentication (<code>AUTH_ENABLED</code>, <code>AUTH_TOKENS</code>)</li>
+<li>TLS (<code>TLS_ENABLED</code>, <code>TLS_CERT_PATH</code>, <code>TLS_KEY_PATH</code>)</li>
+<li>Browser defaults (<code>BROWSER_DEFAULT_MODE</code>, <code>HEADLESS_DEFAULT</code>)</li>
+<li>Task system (<code>TASKS_ENABLED</code>, <code>TASKS_WS_PORT</code>)</li>
+</ul>
+<h3><a href="local-mode.html">Local Mode</a></h3>
+<p>Development setup:</p>
+<ul>
+<li>Running with local extension</li>
+<li>Debug logging</li>
+<li>Hot reload workflows</li>
+</ul>
+<h3><a href="remote-mode.html">Remote Mode</a></h3>
+<p>Production deployment:</p>
+<ul>
+<li>Accepting external connections</li>
+<li>Public URL configuration</li>
+<li>Security considerations</li>
+</ul>
+<h3><a href="authentication.html">Authentication</a></h3>
+<p>Securing access:</p>
+<ul>
+<li>Bearer token authentication</li>
+<li>Query parameter tokens</li>
+<li>Protected endpoints</li>
+</ul>
+<h3><a href="tls-setup.html">TLS Setup</a></h3>
+<p>Enabling HTTPS/WSS:</p>
+<ul>
+<li>Certificate configuration</li>
+<li>Self-signed certificates</li>
+<li>Let&#39;s Encrypt</li>
+</ul>
+<h3><a href="security-hardening.html">Security Hardening</a></h3>
+<p>Production security:</p>
+<ul>
+<li>Rate limiting</li>
+<li>CORS configuration</li>
+<li>Audit logging</li>
+</ul>
+<h2>Quick Reference</h2>
+<h3>Essential Variables</h3>
+<div class="table-wrapper"><table><thead><tr><th>Variable</th><th>Description</th><th>Default</th></tr></thead><tbody><tr><td><code>PORT</code></td><td>HTTP server port</td><td><code>3300</code></td></tr><tr><td><code>HOST</code></td><td>Bind address</td><td><code>localhost</code></td></tr><tr><td><code>REMOTE_MODE</code></td><td>Enable remote mode</td><td><code>false</code></td></tr><tr><td><code>AUTH_TOKENS</code></td><td>Comma-separated tokens</td><td>(none)</td></tr><tr><td><code>BROWSER_DEFAULT_MODE</code></td><td>Default browser</td><td><code>chromium</code></td></tr></tbody></table></div><h3>Security Variables</h3>
+<div class="table-wrapper"><table><thead><tr><th>Variable</th><th>Description</th><th>Default (Local)</th><th>Default (Remote)</th></tr></thead><tbody><tr><td><code>AUTH_ENABLED</code></td><td>Require authentication</td><td><code>false</code></td><td><code>true</code></td></tr><tr><td><code>TLS_ENABLED</code></td><td>Use HTTPS/WSS</td><td><code>false</code></td><td><code>false</code></td></tr><tr><td><code>RATE_LIMIT_ENABLED</code></td><td>Enable rate limiting</td><td><code>false</code></td><td><code>true</code></td></tr><tr><td><code>CORS_ENABLED</code></td><td>Enable CORS handling</td><td><code>false</code></td><td><code>true</code></td></tr><tr><td><code>AUDIT_LOG_ENABLED</code></td><td>Enable audit logging</td><td><code>false</code></td><td><code>true</code></td></tr></tbody></table></div><h3>Task System Variables</h3>
+<div class="table-wrapper"><table><thead><tr><th>Variable</th><th>Description</th><th>Default</th></tr></thead><tbody><tr><td><code>TASKS_ENABLED</code></td><td>Enable task system</td><td><code>true</code></td></tr><tr><td><code>TASKS_WS_PORT</code></td><td>Task WebSocket port</td><td><code>3400</code></td></tr><tr><td><code>TASKS_COMMAND_TIMEOUT</code></td><td>Per-command timeout (ms)</td><td><code>60000</code></td></tr><tr><td><code>TASKS_MAX_QUEUE_SIZE</code></td><td>Max queued tasks</td><td><code>100</code></td></tr></tbody></table></div><h2>Configuration Examples</h2>
+<h3>Development</h3>
+<pre><code class="language-bash"># Default settings, verbose logging
+LOG_LEVEL=debug moonsurf</code></pre><h3>CI/CD</h3>
+<pre><code class="language-bash"># Headless, testing mode, no task system
+BROWSER_DEFAULT_MODE=testing HEADLESS_DEFAULT=true TASKS_ENABLED=false moonsurf</code></pre><h3>Production (Minimal)</h3>
+<pre><code class="language-bash">REMOTE_MODE=true AUTH_TOKENS=secret123 moonsurf</code></pre><h3>Production (Full)</h3>
+<pre><code class="language-bash">REMOTE_MODE=true \
+AUTH_TOKENS=token1,token2 \
+TLS_ENABLED=true \
+TLS_CERT_PATH=/etc/ssl/cert.pem \
+TLS_KEY_PATH=/etc/ssl/key.pem \
+RATE_LIMIT_MAX_CALLS=50 \
+moonsurf</code></pre><h2>Configuration Validation</h2>
+<p>Moonsurf validates configuration on startup and warns about potential issues:</p>
+<pre><code class="language-plaintext">[Config] Server Configuration:
+[Config]   Mode: REMOTE
+[Config]   HTTP: https://0.0.0.0:3300
+[Config]   WebSocket: wss://localhost:3301-3399
+[Config]   Auth: ENABLED (tokens: 2)
+[Config]   TLS: ENABLED
+[Config]   CORS: ENABLED
+[Config]   Rate Limit: ENABLED (max: 100/min)</code></pre><h3>Warnings</h3>
+<pre><code class="language-plaintext">[Config] ⚠️  WARNING: Server accepting external connections but authentication is disabled
+[Config] ⚠️  WARNING: Server accepting external connections over unencrypted HTTP/WS</code></pre><h3>Errors</h3>
+<pre><code class="language-plaintext">[Config] ❌ ERROR: TLS enabled but cert/key paths not provided
+[Config] ❌ ERROR: Authentication enabled but no tokens configured</code></pre><h2>Next Steps</h2>
+<ul>
+<li><a href="environment-variables.html">Environment Variables</a> - Complete reference</li>
+<li><a href="local-mode.html">Local Mode</a> - Development setup</li>
+<li><a href="remote-mode.html">Remote Mode</a> - Production deployment</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

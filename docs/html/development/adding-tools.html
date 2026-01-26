@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adding Tools - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html" class="active">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Adding Tools</h1>
+<p>Guide to adding new MCP tools to Moonsurf.</p>
+<h2>Overview</h2>
+<p>Moonsurf tools are defined in <code>src/tool-definitions.ts</code>. Each tool:</p>
+<ul>
+<li>Has a unique name</li>
+<li>Defines an input schema (JSON Schema)</li>
+<li>Maps to extension commands</li>
+<li>Returns structured results</li>
+</ul>
+<h2>Tool Structure</h2>
+<h3>Tool Definition</h3>
+<pre><code class="language-typescript">{
+  name: &#039;browser_example&#039;,
+  description: &#039;Example tool description&#039;,
+  inputSchema: {
+    type: &#039;object&#039;,
+    properties: {
+      action: {
+        type: &#039;string&#039;,
+        enum: [&#039;action1&#039;, &#039;action2&#039;],
+        description: &#039;Action to perform&#039;
+      },
+      param1: {
+        type: &#039;string&#039;,
+        description: &#039;First parameter&#039;
+      },
+      param2: {
+        type: &#039;number&#039;,
+        description: &#039;Second parameter&#039;
+      }
+    },
+    required: [&#039;action&#039;]
+  }
+}</code></pre><h3>Tool Execution</h3>
+<pre><code class="language-typescript">async function handleExampleTool(args: any): Promise&lt;ToolResult&gt; {
+  const { action, param1, param2 } = args;
+
+  switch (action) {
+    case &#039;action1&#039;:
+      return executeAction1(param1);
+    case &#039;action2&#039;:
+      return executeAction2(param2);
+    default:
+      throw new Error(`Unknown action: ${action}`);
+  }
+}</code></pre><h2>Adding a New Tool</h2>
+<h3>Step 1: Define the Tool Schema</h3>
+<p>Add to <code>src/tool-definitions.ts</code>:</p>
+<pre><code class="language-typescript">const tools = [
+  // ... existing tools ...
+
+  {
+    name: &#039;browser_custom&#039;,
+    description: &#039;Custom browser tool for specific functionality&#039;,
+    inputSchema: {
+      type: &#039;object&#039;,
+      properties: {
+        action: {
+          type: &#039;string&#039;,
+          enum: [&#039;do_thing&#039;, &#039;do_other_thing&#039;],
+          description: &#039;Action to perform&#039;
+        },
+        selector: {
+          type: &#039;string&#039;,
+          description: &#039;CSS selector for target element&#039;
+        },
+        value: {
+          type: &#039;string&#039;,
+          description: &#039;Value to use&#039;
+        },
+        instanceId: {
+          type: &#039;string&#039;,
+          description: &#039;Browser instance ID&#039;
+        }
+      },
+      required: [&#039;action&#039;]
+    }
+  }
+];</code></pre><h3>Step 2: Add Execution Handler</h3>
+<pre><code class="language-typescript">async function executeTool(
+  name: string,
+  args: Record&lt;string, any&gt;
+): Promise&lt;ToolResult&gt; {
+  // ... existing handlers ...
+
+  if (name === &#039;browser_custom&#039;) {
+    return handleCustomTool(args);
+  }
+
+  throw new Error(`Unknown tool: ${name}`);
+}
+
+async function handleCustomTool(args: any): Promise&lt;ToolResult&gt; {
+  const { action, selector, value, instanceId } = args;
+  const instance = await getTargetInstance(instanceId);
+
+  switch (action) {
+    case &#039;do_thing&#039;:
+      return doThing(instance, selector);
+
+    case &#039;do_other_thing&#039;:
+      return doOtherThing(instance, value);
+
+    default:
+      throw new Error(`Unknown action: ${action}`);
+  }
+}</code></pre><h3>Step 3: Implement the Action</h3>
+<pre><code class="language-typescript">async function doThing(
+  instance: BrowserInstance,
+  selector: string
+): Promise&lt;ToolResult&gt; {
+  // Send command to extension
+  const result = await instanceManager.queueToolCall(
+    instance.id,
+    &#039;custom_do_thing&#039;,
+    { selector }
+  );
+
+  // Return result
+  return {
+    content: [
+      {
+        type: &#039;text&#039;,
+        text: `Did thing with ${selector}: ${JSON.stringify(result)}`
+      }
+    ]
+  };
+}</code></pre><h3>Step 4: Add Extension Handler</h3>
+<p>In <code>chrome-extension/src/background.ts</code>:</p>
+<pre><code class="language-typescript">function handleCommand(command) {
+  switch (command.type) {
+    // ... existing handlers ...
+
+    case &#039;custom_do_thing&#039;:
+      return handleCustomDoThing(command.params);
+  }
+}
+
+async function handleCustomDoThing(params) {
+  const { selector } = params;
+
+  // Execute in content script
+  const result = await executeInTab(tabId, (selector) =&gt; {
+    const element = document.querySelector(selector);
+    // Do something with element
+    return { success: true, data: element?.textContent };
+  }, selector);
+
+  return result;
+}</code></pre><h2>Tool Design Guidelines</h2>
+<h3>1. Action-Based Design</h3>
+<p>Use an <code>action</code> parameter to group related functionality:</p>
+<pre><code class="language-typescript">{
+  name: &#039;browser_media&#039;,
+  inputSchema: {
+    properties: {
+      action: {
+        enum: [&#039;play&#039;, &#039;pause&#039;, &#039;mute&#039;, &#039;unmute&#039;, &#039;seek&#039;]
+      }
+    }
+  }
+}</code></pre><p>This consolidates related operations into one tool.</p>
+<h3>2. Clear Descriptions</h3>
+<p>Write clear descriptions for the tool and each parameter:</p>
+<pre><code class="language-typescript">{
+  name: &#039;browser_example&#039;,
+  description: &#039;Perform example operations on the current page. Use action=&quot;do_thing&quot; to do something specific.&#039;,
+  inputSchema: {
+    properties: {
+      action: {
+        description: &#039;The action to perform. &quot;do_thing&quot; does X, &quot;do_other&quot; does Y.&#039;
+      },
+      selector: {
+        description: &#039;CSS selector for the target element (e.g., &quot;#id&quot;, &quot;.class&quot;, &quot;button[type=submit]&quot;)&#039;
+      }
+    }
+  }
+}</code></pre><h3>3. Sensible Defaults</h3>
+<p>Provide defaults for optional parameters:</p>
+<pre><code class="language-typescript">async function handleTool(args: any) {
+  const {
+    action,
+    timeout = 30000,
+    waitForSelector = true
+  } = args;
+}</code></pre><h3>4. Structured Results</h3>
+<p>Return structured, informative results:</p>
+<pre><code class="language-typescript">return {
+  content: [
+    {
+      type: &#039;text&#039;,
+      text: JSON.stringify({
+        success: true,
+        action: &#039;do_thing&#039;,
+        element: selector,
+        result: data
+      }, null, 2)
+    }
+  ]
+};</code></pre><h3>5. Error Handling</h3>
+<p>Handle errors gracefully with useful messages:</p>
+<pre><code class="language-typescript">async function handleTool(args: any) {
+  try {
+    const result = await performAction(args);
+    return formatSuccess(result);
+  } catch (error) {
+    return {
+      content: [
+        {
+          type: &#039;text&#039;,
+          text: `Error: ${error.message}`
+        }
+      ],
+      isError: true
+    };
+  }
+}</code></pre><h2>Input Schema Reference</h2>
+<h3>String Parameter</h3>
+<pre><code class="language-typescript">{
+  param: {
+    type: &#039;string&#039;,
+    description: &#039;A string value&#039;
+  }
+}</code></pre><h3>Enum Parameter</h3>
+<pre><code class="language-typescript">{
+  action: {
+    type: &#039;string&#039;,
+    enum: [&#039;option1&#039;, &#039;option2&#039;, &#039;option3&#039;],
+    description: &#039;Choose an action&#039;
+  }
+}</code></pre><h3>Number Parameter</h3>
+<pre><code class="language-typescript">{
+  timeout: {
+    type: &#039;number&#039;,
+    description: &#039;Timeout in milliseconds&#039;,
+    default: 30000
+  }
+}</code></pre><h3>Boolean Parameter</h3>
+<pre><code class="language-typescript">{
+  fullPage: {
+    type: &#039;boolean&#039;,
+    description: &#039;Capture full page&#039;,
+    default: false
+  }
+}</code></pre><h3>Object Parameter</h3>
+<pre><code class="language-typescript">{
+  options: {
+    type: &#039;object&#039;,
+    properties: {
+      key1: { type: &#039;string&#039; },
+      key2: { type: &#039;number&#039; }
+    }
+  }
+}</code></pre><h3>Array Parameter</h3>
+<pre><code class="language-typescript">{
+  files: {
+    type: &#039;array&#039;,
+    items: { type: &#039;string&#039; },
+    description: &#039;List of file paths&#039;
+  }
+}</code></pre><h3>Required Fields</h3>
+<pre><code class="language-typescript">{
+  required: [&#039;action&#039;, &#039;selector&#039;]
+}</code></pre><h2>Testing New Tools</h2>
+<h3>1. Build and Run</h3>
+<pre><code class="language-bash">npm run build
+npm start</code></pre><h3>2. List Tools</h3>
+<pre><code class="language-bash">curl -X POST http://localhost:3300/message \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#039;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:1,&quot;method&quot;:&quot;tools/list&quot;}&#039;</code></pre><p>Verify your tool appears in the list.</p>
+<h3>3. Call the Tool</h3>
+<pre><code class="language-bash">curl -X POST http://localhost:3300/message \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#039;{
+    &quot;jsonrpc&quot;:&quot;2.0&quot;,
+    &quot;id&quot;:2,
+    &quot;method&quot;:&quot;tools/call&quot;,
+    &quot;params&quot;:{
+      &quot;name&quot;:&quot;browser_custom&quot;,
+      &quot;arguments&quot;:{
+        &quot;action&quot;:&quot;do_thing&quot;,
+        &quot;selector&quot;:&quot;#test&quot;
+      }
+    }
+  }&#039;</code></pre><h3>4. Debug</h3>
+<p>Enable debug logging:</p>
+<pre><code class="language-bash">LOG_LEVEL=debug npm start</code></pre><h2>Example: Adding a Cookie Tool</h2>
+<h3>1. Tool Definition</h3>
+<pre><code class="language-typescript">{
+  name: &#039;browser_cookies&#039;,
+  description: &#039;Manage browser cookies for the current page&#039;,
+  inputSchema: {
+    type: &#039;object&#039;,
+    properties: {
+      action: {
+        type: &#039;string&#039;,
+        enum: [&#039;get&#039;, &#039;set&#039;, &#039;delete&#039;, &#039;clear&#039;],
+        description: &#039;Cookie action to perform&#039;
+      },
+      name: {
+        type: &#039;string&#039;,
+        description: &#039;Cookie name (for get/set/delete)&#039;
+      },
+      value: {
+        type: &#039;string&#039;,
+        description: &#039;Cookie value (for set)&#039;
+      },
+      domain: {
+        type: &#039;string&#039;,
+        description: &#039;Cookie domain (optional for set)&#039;
+      },
+      instanceId: {
+        type: &#039;string&#039;,
+        description: &#039;Browser instance ID&#039;
+      }
+    },
+    required: [&#039;action&#039;]
+  }
+}</code></pre><h3>2. Execution Handler</h3>
+<pre><code class="language-typescript">async function handleCookiesTool(args: any): Promise&lt;ToolResult&gt; {
+  const { action, name, value, domain, instanceId } = args;
+  const instance = await getTargetInstance(instanceId);
+
+  switch (action) {
+    case &#039;get&#039;:
+      const cookies = await instanceManager.queueToolCall(
+        instance.id,
+        &#039;cookies_get&#039;,
+        { name }
+      );
+      return formatResult(&#039;Cookies retrieved&#039;, cookies);
+
+    case &#039;set&#039;:
+      if (!name || !value) {
+        throw new Error(&#039;Name and value required for set action&#039;);
+      }
+      await instanceManager.queueToolCall(
+        instance.id,
+        &#039;cookies_set&#039;,
+        { name, value, domain }
+      );
+      return formatResult(&#039;Cookie set&#039;, { name, value });
+
+    case &#039;delete&#039;:
+      if (!name) {
+        throw new Error(&#039;Name required for delete action&#039;);
+      }
+      await instanceManager.queueToolCall(
+        instance.id,
+        &#039;cookies_delete&#039;,
+        { name }
+      );
+      return formatResult(&#039;Cookie deleted&#039;, { name });
+
+    case &#039;clear&#039;:
+      await instanceManager.queueToolCall(
+        instance.id,
+        &#039;cookies_clear&#039;,
+        {}
+      );
+      return formatResult(&#039;All cookies cleared&#039;, {});
+
+    default:
+      throw new Error(`Unknown action: ${action}`);
+  }
+}</code></pre><h3>3. Extension Handlers</h3>
+<pre><code class="language-typescript">// In chrome-extension background script
+async function handleCookiesGet(params) {
+  const { name } = params;
+  const cookies = await chrome.cookies.getAll({ name });
+  return { cookies };
+}
+
+async function handleCookiesSet(params) {
+  const { name, value, domain } = params;
+  await chrome.cookies.set({
+    url: getCurrentUrl(),
+    name,
+    value,
+    domain
+  });
+  return { success: true };
+}</code></pre><h2>Related</h2>
+<ul>
+<li><a href="project-structure.html">Project Structure</a> - Code organization</li>
+<li><a href="extension-development.html">Extension Development</a> - Extension changes</li>
+<li><a href="../tools/README.html">Tool Reference</a> - Existing tools</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

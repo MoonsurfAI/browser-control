@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cursor Integration - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html" class="active">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Cursor Integration</h1>
+<p>Connect Moonsurf with Cursor IDE for browser automation in your development workflow.</p>
+<h2>Overview</h2>
+<p>Cursor supports MCP servers for AI tool integration. By connecting Moonsurf, you can automate browser tasks directly from your IDE.</p>
+<h2>Configuration</h2>
+<h3>Config File Location</h3>
+<p>Cursor&#39;s MCP configuration is typically in your workspace or user settings.</p>
+<p><strong>Workspace settings:</strong> <code>.cursor/mcp.json</code></p>
+<p><strong>User settings:</strong> Check Cursor&#39;s settings UI for MCP configuration.</p>
+<h3>Basic Configuration</h3>
+<pre><code class="language-json">{
+  &quot;mcp.servers&quot;: {
+    &quot;moonsurf&quot;: {
+      &quot;url&quot;: &quot;http://localhost:3300/sse&quot;
+    }
+  }
+}</code></pre><h3>With Authentication</h3>
+<p>For remote servers:</p>
+<pre><code class="language-json">{
+  &quot;mcp.servers&quot;: {
+    &quot;moonsurf&quot;: {
+      &quot;url&quot;: &quot;https://mcp.example.com/sse?token=your-secret-token&quot;
+    }
+  }
+}</code></pre><h2>Setup Steps</h2>
+<h3>1. Install Moonsurf</h3>
+<pre><code class="language-bash">npm install -g @moonsurf/browser-control</code></pre><h3>2. Start the Server</h3>
+<p>In a terminal:</p>
+<pre><code class="language-bash">moonsurf</code></pre><p>Or use Cursor&#39;s integrated terminal.</p>
+<h3>3. Configure Cursor</h3>
+<p>Create <code>.cursor/mcp.json</code> in your project root:</p>
+<pre><code class="language-json">{
+  &quot;mcp.servers&quot;: {
+    &quot;moonsurf&quot;: {
+      &quot;url&quot;: &quot;http://localhost:3300/sse&quot;
+    }
+  }
+}</code></pre><h3>4. Reload Cursor</h3>
+<p>Restart Cursor or reload the window to pick up the configuration.</p>
+<h3>5. Verify Connection</h3>
+<p>Ask Cursor&#39;s AI:</p>
+<pre><code class="language-plaintext">What browser automation tools are available?</code></pre><h2>Usage Examples</h2>
+<h3>Testing Your Application</h3>
+<pre><code class="language-plaintext">User: Launch a browser and navigate to my local dev server at localhost:3000
+
+Cursor: I&#039;ll open your development server in a browser.
+[Uses browser_instance and browser_navigate]</code></pre><h3>UI Testing</h3>
+<pre><code class="language-plaintext">User: Click the login button on localhost:3000 and verify the login form appears
+
+Cursor: I&#039;ll test the login flow for you.
+[Uses browser tools to interact and verify]</code></pre><h3>Screenshot Documentation</h3>
+<pre><code class="language-plaintext">User: Take screenshots of each page of my app for documentation
+
+Cursor: I&#039;ll capture screenshots of your application pages.
+[Navigates and captures screenshots]</code></pre><h3>Debugging Visual Issues</h3>
+<pre><code class="language-plaintext">User: Navigate to my app and check if the header is displaying correctly
+
+Cursor: I&#039;ll check the header rendering.
+[Uses browser tools, captures screenshot, analyzes]</code></pre><h2>Development Workflow Integration</h2>
+<h3>1. Run Server with Your App</h3>
+<p><strong>Terminal 1 - Your app:</strong></p>
+<pre><code class="language-bash">npm run dev</code></pre><p><strong>Terminal 2 - Moonsurf:</strong></p>
+<pre><code class="language-bash">moonsurf</code></pre><p><strong>Terminal 3 - Use Cursor</strong></p>
+<h3>2. Test-Driven Development</h3>
+<pre><code class="language-plaintext">User: Run my app, test the signup form with email test@example.com and password test123, then verify the welcome page loads
+
+Cursor: I&#039;ll test the complete signup flow.
+[Executes test steps with browser tools]</code></pre><h3>3. Visual Regression Checks</h3>
+<pre><code class="language-plaintext">User: Take a screenshot of the homepage and compare it to what you saw before my CSS changes
+
+Cursor: I&#039;ll capture the current state for comparison.
+[Takes screenshot, compares to previous]</code></pre><h2>Workspace Configuration</h2>
+<h3>Per-Project Setup</h3>
+<p>Create <code>.cursor/mcp.json</code> in each project that needs browser automation:</p>
+<pre><code class="language-json">{
+  &quot;mcp.servers&quot;: {
+    &quot;moonsurf&quot;: {
+      &quot;url&quot;: &quot;http://localhost:3300/sse&quot;
+    }
+  }
+}</code></pre><h3>Different Ports per Project</h3>
+<p>If running multiple instances:</p>
+<p><strong>Project A - <code>.cursor/mcp.json</code>:</strong></p>
+<pre><code class="language-json">{
+  &quot;mcp.servers&quot;: {
+    &quot;moonsurf&quot;: {
+      &quot;url&quot;: &quot;http://localhost:3300/sse&quot;
+    }
+  }
+}</code></pre><p><strong>Project B - <code>.cursor/mcp.json</code>:</strong></p>
+<pre><code class="language-json">{
+  &quot;mcp.servers&quot;: {
+    &quot;moonsurf&quot;: {
+      &quot;url&quot;: &quot;http://localhost:3400/sse&quot;
+    }
+  }
+}</code></pre><h3>Shared Remote Server</h3>
+<p>For team development:</p>
+<pre><code class="language-json">{
+  &quot;mcp.servers&quot;: {
+    &quot;moonsurf&quot;: {
+      &quot;url&quot;: &quot;https://dev-tools.company.com/sse?token=team-token&quot;
+    }
+  }
+}</code></pre><h2>Cursor-Specific Tips</h2>
+<h3>1. Use Integrated Terminal</h3>
+<p>Run Moonsurf in Cursor&#39;s integrated terminal for easy access:</p>
+<pre><code class="language-bash"># In Cursor terminal
+moonsurf</code></pre><h3>2. Split Terminal View</h3>
+<ul>
+<li>Left terminal: Your app (<code>npm run dev</code>)</li>
+<li>Right terminal: Moonsurf (<code>moonsurf</code>)</li>
+</ul>
+<h3>3. Debug Logging</h3>
+<p>Enable verbose logging to see what&#39;s happening:</p>
+<pre><code class="language-bash">LOG_LEVEL=debug moonsurf</code></pre><h3>4. Visible Browser for Debugging</h3>
+<pre><code class="language-bash">HEADLESS_DEFAULT=false moonsurf</code></pre><p>Watch the browser alongside your code.</p>
+<h2>Common Use Cases</h2>
+<h3>Frontend Development</h3>
+<pre><code class="language-plaintext">User: Open localhost:3000/dashboard and tell me if there are any console errors
+
+Cursor: I&#039;ll check for JavaScript errors.
+[Navigates, checks console, reports]</code></pre><h3>API Integration Testing</h3>
+<pre><code class="language-plaintext">User: Navigate to the API test page, submit a form, and verify the response
+
+Cursor: I&#039;ll test the API integration.
+[Uses browser to submit form, monitors network]</code></pre><h3>Cross-Browser Testing</h3>
+<pre><code class="language-plaintext">User: Check how my app looks in mobile viewport
+
+Cursor: I&#039;ll check the mobile view.
+[Uses browser_emulate to set mobile viewport]</code></pre><h3>Documentation Generation</h3>
+<pre><code class="language-plaintext">User: Navigate through my app and take screenshots of each main feature
+
+Cursor: I&#039;ll capture screenshots for documentation.
+[Systematically navigates and captures]</code></pre><h2>Troubleshooting</h2>
+<h3>&quot;MCP server not found&quot;</h3>
+<ol>
+<li>Check <code>.cursor/mcp.json</code> exists and is valid JSON</li>
+<li>Verify file is in correct location</li>
+<li>Reload Cursor window</li>
+</ol>
+<h3>&quot;Connection refused&quot;</h3>
+<ol>
+<li>Verify Moonsurf server is running</li>
+<li>Check port matches configuration</li>
+<li>Ensure firewall isn&#39;t blocking</li>
+</ol>
+<h3>&quot;Tools not available&quot;</h3>
+<ol>
+<li>Verify MCP configuration is correct</li>
+<li>Restart Cursor</li>
+<li>Check server health: <code>curl http://localhost:3300/health</code></li>
+</ol>
+<h3>Browser not visible</h3>
+<p>If you need to see the browser:</p>
+<pre><code class="language-bash">HEADLESS_DEFAULT=false moonsurf</code></pre><h3>Slow response</h3>
+<ol>
+<li>Check server logs for errors</li>
+<li>Ensure browser isn&#39;t overloaded</li>
+<li>Close unused browser instances</li>
+</ol>
+<h2>Best Practices</h2>
+<h3>1. Keep Server Running</h3>
+<p>Start Moonsurf at the beginning of your dev session.</p>
+<h3>2. Use Testing Mode for Tests</h3>
+<pre><code class="language-bash">BROWSER_DEFAULT_MODE=testing moonsurf</code></pre><p>Clean state for each test.</p>
+<h3>3. Close Instances</h3>
+<p>Ask the AI to close browser instances when done to free memory.</p>
+<h3>4. Combine with Unit Tests</h3>
+<p>Use browser automation for E2E testing alongside your unit tests.</p>
+<h2>Related</h2>
+<ul>
+<li><a href="../getting-started/installation.html">Installation</a> - Setup guide</li>
+<li><a href="../guides/testing-workflows.html">Testing Workflows</a> - Testing patterns</li>
+<li><a href="custom-clients.html">Custom Clients</a> - Direct integration</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

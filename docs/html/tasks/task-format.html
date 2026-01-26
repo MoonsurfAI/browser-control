@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Format - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html" class="active">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Task Format</h1>
+<p>This document details the structure of tasks, commands, and their states.</p>
+<h2>Task Structure</h2>
+<p>A task represents a sequence of browser automation commands to be executed.</p>
+<pre><code class="language-typescript">interface Task {
+  id: string;                    // Unique identifier
+  instanceId: string;            // Target browser instance
+  name: string;                  // Human-readable name
+  intention: string;             // Description of goal
+  commands: TaskCommand[];       // Commands to execute
+  status: TaskStatus;            // Current status
+  currentCommandIndex: number;   // Index of current/last command
+  createdAt: number;             // Creation timestamp (ms)
+  startedAt?: number;            // Execution start timestamp
+  completedAt?: number;          // Completion timestamp
+  error?: TaskError;             // Error details if failed
+  metadata?: Record&lt;string, unknown&gt;;  // Custom metadata
+}</code></pre><h3>Task ID Format</h3>
+<p>Task IDs are generated as: <code>task_{timestamp}_{counter}</code></p>
+<ul>
+<li><code>timestamp</code>: Unix timestamp in milliseconds</li>
+<li><code>counter</code>: Incremental counter in base36</li>
+</ul>
+<p>Example: <code>task_1234567890123_1</code>, <code>task_1234567890456_2a</code></p>
+<hr>
+<h2>Task Status</h2>
+<pre><code class="language-typescript">type TaskStatus = &#039;queued&#039; | &#039;running&#039; | &#039;completed&#039; | &#039;failed&#039; | &#039;cancelled&#039;;</code></pre><div class="table-wrapper"><table><thead><tr><th>Status</th><th>Description</th></tr></thead><tbody><tr><td><code>queued</code></td><td>Waiting in queue for execution</td></tr><tr><td><code>running</code></td><td>Currently executing commands</td></tr><tr><td><code>completed</code></td><td>All commands finished successfully</td></tr><tr><td><code>failed</code></td><td>A command failed; execution stopped</td></tr><tr><td><code>cancelled</code></td><td>Cancelled by user before completion</td></tr></tbody></table></div><h3>Status Transitions</h3>
+<pre><code class="language-plaintext">Submit ──► queued ──► running ──┬──► completed (all commands succeeded)
+                                │
+                                ├──► failed (a command errored)
+                                │
+                                └──► cancelled (user cancelled)</code></pre><hr>
+<h2>Command Structure</h2>
+<p>A command represents a single MCP tool invocation.</p>
+<pre><code class="language-typescript">interface TaskCommand {
+  id: string;                    // Unique identifier
+  tool_name: string;             // MCP tool name
+  intention: string;             // Description of purpose
+  args: Record&lt;string, unknown&gt;; // Tool arguments
+  status: CommandStatus;         // Current status
+  startedAt?: number;            // Execution start timestamp
+  completedAt?: number;          // Completion timestamp
+  result?: unknown;              // Result if successful
+  error?: CommandError;          // Error if failed
+}</code></pre><h3>Command ID Format</h3>
+<p>Command IDs are derived from task ID: <code>{taskId}_cmd_{index}</code></p>
+<p>Example: <code>task_1234567890123_1_cmd_0</code>, <code>task_1234567890123_1_cmd_1</code></p>
+<hr>
+<h2>Command Status</h2>
+<pre><code class="language-typescript">type CommandStatus = &#039;pending&#039; | &#039;running&#039; | &#039;success&#039; | &#039;error&#039; | &#039;skipped&#039;;</code></pre><div class="table-wrapper"><table><thead><tr><th>Status</th><th>Description</th></tr></thead><tbody><tr><td><code>pending</code></td><td>Not yet executed</td></tr><tr><td><code>running</code></td><td>Currently executing</td></tr><tr><td><code>success</code></td><td>Completed successfully</td></tr><tr><td><code>error</code></td><td>Failed with error</td></tr><tr><td><code>skipped</code></td><td>Skipped (previous command failed or task cancelled)</td></tr></tbody></table></div><h3>Status Transitions</h3>
+<pre><code class="language-plaintext">pending ──► running ──┬──► success
+                      │
+                      └──► error
+
+pending ──► skipped (if previous command fails or task cancelled)
+running ──► skipped (if task cancelled mid-execution)</code></pre><hr>
+<h2>Available Tools</h2>
+<p>Commands use MCP tools defined in the browser-control server. Common tools:</p>
+<h3>browser_navigate</h3>
+<p>Navigate, reload, wait for elements.</p>
+<pre><code class="language-json">{
+  &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+  &quot;intention&quot;: &quot;Go to Google&quot;,
+  &quot;args&quot;: {
+    &quot;action&quot;: &quot;goto&quot;,
+    &quot;url&quot;: &quot;https://www.google.com&quot;
+  }
+}</code></pre><p>Actions:</p>
+<ul>
+<li><code>goto</code> - Navigate to URL (requires <code>url</code>)</li>
+<li><code>reload</code> - Reload current page</li>
+<li><code>back</code> - Go back</li>
+<li><code>forward</code> - Go forward</li>
+<li><code>wait_for</code> - Wait for selector (requires <code>selector</code>, optional <code>timeout</code>)</li>
+</ul>
+<h3>browser_interact</h3>
+<p>Interact with page elements.</p>
+<pre><code class="language-json">{
+  &quot;tool_name&quot;: &quot;browser_interact&quot;,
+  &quot;intention&quot;: &quot;Click login button&quot;,
+  &quot;args&quot;: {
+    &quot;action&quot;: &quot;click&quot;,
+    &quot;selector&quot;: &quot;#login-btn&quot;
+  }
+}</code></pre><p>Actions:</p>
+<ul>
+<li><code>click</code> - Click element (requires <code>selector</code>)</li>
+<li><code>type</code> - Type text (requires <code>selector</code>, <code>text</code>)</li>
+<li><code>keyboard</code> - Press key (requires <code>key</code>)</li>
+<li><code>scroll</code> - Scroll page (requires <code>direction</code>, optional <code>amount</code>)</li>
+<li><code>select</code> - Select dropdown option (requires <code>selector</code>, <code>value</code>)</li>
+<li><code>hover</code> - Hover over element (requires <code>selector</code>)</li>
+</ul>
+<h3>browser_content</h3>
+<p>Get page content or screenshot.</p>
+<pre><code class="language-json">{
+  &quot;tool_name&quot;: &quot;browser_content&quot;,
+  &quot;intention&quot;: &quot;Take screenshot&quot;,
+  &quot;args&quot;: {
+    &quot;action&quot;: &quot;screenshot&quot;
+  }
+}</code></pre><p>Actions:</p>
+<ul>
+<li><code>screenshot</code> - Capture screenshot (optional <code>selector</code> for element)</li>
+<li><code>get_text</code> - Get text content (requires <code>selector</code>)</li>
+<li><code>get_html</code> - Get HTML (optional <code>selector</code>)</li>
+<li><code>get_viewport_dom</code> - Get viewport DOM</li>
+</ul>
+<h3>browser_execute</h3>
+<p>Execute JavaScript in page context.</p>
+<pre><code class="language-json">{
+  &quot;tool_name&quot;: &quot;browser_execute&quot;,
+  &quot;intention&quot;: &quot;Get page title&quot;,
+  &quot;args&quot;: {
+    &quot;action&quot;: &quot;evaluate&quot;,
+    &quot;script&quot;: &quot;return document.title&quot;
+  }
+}</code></pre><h3>browser_instance</h3>
+<p>Manage browser instances (typically not used in tasks).</p>
+<hr>
+<h2>Error Structure</h2>
+<h3>Task Error</h3>
+<pre><code class="language-typescript">interface TaskError {
+  code: string;           // Error code
+  message: string;        // Human-readable message
+  commandId?: string;     // ID of failed command (if applicable)
+}</code></pre><h3>Command Error</h3>
+<pre><code class="language-typescript">interface CommandError {
+  code: string;           // Error code
+  message: string;        // Human-readable message
+}</code></pre><h3>Common Error Codes</h3>
+<div class="table-wrapper"><table><thead><tr><th>Code</th><th>Description</th></tr></thead><tbody><tr><td><code>EXECUTION_ERROR</code></td><td>Tool execution failed</td></tr><tr><td><code>COMMAND_TIMEOUT</code></td><td>Command exceeded timeout</td></tr><tr><td><code>CANCELLED</code></td><td>Task was cancelled</td></tr><tr><td><code>INSTANCE_DISCONNECTED</code></td><td>Browser disconnected</td></tr><tr><td><code>INVALID_ARGUMENTS</code></td><td>Invalid tool arguments</td></tr></tbody></table></div><hr>
+<h2>Example Tasks</h2>
+<h3>Simple Navigation</h3>
+<pre><code class="language-json">{
+  &quot;task_name&quot;: &quot;Open Google&quot;,
+  &quot;task_intention&quot;: &quot;Navigate to Google homepage&quot;,
+  &quot;commands&quot;: [
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Go to Google&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://www.google.com&quot; }
+    }
+  ]
+}</code></pre><h3>Form Submission</h3>
+<pre><code class="language-json">{
+  &quot;task_name&quot;: &quot;Login&quot;,
+  &quot;task_intention&quot;: &quot;Log into the application&quot;,
+  &quot;commands&quot;: [
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Go to login page&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://app.example.com/login&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Wait for form&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;wait_for&quot;, &quot;selector&quot;: &quot;#login-form&quot;, &quot;timeout&quot;: 5000 }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Enter email&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;type&quot;, &quot;selector&quot;: &quot;#email&quot;, &quot;text&quot;: &quot;user@example.com&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Enter password&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;type&quot;, &quot;selector&quot;: &quot;#password&quot;, &quot;text&quot;: &quot;password123&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Click submit&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;click&quot;, &quot;selector&quot;: &quot;button[type=submit]&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Wait for dashboard&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;wait_for&quot;, &quot;selector&quot;: &quot;.dashboard&quot;, &quot;timeout&quot;: 10000 }
+    }
+  ]
+}</code></pre><h3>Data Extraction</h3>
+<pre><code class="language-json">{
+  &quot;task_name&quot;: &quot;Extract Product Info&quot;,
+  &quot;task_intention&quot;: &quot;Get product details from page&quot;,
+  &quot;commands&quot;: [
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Go to product page&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://shop.example.com/product/123&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Wait for content&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;wait_for&quot;, &quot;selector&quot;: &quot;.product-details&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_content&quot;,
+      &quot;intention&quot;: &quot;Get product title&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;get_text&quot;, &quot;selector&quot;: &quot;.product-title&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_content&quot;,
+      &quot;intention&quot;: &quot;Get product price&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;get_text&quot;, &quot;selector&quot;: &quot;.product-price&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_content&quot;,
+      &quot;intention&quot;: &quot;Screenshot product image&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;screenshot&quot;, &quot;selector&quot;: &quot;.product-image&quot; }
+    }
+  ]
+}</code></pre><h3>Search and Navigate</h3>
+<pre><code class="language-json">{
+  &quot;task_name&quot;: &quot;Wikipedia Search&quot;,
+  &quot;task_intention&quot;: &quot;Search Wikipedia and read article&quot;,
+  &quot;commands&quot;: [
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Go to Wikipedia&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://en.wikipedia.org&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Click search box&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;click&quot;, &quot;selector&quot;: &quot;#searchInput&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Type search query&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;type&quot;, &quot;selector&quot;: &quot;#searchInput&quot;, &quot;text&quot;: &quot;Artificial Intelligence&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Press Enter to search&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;keyboard&quot;, &quot;key&quot;: &quot;Enter&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Wait for article&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;wait_for&quot;, &quot;selector&quot;: &quot;#firstHeading&quot;, &quot;timeout&quot;: 10000 }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Scroll down&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;scroll&quot;, &quot;direction&quot;: &quot;down&quot;, &quot;amount&quot;: 500 }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_content&quot;,
+      &quot;intention&quot;: &quot;Take screenshot&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;screenshot&quot; }
+    }
+  ]
+}</code></pre><hr>
+<h2>Metadata</h2>
+<p>The optional <code>metadata</code> field allows you to attach custom data to tasks:</p>
+<pre><code class="language-json">{
+  &quot;task_name&quot;: &quot;API Test&quot;,
+  &quot;task_intention&quot;: &quot;Test API endpoint&quot;,
+  &quot;metadata&quot;: {
+    &quot;requestId&quot;: &quot;req-abc-123&quot;,
+    &quot;userId&quot;: &quot;user-456&quot;,
+    &quot;environment&quot;: &quot;staging&quot;,
+    &quot;retryCount&quot;: 0
+  },
+  &quot;commands&quot;: [...]
+}</code></pre><p>Metadata is preserved throughout task lifecycle and included in responses:</p>
+<ul>
+<li><code>task_submit_response</code></li>
+<li><code>task_status_response</code></li>
+<li><code>GET /tasks/:id</code></li>
+</ul>
+<p>Use cases:</p>
+<ul>
+<li>Correlating tasks with external systems</li>
+<li>Tracking request origins</li>
+<li>Custom retry logic</li>
+<li>Analytics and logging</li>
+</ul>
+<hr>
+<h2>Validation Rules</h2>
+<h3>Task Validation</h3>
+<ol>
+<li><code>task_name</code> - Required, non-empty string</li>
+<li><code>task_intention</code> - Required, non-empty string</li>
+<li><code>commands</code> - Required, non-empty array</li>
+<li><code>instanceId</code> - Optional; if provided, must be a connected instance</li>
+</ol>
+<h3>Command Validation</h3>
+<ol>
+<li><code>tool_name</code> - Required, must be a valid MCP tool</li>
+<li><code>intention</code> - Required, non-empty string</li>
+<li><code>args</code> - Required, must be valid for the tool</li>
+</ol>
+<p>Invalid tasks are rejected with an error response.</p>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

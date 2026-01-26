@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Handling Popups Guide - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html" class="active">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Handling Popups Guide</h1>
+<p>Deal with alerts, dialogs, authentication prompts, popup windows, and overlays in browser automation.</p>
+<h2>Overview</h2>
+<p>Modern web applications use various types of popups:</p>
+<ol>
+<li><strong>JavaScript Alerts</strong> - <code>alert()</code>, <code>confirm()</code>, <code>prompt()</code></li>
+<li><strong>Modal Dialogs</strong> - HTML/CSS overlays</li>
+<li><strong>Popup Windows</strong> - New browser windows</li>
+<li><strong>Authentication Prompts</strong> - HTTP Basic/NTLM auth</li>
+<li><strong>Cookie Consent</strong> - GDPR banners</li>
+<li><strong>Notifications</strong> - Browser permission requests</li>
+</ol>
+<h2>JavaScript Alerts</h2>
+<h3>Alert Dialog</h3>
+<pre><code class="language-plaintext"># Handle simple alert
+browser_interact
+  action: &quot;dialog&quot;
+  dialogAction: &quot;accept&quot;</code></pre><h3>Confirm Dialog</h3>
+<pre><code class="language-plaintext"># Accept (click OK)
+browser_interact
+  action: &quot;dialog&quot;
+  dialogAction: &quot;accept&quot;
+
+# Or dismiss (click Cancel)
+browser_interact
+  action: &quot;dialog&quot;
+  dialogAction: &quot;dismiss&quot;</code></pre><h3>Prompt Dialog</h3>
+<pre><code class="language-plaintext"># Enter text and accept
+browser_interact
+  action: &quot;dialog&quot;
+  dialogAction: &quot;accept&quot;
+  dialogText: &quot;My response&quot;
+
+# Or dismiss without entering text
+browser_interact
+  action: &quot;dialog&quot;
+  dialogAction: &quot;dismiss&quot;</code></pre><h3>Pre-configure Dialog Handling</h3>
+<pre><code class="language-plaintext"># Set up handler before triggering action
+browser_interact
+  action: &quot;dialog&quot;
+  dialogAction: &quot;accept&quot;
+  dialogText: &quot;auto-response&quot;
+
+# Now click button that shows dialog
+browser_interact action=&quot;click&quot; selector=&quot;#show-prompt&quot;</code></pre><h2>Modal Dialogs (HTML/CSS)</h2>
+<h3>Close via X Button</h3>
+<pre><code class="language-plaintext">browser_interact
+  action: &quot;click&quot;
+  selector: &quot;.modal .close-button&quot;</code></pre><h3>Close via Overlay Click</h3>
+<pre><code class="language-plaintext">browser_interact
+  action: &quot;click&quot;
+  selector: &quot;.modal-overlay&quot;</code></pre><h3>Interact with Modal Content</h3>
+<pre><code class="language-plaintext"># Wait for modal to appear
+browser_interact
+  action: &quot;type&quot;
+  selector: &quot;.modal input[name=&#039;email&#039;]&quot;
+  text: &quot;user@example.com&quot;
+  waitForSelector: true
+
+# Fill modal form
+browser_interact action=&quot;type&quot; selector=&quot;.modal #name&quot; text=&quot;John Doe&quot;
+
+# Click modal action button
+browser_interact action=&quot;click&quot; selector=&quot;.modal .submit-btn&quot;</code></pre><h3>Dismiss Modal with Escape</h3>
+<pre><code class="language-plaintext">browser_interact
+  action: &quot;press&quot;
+  key: &quot;Escape&quot;</code></pre><h3>Wait for Modal to Close</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    await new Promise(resolve =&gt; {
+      const check = () =&gt; {
+        const modal = document.querySelector(&#039;.modal&#039;);
+        if (!modal || modal.style.display === &#039;none&#039;) {
+          resolve();
+        } else {
+          setTimeout(check, 100);
+        }
+      };
+      check();
+    });</code></pre><h2>Cookie Consent Banners</h2>
+<h3>Common Patterns</h3>
+<pre><code class="language-plaintext"># Accept cookies
+browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const selectors = [
+      &#039;#accept-cookies&#039;,
+      &#039;.cookie-accept&#039;,
+      &#039;[data-action=&quot;accept-cookies&quot;]&#039;,
+      &#039;button:contains(&quot;Accept&quot;)&#039;,
+      &#039;.consent-accept&#039;
+    ];
+
+    for (const sel of selectors) {
+      const btn = document.querySelector(sel);
+      if (btn) {
+        btn.click();
+        return true;
+      }
+    }
+    return false;</code></pre><h3>Specific Consent Managers</h3>
+<p><strong>CookieBot:</strong></p>
+<pre><code class="language-plaintext">browser_interact action=&quot;click&quot; selector=&quot;#CybotCookiebotDialogBodyButtonAccept&quot;</code></pre><p><strong>OneTrust:</strong></p>
+<pre><code class="language-plaintext">browser_interact action=&quot;click&quot; selector=&quot;#onetrust-accept-btn-handler&quot;</code></pre><p><strong>TrustArc:</strong></p>
+<pre><code class="language-plaintext">browser_interact action=&quot;click&quot; selector=&quot;.trustarc-agree-btn&quot;</code></pre><h3>Dismiss If Present</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const banner = document.querySelector(&#039;.cookie-banner&#039;);
+    if (banner) {
+      const acceptBtn = banner.querySelector(&#039;button&#039;);
+      if (acceptBtn) acceptBtn.click();
+    }</code></pre><h2>Popup Windows</h2>
+<h3>Wait for New Window</h3>
+<pre><code class="language-plaintext"># Click link that opens popup
+browser_interact action=&quot;click&quot; selector=&quot;a[target=&#039;_blank&#039;]&quot;
+
+# List all tabs/windows
+browser_tab action=&quot;list&quot;</code></pre><h3>Switch to Popup Window</h3>
+<pre><code class="language-plaintext"># Get tab list
+browser_tab action=&quot;list&quot;
+# Returns tabs with IDs
+
+# Switch to new tab
+browser_tab action=&quot;switch&quot; tabId=&quot;&lt;popup-tab-id&gt;&quot;</code></pre><h3>Interact with Popup</h3>
+<pre><code class="language-plaintext"># Switch to popup
+browser_tab action=&quot;switch&quot; tabId=&quot;&lt;popup-id&gt;&quot;
+
+# Do work in popup
+browser_content action=&quot;extract&quot; selector=&quot;body&quot;
+
+# Close popup
+browser_tab action=&quot;close&quot;
+
+# Switch back to main window
+browser_tab action=&quot;switch&quot; tabId=&quot;&lt;main-tab-id&gt;&quot;</code></pre><h3>Handle window.open Popups</h3>
+<pre><code class="language-plaintext"># Some sites use window.open
+browser_interact action=&quot;click&quot; selector=&quot;#open-popup&quot;
+
+# Wait for popup to load
+browser_execute
+  action: &quot;evaluate&quot;
+  script: &quot;await new Promise(r =&gt; setTimeout(r, 1000))&quot;
+
+# List tabs to find new one
+browser_tab action=&quot;list&quot;</code></pre><h2>Authentication Dialogs</h2>
+<h3>HTTP Basic Auth</h3>
+<p>Pass credentials in URL:</p>
+<pre><code class="language-plaintext">browser_navigate
+  action: &quot;goto&quot;
+  url: &quot;https://username:password@example.com/protected&quot;</code></pre><h3>Form-Based Auth Popups</h3>
+<pre><code class="language-plaintext"># Wait for auth modal
+browser_interact
+  action: &quot;type&quot;
+  selector: &quot;#auth-modal input[name=&#039;username&#039;]&quot;
+  text: &quot;myuser&quot;
+  waitForSelector: true
+
+browser_interact action=&quot;type&quot; selector=&quot;#auth-modal input[name=&#039;password&#039;]&quot; text=&quot;mypass&quot;
+browser_interact action=&quot;click&quot; selector=&quot;#auth-modal button[type=&#039;submit&#039;]&quot;</code></pre><h3>OAuth Popup Flow</h3>
+<pre><code class="language-plaintext"># Click OAuth login button
+browser_interact action=&quot;click&quot; selector=&quot;#login-with-google&quot;
+
+# Wait for popup
+browser_execute
+  action: &quot;evaluate&quot;
+  script: &quot;await new Promise(r =&gt; setTimeout(r, 2000))&quot;
+
+# List tabs to find OAuth popup
+browser_tab action=&quot;list&quot;
+
+# Switch to OAuth popup
+browser_tab action=&quot;switch&quot; tabId=&quot;&lt;oauth-popup-id&gt;&quot;
+
+# Complete OAuth flow in popup
+browser_interact action=&quot;type&quot; selector=&quot;#email&quot; text=&quot;user@gmail.com&quot;
+browser_interact action=&quot;click&quot; selector=&quot;#next&quot;
+# ... continue OAuth flow
+
+# Popup may close automatically, switch back
+browser_tab action=&quot;list&quot;
+browser_tab action=&quot;switch&quot; tabId=&quot;&lt;main-tab-id&gt;&quot;</code></pre><h2>Browser Permission Dialogs</h2>
+<h3>Notification Permission</h3>
+<pre><code class="language-plaintext"># Grant notification permission via Chrome flags or context
+browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    // Check current permission
+    return Notification.permission;</code></pre><h3>Geolocation Permission</h3>
+<p>Permissions are typically handled at browser launch or mocked:</p>
+<pre><code class="language-plaintext">browser_emulate
+  action: &quot;setGeolocation&quot;
+  latitude: 37.7749
+  longitude: -122.4194</code></pre><h3>Camera/Microphone</h3>
+<p>These require browser-level configuration, not page-level handling.</p>
+<h2>Print Dialogs</h2>
+<h3>Cancel Print Dialog</h3>
+<pre><code class="language-plaintext"># If print dialog appears, press Escape
+browser_interact action=&quot;press&quot; key=&quot;Escape&quot;</code></pre><h3>Handle Print Preview</h3>
+<p>Print preview opens as a new page:</p>
+<pre><code class="language-plaintext"># Cancel via keyboard
+browser_interact action=&quot;press&quot; key=&quot;Escape&quot;</code></pre><h2>Overlay Dismissal</h2>
+<h3>Loading Overlays</h3>
+<p>Wait for overlay to disappear:</p>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    await new Promise(resolve =&gt; {
+      const check = () =&gt; {
+        const overlay = document.querySelector(&#039;.loading-overlay&#039;);
+        if (!overlay || getComputedStyle(overlay).display === &#039;none&#039;) {
+          resolve();
+        } else {
+          setTimeout(check, 100);
+        }
+      };
+      check();
+    });</code></pre><h3>Marketing Overlays</h3>
+<pre><code class="language-plaintext"># Try common dismiss patterns
+browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    // Try close button
+    const closeBtn = document.querySelector(&#039;.popup-close, .modal-close, [aria-label=&quot;Close&quot;]&#039;);
+    if (closeBtn) {
+      closeBtn.click();
+      return &#039;closed via button&#039;;
+    }
+
+    // Try clicking outside
+    const overlay = document.querySelector(&#039;.overlay, .modal-backdrop&#039;);
+    if (overlay) {
+      overlay.click();
+      return &#039;closed via overlay&#039;;
+    }
+
+    return &#039;no overlay found&#039;;</code></pre><h3>Newsletter Signup Popups</h3>
+<pre><code class="language-plaintext">browser_interact action=&quot;click&quot; selector=&quot;.newsletter-popup .close&quot;
+# Or
+browser_interact action=&quot;press&quot; key=&quot;Escape&quot;</code></pre><h2>Iframe Dialogs</h2>
+<h3>Dialogs Inside Iframes</h3>
+<p>Some dialogs appear inside iframes:</p>
+<pre><code class="language-plaintext"># List frames
+browser_tab action=&quot;list&quot;
+
+# If dialog is in iframe, you need to find the frame
+browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const iframe = document.querySelector(&#039;iframe.dialog-frame&#039;);
+    const doc = iframe?.contentDocument;
+    const btn = doc?.querySelector(&#039;.close-dialog&#039;);
+    if (btn) btn.click();</code></pre><h2>Timing Considerations</h2>
+<h3>Wait for Dialog to Appear</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    await new Promise(resolve =&gt; {
+      const check = () =&gt; {
+        const dialog = document.querySelector(&#039;.dialog&#039;);
+        if (dialog &amp;&amp; getComputedStyle(dialog).display !== &#039;none&#039;) {
+          resolve();
+        } else {
+          setTimeout(check, 100);
+        }
+      };
+      check();
+    });</code></pre><h3>Wait for Dialog Animation</h3>
+<pre><code class="language-plaintext"># Many dialogs have CSS transitions
+browser_execute
+  action: &quot;evaluate&quot;
+  script: &quot;await new Promise(r =&gt; setTimeout(r, 300))&quot;
+
+# Then interact
+browser_interact action=&quot;click&quot; selector=&quot;.dialog button&quot;</code></pre><h2>Common Popup Patterns</h2>
+<h3>Exit Intent Popups</h3>
+<p>These appear when cursor moves toward browser chrome:</p>
+<pre><code class="language-plaintext"># Wait for popup
+browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    // Simulate mouse leaving viewport to trigger
+    document.dispatchEvent(new MouseEvent(&#039;mouseout&#039;, {
+      clientY: -1,
+      relatedTarget: null
+    }));
+    await new Promise(r =&gt; setTimeout(r, 500));
+
+# Close the popup
+browser_interact action=&quot;click&quot; selector=&quot;.exit-popup .close&quot;</code></pre><h3>Timed Popups</h3>
+<p>Popups that appear after N seconds:</p>
+<pre><code class="language-plaintext"># Just wait and dismiss
+browser_execute
+  action: &quot;evaluate&quot;
+  script: &quot;await new Promise(r =&gt; setTimeout(r, 10000))&quot;
+
+browser_interact action=&quot;click&quot; selector=&quot;.timed-popup .close&quot;</code></pre><h3>Scroll-Triggered Popups</h3>
+<pre><code class="language-plaintext"># Scroll to trigger
+browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    window.scrollTo(0, document.body.scrollHeight * 0.5);
+    await new Promise(r =&gt; setTimeout(r, 500));
+
+# Dismiss
+browser_interact action=&quot;click&quot; selector=&quot;.scroll-popup .close&quot;</code></pre><h2>Error Handling</h2>
+<h3>Popup Not Found</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const popup = document.querySelector(&#039;.popup&#039;);
+    if (!popup) {
+      console.log(&#039;No popup present - continuing&#039;);
+      return false;
+    }
+    popup.querySelector(&#039;.close&#039;)?.click();
+    return true;</code></pre><h3>Multiple Popups</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    // Close all visible popups
+    const popups = document.querySelectorAll(&#039;.popup, .modal&#039;);
+    popups.forEach(popup =&gt; {
+      const close = popup.querySelector(&#039;.close, [aria-label=&quot;Close&quot;]&#039;);
+      if (close) close.click();
+    });
+    return popups.length;</code></pre><h2>Best Practices</h2>
+<h3>1. Handle Popups Early</h3>
+<p>Check for and dismiss popups at the start:</p>
+<pre><code class="language-plaintext"># At page load, dismiss any popups
+browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const dismissPopups = () =&gt; {
+      document.querySelectorAll(&#039;.popup .close&#039;).forEach(btn =&gt; btn.click());
+    };
+    dismissPopups();</code></pre><h3>2. Use Robust Selectors</h3>
+<pre><code class="language-plaintext"># Multiple fallback selectors
+browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const selectors = [&#039;.close&#039;, &#039;.dismiss&#039;, &#039;[aria-label=&quot;Close&quot;]&#039;, &#039;.x-btn&#039;];
+    for (const sel of selectors) {
+      const btn = document.querySelector(`.modal ${sel}`);
+      if (btn) {
+        btn.click();
+        return true;
+      }
+    }
+    return false;</code></pre><h3>3. Don&#39;t Assume Popup Exists</h3>
+<pre><code class="language-plaintext"># Conditional handling
+browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const popup = document.querySelector(&#039;.cookie-banner&#039;);
+    if (popup) {
+      popup.querySelector(&#039;button&#039;)?.click();
+    }</code></pre><h3>4. Wait for Animations</h3>
+<pre><code class="language-plaintext"># After dismissing, wait for animation
+browser_interact action=&quot;click&quot; selector=&quot;.modal .close&quot;
+browser_execute
+  action: &quot;evaluate&quot;
+  script: &quot;await new Promise(r =&gt; setTimeout(r, 300))&quot;</code></pre><h2>Troubleshooting</h2>
+<h3>Popup Won&#39;t Close</h3>
+<ol>
+<li>Check selector is correct</li>
+<li>Look for multiple nested modals</li>
+<li>Check if close requires JavaScript</li>
+<li>Try Escape key</li>
+<li>Check for overlapping elements</li>
+</ol>
+<h3>Can&#39;t Interact with Popup Content</h3>
+<ol>
+<li>Wait for popup animation to complete</li>
+<li>Check if content is in iframe</li>
+<li>Verify popup is actually visible</li>
+<li>Check z-index issues</li>
+</ol>
+<h3>Dialog Keeps Reappearing</h3>
+<ol>
+<li>Check for localStorage/cookie persistence</li>
+<li>Look for session-based triggering</li>
+<li>May need to accept/complete rather than dismiss</li>
+</ol>
+<h2>Related</h2>
+<ul>
+<li><a href="../tools/browser-interact.html">browser_interact</a> - Dialog handling</li>
+<li><a href="../tools/browser-tab.html">browser_tab</a> - Managing popup windows</li>
+<li><a href="form-filling.html">Form Filling</a> - Interacting with modal forms</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

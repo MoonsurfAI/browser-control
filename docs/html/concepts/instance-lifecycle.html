@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instance Lifecycle - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html" class="active">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Instance Lifecycle</h1>
+<p>This document explains how browser instances are created, managed, and destroyed in Moonsurf.</p>
+<h2>Overview</h2>
+<p>A browser instance in Moonsurf represents:</p>
+<ul>
+<li>A running browser process</li>
+<li>A connected Chrome extension</li>
+<li>A WebSocket communication channel</li>
+<li>Associated state (downloads, tabs, etc.)</li>
+</ul>
+<h2>Lifecycle Stages</h2>
+<pre><code class="language-plaintext">┌─────────────┐     ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│   Launch    │────►│  Register   │────►│  Operate    │────►│   Close     │
+│             │     │             │     │             │     │             │
+│ - Spawn     │     │ - Assign ID │     │ - Tool calls│     │ - Cleanup   │
+│ - Extension │     │ - WebSocket │     │ - Downloads │     │ - Unregister│
+│ - Wait      │     │ - Download  │     │ - State     │     │ - Kill proc │
+│             │     │   watcher   │     │             │     │             │
+└─────────────┘     └─────────────┘     └─────────────┘     └─────────────┘</code></pre><h2>Stage 1: Launch</h2>
+<p>When <code>browser_instance action:new</code> is called:</p>
+<h3>1.1 Prepare Environment</h3>
+<pre><code class="language-javascript">// Determine browser mode and paths
+const mode = options.mode || &#039;chromium&#039;;
+const browserPath = findBrowserPath(mode);
+const userDataDir = getUserDataDir(mode);</code></pre><h3>1.2 Ensure Extension</h3>
+<pre><code class="language-javascript">// For chromium/testing modes
+await ensureExtension();
+// Downloads from CDN if not present: ~/.moonsurf/extension/</code></pre><h3>1.3 Spawn Process</h3>
+<pre><code class="language-javascript">const args = [
+  `--user-data-dir=${userDataDir}`,
+  `--load-extension=${extensionPath}`,
+  &#039;--no-first-run&#039;,
+  // ... more flags
+];
+
+const process = spawn(browserPath, args);</code></pre><h3>1.4 Wait for Extension Connection</h3>
+<pre><code class="language-javascript">// Poll for new connected instance (up to 30 seconds)
+while (Date.now() - startTime &lt; 30000) {
+  const newInstance = findNewConnectedInstance();
+  if (newInstance) return newInstance;
+  await sleep(100);
+}
+throw new Error(&#039;Extension failed to connect&#039;);</code></pre><h2>Stage 2: Register</h2>
+<p>When the extension connects:</p>
+<h3>2.1 Extension Sends Registration</h3>
+<pre><code class="language-javascript">// Extension POSTs to /register
+POST /register
+{
+  &quot;userAgent&quot;: &quot;Mozilla/5.0...&quot;,
+  &quot;windowId&quot;: 123
+}</code></pre><h3>2.2 Server Assigns Resources</h3>
+<pre><code class="language-javascript">// Server assigns instance ID and WebSocket port
+const instanceId = `inst_${timestamp}_${random}`;
+const port = getNextAvailablePort(); // 3301-3399
+
+instances.set(instanceId, {
+  id: instanceId,
+  port: port,
+  userAgent: request.userAgent,
+  windowId: request.windowId,
+  connectedAt: Date.now()
+});</code></pre><h3>2.3 WebSocket Server Started</h3>
+<pre><code class="language-javascript">// Start WebSocket server for this instance
+startWebSocketServer(port);
+
+// Return to extension
+{ &quot;instanceId&quot;: instanceId, &quot;port&quot;: port }</code></pre><h3>2.4 Extension Connects via WebSocket</h3>
+<pre><code class="language-javascript">// Extension connects to ws://localhost:{port}
+ws.send({ type: &quot;hello&quot;, instanceId: instanceId });
+
+// Server validates and confirms
+ws.send({ type: &quot;welcome&quot;, instanceId: instanceId });</code></pre><h3>2.5 Download Watcher Started</h3>
+<pre><code class="language-javascript">// Start watching download directory
+downloadWatcher.watchDirectory(instanceId, downloadDir);</code></pre><h2>Stage 3: Operate</h2>
+<p>During normal operation:</p>
+<h3>3.1 Tool Call Flow</h3>
+<pre><code class="language-plaintext">AI Client                MCP Server              Extension              Browser
+    │                        │                       │                     │
+    │  tools/call            │                       │                     │
+    │ ─────────────────────► │                       │                     │
+    │                        │  tool_call (WS)       │                     │
+    │                        │ ────────────────────► │                     │
+    │                        │                       │  Execute            │
+    │                        │                       │ ──────────────────► │
+    │                        │                       │                     │
+    │                        │                       │  Result             │
+    │                        │                       │ ◄────────────────── │
+    │                        │  tool_result (WS)     │                     │
+    │                        │ ◄──────────────────── │                     │
+    │  MCP response          │                       │                     │
+    │ ◄───────────────────── │                       │                     │</code></pre><h3>3.2 Instance State</h3>
+<p>Each instance tracks:</p>
+<pre><code class="language-javascript">{
+  id: &quot;inst_xxx&quot;,           // Unique identifier
+  port: 3301,               // WebSocket port
+  ws: WebSocket,            // Connection to extension
+  userAgent: &quot;...&quot;,         // Browser user agent
+  windowId: 123,            // Chrome window ID
+  connectedAt: timestamp,   // When connected
+  lastActivity: timestamp   // Last tool call
+}</code></pre><h3>3.3 Pending Calls</h3>
+<p>Tool calls are tracked with timeouts:</p>
+<pre><code class="language-javascript">const callId = `call_${counter++}`;
+pendingCalls.set(callId, {
+  resolve: ...,
+  reject: ...,
+  timeout: setTimeout(() =&gt; reject(&#039;Timeout&#039;), 30000)
+});
+ws.send({ type: &#039;tool_call&#039;, id: callId, name: toolName, args: args });</code></pre><h2>Stage 4: Close</h2>
+<p>When <code>browser_instance action:close</code> is called or connection is lost:</p>
+<h3>4.1 Graceful Close</h3>
+<pre><code class="language-javascript">// Send SIGTERM to browser process
+process.kill(&#039;SIGTERM&#039;);
+
+// Wait 5 seconds, then force kill
+setTimeout(() =&gt; {
+  if (!process.killed) {
+    process.kill(&#039;SIGKILL&#039;);
+  }
+}, 5000);</code></pre><h3>4.2 Cleanup</h3>
+<pre><code class="language-javascript">// Stop download watcher
+downloadWatcher.stopWatching(instanceId);
+
+// Remove from instance manager
+instances.delete(instanceId);
+portToInstance.delete(port);
+
+// Notify task manager (fails running tasks)
+taskManager.handleInstanceDisconnect(instanceId);</code></pre><h3>4.3 WebSocket Close</h3>
+<pre><code class="language-javascript">// Extension disconnection triggers cleanup
+ws.on(&#039;close&#039;, () =&gt; {
+  instanceManager.unregister(instanceId);
+});</code></pre><h2>Abnormal Termination</h2>
+<h3>Browser Crash</h3>
+<p>If the browser process crashes:</p>
+<ol>
+<li>WebSocket connection closes</li>
+<li>Server detects disconnect</li>
+<li>Cleanup runs automatically</li>
+<li>Running tasks are failed</li>
+</ol>
+<h3>Extension Disconnect</h3>
+<p>If the extension disconnects unexpectedly:</p>
+<ol>
+<li>Server receives WebSocket close event</li>
+<li>Instance is unregistered</li>
+<li>Download watcher is stopped</li>
+<li>Tasks are failed with <code>INSTANCE_DISCONNECTED</code></li>
+</ol>
+<h3>Server Shutdown</h3>
+<p>On SIGTERM:</p>
+<ol>
+<li>HTTP server closes</li>
+<li>All WebSocket connections close</li>
+<li>Browser processes receive SIGTERM</li>
+<li>Clean exit</li>
+</ol>
+<h2>Instance ID Format</h2>
+<p>Instance IDs follow this format:</p>
+<pre><code class="language-plaintext">inst_{timestamp}_{random}
+
+Example: inst_1706234567890_abc123</code></pre><ul>
+<li><code>inst_</code> - Prefix for instance IDs</li>
+<li><code>{timestamp}</code> - Unix timestamp in milliseconds</li>
+<li><code>{random}</code> - 6 character random string</li>
+</ul>
+<h2>Port Allocation</h2>
+<p>WebSocket ports are allocated from a pool:</p>
+<pre><code class="language-javascript">const PORT_START = 3301;
+const PORT_END = 3399;
+
+function getNextAvailablePort() {
+  for (let port = PORT_START; port &lt;= PORT_END; port++) {
+    if (!portToInstance.has(port)) {
+      return port;
+    }
+  }
+  return null; // No ports available
+}</code></pre><p>Maximum concurrent instances: <strong>99</strong></p>
+<h2>Instance Lookup</h2>
+<p>Instances can be found by:</p>
+<pre><code class="language-javascript">// By ID
+getInstance(instanceId)
+
+// By port
+getInstanceByPort(port)
+
+// First connected (when no ID specified)
+getFirstConnectedInstance()
+
+// All connected
+getConnectedInstances()</code></pre><h2>Related Topics</h2>
+<ul>
+<li><a href="architecture.html">Architecture</a> - System overview</li>
+<li><a href="extension-communication.html">Extension Communication</a> - WebSocket protocol</li>
+<li><a href="../tools/browser-instance.html">browser_instance Tool</a> - Tool reference</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

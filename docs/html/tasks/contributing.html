@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contributing - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html" class="active">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Contributing</h1>
+<p>This guide covers development setup, code conventions, and contribution guidelines for the Task Execution System.</p>
+<h2>Development Setup</h2>
+<h3>Prerequisites</h3>
+<ul>
+<li>Node.js 18+</li>
+<li>npm or yarn</li>
+<li>Chrome/Chromium browser</li>
+<li>(Optional) Local Chrome extension for development</li>
+</ul>
+<h3>Clone and Install</h3>
+<pre><code class="language-bash">git clone https://github.com/MoonsurfAI/browser-control.git
+cd browser-control
+npm install</code></pre><h3>Build</h3>
+<pre><code class="language-bash">npm run build</code></pre><p>This compiles TypeScript to JavaScript in the <code>dist/</code> directory.</p>
+<h3>Run in Development</h3>
+<pre><code class="language-bash"># Standard run
+npm start
+
+# With local Chrome extension
+EXTENSION_PATH=../chrome-extension/dist npm start
+
+# With custom configuration
+TASKS_WS_PORT=4000 TASKS_COMMAND_TIMEOUT=120000 npm start</code></pre><h3>Watch Mode</h3>
+<p>For active development:</p>
+<pre><code class="language-bash">npm run build -- --watch</code></pre><p>In another terminal:</p>
+<pre><code class="language-bash">npm start</code></pre><hr>
+<h2>Code Organization</h2>
+<h3>Task System Files</h3>
+<div class="table-wrapper"><table><thead><tr><th>File</th><th>Purpose</th></tr></thead><tbody><tr><td><code>src/task-manager.ts</code></td><td>Core task queue and execution engine</td></tr><tr><td><code>src/task-websocket-server.ts</code></td><td>WebSocket API for task operations</td></tr><tr><td><code>src/types.ts</code></td><td>TypeScript type definitions</td></tr><tr><td><code>src/config.ts</code></td><td>Configuration loading</td></tr><tr><td><code>src/http-server.ts</code></td><td>REST endpoints</td></tr><tr><td><code>src/instance-manager.ts</code></td><td>Browser instance management</td></tr></tbody></table></div><h3>Documentation Files</h3>
+<div class="table-wrapper"><table><thead><tr><th>File</th><th>Purpose</th></tr></thead><tbody><tr><td><code>docs/tasks/README.md</code></td><td>Documentation index</td></tr><tr><td><code>docs/tasks/getting-started.md</code></td><td>Quick start guide</td></tr><tr><td><code>docs/tasks/architecture.md</code></td><td>System architecture</td></tr><tr><td><code>docs/tasks/websocket-api.md</code></td><td>WebSocket API reference</td></tr><tr><td><code>docs/tasks/rest-api.md</code></td><td>REST API reference</td></tr><tr><td><code>docs/tasks/task-format.md</code></td><td>Task and command structure</td></tr><tr><td><code>docs/tasks/error-handling.md</code></td><td>Error codes and handling</td></tr><tr><td><code>docs/tasks/examples.md</code></td><td>Usage examples</td></tr><tr><td><code>docs/tasks/configuration.md</code></td><td>Configuration options</td></tr><tr><td><code>docs/tasks/internals.md</code></td><td>Implementation details</td></tr><tr><td><code>docs/tasks/contributing.md</code></td><td>This file</td></tr></tbody></table></div><hr>
+<h2>Code Style</h2>
+<h3>TypeScript</h3>
+<ul>
+<li>Use TypeScript strict mode</li>
+<li>Prefer interfaces over type aliases for objects</li>
+<li>Export types explicitly</li>
+<li>Use descriptive variable names</li>
+</ul>
+<pre><code class="language-typescript">// Good
+interface TaskCommand {
+  id: string;
+  tool_name: string;
+  // ...
+}
+
+// Avoid
+type TC = { id: string; tn: string };</code></pre><h3>Async/Await</h3>
+<ul>
+<li>Always use async/await over raw promises</li>
+<li>Handle errors with try/catch</li>
+<li>Use Promise.all for parallel operations</li>
+</ul>
+<pre><code class="language-typescript">// Good
+async function executeCommands(commands: TaskCommand[]) {
+  for (const cmd of commands) {
+    await executeCommand(cmd);
+  }
+}
+
+// Avoid
+function executeCommands(commands: TaskCommand[]) {
+  return commands.reduce((p, cmd) =&gt;
+    p.then(() =&gt; executeCommand(cmd)),
+    Promise.resolve()
+  );
+}</code></pre><h3>Error Handling</h3>
+<ul>
+<li>Always provide error codes</li>
+<li>Include actionable error messages</li>
+<li>Log errors with context</li>
+</ul>
+<pre><code class="language-typescript">// Good
+command.error = {
+  code: &#039;ELEMENT_NOT_FOUND&#039;,
+  message: `Element not found: ${selector}`
+};
+console.error(`[TaskManager] Command ${command.id} failed: ${command.error.message}`);
+
+// Avoid
+command.error = { message: &#039;failed&#039; };</code></pre><h3>Naming Conventions</h3>
+<ul>
+<li>Classes: PascalCase (<code>TaskManager</code>)</li>
+<li>Functions/Methods: camelCase (<code>submitTask</code>)</li>
+<li>Constants: UPPER_SNAKE_CASE (<code>TASKS_WS_PORT</code>)</li>
+<li>Types/Interfaces: PascalCase (<code>TaskStatus</code>)</li>
+</ul>
+<hr>
+<h2>Testing</h2>
+<h3>Manual Testing</h3>
+<ol>
+<li><p>Start the server:</p>
+<pre><code class="language-bash">EXTENSION_PATH=../chrome-extension/dist npm start</code></pre></li>
+<li><p>Launch a browser instance via MCP.</p>
+</li>
+<li><p>Connect to task WebSocket:</p>
+<pre><code class="language-bash"># Using wscat
+npx wscat -c ws://localhost:3400</code></pre></li>
+<li><p>Submit a test task:</p>
+<pre><code class="language-json">{&quot;type&quot;:&quot;task_submit&quot;,&quot;task_name&quot;:&quot;Test&quot;,&quot;task_intention&quot;:&quot;Testing&quot;,&quot;commands&quot;:[{&quot;tool_name&quot;:&quot;browser_navigate&quot;,&quot;intention&quot;:&quot;Navigate&quot;,&quot;args&quot;:{&quot;action&quot;:&quot;goto&quot;,&quot;url&quot;:&quot;https://example.com&quot;}}]}</code></pre></li>
+</ol>
+<h3>Test Cases to Cover</h3>
+<ol>
+<li><strong>Happy Path</strong>: Task completes successfully</li>
+<li><strong>Error Handling</strong>: Command fails, task marked failed</li>
+<li><strong>Cancellation</strong>: Task cancelled mid-execution</li>
+<li><strong>Queue</strong>: Multiple tasks execute in order</li>
+<li><strong>Timeout</strong>: Command exceeds timeout</li>
+<li><strong>Disconnection</strong>: Browser disconnects during task</li>
+<li><strong>Validation</strong>: Invalid task rejected</li>
+<li><strong>Subscription</strong>: Progress events received correctly</li>
+</ol>
+<h3>Automated Testing</h3>
+<p>(Future improvement - not yet implemented)</p>
+<pre><code class="language-typescript">// Example test structure
+describe(&#039;TaskManager&#039;, () =&gt; {
+  describe(&#039;submitTask&#039;, () =&gt; {
+    it(&#039;should accept valid tasks&#039;);
+    it(&#039;should reject tasks without commands&#039;);
+    it(&#039;should reject tasks for disconnected instances&#039;);
+  });
+
+  describe(&#039;executeTask&#039;, () =&gt; {
+    it(&#039;should execute commands sequentially&#039;);
+    it(&#039;should stop on first error&#039;);
+    it(&#039;should respect timeout&#039;);
+  });
+});</code></pre><hr>
+<h2>Adding New Features</h2>
+<h3>Adding a New Message Type</h3>
+<ol>
+<li><p><strong>Define types</strong> in <code>src/types.ts</code>:</p>
+<pre><code class="language-typescript">export interface TaskPauseMessage {
+  type: &#039;task_pause&#039;;
+  taskId: string;
+}
+
+export interface TaskPauseResponse {
+  type: &#039;task_pause_response&#039;;
+  success: boolean;
+  taskId: string;
+}</code></pre></li>
+<li><p><strong>Add handler</strong> in <code>src/task-websocket-server.ts</code>:</p>
+<pre><code class="language-typescript">case &#039;task_pause&#039;:
+  handleTaskPause(ws, msg);
+  break;
+
+function handleTaskPause(ws: WebSocket, msg: TaskPauseMessage) {
+  const success = taskManager.pauseTask(msg.taskId);
+  ws.send(JSON.stringify({
+    type: &#039;task_pause_response&#039;,
+    success,
+    taskId: msg.taskId
+  }));
+}</code></pre></li>
+<li><p><strong>Implement logic</strong> in <code>src/task-manager.ts</code>:</p>
+<pre><code class="language-typescript">pauseTask(taskId: string): boolean {
+  const task = this.tasks.get(taskId);
+  if (!task || task.status !== &#039;running&#039;) return false;
+  task.status = &#039;paused&#039;;
+  return true;
+}</code></pre></li>
+<li><p><strong>Update documentation</strong>.</p>
+</li>
+</ol>
+<h3>Adding New Configuration</h3>
+<ol>
+<li><p><strong>Add to config</strong> in <code>src/config.ts</code>:</p>
+<pre><code class="language-typescript">tasks: {
+  // existing...
+  retryCount: parseNumber(process.env.TASKS_RETRY_COUNT, 0),
+}</code></pre></li>
+<li><p><strong>Use in code</strong>:</p>
+<pre><code class="language-typescript">const config = getConfig();
+for (let attempt = 0; attempt &lt;= config.tasks.retryCount; attempt++) {
+  // ...
+}</code></pre></li>
+<li><p><strong>Document</strong> in <code>docs/tasks/configuration.md</code>.</p>
+</li>
+</ol>
+<h3>Adding REST Endpoint</h3>
+<ol>
+<li><p><strong>Add route</strong> in <code>src/http-server.ts</code>:</p>
+<pre><code class="language-typescript">app.post(&#039;/tasks/:id/retry&#039;, (req, res) =&gt; {
+  const task = taskManager.getTask(req.params.id);
+  if (!task) {
+    return res.status(404).json({ error: &#039;Task not found&#039; });
+  }
+  const newTask = taskManager.retryTask(task.id);
+  res.json({ taskId: newTask.id });
+});</code></pre></li>
+<li><p><strong>Document</strong> in <code>docs/tasks/rest-api.md</code>.</p>
+</li>
+</ol>
+<hr>
+<h2>Pull Request Process</h2>
+<h3>Before Submitting</h3>
+<ol>
+<li><strong>Build passes</strong>: <code>npm run build</code></li>
+<li><strong>Manual testing</strong>: Test your changes with real browser</li>
+<li><strong>Documentation</strong>: Update relevant docs</li>
+<li><strong>Commit messages</strong>: Use descriptive messages</li>
+</ol>
+<h3>PR Description Template</h3>
+<pre><code class="language-markdown">## Summary
+Brief description of changes.
+
+## Changes
+- Added X feature
+- Fixed Y bug
+- Updated Z documentation
+
+## Testing
+Describe how you tested:
+- [ ] Manual testing with browser
+- [ ] Tested error cases
+- [ ] Tested edge cases
+
+## Documentation
+- [ ] Updated relevant docs
+- [ ] Added examples if applicable</code></pre><h3>Review Checklist</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Code follows project style</li>
+<li><input disabled="" type="checkbox"> Error handling is appropriate</li>
+<li><input disabled="" type="checkbox"> No console.log (use console.error for server logs)</li>
+<li><input disabled="" type="checkbox"> Types are properly defined</li>
+<li><input disabled="" type="checkbox"> Documentation is updated</li>
+</ul>
+<hr>
+<h2>Common Tasks</h2>
+<h3>Debugging Task Execution</h3>
+<ol>
+<li><p>Add logging:</p>
+<pre><code class="language-typescript">console.error(`[TaskManager] Debug: ${JSON.stringify(task)}`);</code></pre></li>
+<li><p>Check server output for <code>[TaskManager]</code> logs.</p>
+</li>
+<li><p>Use WebSocket client to observe events.</p>
+</li>
+</ol>
+<h3>Fixing Type Errors</h3>
+<p>If TypeScript complains about type compatibility:</p>
+<ol>
+<li>Check if types are properly exported from <code>types.ts</code></li>
+<li>Use type assertions when necessary:<pre><code class="language-typescript">if ((task.status as TaskStatus) === &#039;cancelled&#039;) {
+  // TypeScript knows status is &#039;cancelled&#039; here
+}</code></pre></li>
+</ol>
+<h3>Updating Dependencies</h3>
+<pre><code class="language-bash">npm update
+npm run build
+# Test manually</code></pre><hr>
+<h2>Architecture Decisions</h2>
+<h3>Why Per-Instance Queues?</h3>
+<p>Each browser instance has its own queue to:</p>
+<ul>
+<li>Prevent command conflicts</li>
+<li>Allow parallel execution across instances</li>
+<li>Simplify state management</li>
+</ul>
+<h3>Why EventEmitter?</h3>
+<p>EventEmitter pattern allows:</p>
+<ul>
+<li>Decoupling between execution and notification</li>
+<li>Multiple subscribers (WebSocket, REST, future integrations)</li>
+<li>Easy testing (mock listeners)</li>
+</ul>
+<h3>Why setImmediate for Execution?</h3>
+<p>Using <code>setImmediate()</code> to start queue processing allows:</p>
+<ul>
+<li>Callers to subscribe before first event</li>
+<li>Prevents race condition where first &quot;running&quot; event is missed</li>
+<li>Maintains responsive submission API</li>
+</ul>
+<hr>
+<h2>Getting Help</h2>
+<ul>
+<li><strong>Issues</strong>: Open GitHub issues for bugs or feature requests</li>
+<li><strong>Documentation</strong>: Check <code>docs/</code> for guides</li>
+<li><strong>Code</strong>: Read <code>src/</code> for implementation details</li>
+</ul>
+<hr>
+<h2>License</h2>
+<p>This project is licensed under the MIT License. See LICENSE file for details.</p>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Structure - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html" class="active">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Project Structure</h1>
+<p>Overview of the Moonsurf Browser Control codebase organization.</p>
+<h2>Directory Layout</h2>
+<pre><code class="language-plaintext">browser-control/
+├── src/                        # TypeScript source code
+│   ├── index.ts               # CLI entry point
+│   ├── config.ts              # Configuration management
+│   ├── types.ts               # TypeScript type definitions
+│   ├── http-server.ts         # HTTP/HTTPS server with SSE
+│   ├── websocket-server.ts    # Extension WebSocket server
+│   ├── instance-manager.ts    # Browser instance management
+│   ├── browser-launcher.ts    # Browser process spawning
+│   ├── mcp-handler.ts         # MCP protocol routing
+│   ├── tool-definitions.ts    # MCP tool definitions
+│   ├── task-manager.ts        # Task queue and execution
+│   ├── task-websocket-server.ts # Task WebSocket server
+│   ├── download-watcher.ts    # File download monitoring
+│   ├── sse-transport.ts       # SSE transport (legacy)
+│   └── skill-installer.ts     # Claude skill installer
+├── dist/                       # Compiled JavaScript (generated)
+├── docs/                       # Documentation
+├── skills/                     # Claude skill files
+│   └── moonsurf-browser/
+│       ├── SKILL.md           # Skill definition
+│       └── REFERENCE.md       # Tool reference
+├── package.json               # Package configuration
+├── tsconfig.json              # TypeScript configuration
+├── CLAUDE.md                  # Project instructions
+└── README.md                  # Project readme</code></pre><h2>Source Files</h2>
+<h3>Entry Point</h3>
+<h4><code>src/index.ts</code></h4>
+<p>CLI entry point that handles command-line arguments and starts the server.</p>
+<pre><code class="language-typescript">// Responsibilities:
+// - Parse CLI arguments (--help, --version, --install-skill)
+// - Start HTTP server
+// - Start Task WebSocket server
+// - Handle graceful shutdown</code></pre><h3>Configuration</h3>
+<h4><code>src/config.ts</code></h4>
+<p>Environment-based configuration with validation.</p>
+<pre><code class="language-typescript">// Key exports:
+export interface ServerConfig { ... }
+export function getConfig(): ServerConfig
+export function validateConfig(config): ValidationResult
+export function printConfigSummary(config): void</code></pre><p><strong>Configuration groups:</strong></p>
+<ul>
+<li>Server (port, host, public URL)</li>
+<li>Authentication (enabled, tokens)</li>
+<li>TLS (enabled, cert/key paths)</li>
+<li>CORS (enabled, origins)</li>
+<li>Rate limiting (enabled, limits)</li>
+<li>Browser (default mode, headless)</li>
+<li>Tasks (enabled, port, timeouts)</li>
+<li>Logging (level, audit)</li>
+</ul>
+<h3>Type Definitions</h3>
+<h4><code>src/types.ts</code></h4>
+<p>TypeScript interfaces for all data structures.</p>
+<pre><code class="language-typescript">// Core types:
+interface BrowserInstance { ... }
+interface RegistrationRequest { ... }
+
+// Task types:
+interface Task { ... }
+interface TaskCommand { ... }
+type TaskStatus = &#039;queued&#039; | &#039;running&#039; | &#039;completed&#039; | &#039;failed&#039; | &#039;cancelled&#039;
+type CommandStatus = &#039;pending&#039; | &#039;running&#039; | &#039;success&#039; | &#039;error&#039; | &#039;skipped&#039;
+
+// Message types:
+interface TaskSubmitMessage { ... }
+interface TaskProgressMessage { ... }
+interface TaskCompleteMessage { ... }
+// ... and more</code></pre><h3>HTTP Server</h3>
+<h4><code>src/http-server.ts</code></h4>
+<p>Main HTTP/HTTPS server with SSE support.</p>
+<pre><code class="language-typescript">// Features:
+// - CORS handling
+// - Token-based authentication
+// - Rate limiting
+// - SSE endpoint for MCP
+// - REST API endpoints
+// - Audit logging</code></pre><p><strong>Endpoints:</strong></p>
+<ul>
+<li><code>/health</code> - Health check</li>
+<li><code>/info</code> - Server info</li>
+<li><code>/sse</code> - SSE connection</li>
+<li><code>/message</code> - MCP requests</li>
+<li><code>/register</code> - Extension registration</li>
+<li><code>/instances</code> - List instances</li>
+<li><code>/tasks</code> - Task management</li>
+<li><code>/oauth/*</code> - OAuth compatibility</li>
+</ul>
+<h3>WebSocket Server</h3>
+<h4><code>src/websocket-server.ts</code></h4>
+<p>WebSocket server for browser extension communication.</p>
+<pre><code class="language-typescript">// Responsibilities:
+// - Accept extension connections
+// - Route messages to/from extension
+// - Handle tool execution
+// - Manage connection lifecycle</code></pre><p><strong>Port range:</strong> 3301-3399 (one per instance)</p>
+<h3>Instance Manager</h3>
+<h4><code>src/instance-manager.ts</code></h4>
+<p>Manages browser instance lifecycle.</p>
+<pre><code class="language-typescript">// Key exports:
+export const instanceManager: InstanceManager
+
+// Methods:
+register(request): BrowserInstance | null
+unregister(instanceId): void
+getConnectedInstances(): BrowserInstance[]
+getDefaultInstance(): BrowserInstance | null
+queueToolCall(instanceId, tool, args): Promise&lt;result&gt;</code></pre><p><strong>Responsibilities:</strong></p>
+<ul>
+<li>Track registered instances</li>
+<li>Assign WebSocket ports</li>
+<li>Queue tool calls</li>
+<li>Handle disconnections</li>
+</ul>
+<h3>Browser Launcher</h3>
+<h4><code>src/browser-launcher.ts</code></h4>
+<p>Spawns browser processes with extension.</p>
+<pre><code class="language-typescript">// Key exports:
+export async function launchBrowser(options): Promise&lt;LaunchResult&gt;
+export function getBrowserPath(mode): string
+export function getExtensionPath(): string</code></pre><p><strong>Browser modes:</strong></p>
+<ul>
+<li><code>chrome</code> - System Chrome</li>
+<li><code>chromium</code> - Chromium browser</li>
+<li><code>testing</code> - Chrome for Testing</li>
+</ul>
+<p><strong>Extension loading:</strong></p>
+<ul>
+<li>Downloads from GitHub releases if needed</li>
+<li>Extracts to <code>~/.moonsurf/extension/</code></li>
+<li>Passes to browser via <code>--load-extension</code></li>
+</ul>
+<h3>MCP Handler</h3>
+<h4><code>src/mcp-handler.ts</code></h4>
+<p>Routes MCP protocol requests.</p>
+<pre><code class="language-typescript">// Key exports:
+export async function handleMCPRequest(request): Promise&lt;response&gt;
+
+// Supported methods:
+// - initialize
+// - tools/list
+// - tools/call
+// - resources/list
+// - prompts/list</code></pre><h3>Tool Definitions</h3>
+<h4><code>src/tool-definitions.ts</code></h4>
+<p>Defines the 9 consolidated MCP tools.</p>
+<pre><code class="language-typescript">// Key exports:
+export const tools: Tool[]
+export async function executeTool(name, args): Promise&lt;result&gt;
+
+// Tools defined:
+// - browser_instance
+// - browser_tab
+// - browser_navigate
+// - browser_content
+// - browser_interact
+// - browser_execute
+// - browser_network
+// - browser_emulate
+// - browser_debug</code></pre><p>Each tool:</p>
+<ul>
+<li>Has a JSON schema for input validation</li>
+<li>Maps actions to extension commands</li>
+<li>Returns structured results</li>
+</ul>
+<h3>Task Manager</h3>
+<h4><code>src/task-manager.ts</code></h4>
+<p>Manages task queue and execution.</p>
+<pre><code class="language-typescript">// Key exports:
+export const taskManager: TaskManager
+
+// Methods:
+submitTask(message): SubmitResult
+getTask(taskId): Task | undefined
+listTasks(instanceId?, status?): Task[]
+cancelTask(taskId): boolean
+
+// Events:
+taskManager.on(&#039;progress&#039;, handler)
+taskManager.on(&#039;complete&#039;, handler)</code></pre><p><strong>Responsibilities:</strong></p>
+<ul>
+<li>Queue tasks per instance</li>
+<li>Execute commands sequentially</li>
+<li>Emit progress events</li>
+<li>Handle cancellation</li>
+</ul>
+<h3>Task WebSocket Server</h3>
+<h4><code>src/task-websocket-server.ts</code></h4>
+<p>WebSocket server for task management.</p>
+<pre><code class="language-typescript">// Key exports:
+export function startTaskWebSocketServer(port): WebSocketServer
+export function stopTaskWebSocketServer(): void
+export function getTaskWebSocketUrl(): string</code></pre><p><strong>Message types:</strong></p>
+<ul>
+<li><code>task_submit</code> / <code>task_submit_response</code></li>
+<li><code>task_list</code> / <code>task_list_response</code></li>
+<li><code>task_status</code> / <code>task_status_response</code></li>
+<li><code>task_cancel</code> / <code>task_cancel_response</code></li>
+<li><code>subscribe_task</code> / <code>subscribe_instance</code> / <code>subscribe_ack</code></li>
+<li><code>task_progress</code></li>
+<li><code>task_complete</code></li>
+</ul>
+<h3>Download Watcher</h3>
+<h4><code>src/download-watcher.ts</code></h4>
+<p>Monitors browser downloads directory.</p>
+<pre><code class="language-typescript">// Key exports:
+export class DownloadWatcher
+export function getDownloads(): Download[]</code></pre><p>Uses <code>chokidar</code> for file system watching.</p>
+<h3>Skill Installer</h3>
+<h4><code>src/skill-installer.ts</code></h4>
+<p>Installs Claude skill for browser automation.</p>
+<pre><code class="language-typescript">// Key exports:
+export function installSkill(): void
+export function uninstallSkill(): void
+export function showSkillStatus(): void</code></pre><p>Copies skill files to <code>~/.claude/skills/moonsurf-browser/</code>.</p>
+<h2>Package Configuration</h2>
+<h3><code>package.json</code></h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;@moonsurf/browser-control&quot;,
+  &quot;type&quot;: &quot;module&quot;,
+  &quot;main&quot;: &quot;dist/index.js&quot;,
+  &quot;bin&quot;: {
+    &quot;moonsurf&quot;: &quot;dist/index.js&quot;
+  },
+  &quot;scripts&quot;: {
+    &quot;build&quot;: &quot;tsc&quot;,
+    &quot;dev&quot;: &quot;tsc --watch&quot;,
+    &quot;start&quot;: &quot;node dist/index.js&quot;,
+    &quot;typecheck&quot;: &quot;tsc --noEmit&quot;
+  }
+}</code></pre><h3><code>tsconfig.json</code></h3>
+<pre><code class="language-json">{
+  &quot;compilerOptions&quot;: {
+    &quot;target&quot;: &quot;ES2022&quot;,
+    &quot;module&quot;: &quot;NodeNext&quot;,
+    &quot;moduleResolution&quot;: &quot;NodeNext&quot;,
+    &quot;strict&quot;: true,
+    &quot;outDir&quot;: &quot;dist&quot;
+  }
+}</code></pre><h2>Data Flow</h2>
+<pre><code class="language-plaintext">AI Client
+    ↓ SSE/HTTP
+HTTP Server (http-server.ts)
+    ↓ MCP
+MCP Handler (mcp-handler.ts)
+    ↓ Tool call
+Tool Definitions (tool-definitions.ts)
+    ↓ Queue
+Instance Manager (instance-manager.ts)
+    ↓ WebSocket
+WebSocket Server (websocket-server.ts)
+    ↓
+Chrome Extension (external)
+    ↓
+Browser DOM</code></pre><h2>Related</h2>
+<ul>
+<li><a href="local-setup.html">Local Setup</a> - Development environment</li>
+<li><a href="internals.html">Internals</a> - Deep architecture dive</li>
+<li><a href="adding-tools.html">Adding Tools</a> - Extend functionality</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

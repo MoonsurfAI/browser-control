@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>browser_debug - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html" class="active">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>browser_debug</h1>
+<p>Debugging and monitoring tools. Handle dialogs, view console logs, get performance metrics, trace execution, and track downloads.</p>
+<h2>Actions</h2>
+<div class="table-wrapper"><table><thead><tr><th>Action</th><th>Description</th></tr></thead><tbody><tr><td><code>dialog</code></td><td>Handle JavaScript dialogs (alert, confirm, prompt)</td></tr><tr><td><code>console</code></td><td>Get console log messages</td></tr><tr><td><code>performance</code></td><td>Get performance metrics</td></tr><tr><td><code>trace_start</code></td><td>Start performance tracing</td></tr><tr><td><code>trace_stop</code></td><td>Stop tracing and get results</td></tr><tr><td><code>downloads</code></td><td>List tracked downloads</td></tr><tr><td><code>download_wait</code></td><td>Wait for a download to complete</td></tr></tbody></table></div><h2>Parameters</h2>
+<div class="table-wrapper"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>action</code></td><td>string</td><td>Yes</td><td>One of the actions above</td></tr><tr><td><code>instanceId</code></td><td>string</td><td>No</td><td>Target browser instance</td></tr><tr><td><code>tabId</code></td><td>number</td><td>No</td><td>Target tab ID</td></tr><tr><td><code>dialogAction</code></td><td>string</td><td>For <code>dialog</code></td><td><code>accept</code> or <code>dismiss</code></td></tr><tr><td><code>promptText</code></td><td>string</td><td>For <code>dialog</code></td><td>Text for prompt dialogs</td></tr><tr><td><code>level</code></td><td>string</td><td>For <code>console</code></td><td>Log level filter</td></tr><tr><td><code>clear</code></td><td>boolean</td><td>For <code>console</code></td><td>Clear logs after retrieval</td></tr><tr><td><code>categories</code></td><td>string[]</td><td>For <code>trace_start</code></td><td>Trace categories</td></tr><tr><td><code>state</code></td><td>string</td><td>For <code>downloads</code></td><td>Download state filter</td></tr><tr><td><code>downloadId</code></td><td>string</td><td>For <code>download_wait</code></td><td>Download ID to wait for</td></tr><tr><td><code>timeout</code></td><td>number</td><td>For <code>download_wait</code></td><td>Wait timeout (ms)</td></tr></tbody></table></div><h2>Action: dialog</h2>
+<p>Handle JavaScript dialogs (alert, confirm, prompt).</p>
+<h3>Accept Alert/Confirm</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_debug&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;dialog&quot;,
+    &quot;dialogAction&quot;: &quot;accept&quot;
+  }
+}</code></pre><h3>Dismiss Dialog</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_debug&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;dialog&quot;,
+    &quot;dialogAction&quot;: &quot;dismiss&quot;
+  }
+}</code></pre><h3>Answer Prompt</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_debug&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;dialog&quot;,
+    &quot;dialogAction&quot;: &quot;accept&quot;,
+    &quot;promptText&quot;: &quot;My answer&quot;
+  }
+}</code></pre><h3>Response</h3>
+<pre><code class="language-json">{
+  &quot;handled&quot;: true,
+  &quot;dialogType&quot;: &quot;confirm&quot;,
+  &quot;message&quot;: &quot;Are you sure?&quot;,
+  &quot;action&quot;: &quot;accept&quot;
+}</code></pre><h2>Action: console</h2>
+<p>Get console log messages.</p>
+<h3>Get All Logs</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_debug&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;console&quot;
+  }
+}</code></pre><h3>Get Error Logs Only</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_debug&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;console&quot;,
+    &quot;level&quot;: &quot;error&quot;
+  }
+}</code></pre><h3>Get Warnings</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_debug&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;console&quot;,
+    &quot;level&quot;: &quot;warning&quot;
+  }
+}</code></pre><h3>Get and Clear Logs</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_debug&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;console&quot;,
+    &quot;level&quot;: &quot;all&quot;,
+    &quot;clear&quot;: true
+  }
+}</code></pre><h3>Response</h3>
+<pre><code class="language-json">{
+  &quot;logs&quot;: [
+    {
+      &quot;level&quot;: &quot;log&quot;,
+      &quot;text&quot;: &quot;Page loaded&quot;,
+      &quot;timestamp&quot;: 1706234567890,
+      &quot;source&quot;: &quot;console&quot;
+    },
+    {
+      &quot;level&quot;: &quot;error&quot;,
+      &quot;text&quot;: &quot;Failed to fetch /api/data&quot;,
+      &quot;timestamp&quot;: 1706234567900,
+      &quot;source&quot;: &quot;network&quot;
+    }
+  ],
+  &quot;count&quot;: 2
+}</code></pre><h3>Log Levels</h3>
+<ul>
+<li><code>log</code> - Regular logs</li>
+<li><code>info</code> - Informational messages</li>
+<li><code>warning</code> - Warnings</li>
+<li><code>error</code> - Errors</li>
+<li><code>all</code> - All levels</li>
+</ul>
+<h2>Action: performance</h2>
+<p>Get performance metrics for the page.</p>
+<h3>Request</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_debug&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;performance&quot;
+  }
+}</code></pre><h3>Response</h3>
+<pre><code class="language-json">{
+  &quot;metrics&quot;: {
+    &quot;Timestamp&quot;: 1234567.89,
+    &quot;Documents&quot;: 1,
+    &quot;Frames&quot;: 1,
+    &quot;JSEventListeners&quot;: 42,
+    &quot;Nodes&quot;: 1250,
+    &quot;LayoutCount&quot;: 5,
+    &quot;RecalcStyleCount&quot;: 8,
+    &quot;LayoutDuration&quot;: 0.023,
+    &quot;RecalcStyleDuration&quot;: 0.015,
+    &quot;ScriptDuration&quot;: 0.456,
+    &quot;TaskDuration&quot;: 0.789,
+    &quot;JSHeapUsedSize&quot;: 12345678,
+    &quot;JSHeapTotalSize&quot;: 23456789
+  },
+  &quot;timing&quot;: {
+    &quot;navigationStart&quot;: 1706234567000,
+    &quot;domContentLoadedEventEnd&quot;: 1706234567500,
+    &quot;loadEventEnd&quot;: 1706234568000
+  }
+}</code></pre><h2>Action: trace_start</h2>
+<p>Start performance tracing for detailed analysis.</p>
+<h3>Basic Tracing</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_debug&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;trace_start&quot;
+  }
+}</code></pre><h3>With Specific Categories</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_debug&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;trace_start&quot;,
+    &quot;categories&quot;: [&quot;devtools.timeline&quot;, &quot;disabled-by-default-devtools.timeline&quot;]
+  }
+}</code></pre><h3>Response</h3>
+<pre><code class="language-json">{
+  &quot;tracing&quot;: true,
+  &quot;message&quot;: &quot;Tracing started&quot;
+}</code></pre><h2>Action: trace_stop</h2>
+<p>Stop tracing and get the trace data.</p>
+<h3>Request</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_debug&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;trace_stop&quot;
+  }
+}</code></pre><h3>Response</h3>
+<pre><code class="language-json">{
+  &quot;tracing&quot;: false,
+  &quot;trace&quot;: &quot;base64-encoded-trace-data...&quot;,
+  &quot;message&quot;: &quot;Tracing stopped&quot;
+}</code></pre><p>The trace can be loaded into Chrome DevTools Performance panel for analysis.</p>
+<h2>Action: downloads</h2>
+<p>List tracked downloads.</p>
+<h3>List All Downloads</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_debug&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;downloads&quot;
+  }
+}</code></pre><h3>List In-Progress Downloads</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_debug&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;downloads&quot;,
+    &quot;state&quot;: &quot;in_progress&quot;
+  }
+}</code></pre><h3>List Completed Downloads</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_debug&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;downloads&quot;,
+    &quot;state&quot;: &quot;complete&quot;
+  }
+}</code></pre><h3>Response</h3>
+<pre><code class="language-json">{
+  &quot;downloads&quot;: [
+    {
+      &quot;id&quot;: &quot;abc123def456&quot;,
+      &quot;instanceId&quot;: &quot;inst_xxx&quot;,
+      &quot;filename&quot;: &quot;report.pdf&quot;,
+      &quot;filepath&quot;: &quot;/Users/you/Downloads/report.pdf&quot;,
+      &quot;state&quot;: &quot;complete&quot;,
+      &quot;bytesReceived&quot;: 1234567,
+      &quot;totalBytes&quot;: 1234567,
+      &quot;progress&quot;: 100,
+      &quot;startTime&quot;: 1706234567000,
+      &quot;endTime&quot;: 1706234568000
+    },
+    {
+      &quot;id&quot;: &quot;xyz789abc123&quot;,
+      &quot;instanceId&quot;: &quot;inst_xxx&quot;,
+      &quot;filename&quot;: &quot;data.csv&quot;,
+      &quot;tempFilename&quot;: &quot;data.csv.crdownload&quot;,
+      &quot;filepath&quot;: &quot;/Users/you/Downloads/data.csv&quot;,
+      &quot;state&quot;: &quot;in_progress&quot;,
+      &quot;bytesReceived&quot;: 500000,
+      &quot;totalBytes&quot;: 1000000,
+      &quot;progress&quot;: 50,
+      &quot;startTime&quot;: 1706234569000
+    }
+  ],
+  &quot;downloadDirectory&quot;: &quot;/Users/you/Downloads&quot;,
+  &quot;count&quot;: 2
+}</code></pre><h3>Download States</h3>
+<ul>
+<li><code>in_progress</code> - Currently downloading</li>
+<li><code>complete</code> - Download finished successfully</li>
+<li><code>error</code> - Download failed</li>
+</ul>
+<h2>Action: download_wait</h2>
+<p>Wait for a download to complete.</p>
+<h3>Wait for Specific Download</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_debug&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;download_wait&quot;,
+    &quot;downloadId&quot;: &quot;abc123def456&quot;,
+    &quot;timeout&quot;: 60000
+  }
+}</code></pre><h3>Response (Success)</h3>
+<pre><code class="language-json">{
+  &quot;id&quot;: &quot;abc123def456&quot;,
+  &quot;filename&quot;: &quot;report.pdf&quot;,
+  &quot;filepath&quot;: &quot;/Users/you/Downloads/report.pdf&quot;,
+  &quot;state&quot;: &quot;complete&quot;,
+  &quot;bytesReceived&quot;: 1234567,
+  &quot;totalBytes&quot;: 1234567,
+  &quot;progress&quot;: 100,
+  &quot;startTime&quot;: 1706234567000,
+  &quot;endTime&quot;: 1706234568000
+}</code></pre><h3>Response (Error)</h3>
+<pre><code class="language-json">{
+  &quot;error&quot;: {
+    &quot;code&quot;: &quot;DOWNLOAD_ERROR&quot;,
+    &quot;message&quot;: &quot;Download timeout after 60000ms&quot;
+  }
+}</code></pre><h2>Examples</h2>
+<h3>Handle Confirmation Dialog</h3>
+<pre><code class="language-json">// 1. Click delete button (triggers confirm dialog)
+{ &quot;name&quot;: &quot;browser_interact&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;click&quot;, &quot;selector&quot;: &quot;.delete-btn&quot; }}
+
+// 2. Accept the confirmation
+{ &quot;name&quot;: &quot;browser_debug&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;dialog&quot;, &quot;dialogAction&quot;: &quot;accept&quot; }}</code></pre><h3>Debug Page Errors</h3>
+<pre><code class="language-json">// 1. Navigate to page
+{ &quot;name&quot;: &quot;browser_navigate&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://example.com&quot; }}
+
+// 2. Perform some actions...
+
+// 3. Check for errors
+{ &quot;name&quot;: &quot;browser_debug&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;console&quot;, &quot;level&quot;: &quot;error&quot; }}
+
+// If errors found, get more details
+{ &quot;name&quot;: &quot;browser_debug&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;console&quot;, &quot;level&quot;: &quot;all&quot; }}</code></pre><h3>Measure Page Performance</h3>
+<pre><code class="language-json">// 1. Start tracing
+{ &quot;name&quot;: &quot;browser_debug&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;trace_start&quot; }}
+
+// 2. Navigate to page
+{ &quot;name&quot;: &quot;browser_navigate&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://example.com&quot; }}
+
+// 3. Wait for load
+{ &quot;name&quot;: &quot;browser_navigate&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;wait&quot;, &quot;expression&quot;: &quot;document.readyState === &#039;complete&#039;&quot; }}
+
+// 4. Stop tracing
+{ &quot;name&quot;: &quot;browser_debug&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;trace_stop&quot; }}
+
+// 5. Get quick metrics
+{ &quot;name&quot;: &quot;browser_debug&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;performance&quot; }}</code></pre><h3>Download and Verify File</h3>
+<pre><code class="language-json">// 1. Click download button
+{ &quot;name&quot;: &quot;browser_interact&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;click&quot;, &quot;selector&quot;: &quot;.download-report&quot; }}
+
+// 2. List downloads to get the ID
+{ &quot;name&quot;: &quot;browser_debug&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;downloads&quot;, &quot;state&quot;: &quot;in_progress&quot; }}
+// Response: { &quot;downloads&quot;: [{ &quot;id&quot;: &quot;abc123&quot;, ... }] }
+
+// 3. Wait for download to complete
+{ &quot;name&quot;: &quot;browser_debug&quot;, &quot;arguments&quot;: {
+  &quot;action&quot;: &quot;download_wait&quot;,
+  &quot;downloadId&quot;: &quot;abc123&quot;,
+  &quot;timeout&quot;: 120000
+}}
+
+// 4. Verify completion
+{ &quot;name&quot;: &quot;browser_debug&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;downloads&quot;, &quot;state&quot;: &quot;complete&quot; }}</code></pre><h3>Monitor for JavaScript Errors</h3>
+<pre><code class="language-json">// 1. Clear existing logs
+{ &quot;name&quot;: &quot;browser_debug&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;console&quot;, &quot;level&quot;: &quot;all&quot;, &quot;clear&quot;: true }}
+
+// 2. Perform test actions
+{ &quot;name&quot;: &quot;browser_interact&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;click&quot;, &quot;selector&quot;: &quot;.risky-button&quot; }}
+
+// 3. Check for errors
+{ &quot;name&quot;: &quot;browser_debug&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;console&quot;, &quot;level&quot;: &quot;error&quot; }}</code></pre><h2>Notes</h2>
+<ul>
+<li>Dialog handling must be called after a dialog appears</li>
+<li>Console logs accumulate until cleared</li>
+<li>Performance metrics are point-in-time snapshots</li>
+<li>Trace data can be large; use for specific debugging</li>
+<li>Download tracking starts when browser instance launches</li>
+<li>Default download timeout is 5 minutes (300000ms)</li>
+</ul>
+<h2>Errors</h2>
+<div class="table-wrapper"><table><thead><tr><th>Error</th><th>Cause</th><th>Solution</th></tr></thead><tbody><tr><td>&quot;No dialog present&quot;</td><td>Dialog was already handled or doesn&#39;t exist</td><td>Check timing</td></tr><tr><td>&quot;Download not found&quot;</td><td>Invalid download ID</td><td>List downloads first</td></tr><tr><td>&quot;Download timeout&quot;</td><td>Download didn&#39;t complete in time</td><td>Increase timeout or check network</td></tr><tr><td>&quot;Tracing not active&quot;</td><td>trace_stop called without trace_start</td><td>Call trace_start first</td></tr></tbody></table></div><h2>Related</h2>
+<ul>
+<li><a href="browser-content.html">browser_content</a> - Screenshots for debugging</li>
+<li><a href="browser-execute.html">browser_execute</a> - Custom debugging scripts</li>
+<li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+<li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

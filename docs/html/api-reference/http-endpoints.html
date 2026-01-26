@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTTP Endpoints - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html" class="active">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>HTTP Endpoints</h1>
+<p>Complete reference for Moonsurf&#39;s REST API endpoints.</p>
+<h2>Base URL</h2>
+<ul>
+<li><strong>Local:</strong> <code>http://localhost:3300</code></li>
+<li><strong>Remote:</strong> <code>https://your-server.com:3300</code></li>
+<li><strong>Custom:</strong> Set via <code>PUBLIC_URL</code> environment variable</li>
+</ul>
+<h2>Health &amp; Info</h2>
+<h3>GET /health</h3>
+<p>Check server health status. No authentication required.</p>
+<p><strong>Request:</strong></p>
+<pre><code class="language-bash">curl http://localhost:3300/health</code></pre><p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;version&quot;: &quot;2.0.0&quot;,
+  &quot;connectedInstances&quot;: 2,
+  &quot;sseClients&quot;: 3,
+  &quot;auth&quot;: &quot;enabled&quot;,
+  &quot;authTokens&quot;: 2,
+  &quot;tls&quot;: &quot;disabled&quot;,
+  &quot;rateLimit&quot;: &quot;enabled&quot;,
+  &quot;rateLimitMax&quot;: 100
+}</code></pre><p><strong>Fields:</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>status</code></td><td>string</td><td>Always &quot;ok&quot; if healthy</td></tr><tr><td><code>version</code></td><td>string</td><td>Server version</td></tr><tr><td><code>connectedInstances</code></td><td>number</td><td>Active browser instances</td></tr><tr><td><code>sseClients</code></td><td>number</td><td>Connected MCP clients</td></tr><tr><td><code>auth</code></td><td>string</td><td>&quot;enabled&quot; or &quot;disabled&quot;</td></tr><tr><td><code>authTokens</code></td><td>number</td><td>Number of configured tokens</td></tr><tr><td><code>tls</code></td><td>string</td><td>&quot;enabled&quot; or &quot;disabled&quot;</td></tr><tr><td><code>rateLimit</code></td><td>string</td><td>&quot;enabled&quot; or &quot;disabled&quot;</td></tr><tr><td><code>rateLimitMax</code></td><td>number</td><td>Max requests per minute</td></tr></tbody></table></div><h3>GET /info</h3>
+<p>Get server configuration info. No authentication required.</p>
+<p><strong>Request:</strong></p>
+<pre><code class="language-bash">curl http://localhost:3300/info</code></pre><p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;moonsurf-mcp&quot;,
+  &quot;version&quot;: &quot;2.0.0&quot;,
+  &quot;endpoints&quot;: {
+    &quot;sse&quot;: &quot;http://localhost:3300/sse&quot;,
+    &quot;message&quot;: &quot;http://localhost:3300/message&quot;,
+    &quot;register&quot;: &quot;http://localhost:3300/register&quot;,
+    &quot;health&quot;: &quot;http://localhost:3300/health&quot;
+  },
+  &quot;websocket&quot;: {
+    &quot;protocol&quot;: &quot;ws&quot;,
+    &quot;host&quot;: &quot;localhost&quot;,
+    &quot;portRange&quot;: &quot;3301-3399&quot;
+  },
+  &quot;auth&quot;: {
+    &quot;required&quot;: false,
+    &quot;method&quot;: &quot;none&quot;
+  }
+}</code></pre><h2>MCP Endpoints</h2>
+<h3>GET /sse</h3>
+<p>Establish SSE connection for MCP protocol. <strong>Authentication required</strong> (when enabled).</p>
+<p><strong>Request:</strong></p>
+<pre><code class="language-bash"># With token in URL
+curl -N &quot;http://localhost:3300/sse?token=your-token&quot;
+
+# With Authorization header (not typical for SSE)
+curl -N -H &quot;Authorization: Bearer your-token&quot; http://localhost:3300/sse</code></pre><p><strong>Response:</strong> Server-Sent Events stream</p>
+<pre><code class="language-plaintext">event: endpoint
+data: http://localhost:3300/message?sessionId=abc123-def456
+
+event: message
+data: {&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:1,&quot;result&quot;:{...}}</code></pre><p><strong>Events:</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Event</th><th>Description</th></tr></thead><tbody><tr><td><code>endpoint</code></td><td>Connection established, contains message URL</td></tr><tr><td><code>message</code></td><td>MCP response to a request</td></tr></tbody></table></div><h3>POST /message</h3>
+<p>Send MCP request and receive response. <strong>Authentication required</strong> (when enabled).</p>
+<p><strong>Request:</strong></p>
+<pre><code class="language-bash">curl -X POST &quot;http://localhost:3300/message?sessionId=abc123&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -H &quot;Authorization: Bearer your-token&quot; \
+  -d &#039;{
+    &quot;jsonrpc&quot;: &quot;2.0&quot;,
+    &quot;id&quot;: 1,
+    &quot;method&quot;: &quot;tools/list&quot;
+  }&#039;</code></pre><p><strong>Query Parameters:</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Parameter</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>sessionId</code></td><td>No</td><td>SSE session ID for sending response via SSE</td></tr></tbody></table></div><p><strong>Request Body (JSON-RPC 2.0):</strong></p>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 1,
+  &quot;method&quot;: &quot;tools/list&quot;,
+  &quot;params&quot;: {}
+}</code></pre><p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 1,
+  &quot;result&quot;: {
+    &quot;tools&quot;: [...]
+  }
+}</code></pre><p><strong>MCP Methods:</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Method</th><th>Description</th></tr></thead><tbody><tr><td><code>tools/list</code></td><td>List available tools</td></tr><tr><td><code>tools/call</code></td><td>Execute a tool</td></tr><tr><td><code>resources/list</code></td><td>List resources (empty)</td></tr><tr><td><code>prompts/list</code></td><td>List prompts (empty)</td></tr><tr><td><code>initialize</code></td><td>Initialize MCP session</td></tr></tbody></table></div><h2>Browser Instance Management</h2>
+<h3>POST /register</h3>
+<p>Register a browser extension. <strong>Authentication required</strong> (when enabled).</p>
+<p>Called automatically by the Chrome extension when connecting.</p>
+<p><strong>Request:</strong></p>
+<pre><code class="language-bash">curl -X POST http://localhost:3300/register \
+  -H &quot;Content-Type: application/json&quot; \
+  -H &quot;Authorization: Bearer your-token&quot; \
+  -d &#039;{
+    &quot;extensionId&quot;: &quot;ext-abc123&quot;,
+    &quot;userAgent&quot;: &quot;Mozilla/5.0...&quot;,
+    &quot;windowId&quot;: 12345
+  }&#039;</code></pre><p><strong>Request Body:</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>extensionId</code></td><td>string</td><td>Extension identifier</td></tr><tr><td><code>userAgent</code></td><td>string</td><td>Browser user agent</td></tr><tr><td><code>windowId</code></td><td>number</td><td>Browser window ID</td></tr></tbody></table></div><p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;instanceId&quot;: &quot;inst_abc123&quot;,
+  &quot;port&quot;: 3301,
+  &quot;websocketUrl&quot;: &quot;ws://localhost:3301&quot;
+}</code></pre><h3>GET /instances</h3>
+<p>List connected browser instances. <strong>Authentication required</strong> (when enabled).</p>
+<p><strong>Request:</strong></p>
+<pre><code class="language-bash">curl -H &quot;Authorization: Bearer your-token&quot; \
+  http://localhost:3300/instances</code></pre><p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;instances&quot;: [
+    {
+      &quot;id&quot;: &quot;inst_abc123&quot;,
+      &quot;port&quot;: 3301,
+      &quot;userAgent&quot;: &quot;Mozilla/5.0...&quot;,
+      &quot;windowId&quot;: 12345,
+      &quot;connectedAt&quot;: &quot;2024-01-15T10:30:00.000Z&quot;,
+      &quot;lastActivity&quot;: &quot;2024-01-15T10:35:00.000Z&quot;
+    }
+  ]
+}</code></pre><h2>Task Endpoints</h2>
+<h3>GET /tasks</h3>
+<p>List tasks. <strong>Authentication required</strong> (when enabled).</p>
+<p><strong>Request:</strong></p>
+<pre><code class="language-bash"># List all tasks
+curl -H &quot;Authorization: Bearer your-token&quot; \
+  http://localhost:3300/tasks
+
+# Filter by instance
+curl -H &quot;Authorization: Bearer your-token&quot; \
+  &quot;http://localhost:3300/tasks?instanceId=inst_abc123&quot;
+
+# Filter by status
+curl -H &quot;Authorization: Bearer your-token&quot; \
+  &quot;http://localhost:3300/tasks?status=running&quot;</code></pre><p><strong>Query Parameters:</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Parameter</th><th>Values</th><th>Description</th></tr></thead><tbody><tr><td><code>instanceId</code></td><td>string</td><td>Filter by instance ID</td></tr><tr><td><code>status</code></td><td><code>queued</code>, <code>running</code>, <code>completed</code>, <code>failed</code>, <code>cancelled</code>, <code>all</code></td><td>Filter by status</td></tr></tbody></table></div><p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;tasks&quot;: [
+    {
+      &quot;id&quot;: &quot;task_xyz789&quot;,
+      &quot;name&quot;: &quot;Login Flow&quot;,
+      &quot;status&quot;: &quot;running&quot;,
+      &quot;instanceId&quot;: &quot;inst_abc123&quot;,
+      &quot;currentCommandIndex&quot;: 2,
+      &quot;totalCommands&quot;: 5,
+      &quot;createdAt&quot;: &quot;2024-01-15T10:30:00.000Z&quot;,
+      &quot;startedAt&quot;: &quot;2024-01-15T10:30:01.000Z&quot;,
+      &quot;completedAt&quot;: null
+    }
+  ],
+  &quot;wsEndpoint&quot;: &quot;ws://localhost:3400&quot;
+}</code></pre><h3>POST /tasks</h3>
+<p>Submit a new task. <strong>Authentication required</strong> (when enabled).</p>
+<p><strong>Request:</strong></p>
+<pre><code class="language-bash">curl -X POST http://localhost:3300/tasks \
+  -H &quot;Content-Type: application/json&quot; \
+  -H &quot;Authorization: Bearer your-token&quot; \
+  -d &#039;{
+    &quot;task_name&quot;: &quot;Login Flow&quot;,
+    &quot;task_intention&quot;: &quot;Log into the application&quot;,
+    &quot;instanceId&quot;: &quot;inst_abc123&quot;,
+    &quot;commands&quot;: [
+      {
+        &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+        &quot;intention&quot;: &quot;Go to login page&quot;,
+        &quot;args&quot;: { &quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://example.com/login&quot; }
+      },
+      {
+        &quot;tool_name&quot;: &quot;browser_interact&quot;,
+        &quot;intention&quot;: &quot;Enter email&quot;,
+        &quot;args&quot;: { &quot;action&quot;: &quot;type&quot;, &quot;selector&quot;: &quot;#email&quot;, &quot;text&quot;: &quot;user@example.com&quot; }
+      }
+    ]
+  }&#039;</code></pre><p><strong>Request Body:</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>task_name</code></td><td>string</td><td>Yes</td><td>Task display name</td></tr><tr><td><code>task_intention</code></td><td>string</td><td>No</td><td>Task purpose description</td></tr><tr><td><code>instanceId</code></td><td>string</td><td>No</td><td>Target browser instance</td></tr><tr><td><code>commands</code></td><td>array</td><td>Yes</td><td>Array of commands</td></tr></tbody></table></div><p><strong>Command Format:</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>tool_name</code></td><td>string</td><td>Yes</td><td>MCP tool name</td></tr><tr><td><code>intention</code></td><td>string</td><td>No</td><td>Command purpose</td></tr><tr><td><code>args</code></td><td>object</td><td>Yes</td><td>Tool arguments</td></tr></tbody></table></div><p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;taskId&quot;: &quot;task_xyz789&quot;,
+  &quot;queuePosition&quot;: 0,
+  &quot;wsEndpoint&quot;: &quot;ws://localhost:3400&quot;
+}</code></pre><h3>GET /tasks/:id</h3>
+<p>Get task details. <strong>Authentication required</strong> (when enabled).</p>
+<p><strong>Request:</strong></p>
+<pre><code class="language-bash">curl -H &quot;Authorization: Bearer your-token&quot; \
+  http://localhost:3300/tasks/task_xyz789</code></pre><p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;task&quot;: {
+    &quot;id&quot;: &quot;task_xyz789&quot;,
+    &quot;name&quot;: &quot;Login Flow&quot;,
+    &quot;intention&quot;: &quot;Log into the application&quot;,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;instanceId&quot;: &quot;inst_abc123&quot;,
+    &quot;commands&quot;: [
+      {
+        &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+        &quot;intention&quot;: &quot;Go to login page&quot;,
+        &quot;args&quot;: { &quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://example.com/login&quot; },
+        &quot;status&quot;: &quot;success&quot;,
+        &quot;result&quot;: { ... },
+        &quot;startedAt&quot;: &quot;2024-01-15T10:30:01.000Z&quot;,
+        &quot;completedAt&quot;: &quot;2024-01-15T10:30:03.000Z&quot;
+      }
+    ],
+    &quot;currentCommandIndex&quot;: 2,
+    &quot;createdAt&quot;: &quot;2024-01-15T10:30:00.000Z&quot;,
+    &quot;startedAt&quot;: &quot;2024-01-15T10:30:01.000Z&quot;,
+    &quot;completedAt&quot;: &quot;2024-01-15T10:30:10.000Z&quot;
+  }
+}</code></pre><h3>POST /tasks/:id/cancel</h3>
+<p>Cancel a running or queued task. <strong>Authentication required</strong> (when enabled).</p>
+<p><strong>Request:</strong></p>
+<pre><code class="language-bash">curl -X POST -H &quot;Authorization: Bearer your-token&quot; \
+  http://localhost:3300/tasks/task_xyz789/cancel</code></pre><p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Task cancelled&quot;
+}</code></pre><p>Or if task not found/already completed:</p>
+<pre><code class="language-json">{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Task not found or already completed&quot;
+}</code></pre><h2>OAuth Endpoints</h2>
+<p>These endpoints provide OAuth 2.0 compatibility for clients that require it.</p>
+<h3>GET /.well-known/oauth-authorization-server</h3>
+<p>OAuth server metadata.</p>
+<p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;issuer&quot;: &quot;http://localhost:3300&quot;,
+  &quot;authorization_endpoint&quot;: &quot;http://localhost:3300/oauth/authorize&quot;,
+  &quot;token_endpoint&quot;: &quot;http://localhost:3300/oauth/token&quot;,
+  &quot;response_types_supported&quot;: [&quot;code&quot;],
+  &quot;grant_types_supported&quot;: [&quot;authorization_code&quot;],
+  &quot;code_challenge_methods_supported&quot;: [&quot;S256&quot;],
+  &quot;registration_endpoint&quot;: &quot;http://localhost:3300/oauth/register&quot;
+}</code></pre><h3>POST /oauth/register</h3>
+<p>Register OAuth client.</p>
+<p><strong>Request:</strong></p>
+<pre><code class="language-bash">curl -X POST http://localhost:3300/oauth/register \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#039;{
+    &quot;client_name&quot;: &quot;My App&quot;,
+    &quot;redirect_uris&quot;: [&quot;http://localhost:8080/callback&quot;]
+  }&#039;</code></pre><p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;client_id&quot;: &quot;moonsurf-client&quot;,
+  &quot;client_secret&quot;: &quot;not-secret&quot;,
+  &quot;redirect_uris&quot;: [&quot;http://localhost:8080/callback&quot;],
+  &quot;client_name&quot;: &quot;My App&quot;
+}</code></pre><h3>GET /oauth/authorize</h3>
+<p>OAuth authorization. Auto-approves and redirects with code.</p>
+<p><strong>Request:</strong></p>
+<pre><code class="language-plaintext">GET /oauth/authorize?redirect_uri=http://localhost:8080/callback&amp;state=xyz</code></pre><p><strong>Response:</strong> 302 redirect to:</p>
+<pre><code class="language-plaintext">http://localhost:8080/callback?code=auto-approved-code&amp;state=xyz</code></pre><h3>POST /oauth/token</h3>
+<p>Exchange code for access token.</p>
+<p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;access_token&quot;: &quot;local-access-token&quot;,
+  &quot;token_type&quot;: &quot;Bearer&quot;,
+  &quot;expires_in&quot;: 86400
+}</code></pre><h2>Error Responses</h2>
+<h3>401 Unauthorized</h3>
+<pre><code class="language-json">{
+  &quot;error&quot;: &quot;Authentication required&quot;
+}</code></pre><h3>404 Not Found</h3>
+<pre><code class="language-json">{
+  &quot;error&quot;: &quot;Not found&quot;
+}</code></pre><h3>429 Too Many Requests</h3>
+<pre><code class="language-plaintext">HTTP/1.1 429 Too Many Requests
+Retry-After: 45
+
+{&quot;error&quot;: &quot;Too many requests&quot;, &quot;retryAfter&quot;: 45}</code></pre><h3>503 Service Unavailable</h3>
+<pre><code class="language-json">{
+  &quot;error&quot;: &quot;No available ports&quot;
+}</code></pre><h2>CORS Headers</h2>
+<p>All responses include CORS headers:</p>
+<pre><code class="language-plaintext">Access-Control-Allow-Origin: * (or specific origins if configured)
+Access-Control-Allow-Methods: GET, POST, OPTIONS
+Access-Control-Allow-Headers: Content-Type, Authorization
+Access-Control-Allow-Credentials: true (if enabled)</code></pre><p>Preflight requests (OPTIONS) return 204 No Content with headers.</p>
+<h2>Related</h2>
+<ul>
+<li><a href="sse-protocol.html">SSE Protocol</a> - SSE connection details</li>
+<li><a href="websocket-protocol.html">WebSocket Protocol</a> - Task WebSocket API</li>
+<li><a href="error-codes.html">Error Codes</a> - Error reference</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

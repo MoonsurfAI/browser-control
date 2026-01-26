@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>browser_content - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html" class="active">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>browser_content</h1>
+<p>Extract page content. Take screenshots, generate PDFs, get page HTML/text, query elements, and extract the visible DOM.</p>
+<h2>Actions</h2>
+<div class="table-wrapper"><table><thead><tr><th>Action</th><th>Description</th></tr></thead><tbody><tr><td><code>screenshot</code></td><td>Capture a screenshot</td></tr><tr><td><code>pdf</code></td><td>Generate a PDF of the page</td></tr><tr><td><code>get</code></td><td>Get page HTML or text content</td></tr><tr><td><code>query</code></td><td>Find elements matching a selector</td></tr><tr><td><code>attribute</code></td><td>Get an element&#39;s attribute value</td></tr><tr><td><code>get_viewport_dom</code></td><td>Get visible elements with layout info</td></tr></tbody></table></div><h2>Parameters</h2>
+<div class="table-wrapper"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>action</code></td><td>string</td><td>Yes</td><td>One of the actions above</td></tr><tr><td><code>instanceId</code></td><td>string</td><td>No</td><td>Target browser instance</td></tr><tr><td><code>tabId</code></td><td>number</td><td>No</td><td>Target tab ID</td></tr><tr><td><code>selector</code></td><td>string</td><td>For <code>get</code>, <code>query</code>, <code>attribute</code></td><td>CSS selector</td></tr><tr><td><code>attribute</code></td><td>string</td><td>For <code>attribute</code></td><td>Attribute name to get</td></tr><tr><td><code>format</code></td><td>string</td><td>No</td><td>Output format (varies by action)</td></tr><tr><td><code>quality</code></td><td>number</td><td>For <code>screenshot</code></td><td>Image quality 0-100 (jpeg/webp)</td></tr><tr><td><code>fullPage</code></td><td>boolean</td><td>For <code>screenshot</code></td><td>Capture full scrollable page</td></tr><tr><td><code>landscape</code></td><td>boolean</td><td>For <code>pdf</code></td><td>Landscape orientation</td></tr><tr><td><code>printBackground</code></td><td>boolean</td><td>For <code>pdf</code></td><td>Include background graphics</td></tr><tr><td><code>scale</code></td><td>number</td><td>For <code>pdf</code></td><td>Scale 0.1-2</td></tr><tr><td><code>paperWidth</code></td><td>number</td><td>For <code>pdf</code></td><td>Paper width in inches</td></tr><tr><td><code>paperHeight</code></td><td>number</td><td>For <code>pdf</code></td><td>Paper height in inches</td></tr><tr><td><code>maxElements</code></td><td>number</td><td>For <code>get_viewport_dom</code></td><td>Max elements to return (default: 500)</td></tr><tr><td><code>domDepth</code></td><td>number</td><td>For <code>get_viewport_dom</code></td><td>Max nesting depth (default: 2)</td></tr><tr><td><code>includeHidden</code></td><td>boolean</td><td>For <code>get_viewport_dom</code></td><td>Include hidden elements</td></tr><tr><td><code>minSize</code></td><td>number</td><td>For <code>get_viewport_dom</code></td><td>Min element size in pixels</td></tr></tbody></table></div><h2>Action: screenshot</h2>
+<p>Capture a screenshot of the page.</p>
+<h3>Basic Screenshot</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_content&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;screenshot&quot;
+  }
+}</code></pre><h3>Full Page Screenshot</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_content&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;screenshot&quot;,
+    &quot;fullPage&quot;: true
+  }
+}</code></pre><h3>JPEG with Quality</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_content&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;screenshot&quot;,
+    &quot;format&quot;: &quot;jpeg&quot;,
+    &quot;quality&quot;: 80
+  }
+}</code></pre><h3>WebP Format</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_content&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;screenshot&quot;,
+    &quot;format&quot;: &quot;webp&quot;,
+    &quot;quality&quot;: 85
+  }
+}</code></pre><h3>Response</h3>
+<pre><code class="language-json">{
+  &quot;screenshot&quot;: &quot;iVBORw0KGgoAAAANSUhEUgAA...&quot;,
+  &quot;format&quot;: &quot;png&quot;,
+  &quot;width&quot;: 1920,
+  &quot;height&quot;: 1080
+}</code></pre><p>The <code>screenshot</code> field contains base64-encoded image data.</p>
+<h2>Action: pdf</h2>
+<p>Generate a PDF of the page.</p>
+<h3>Basic PDF</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_content&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;pdf&quot;
+  }
+}</code></pre><h3>Landscape PDF</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_content&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;pdf&quot;,
+    &quot;landscape&quot;: true
+  }
+}</code></pre><h3>With Backgrounds</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_content&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;pdf&quot;,
+    &quot;printBackground&quot;: true
+  }
+}</code></pre><h3>Custom Paper Size</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_content&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;pdf&quot;,
+    &quot;paperWidth&quot;: 8.5,
+    &quot;paperHeight&quot;: 11,
+    &quot;scale&quot;: 0.8
+  }
+}</code></pre><h3>Response</h3>
+<pre><code class="language-json">{
+  &quot;pdf&quot;: &quot;JVBERi0xLjQKJcfs...&quot;,
+  &quot;pageCount&quot;: 3
+}</code></pre><p>The <code>pdf</code> field contains base64-encoded PDF data.</p>
+<h2>Action: get</h2>
+<p>Get page content as HTML or text.</p>
+<h3>Get Full HTML</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_content&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;get&quot;,
+    &quot;format&quot;: &quot;html&quot;
+  }
+}</code></pre><h3>Get Text Only</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_content&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;get&quot;,
+    &quot;format&quot;: &quot;text&quot;
+  }
+}</code></pre><h3>Get Specific Element&#39;s Content</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_content&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;get&quot;,
+    &quot;selector&quot;: &quot;#main-content&quot;,
+    &quot;format&quot;: &quot;html&quot;
+  }
+}</code></pre><h3>Response (HTML)</h3>
+<pre><code class="language-json">{
+  &quot;content&quot;: &quot;&lt;!DOCTYPE html&gt;&lt;html&gt;...&quot;,
+  &quot;format&quot;: &quot;html&quot;,
+  &quot;url&quot;: &quot;https://example.com/&quot;
+}</code></pre><h3>Response (Text)</h3>
+<pre><code class="language-json">{
+  &quot;content&quot;: &quot;Example Domain\n\nThis domain is for use in illustrative examples...&quot;,
+  &quot;format&quot;: &quot;text&quot;,
+  &quot;url&quot;: &quot;https://example.com/&quot;
+}</code></pre><h2>Action: query</h2>
+<p>Find elements matching a selector.</p>
+<h3>Basic Query</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_content&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;query&quot;,
+    &quot;selector&quot;: &quot;.product-card&quot;
+  }
+}</code></pre><h3>Response</h3>
+<pre><code class="language-json">{
+  &quot;elements&quot;: [
+    {
+      &quot;tagName&quot;: &quot;div&quot;,
+      &quot;id&quot;: &quot;&quot;,
+      &quot;className&quot;: &quot;product-card&quot;,
+      &quot;textContent&quot;: &quot;Product 1...&quot;,
+      &quot;attributes&quot;: {
+        &quot;data-product-id&quot;: &quot;123&quot;
+      },
+      &quot;boundingBox&quot;: {
+        &quot;x&quot;: 100,
+        &quot;y&quot;: 200,
+        &quot;width&quot;: 300,
+        &quot;height&quot;: 400
+      }
+    },
+    {
+      &quot;tagName&quot;: &quot;div&quot;,
+      &quot;className&quot;: &quot;product-card&quot;,
+      &quot;textContent&quot;: &quot;Product 2...&quot;
+    }
+  ],
+  &quot;count&quot;: 2
+}</code></pre><h2>Action: attribute</h2>
+<p>Get a specific attribute from an element.</p>
+<h3>Get href</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_content&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;attribute&quot;,
+    &quot;selector&quot;: &quot;a.main-link&quot;,
+    &quot;attribute&quot;: &quot;href&quot;
+  }
+}</code></pre><h3>Get data attribute</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_content&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;attribute&quot;,
+    &quot;selector&quot;: &quot;#product&quot;,
+    &quot;attribute&quot;: &quot;data-product-id&quot;
+  }
+}</code></pre><h3>Response</h3>
+<pre><code class="language-json">{
+  &quot;selector&quot;: &quot;a.main-link&quot;,
+  &quot;attribute&quot;: &quot;href&quot;,
+  &quot;value&quot;: &quot;https://example.com/page&quot;
+}</code></pre><h2>Action: get_viewport_dom</h2>
+<p>Get visible elements with layout information. Optimized for AI understanding of page structure.</p>
+<h3>Basic Usage</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_content&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;get_viewport_dom&quot;
+  }
+}</code></pre><h3>With Limits</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_content&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;get_viewport_dom&quot;,
+    &quot;maxElements&quot;: 100,
+    &quot;domDepth&quot;: 3
+  }
+}</code></pre><h3>Filter Small Elements</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_content&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;get_viewport_dom&quot;,
+    &quot;minSize&quot;: 20
+  }
+}</code></pre><h3>Include Hidden Elements</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_content&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;get_viewport_dom&quot;,
+    &quot;includeHidden&quot;: true
+  }
+}</code></pre><h3>Response</h3>
+<pre><code class="language-json">{
+  &quot;viewport&quot;: {
+    &quot;width&quot;: 1920,
+    &quot;height&quot;: 1080,
+    &quot;scrollX&quot;: 0,
+    &quot;scrollY&quot;: 500
+  },
+  &quot;elements&quot;: [
+    {
+      &quot;tag&quot;: &quot;button&quot;,
+      &quot;id&quot;: &quot;submit-btn&quot;,
+      &quot;class&quot;: &quot;btn btn-primary&quot;,
+      &quot;text&quot;: &quot;Submit&quot;,
+      &quot;rect&quot;: { &quot;x&quot;: 100, &quot;y&quot;: 200, &quot;width&quot;: 120, &quot;height&quot;: 40 },
+      &quot;visible&quot;: true,
+      &quot;interactive&quot;: true,
+      &quot;selector&quot;: &quot;#submit-btn&quot;
+    },
+    {
+      &quot;tag&quot;: &quot;input&quot;,
+      &quot;type&quot;: &quot;text&quot;,
+      &quot;name&quot;: &quot;email&quot;,
+      &quot;placeholder&quot;: &quot;Enter email&quot;,
+      &quot;rect&quot;: { &quot;x&quot;: 100, &quot;y&quot;: 100, &quot;width&quot;: 300, &quot;height&quot;: 40 },
+      &quot;visible&quot;: true,
+      &quot;interactive&quot;: true,
+      &quot;selector&quot;: &quot;input[name=&#039;email&#039;]&quot;
+    }
+  ],
+  &quot;elementCount&quot;: 2
+}</code></pre><p><strong>Key features of <code>get_viewport_dom</code>:</strong></p>
+<ul>
+<li>Only returns elements visible in the current viewport</li>
+<li>Includes computed selectors for easy targeting</li>
+<li>Shows element positions and dimensions</li>
+<li>Indicates if elements are interactive</li>
+<li>Respects depth and count limits to avoid overwhelming responses</li>
+</ul>
+<h2>Examples</h2>
+<h3>Screenshot for Debugging</h3>
+<pre><code class="language-json">// Take a screenshot to see current state
+{ &quot;name&quot;: &quot;browser_content&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;screenshot&quot; }}
+
+// If something&#039;s wrong, take a full page screenshot
+{ &quot;name&quot;: &quot;browser_content&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;screenshot&quot;, &quot;fullPage&quot;: true }}</code></pre><h3>Extract Data from Page</h3>
+<pre><code class="language-json">// 1. Query all product cards
+{ &quot;name&quot;: &quot;browser_content&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;query&quot;, &quot;selector&quot;: &quot;.product&quot; }}
+
+// 2. Get specific product&#039;s data attribute
+{ &quot;name&quot;: &quot;browser_content&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;attribute&quot;, &quot;selector&quot;: &quot;.product:first-child&quot;, &quot;attribute&quot;: &quot;data-price&quot; }}</code></pre><h3>AI Understanding of Page</h3>
+<pre><code class="language-json">// Get structured view of what&#039;s on screen
+{ &quot;name&quot;: &quot;browser_content&quot;, &quot;arguments&quot;: {
+  &quot;action&quot;: &quot;get_viewport_dom&quot;,
+  &quot;maxElements&quot;: 50,
+  &quot;domDepth&quot;: 2
+}}
+// Returns elements with selectors AI can use for interactions</code></pre><h3>Generate Report as PDF</h3>
+<pre><code class="language-json">// Navigate to report page
+{ &quot;name&quot;: &quot;browser_navigate&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://app.com/report&quot; }}
+
+// Wait for report to load
+{ &quot;name&quot;: &quot;browser_navigate&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;wait&quot;, &quot;selector&quot;: &quot;.report-ready&quot; }}
+
+// Generate PDF with backgrounds
+{ &quot;name&quot;: &quot;browser_content&quot;, &quot;arguments&quot;: {
+  &quot;action&quot;: &quot;pdf&quot;,
+  &quot;printBackground&quot;: true,
+  &quot;landscape&quot;: true
+}}</code></pre><h2>Notes</h2>
+<ul>
+<li>Screenshots are returned as base64-encoded strings</li>
+<li>Full page screenshots can be very large</li>
+<li>PDF generation may not work well on all pages (designed for print-friendly content)</li>
+<li><code>get_viewport_dom</code> is especially useful for AI agents to understand page structure</li>
+</ul>
+<h2>Errors</h2>
+<div class="table-wrapper"><table><thead><tr><th>Error</th><th>Cause</th><th>Solution</th></tr></thead><tbody><tr><td>&quot;Element not found&quot;</td><td>Selector didn&#39;t match</td><td>Check selector syntax</td></tr><tr><td>&quot;Screenshot failed&quot;</td><td>Browser error</td><td>Check if page loaded correctly</td></tr></tbody></table></div><h2>Related</h2>
+<ul>
+<li><a href="browser-navigate.html">browser_navigate</a> - Navigate to pages</li>
+<li><a href="browser-interact.html">browser_interact</a> - Interact with found elements</li>
+<li><a href="browser-execute.html">browser_execute</a> - Run custom JS to extract data</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

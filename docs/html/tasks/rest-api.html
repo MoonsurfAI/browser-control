@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REST API Reference - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html" class="active">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>REST API Reference</h1>
+<p>The REST API provides HTTP endpoints for task management. Use these for simpler integrations or when WebSocket is not practical.</p>
+<p><strong>Base URL:</strong> <code>http://localhost:3300</code></p>
+<blockquote>
+<p><strong>Note:</strong> For real-time progress updates, use the <a href="./websocket-api.html">WebSocket API</a>. The REST API is best for task submission, status polling, and management operations.</p>
+</blockquote>
+<hr>
+<h2>Endpoints</h2>
+<div class="table-wrapper"><table><thead><tr><th>Method</th><th>Path</th><th>Description</th></tr></thead><tbody><tr><td><code>POST</code></td><td><code>/tasks</code></td><td>Submit a new task</td></tr><tr><td><code>GET</code></td><td><code>/tasks</code></td><td>List tasks</td></tr><tr><td><code>GET</code></td><td><code>/tasks/:id</code></td><td>Get task details</td></tr><tr><td><code>POST</code></td><td><code>/tasks/:id/cancel</code></td><td>Cancel a task</td></tr></tbody></table></div><hr>
+<h2>Submit Task</h2>
+<p><strong><code>POST /tasks</code></strong></p>
+<p>Submit a new task for execution.</p>
+<h3>Request</h3>
+<pre><code class="language-http">POST /tasks HTTP/1.1
+Host: localhost:3300
+Content-Type: application/json
+
+{
+  &quot;task_name&quot;: &quot;Search Google&quot;,
+  &quot;task_intention&quot;: &quot;Search for browser automation tools&quot;,
+  &quot;instanceId&quot;: &quot;inst_1234567890_abc&quot;,
+  &quot;commands&quot;: [
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Go to Google&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://www.google.com&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Type search query&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;type&quot;, &quot;selector&quot;: &quot;textarea[name=q]&quot;, &quot;text&quot;: &quot;browser automation&quot; }
+    }
+  ],
+  &quot;metadata&quot;: {
+    &quot;client&quot;: &quot;my-app&quot;
+  }
+}</code></pre><p><strong>Request Body:</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>task_name</code></td><td>string</td><td>Yes</td><td>Human-readable task name</td></tr><tr><td><code>task_intention</code></td><td>string</td><td>Yes</td><td>Description of task goal</td></tr><tr><td><code>instanceId</code></td><td>string</td><td>No</td><td>Target browser instance ID. If omitted, uses first connected instance</td></tr><tr><td><code>commands</code></td><td>array</td><td>Yes</td><td>Array of commands to execute (must have at least 1)</td></tr><tr><td><code>metadata</code></td><td>object</td><td>No</td><td>Custom metadata passed through to responses</td></tr></tbody></table></div><p><strong>Command Object:</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>tool_name</code></td><td>string</td><td>Yes</td><td>MCP tool name (e.g., <code>browser_navigate</code>, <code>browser_interact</code>)</td></tr><tr><td><code>intention</code></td><td>string</td><td>Yes</td><td>Description of command purpose</td></tr><tr><td><code>args</code></td><td>object</td><td>Yes</td><td>Tool-specific arguments</td></tr></tbody></table></div><h3>Response</h3>
+<p><strong>Success (200 OK):</strong></p>
+<pre><code class="language-json">{
+  &quot;taskId&quot;: &quot;task_1234567890_1&quot;,
+  &quot;queuePosition&quot;: 1,
+  &quot;wsEndpoint&quot;: &quot;ws://localhost:3400&quot;
+}</code></pre><div class="table-wrapper"><table><thead><tr><th>Field</th><th>Description</th></tr></thead><tbody><tr><td><code>taskId</code></td><td>Unique task identifier for tracking</td></tr><tr><td><code>queuePosition</code></td><td>Position in queue (1 = running or next to run)</td></tr><tr><td><code>wsEndpoint</code></td><td>WebSocket URL for real-time progress updates</td></tr></tbody></table></div><p><strong>Error (400 Bad Request):</strong></p>
+<pre><code class="language-json">{
+  &quot;error&quot;: &quot;No commands provided&quot;
+}</code></pre><p><strong>Error (503 Service Unavailable):</strong></p>
+<pre><code class="language-json">{
+  &quot;error&quot;: &quot;No connected browser instances&quot;
+}</code></pre><h3>cURL Example</h3>
+<pre><code class="language-bash">curl -X POST http://localhost:3300/tasks \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#039;{
+    &quot;task_name&quot;: &quot;Navigate Test&quot;,
+    &quot;task_intention&quot;: &quot;Test navigation&quot;,
+    &quot;commands&quot;: [
+      {&quot;tool_name&quot;: &quot;browser_navigate&quot;, &quot;intention&quot;: &quot;Go to example&quot;, &quot;args&quot;: {&quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://example.com&quot;}}
+    ]
+  }&#039;</code></pre><hr>
+<h2>List Tasks</h2>
+<p><strong><code>GET /tasks</code></strong></p>
+<p>List all tasks with optional filtering.</p>
+<h3>Request</h3>
+<pre><code class="language-http">GET /tasks?instanceId=inst_123&amp;status=running HTTP/1.1
+Host: localhost:3300</code></pre><p><strong>Query Parameters:</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>instanceId</code></td><td>string</td><td>No</td><td>Filter by browser instance ID</td></tr><tr><td><code>status</code></td><td>string</td><td>No</td><td>Filter by status: <code>queued</code>, <code>running</code>, <code>completed</code>, <code>failed</code>, <code>cancelled</code></td></tr></tbody></table></div><h3>Response</h3>
+<p><strong>Success (200 OK):</strong></p>
+<pre><code class="language-json">{
+  &quot;tasks&quot;: [
+    {
+      &quot;id&quot;: &quot;task_1234567890_2&quot;,
+      &quot;instanceId&quot;: &quot;inst_1234567890_abc&quot;,
+      &quot;name&quot;: &quot;Search Google&quot;,
+      &quot;intention&quot;: &quot;Search for browser automation tools&quot;,
+      &quot;status&quot;: &quot;running&quot;,
+      &quot;commandCount&quot;: 3,
+      &quot;currentCommandIndex&quot;: 1,
+      &quot;createdAt&quot;: 1234567890100,
+      &quot;startedAt&quot;: 1234567890200
+    },
+    {
+      &quot;id&quot;: &quot;task_1234567890_1&quot;,
+      &quot;instanceId&quot;: &quot;inst_1234567890_abc&quot;,
+      &quot;name&quot;: &quot;Navigate Test&quot;,
+      &quot;intention&quot;: &quot;Test navigation&quot;,
+      &quot;status&quot;: &quot;completed&quot;,
+      &quot;commandCount&quot;: 1,
+      &quot;currentCommandIndex&quot;: 0,
+      &quot;createdAt&quot;: 1234567890000,
+      &quot;startedAt&quot;: 1234567890050,
+      &quot;completedAt&quot;: 1234567890100
+    }
+  ]
+}</code></pre><p>Tasks are sorted by <code>createdAt</code> descending (newest first).</p>
+<h3>cURL Examples</h3>
+<pre><code class="language-bash"># List all tasks
+curl http://localhost:3300/tasks
+
+# List running tasks
+curl &quot;http://localhost:3300/tasks?status=running&quot;
+
+# List tasks for a specific instance
+curl &quot;http://localhost:3300/tasks?instanceId=inst_1234567890_abc&quot;
+
+# Combined filters
+curl &quot;http://localhost:3300/tasks?instanceId=inst_1234567890_abc&amp;status=queued&quot;</code></pre><hr>
+<h2>Get Task Details</h2>
+<p><strong><code>GET /tasks/:id</code></strong></p>
+<p>Get detailed information about a specific task.</p>
+<h3>Request</h3>
+<pre><code class="language-http">GET /tasks/task_1234567890_1 HTTP/1.1
+Host: localhost:3300</code></pre><h3>Response</h3>
+<p><strong>Success (200 OK):</strong></p>
+<pre><code class="language-json">{
+  &quot;task&quot;: {
+    &quot;id&quot;: &quot;task_1234567890_1&quot;,
+    &quot;instanceId&quot;: &quot;inst_1234567890_abc&quot;,
+    &quot;name&quot;: &quot;Search Google&quot;,
+    &quot;intention&quot;: &quot;Search for browser automation tools&quot;,
+    &quot;status&quot;: &quot;completed&quot;,
+    &quot;currentCommandIndex&quot;: 2,
+    &quot;createdAt&quot;: 1234567890000,
+    &quot;startedAt&quot;: 1234567890100,
+    &quot;completedAt&quot;: 1234567892000,
+    &quot;metadata&quot;: {
+      &quot;client&quot;: &quot;my-app&quot;
+    },
+    &quot;commands&quot;: [
+      {
+        &quot;id&quot;: &quot;task_1234567890_1_cmd_0&quot;,
+        &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+        &quot;intention&quot;: &quot;Go to Google&quot;,
+        &quot;args&quot;: { &quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://www.google.com&quot; },
+        &quot;status&quot;: &quot;success&quot;,
+        &quot;startedAt&quot;: 1234567890100,
+        &quot;completedAt&quot;: 1234567890500,
+        &quot;result&quot;: {
+          &quot;content&quot;: [{ &quot;type&quot;: &quot;text&quot;, &quot;text&quot;: &quot;{\&quot;success\&quot;: true}&quot; }]
+        }
+      },
+      {
+        &quot;id&quot;: &quot;task_1234567890_1_cmd_1&quot;,
+        &quot;tool_name&quot;: &quot;browser_interact&quot;,
+        &quot;intention&quot;: &quot;Type search query&quot;,
+        &quot;args&quot;: { &quot;action&quot;: &quot;type&quot;, &quot;selector&quot;: &quot;textarea[name=q]&quot;, &quot;text&quot;: &quot;browser automation&quot; },
+        &quot;status&quot;: &quot;success&quot;,
+        &quot;startedAt&quot;: 1234567890500,
+        &quot;completedAt&quot;: 1234567891500,
+        &quot;result&quot;: {
+          &quot;content&quot;: [{ &quot;type&quot;: &quot;text&quot;, &quot;text&quot;: &quot;{\&quot;success\&quot;: true}&quot; }]
+        }
+      },
+      {
+        &quot;id&quot;: &quot;task_1234567890_1_cmd_2&quot;,
+        &quot;tool_name&quot;: &quot;browser_interact&quot;,
+        &quot;intention&quot;: &quot;Press Enter&quot;,
+        &quot;args&quot;: { &quot;action&quot;: &quot;keyboard&quot;, &quot;key&quot;: &quot;Enter&quot; },
+        &quot;status&quot;: &quot;success&quot;,
+        &quot;startedAt&quot;: 1234567891500,
+        &quot;completedAt&quot;: 1234567892000,
+        &quot;result&quot;: {
+          &quot;content&quot;: [{ &quot;type&quot;: &quot;text&quot;, &quot;text&quot;: &quot;{\&quot;success\&quot;: true}&quot; }]
+        }
+      }
+    ]
+  }
+}</code></pre><p><strong>Not Found (404):</strong></p>
+<pre><code class="language-json">{
+  &quot;error&quot;: &quot;Task not found&quot;
+}</code></pre><h3>cURL Example</h3>
+<pre><code class="language-bash">curl http://localhost:3300/tasks/task_1234567890_1</code></pre><hr>
+<h2>Cancel Task</h2>
+<p><strong><code>POST /tasks/:id/cancel</code></strong></p>
+<p>Cancel a queued or running task.</p>
+<h3>Request</h3>
+<pre><code class="language-http">POST /tasks/task_1234567890_1/cancel HTTP/1.1
+Host: localhost:3300</code></pre><h3>Response</h3>
+<p><strong>Success (200 OK):</strong></p>
+<pre><code class="language-json">{
+  &quot;success&quot;: true,
+  &quot;taskId&quot;: &quot;task_1234567890_1&quot;
+}</code></pre><p><strong>Task Not Found (404):</strong></p>
+<pre><code class="language-json">{
+  &quot;error&quot;: &quot;Task not found&quot;
+}</code></pre><p><strong>Cannot Cancel (400):</strong></p>
+<pre><code class="language-json">{
+  &quot;success&quot;: false,
+  &quot;reason&quot;: &quot;Task already completed&quot;
+}</code></pre><h3>cURL Example</h3>
+<pre><code class="language-bash">curl -X POST http://localhost:3300/tasks/task_1234567890_1/cancel</code></pre><hr>
+<h2>Workflow Example</h2>
+<h3>Submit and Poll</h3>
+<p>When WebSocket is not available, use polling to track task progress:</p>
+<pre><code class="language-bash">#!/bin/bash
+
+# 1. Submit task
+RESPONSE=$(curl -s -X POST http://localhost:3300/tasks \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#039;{
+    &quot;task_name&quot;: &quot;Example Task&quot;,
+    &quot;task_intention&quot;: &quot;Navigate to example.com&quot;,
+    &quot;commands&quot;: [
+      {&quot;tool_name&quot;: &quot;browser_navigate&quot;, &quot;intention&quot;: &quot;Navigate&quot;, &quot;args&quot;: {&quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://example.com&quot;}}
+    ]
+  }&#039;)
+
+TASK_ID=$(echo $RESPONSE | jq -r &#039;.taskId&#039;)
+echo &quot;Task submitted: $TASK_ID&quot;
+
+# 2. Poll for completion
+while true; do
+  TASK=$(curl -s http://localhost:3300/tasks/$TASK_ID)
+  STATUS=$(echo $TASK | jq -r &#039;.task.status&#039;)
+
+  echo &quot;Status: $STATUS&quot;
+
+  if [ &quot;$STATUS&quot; == &quot;completed&quot; ] || [ &quot;$STATUS&quot; == &quot;failed&quot; ] || [ &quot;$STATUS&quot; == &quot;cancelled&quot; ]; then
+    echo &quot;Task finished with status: $STATUS&quot;
+    echo $TASK | jq &#039;.task.commands&#039;
+    break
+  fi
+
+  sleep 1
+done</code></pre><h3>JavaScript Example</h3>
+<pre><code class="language-javascript">const axios = require(&#039;axios&#039;);
+
+async function runTask() {
+  const BASE_URL = &#039;http://localhost:3300&#039;;
+
+  // Submit task
+  const submitRes = await axios.post(`${BASE_URL}/tasks`, {
+    task_name: &#039;Screenshot Task&#039;,
+    task_intention: &#039;Navigate and take screenshot&#039;,
+    commands: [
+      {
+        tool_name: &#039;browser_navigate&#039;,
+        intention: &#039;Go to example.com&#039;,
+        args: { action: &#039;goto&#039;, url: &#039;https://example.com&#039; }
+      },
+      {
+        tool_name: &#039;browser_content&#039;,
+        intention: &#039;Take screenshot&#039;,
+        args: { action: &#039;screenshot&#039; }
+      }
+    ]
+  });
+
+  const { taskId, wsEndpoint } = submitRes.data;
+  console.log(`Task ${taskId} submitted. WebSocket: ${wsEndpoint}`);
+
+  // Poll for completion
+  let task;
+  do {
+    await new Promise(resolve =&gt; setTimeout(resolve, 500));
+    const statusRes = await axios.get(`${BASE_URL}/tasks/${taskId}`);
+    task = statusRes.data.task;
+    console.log(`Status: ${task.status}`);
+  } while (![&#039;completed&#039;, &#039;failed&#039;, &#039;cancelled&#039;].includes(task.status));
+
+  console.log(&#039;Results:&#039;, task.commands.map(c =&gt; ({
+    intention: c.intention,
+    status: c.status
+  })));
+}
+
+runTask().catch(console.error);</code></pre><hr>
+<h2>Error Codes</h2>
+<div class="table-wrapper"><table><thead><tr><th>HTTP Status</th><th>Meaning</th></tr></thead><tbody><tr><td>200</td><td>Success</td></tr><tr><td>400</td><td>Bad request (invalid input, cannot cancel)</td></tr><tr><td>404</td><td>Task not found</td></tr><tr><td>503</td><td>Service unavailable (no browser connected)</td></tr></tbody></table></div><hr>
+<h2>Response Headers</h2>
+<p>All responses include:</p>
+<ul>
+<li><code>Content-Type: application/json</code></li>
+</ul>
+<hr>
+<h2>Notes</h2>
+<ol>
+<li><p><strong>Real-time updates</strong>: The REST API does not provide real-time progress. For live updates, connect to the WebSocket endpoint returned in the submit response.</p>
+</li>
+<li><p><strong>Task persistence</strong>: Tasks are stored in memory and cleaned up after 1 hour. Do not rely on tasks being available indefinitely.</p>
+</li>
+<li><p><strong>Concurrent requests</strong>: Multiple tasks can be submitted concurrently. They are queued per browser instance and executed sequentially.</p>
+</li>
+<li><p><strong>CORS</strong>: By default, CORS is disabled. Enable it via <code>CORS_ENABLED=true</code> environment variable for browser-based clients.</p>
+</li>
+</ol>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

@@ -25,7 +25,8 @@
         "start": "node dist/index.js",
         "dev": "tsc --watch",
         "clean": "rm -rf dist",
-        "prepublishOnly": "npm run clean && npm run build"
+        "prepublishOnly": "npm run clean && npm run build",
+        "docs:generate": "node scripts/generate-docs.js"
     },
     "keywords": [
         "mcp",
@@ -67,6 +68,7 @@
         "@types/node": "^22.10.2",
         "@types/ws": "^8.5.13",
         "adm-zip": "^0.5.16",
+        "marked": "^15.0.0",
         "typescript": "^5.7.2"
     }
 }

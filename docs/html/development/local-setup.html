@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Development Setup - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html" class="active">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Local Development Setup</h1>
+<p>Complete guide to setting up a local development environment for Moonsurf.</p>
+<h2>Prerequisites</h2>
+<h3>Required</h3>
+<ul>
+<li><strong>Node.js 18+</strong> - JavaScript runtime</li>
+<li><strong>npm</strong> - Package manager (comes with Node.js)</li>
+<li><strong>Git</strong> - Version control</li>
+<li><strong>Chrome or Chromium</strong> - Browser for testing</li>
+</ul>
+<h3>Recommended</h3>
+<ul>
+<li><strong>Visual Studio Code</strong> - IDE with TypeScript support</li>
+<li><strong>Chrome DevTools</strong> - Browser debugging</li>
+<li><strong>curl</strong> or <strong>Postman</strong> - API testing</li>
+</ul>
+<h2>Installation</h2>
+<h3>1. Clone the Repository</h3>
+<pre><code class="language-bash">git clone https://github.com/MoonsurfAI/browser-control
+cd browser-control</code></pre><h3>2. Install Dependencies</h3>
+<pre><code class="language-bash">npm install</code></pre><h3>3. Build the Project</h3>
+<pre><code class="language-bash">npm run build</code></pre><h3>4. Verify Installation</h3>
+<pre><code class="language-bash">npm start</code></pre><p>You should see:</p>
+<pre><code class="language-plaintext">[Moonsurf] Server starting...
+[Server] Mode: LOCAL
+[Server] SSE endpoint: http://localhost:3300/sse
+[HTTP] Server listening on localhost:3300</code></pre><p>Test the health endpoint:</p>
+<pre><code class="language-bash">curl http://localhost:3300/health</code></pre><h2>Development Workflow</h2>
+<h3>Watch Mode</h3>
+<p>Run TypeScript compiler in watch mode for automatic rebuilds:</p>
+<p><strong>Terminal 1 - Build:</strong></p>
+<pre><code class="language-bash">npm run dev</code></pre><p><strong>Terminal 2 - Run:</strong></p>
+<pre><code class="language-bash">npm start</code></pre><p>When you modify TypeScript files, they&#39;re automatically recompiled. Restart the server to apply changes.</p>
+<h3>Debug Mode</h3>
+<p>Enable verbose logging:</p>
+<pre><code class="language-bash">LOG_LEVEL=debug npm start</code></pre><h3>Visible Browser</h3>
+<p>See the browser during testing:</p>
+<pre><code class="language-bash">HEADLESS_DEFAULT=false npm start</code></pre><h2>Browser Setup</h2>
+<h3>Option 1: Chromium (Recommended)</h3>
+<p>Install Chromium:</p>
+<p><strong>macOS:</strong></p>
+<pre><code class="language-bash">brew install --cask chromium</code></pre><p><strong>Ubuntu/Debian:</strong></p>
+<pre><code class="language-bash">sudo apt install chromium-browser</code></pre><p>Run with Chromium:</p>
+<pre><code class="language-bash">BROWSER_DEFAULT_MODE=chromium npm start</code></pre><h3>Option 2: Chrome for Testing</h3>
+<p>Chrome for Testing provides a stable, isolated environment.</p>
+<pre><code class="language-bash">BROWSER_DEFAULT_MODE=testing npm start</code></pre><p>Moonsurf downloads Chrome for Testing automatically on first use.</p>
+<h3>Option 3: System Chrome</h3>
+<p>Use existing Chrome installation:</p>
+<pre><code class="language-bash">BROWSER_DEFAULT_MODE=chrome npm start</code></pre><p>Note: System Chrome may have existing profiles and extensions.</p>
+<h2>Extension Development</h2>
+<p>If you&#39;re also developing the Chrome extension:</p>
+<h3>1. Clone Extension Repository</h3>
+<pre><code class="language-bash">cd ..
+git clone https://github.com/MoonsurfAI/chrome-extension
+cd chrome-extension
+npm install</code></pre><h3>2. Build Extension</h3>
+<pre><code class="language-bash">npm run build
+# Or for watch mode:
+npm run dev</code></pre><h3>3. Run with Local Extension</h3>
+<pre><code class="language-bash">cd ../browser-control
+EXTENSION_PATH=../chrome-extension/dist npm start</code></pre><h3>4. Development Workflow</h3>
+<p><strong>Terminal 1 - Extension (watch):</strong></p>
+<pre><code class="language-bash">cd chrome-extension
+npm run dev</code></pre><p><strong>Terminal 2 - MCP Server:</strong></p>
+<pre><code class="language-bash">cd browser-control
+npm run dev</code></pre><p><strong>Terminal 3 - Run:</strong></p>
+<pre><code class="language-bash">cd browser-control
+EXTENSION_PATH=../chrome-extension/dist npm start</code></pre><h2>Testing with Claude Code</h2>
+<h3>Install the Skill</h3>
+<pre><code class="language-bash">npm start -- --install-skill</code></pre><h3>Configure MCP</h3>
+<p>Add to <code>~/.claude/mcp.json</code>:</p>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;moonsurf&quot;: {
+      &quot;url&quot;: &quot;http://localhost:3300/sse&quot;
+    }
+  }
+}</code></pre><h3>Test in Claude Code</h3>
+<pre><code class="language-bash"># Start Moonsurf
+npm start
+
+# In another terminal, use Claude Code
+claude &quot;Open example.com and take a screenshot&quot;</code></pre><h2>Common Commands</h2>
+<h3>Build</h3>
+<pre><code class="language-bash">npm run build        # Compile TypeScript
+npm run dev          # Compile in watch mode
+npm run typecheck    # Type check without emitting</code></pre><h3>Run</h3>
+<pre><code class="language-bash">npm start                                    # Start server
+LOG_LEVEL=debug npm start                   # With debug logging
+HEADLESS_DEFAULT=false npm start            # With visible browser
+EXTENSION_PATH=../chrome-extension/dist npm start  # With local extension</code></pre><h3>Test</h3>
+<pre><code class="language-bash"># Manual testing with curl
+curl http://localhost:3300/health
+curl http://localhost:3300/info
+
+# Test SSE connection
+curl -N http://localhost:3300/sse
+
+# Test tool listing
+curl -X POST http://localhost:3300/message \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#039;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:1,&quot;method&quot;:&quot;tools/list&quot;}&#039;</code></pre><h3>Skill Management</h3>
+<pre><code class="language-bash">npm start -- --install-skill    # Install Claude skill
+npm start -- --uninstall-skill  # Uninstall skill
+npm start -- --skill-status     # Check installation</code></pre><h2>Environment Variables</h2>
+<p>Common development variables:</p>
+<pre><code class="language-bash"># Server
+PORT=3300               # HTTP port
+HOST=localhost          # Bind address
+LOG_LEVEL=debug         # debug | info | warn | error
+
+# Browser
+BROWSER_DEFAULT_MODE=chromium  # chromium | chrome | testing
+HEADLESS_DEFAULT=false         # Show browser window
+EXTENSION_PATH=./extension     # Local extension path
+
+# Features
+TASKS_ENABLED=true      # Enable task system
+TASKS_WS_PORT=3400      # Task WebSocket port</code></pre><h2>IDE Setup</h2>
+<h3>Visual Studio Code</h3>
+<p>Recommended extensions:</p>
+<ul>
+<li>ESLint</li>
+<li>Prettier</li>
+<li>TypeScript Vue Plugin</li>
+</ul>
+<p>Settings (<code>.vscode/settings.json</code>):</p>
+<pre><code class="language-json">{
+  &quot;typescript.tsdk&quot;: &quot;node_modules/typescript/lib&quot;,
+  &quot;editor.formatOnSave&quot;: true,
+  &quot;editor.defaultFormatter&quot;: &quot;esbenp.prettier-vscode&quot;
+}</code></pre><h3>Launch Configuration</h3>
+<p>Create <code>.vscode/launch.json</code>:</p>
+<pre><code class="language-json">{
+  &quot;version&quot;: &quot;0.2.0&quot;,
+  &quot;configurations&quot;: [
+    {
+      &quot;type&quot;: &quot;node&quot;,
+      &quot;request&quot;: &quot;launch&quot;,
+      &quot;name&quot;: &quot;Debug Moonsurf&quot;,
+      &quot;skipFiles&quot;: [&quot;&lt;node_internals&gt;/**&quot;],
+      &quot;program&quot;: &quot;${workspaceFolder}/dist/index.js&quot;,
+      &quot;env&quot;: {
+        &quot;LOG_LEVEL&quot;: &quot;debug&quot;,
+        &quot;HEADLESS_DEFAULT&quot;: &quot;false&quot;
+      },
+      &quot;preLaunchTask&quot;: &quot;npm: build&quot;
+    }
+  ]
+}</code></pre><h2>Troubleshooting</h2>
+<h3>Port Already in Use</h3>
+<pre><code class="language-bash"># Find process using port
+lsof -i :3300
+
+# Kill process
+kill -9 &lt;PID&gt;
+
+# Or use different port
+PORT=3400 npm start</code></pre><h3>Extension Not Connecting</h3>
+<ol>
+<li>Check browser launched successfully</li>
+<li>Verify extension loaded (chrome://extensions in browser)</li>
+<li>Check server logs for registration</li>
+<li>Ensure correct port range available (3301-3399)</li>
+</ol>
+<h3>TypeScript Errors</h3>
+<pre><code class="language-bash"># Clean build
+rm -rf dist
+npm run build</code></pre><h3>Permission Errors</h3>
+<pre><code class="language-bash"># Fix npm global permissions
+sudo chown -R $(whoami) ~/.npm
+sudo chown -R $(whoami) ~/.moonsurf</code></pre><h3>Browser Not Found</h3>
+<pre><code class="language-bash"># Check Chrome/Chromium path
+which chromium
+which google-chrome
+
+# Set custom path if needed
+CHROME_PATH=/path/to/chrome npm start</code></pre><h2>Related</h2>
+<ul>
+<li><a href="project-structure.html">Project Structure</a> - Code organization</li>
+<li><a href="extension-development.html">Extension Development</a> - Chrome extension</li>
+<li><a href="debugging.html">Debugging</a> - Troubleshooting guide</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

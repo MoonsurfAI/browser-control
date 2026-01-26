@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Architecture Overview - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html" class="active">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Architecture Overview</h1>
+<p>This document explains how the Task Execution System is designed and how its components interact.</p>
+<h2>System Architecture</h2>
+<pre><code class="language-plaintext">                                    ┌─────────────────────────────────────────┐
+                                    │           Moonsurf Server               │
+                                    │                                         │
+┌──────────────┐   HTTP POST /tasks │  ┌───────────────┐                      │
+│   REST       │ ──────────────────►│  │  HTTP Server  │                      │
+│   Client     │◄────────────────── │  │  (port 3300)  │                      │
+└──────────────┘   { taskId, wsUrl }│  └───────┬───────┘                      │
+                                    │          │                              │
+                                    │          ▼                              │
+┌──────────────┐   task_submit      │  ┌───────────────┐    ┌─────────────┐  │
+│  WebSocket   │ ──────────────────►│  │  Task WS      │───►│   Task      │  │
+│   Client     │◄────────────────── │  │  Server       │◄───│   Manager   │  │
+└──────────────┘   task_progress    │  │  (port 3400)  │    └──────┬──────┘  │
+                   task_complete    │  └───────────────┘           │         │
+                                    │                              │         │
+                                    │                    ┌─────────▼───────┐ │
+                                    │                    │   MCP Handler   │ │
+                                    │                    │  (tools/call)   │ │
+                                    │                    └─────────┬───────┘ │
+                                    │                              │         │
+                                    │                    ┌─────────▼───────┐ │
+                                    │                    │    Instance     │ │
+                                    │                    │    Manager      │ │
+                                    │                    └─────────┬───────┘ │
+                                    └──────────────────────────────┼─────────┘
+                                                                   │
+                                                          WebSocket│
+                                                                   ▼
+                                                    ┌──────────────────────┐
+                                                    │   Browser Instance   │
+                                                    │   (Chrome Extension) │
+                                                    └──────────────────────┘</code></pre><h2>Core Components</h2>
+<h3>1. Task Manager (<code>src/task-manager.ts</code>)</h3>
+<p>The central coordinator for all task operations.</p>
+<p><strong>Responsibilities:</strong></p>
+<ul>
+<li>Task creation and validation</li>
+<li>Per-instance task queues (FIFO)</li>
+<li>Sequential command execution</li>
+<li>Progress event emission</li>
+<li>Timeout enforcement</li>
+<li>Error handling and task state management</li>
+</ul>
+<p><strong>Key Design Decisions:</strong></p>
+<ol>
+<li><p><strong>Per-Instance Queues</strong>: Each browser instance has its own queue to prevent conflicts. Tasks for different instances can run in parallel.</p>
+</li>
+<li><p><strong>EventEmitter Pattern</strong>: Uses Node.js EventEmitter to broadcast progress updates. Both WebSocket and REST layers can subscribe.</p>
+</li>
+<li><p><strong>Deferred Execution</strong>: Uses <code>setImmediate()</code> to start task processing, allowing callers to subscribe before first progress event.</p>
+</li>
+</ol>
+<pre><code class="language-javascript">// This ensures clients receive the first &quot;running&quot; event
+setImmediate(() =&gt; this.processQueue(instanceId));</code></pre><ol start="4">
+<li><strong>Fail-Fast</strong>: Execution stops on first error; remaining commands are marked as &#39;skipped&#39;.</li>
+</ol>
+<h3>2. Task WebSocket Server (<code>src/task-websocket-server.ts</code>)</h3>
+<p>Handles real-time communication with clients.</p>
+<p><strong>Responsibilities:</strong></p>
+<ul>
+<li>WebSocket connection management</li>
+<li>Message routing (submit, list, cancel, etc.)</li>
+<li>Subscription management (task-level and instance-level)</li>
+<li>Progress broadcasting to subscribed clients</li>
+</ul>
+<p><strong>Connection Lifecycle:</strong></p>
+<pre><code class="language-plaintext">Connect → Welcome message
+        ↓
+Submit task → Auto-subscribe to task
+        ↓
+Receive progress updates
+        ↓
+Receive completion → Optionally close</code></pre><p><strong>Subscription Model:</strong></p>
+<ul>
+<li><strong>Task subscription</strong>: Receive updates for a specific task</li>
+<li><strong>Instance subscription</strong>: Receive updates for all tasks on an instance</li>
+</ul>
+<h3>3. HTTP Server Extensions (<code>src/http-server.ts</code>)</h3>
+<p>REST API for task management.</p>
+<p><strong>Endpoints:</strong></p>
+<ul>
+<li><code>POST /tasks</code> - Submit (returns taskId + wsEndpoint for progress)</li>
+<li><code>GET /tasks</code> - List with filters</li>
+<li><code>GET /tasks/:id</code> - Get details</li>
+<li><code>POST /tasks/:id/cancel</code> - Cancel</li>
+</ul>
+<h3>4. Instance Manager Integration (<code>src/instance-manager.ts</code>)</h3>
+<p>Notifies Task Manager when browser instances disconnect.</p>
+<pre><code class="language-javascript">instanceManager.onDisconnect((instanceId) =&gt; {
+    taskManager.handleInstanceDisconnect(instanceId);
+});</code></pre><h2>Data Flow</h2>
+<h3>Task Submission Flow</h3>
+<pre><code class="language-plaintext">1. Client sends task_submit (or POST /tasks)
+         │
+         ▼
+2. Task Manager validates:
+   - Browser instance exists and is connected
+   - Commands array is not empty
+   - Queue is not full
+         │
+         ▼
+3. Task created with:
+   - Unique ID: task_{timestamp}_{counter}
+   - Status: &#039;queued&#039;
+   - Commands with status: &#039;pending&#039;
+         │
+         ▼
+4. Task added to instance queue
+         │
+         ▼
+5. Return { taskId, queuePosition }
+         │
+         ▼
+6. setImmediate → processQueue()</code></pre><h3>Command Execution Flow</h3>
+<pre><code class="language-plaintext">1. Pick task from queue (FIFO)
+   Set status: &#039;running&#039;
+         │
+         ▼
+2. For each command:
+   │
+   ├─► Set command status: &#039;running&#039;
+   │   Emit progress event
+   │         │
+   │         ▼
+   │   Build MCP request:
+   │   {
+   │     method: &#039;tools/call&#039;,
+   │     params: { name: tool_name, arguments: args }
+   │   }
+   │         │
+   │         ▼
+   │   Execute via handleMCPRequest()
+   │   (with timeout)
+   │         │
+   │   ┌─────┴─────┐
+   │   │           │
+   │   ▼           ▼
+   │ Success    Error
+   │   │           │
+   │   ▼           ▼
+   │ Set status  Set status
+   │ &#039;success&#039;   &#039;error&#039;
+   │   │           │
+   │   ▼           ▼
+   │ Emit        Emit
+   │ progress    progress
+   │   │           │
+   │   │           ▼
+   │   │         Mark remaining
+   │   │         commands &#039;skipped&#039;
+   │   │           │
+   │   │           ▼
+   │   │         Set task &#039;failed&#039;
+   │   │           │
+   └───┴───────────┤
+                   │
+         ▼         ▼
+3. All done or error occurred
+   Set status: &#039;completed&#039; or &#039;failed&#039;
+   Emit task_complete</code></pre><h2>Error Handling Strategy</h2>
+<h3>Error Propagation</h3>
+<pre><code class="language-plaintext">Browser Error
+     ↓
+Instance Manager (catches, formats)
+     ↓
+MCP Handler (returns error response)
+     ↓
+Task Manager (marks command failed, stops task)
+     ↓
+WebSocket Server (broadcasts to subscribers)
+     ↓
+Client (receives task_progress with error)</code></pre><h3>Timeout Handling</h3>
+<p>Each command has a configurable timeout (default: 60s).</p>
+<pre><code class="language-javascript">const result = await this.executeWithTimeout(
+    handleMCPRequest(mcpRequest),
+    config.tasks.commandTimeout
+);</code></pre><p>If timeout occurs:</p>
+<ol>
+<li>Command marked as &#39;error&#39; with code &#39;COMMAND_TIMEOUT&#39;</li>
+<li>Task marked as &#39;failed&#39;</li>
+<li>Remaining commands marked as &#39;skipped&#39;</li>
+</ol>
+<h2>Queue Management</h2>
+<h3>Per-Instance Queues</h3>
+<pre><code class="language-plaintext">Instance A Queue:          Instance B Queue:
+┌─────────────────┐       ┌─────────────────┐
+│ Task 1 (running)│       │ Task 4 (running)│
+│ Task 2 (queued) │       │ Task 5 (queued) │
+│ Task 3 (queued) │       └─────────────────┘
+└─────────────────┘
+        ▲                         ▲
+        │                         │
+    Processed                 Processed
+   sequentially              sequentially</code></pre><h3>Queue Processing</h3>
+<ul>
+<li>Only one task runs per instance at a time</li>
+<li><code>isProcessing</code> flag prevents concurrent processing</li>
+<li>Tasks processed in FIFO order</li>
+<li>Cancelled tasks are skipped during processing</li>
+</ul>
+<h2>Memory Management</h2>
+<h3>Task Cleanup</h3>
+<p>Old completed/failed/cancelled tasks are cleaned up hourly:</p>
+<pre><code class="language-javascript">setInterval(() =&gt; {
+    taskManager.cleanupTasks(3600000); // Remove tasks older than 1 hour
+}, 3600000);</code></pre><h3>Disconnection Handling</h3>
+<p>When a browser disconnects:</p>
+<ol>
+<li>All queued tasks for that instance are marked &#39;failed&#39;</li>
+<li>Running task (if any) is marked &#39;failed&#39;</li>
+<li>Queue is cleared</li>
+<li><code>task_complete</code> events are emitted for each affected task</li>
+</ol>
+<h2>Concurrency Model</h2>
+<h3>Thread Safety Considerations</h3>
+<p>Node.js is single-threaded, so no mutex/locks are needed. However:</p>
+<ol>
+<li><strong>Async gaps</strong>: During <code>await</code> calls, other events can be processed</li>
+<li><strong>Race condition prevention</strong>: Task status is checked before each command execution</li>
+<li><strong>Cancellation</strong>: Checked both in queue processing and command execution</li>
+</ol>
+<pre><code class="language-javascript">// Check before each command
+if ((task.status as TaskStatus) === &#039;cancelled&#039;) {
+    this.markRemainingCommandsSkipped(task, i);
+    break;
+}</code></pre><h2>Extensibility Points</h2>
+<h3>Adding New Message Types</h3>
+<ol>
+<li>Define type in <code>src/types.ts</code></li>
+<li>Add handler in <code>task-websocket-server.ts</code> switch statement</li>
+<li>Implement logic in Task Manager if needed</li>
+</ol>
+<h3>Custom Progress Data</h3>
+<p>Commands can return arbitrary data in their <code>result</code> field, which is included in progress events:</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;task_progress&quot;,
+  &quot;status&quot;: &quot;success&quot;,
+  &quot;result&quot;: {
+    &quot;content&quot;: [{ &quot;type&quot;: &quot;text&quot;, &quot;text&quot;: &quot;{\&quot;screenshot\&quot;: \&quot;base64...\&quot;}&quot; }]
+  }
+}</code></pre><h3>Hooks for External Systems</h3>
+<p>Task Manager extends EventEmitter, so external systems can subscribe:</p>
+<pre><code class="language-javascript">taskManager.on(&#039;progress&#039;, (msg) =&gt; {
+    // Send to external monitoring system
+});
+
+taskManager.on(&#039;complete&#039;, (msg) =&gt; {
+    // Trigger webhook
+});</code></pre>
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

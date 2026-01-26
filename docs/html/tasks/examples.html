@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Examples - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html" class="active">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Examples</h1>
+<p>This document provides practical examples for common browser automation scenarios.</p>
+<h2>Basic Examples</h2>
+<h3>Navigate and Screenshot</h3>
+<pre><code class="language-json">{
+  &quot;task_name&quot;: &quot;Capture Homepage&quot;,
+  &quot;task_intention&quot;: &quot;Navigate to website and capture screenshot&quot;,
+  &quot;commands&quot;: [
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Go to homepage&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://example.com&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_content&quot;,
+      &quot;intention&quot;: &quot;Take screenshot&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;screenshot&quot; }
+    }
+  ]
+}</code></pre><h3>Click and Navigate</h3>
+<pre><code class="language-json">{
+  &quot;task_name&quot;: &quot;Navigate via Click&quot;,
+  &quot;task_intention&quot;: &quot;Click a link and wait for new page&quot;,
+  &quot;commands&quot;: [
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Go to homepage&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://example.com&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Click About link&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;click&quot;, &quot;selector&quot;: &quot;a[href=&#039;/about&#039;]&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Wait for About page&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;wait_for&quot;, &quot;selector&quot;: &quot;.about-content&quot;, &quot;timeout&quot;: 5000 }
+    }
+  ]
+}</code></pre><hr>
+<h2>Form Interactions</h2>
+<h3>Login Form</h3>
+<pre><code class="language-json">{
+  &quot;task_name&quot;: &quot;Login&quot;,
+  &quot;task_intention&quot;: &quot;Log into application with credentials&quot;,
+  &quot;commands&quot;: [
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Go to login page&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://app.example.com/login&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Wait for form to load&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;wait_for&quot;, &quot;selector&quot;: &quot;#login-form&quot;, &quot;timeout&quot;: 5000 }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Enter username&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;type&quot;, &quot;selector&quot;: &quot;#username&quot;, &quot;text&quot;: &quot;testuser&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Enter password&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;type&quot;, &quot;selector&quot;: &quot;#password&quot;, &quot;text&quot;: &quot;testpass123&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Click login button&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;click&quot;, &quot;selector&quot;: &quot;button[type=submit]&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Wait for dashboard&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;wait_for&quot;, &quot;selector&quot;: &quot;.dashboard&quot;, &quot;timeout&quot;: 10000 }
+    }
+  ]
+}</code></pre><h3>Contact Form</h3>
+<pre><code class="language-json">{
+  &quot;task_name&quot;: &quot;Submit Contact Form&quot;,
+  &quot;task_intention&quot;: &quot;Fill out and submit contact form&quot;,
+  &quot;commands&quot;: [
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Go to contact page&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://example.com/contact&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Enter name&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;type&quot;, &quot;selector&quot;: &quot;#name&quot;, &quot;text&quot;: &quot;John Doe&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Enter email&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;type&quot;, &quot;selector&quot;: &quot;#email&quot;, &quot;text&quot;: &quot;john@example.com&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Select subject&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;select&quot;, &quot;selector&quot;: &quot;#subject&quot;, &quot;value&quot;: &quot;support&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Enter message&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;type&quot;, &quot;selector&quot;: &quot;#message&quot;, &quot;text&quot;: &quot;Hello, I have a question about your product.&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Submit form&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;click&quot;, &quot;selector&quot;: &quot;#submit&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Wait for confirmation&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;wait_for&quot;, &quot;selector&quot;: &quot;.success-message&quot;, &quot;timeout&quot;: 5000 }
+    }
+  ]
+}</code></pre><hr>
+<h2>Search Operations</h2>
+<h3>Google Search</h3>
+<pre><code class="language-json">{
+  &quot;task_name&quot;: &quot;Google Search&quot;,
+  &quot;task_intention&quot;: &quot;Search Google and capture results&quot;,
+  &quot;commands&quot;: [
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Go to Google&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://www.google.com&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Type search query&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;type&quot;, &quot;selector&quot;: &quot;textarea[name=q]&quot;, &quot;text&quot;: &quot;Moonsurf browser automation&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Press Enter to search&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;keyboard&quot;, &quot;key&quot;: &quot;Enter&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Wait for results&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;wait_for&quot;, &quot;selector&quot;: &quot;#search&quot;, &quot;timeout&quot;: 10000 }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_content&quot;,
+      &quot;intention&quot;: &quot;Screenshot results&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;screenshot&quot; }
+    }
+  ]
+}</code></pre><h3>Wikipedia Search</h3>
+<pre><code class="language-json">{
+  &quot;task_name&quot;: &quot;Wikipedia Article&quot;,
+  &quot;task_intention&quot;: &quot;Search Wikipedia and read an article&quot;,
+  &quot;commands&quot;: [
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Go to Wikipedia&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://en.wikipedia.org&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Click search input&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;click&quot;, &quot;selector&quot;: &quot;#searchInput&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Type search term&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;type&quot;, &quot;selector&quot;: &quot;#searchInput&quot;, &quot;text&quot;: &quot;Artificial Intelligence&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Submit search&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;keyboard&quot;, &quot;key&quot;: &quot;Enter&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Wait for article&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;wait_for&quot;, &quot;selector&quot;: &quot;#firstHeading&quot;, &quot;timeout&quot;: 10000 }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Scroll to content&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;scroll&quot;, &quot;direction&quot;: &quot;down&quot;, &quot;amount&quot;: 300 }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_content&quot;,
+      &quot;intention&quot;: &quot;Get article intro&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;get_text&quot;, &quot;selector&quot;: &quot;.mw-parser-output &gt; p:first-of-type&quot; }
+    }
+  ]
+}</code></pre><hr>
+<h2>Data Extraction</h2>
+<h3>Extract Product Information</h3>
+<pre><code class="language-json">{
+  &quot;task_name&quot;: &quot;Extract Product Data&quot;,
+  &quot;task_intention&quot;: &quot;Get product details from e-commerce page&quot;,
+  &quot;commands&quot;: [
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Go to product page&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://shop.example.com/products/widget-pro&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Wait for product details&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;wait_for&quot;, &quot;selector&quot;: &quot;.product-details&quot;, &quot;timeout&quot;: 5000 }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_content&quot;,
+      &quot;intention&quot;: &quot;Get product title&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;get_text&quot;, &quot;selector&quot;: &quot;.product-title&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_content&quot;,
+      &quot;intention&quot;: &quot;Get product price&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;get_text&quot;, &quot;selector&quot;: &quot;.product-price&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_content&quot;,
+      &quot;intention&quot;: &quot;Get product description&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;get_text&quot;, &quot;selector&quot;: &quot;.product-description&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_content&quot;,
+      &quot;intention&quot;: &quot;Screenshot product image&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;screenshot&quot;, &quot;selector&quot;: &quot;.product-image&quot; }
+    }
+  ]
+}</code></pre><h3>Extract Table Data</h3>
+<pre><code class="language-json">{
+  &quot;task_name&quot;: &quot;Extract Table&quot;,
+  &quot;task_intention&quot;: &quot;Get data from HTML table&quot;,
+  &quot;commands&quot;: [
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Go to data page&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://example.com/data-table&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Wait for table&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;wait_for&quot;, &quot;selector&quot;: &quot;table.data-table&quot;, &quot;timeout&quot;: 5000 }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_content&quot;,
+      &quot;intention&quot;: &quot;Get table HTML&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;get_html&quot;, &quot;selector&quot;: &quot;table.data-table&quot; }
+    }
+  ]
+}</code></pre><hr>
+<h2>Page Manipulation</h2>
+<h3>Scroll and Capture</h3>
+<pre><code class="language-json">{
+  &quot;task_name&quot;: &quot;Scroll Page&quot;,
+  &quot;task_intention&quot;: &quot;Scroll through page and take screenshots&quot;,
+  &quot;commands&quot;: [
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Go to long page&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://example.com/long-article&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_content&quot;,
+      &quot;intention&quot;: &quot;Screenshot top&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;screenshot&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Scroll down&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;scroll&quot;, &quot;direction&quot;: &quot;down&quot;, &quot;amount&quot;: 800 }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_content&quot;,
+      &quot;intention&quot;: &quot;Screenshot middle&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;screenshot&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Scroll to bottom&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;scroll&quot;, &quot;direction&quot;: &quot;down&quot;, &quot;amount&quot;: 2000 }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_content&quot;,
+      &quot;intention&quot;: &quot;Screenshot bottom&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;screenshot&quot; }
+    }
+  ]
+}</code></pre><h3>Hover and Capture Dropdown</h3>
+<pre><code class="language-json">{
+  &quot;task_name&quot;: &quot;Capture Dropdown Menu&quot;,
+  &quot;task_intention&quot;: &quot;Hover to show dropdown and capture it&quot;,
+  &quot;commands&quot;: [
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Go to page with dropdown&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://example.com&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Hover over menu&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;hover&quot;, &quot;selector&quot;: &quot;.nav-dropdown-trigger&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Wait for dropdown&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;wait_for&quot;, &quot;selector&quot;: &quot;.dropdown-menu.visible&quot;, &quot;timeout&quot;: 2000 }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_content&quot;,
+      &quot;intention&quot;: &quot;Screenshot dropdown&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;screenshot&quot;, &quot;selector&quot;: &quot;.dropdown-menu&quot; }
+    }
+  ]
+}</code></pre><hr>
+<h2>JavaScript Execution</h2>
+<h3>Get Page Data via JS</h3>
+<pre><code class="language-json">{
+  &quot;task_name&quot;: &quot;Execute JavaScript&quot;,
+  &quot;task_intention&quot;: &quot;Run JavaScript to extract data&quot;,
+  &quot;commands&quot;: [
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Go to page&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://example.com/app&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_execute&quot;,
+      &quot;intention&quot;: &quot;Get page title&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;evaluate&quot;, &quot;script&quot;: &quot;return document.title&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_execute&quot;,
+      &quot;intention&quot;: &quot;Get all links&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;evaluate&quot;, &quot;script&quot;: &quot;return Array.from(document.querySelectorAll(&#039;a&#039;)).map(a =&gt; ({href: a.href, text: a.textContent}))&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_execute&quot;,
+      &quot;intention&quot;: &quot;Get localStorage data&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;evaluate&quot;, &quot;script&quot;: &quot;return JSON.stringify(localStorage)&quot; }
+    }
+  ]
+}</code></pre><h3>Modify Page State</h3>
+<pre><code class="language-json">{
+  &quot;task_name&quot;: &quot;Modify Page&quot;,
+  &quot;task_intention&quot;: &quot;Use JavaScript to modify page state&quot;,
+  &quot;commands&quot;: [
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Go to page&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://example.com/settings&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_execute&quot;,
+      &quot;intention&quot;: &quot;Enable dark mode&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;evaluate&quot;, &quot;script&quot;: &quot;document.body.classList.add(&#039;dark-mode&#039;); return &#039;Dark mode enabled&#039;&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_content&quot;,
+      &quot;intention&quot;: &quot;Screenshot dark mode&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;screenshot&quot; }
+    }
+  ]
+}</code></pre><hr>
+<h2>Multi-Step Workflows</h2>
+<h3>E-commerce Checkout Flow</h3>
+<pre><code class="language-json">{
+  &quot;task_name&quot;: &quot;Add to Cart Flow&quot;,
+  &quot;task_intention&quot;: &quot;Add product to cart and proceed to checkout&quot;,
+  &quot;commands&quot;: [
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Go to product page&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://shop.example.com/products/widget&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Wait for product&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;wait_for&quot;, &quot;selector&quot;: &quot;.add-to-cart&quot;, &quot;timeout&quot;: 5000 }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Select quantity&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;select&quot;, &quot;selector&quot;: &quot;#quantity&quot;, &quot;value&quot;: &quot;2&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Click Add to Cart&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;click&quot;, &quot;selector&quot;: &quot;.add-to-cart&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Wait for cart update&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;wait_for&quot;, &quot;selector&quot;: &quot;.cart-count:not(:empty)&quot;, &quot;timeout&quot;: 3000 }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Go to cart&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;click&quot;, &quot;selector&quot;: &quot;.cart-icon&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Wait for cart page&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;wait_for&quot;, &quot;selector&quot;: &quot;.cart-items&quot;, &quot;timeout&quot;: 5000 }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_content&quot;,
+      &quot;intention&quot;: &quot;Screenshot cart&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;screenshot&quot; }
+    }
+  ]
+}</code></pre><h3>Social Media Post</h3>
+<pre><code class="language-json">{
+  &quot;task_name&quot;: &quot;Create Social Post&quot;,
+  &quot;task_intention&quot;: &quot;Log in and create a new post&quot;,
+  &quot;commands&quot;: [
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Go to social platform&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://social.example.com&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Click login&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;click&quot;, &quot;selector&quot;: &quot;.login-btn&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Wait for login form&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;wait_for&quot;, &quot;selector&quot;: &quot;#login-form&quot;, &quot;timeout&quot;: 5000 }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Enter username&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;type&quot;, &quot;selector&quot;: &quot;#username&quot;, &quot;text&quot;: &quot;myuser&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Enter password&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;type&quot;, &quot;selector&quot;: &quot;#password&quot;, &quot;text&quot;: &quot;mypass&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Submit login&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;click&quot;, &quot;selector&quot;: &quot;button[type=submit]&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Wait for feed&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;wait_for&quot;, &quot;selector&quot;: &quot;.feed&quot;, &quot;timeout&quot;: 10000 }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Click new post&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;click&quot;, &quot;selector&quot;: &quot;.new-post-btn&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Wait for post editor&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;wait_for&quot;, &quot;selector&quot;: &quot;.post-editor&quot;, &quot;timeout&quot;: 3000 }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Type post content&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;type&quot;, &quot;selector&quot;: &quot;.post-editor textarea&quot;, &quot;text&quot;: &quot;Hello world! Testing browser automation 🚀&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Click post button&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;click&quot;, &quot;selector&quot;: &quot;.submit-post&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Wait for post to appear&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;wait_for&quot;, &quot;selector&quot;: &quot;.post-success&quot;, &quot;timeout&quot;: 5000 }
+    }
+  ]
+}</code></pre><hr>
+<h2>Client Code Examples</h2>
+<h3>Node.js WebSocket Client</h3>
+<pre><code class="language-javascript">const WebSocket = require(&#039;ws&#039;);
+
+async function runTask(task) {
+  return new Promise((resolve, reject) =&gt; {
+    const ws = new WebSocket(&#039;ws://localhost:3400&#039;);
+    let taskId = null;
+    const results = [];
+
+    ws.on(&#039;open&#039;, () =&gt; {
+      ws.send(JSON.stringify({
+        type: &#039;task_submit&#039;,
+        ...task
+      }));
+    });
+
+    ws.on(&#039;message&#039;, (data) =&gt; {
+      const msg = JSON.parse(data.toString());
+
+      switch (msg.type) {
+        case &#039;task_submit_response&#039;:
+          if (!msg.success) {
+            ws.close();
+            reject(new Error(msg.error));
+          }
+          taskId = msg.taskId;
+          console.log(`Task started: ${taskId}`);
+          break;
+
+        case &#039;task_progress&#039;:
+          console.log(`[${msg.commandIndex + 1}/${msg.totalCommands}] ${msg.status}: ${msg.intention}`);
+          if (msg.status === &#039;success&#039; &amp;&amp; msg.result) {
+            results.push(msg.result);
+          }
+          break;
+
+        case &#039;task_complete&#039;:
+          ws.close();
+          if (msg.status === &#039;completed&#039;) {
+            resolve({ taskId, status: msg.status, results, summary: msg.summary });
+          } else {
+            reject(new Error(`Task ${msg.status}: ${msg.error?.message}`));
+          }
+          break;
+      }
+    });
+
+    ws.on(&#039;error&#039;, reject);
+  });
+}
+
+// Usage
+runTask({
+  task_name: &#039;Example&#039;,
+  task_intention: &#039;Navigate to example.com&#039;,
+  commands: [
+    { tool_name: &#039;browser_navigate&#039;, intention: &#039;Navigate&#039;, args: { action: &#039;goto&#039;, url: &#039;https://example.com&#039; } }
+  ]
+}).then(console.log).catch(console.error);</code></pre><h3>Python Client</h3>
+<pre><code class="language-python">import asyncio
+import websockets
+import json
+
+async def run_task(task):
+    uri = &quot;ws://localhost:3400&quot;
+    async with websockets.connect(uri) as ws:
+        # Submit task
+        await ws.send(json.dumps({
+            &quot;type&quot;: &quot;task_submit&quot;,
+            **task
+        }))
+
+        results = []
+
+        async for message in ws:
+            msg = json.loads(message)
+
+            if msg[&quot;type&quot;] == &quot;task_submit_response&quot;:
+                if not msg.get(&quot;success&quot;):
+                    raise Exception(msg.get(&quot;error&quot;))
+                print(f&quot;Task started: {msg[&#039;taskId&#039;]}&quot;)
+
+            elif msg[&quot;type&quot;] == &quot;task_progress&quot;:
+                idx = msg[&quot;commandIndex&quot;] + 1
+                total = msg[&quot;totalCommands&quot;]
+                print(f&quot;[{idx}/{total}] {msg[&#039;status&#039;]}: {msg[&#039;intention&#039;]}&quot;)
+                if msg[&quot;status&quot;] == &quot;success&quot; and msg.get(&quot;result&quot;):
+                    results.append(msg[&quot;result&quot;])
+
+            elif msg[&quot;type&quot;] == &quot;task_complete&quot;:
+                if msg[&quot;status&quot;] == &quot;completed&quot;:
+                    return {&quot;status&quot;: msg[&quot;status&quot;], &quot;results&quot;: results, &quot;summary&quot;: msg[&quot;summary&quot;]}
+                else:
+                    raise Exception(f&quot;Task {msg[&#039;status&#039;]}: {msg.get(&#039;error&#039;, {}).get(&#039;message&#039;)}&quot;)
+
+# Usage
+task = {
+    &quot;task_name&quot;: &quot;Example&quot;,
+    &quot;task_intention&quot;: &quot;Navigate to example.com&quot;,
+    &quot;commands&quot;: [
+        {&quot;tool_name&quot;: &quot;browser_navigate&quot;, &quot;intention&quot;: &quot;Navigate&quot;, &quot;args&quot;: {&quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://example.com&quot;}}
+    ]
+}
+
+result = asyncio.run(run_task(task))
+print(result)</code></pre><h3>Bash/cURL Client</h3>
+<pre><code class="language-bash">#!/bin/bash
+
+BASE_URL=&quot;http://localhost:3300&quot;
+
+# Submit task
+RESPONSE=$(curl -s -X POST &quot;$BASE_URL/tasks&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#039;{
+    &quot;task_name&quot;: &quot;Screenshot Example&quot;,
+    &quot;task_intention&quot;: &quot;Navigate and screenshot&quot;,
+    &quot;commands&quot;: [
+      {&quot;tool_name&quot;: &quot;browser_navigate&quot;, &quot;intention&quot;: &quot;Navigate&quot;, &quot;args&quot;: {&quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://example.com&quot;}},
+      {&quot;tool_name&quot;: &quot;browser_content&quot;, &quot;intention&quot;: &quot;Screenshot&quot;, &quot;args&quot;: {&quot;action&quot;: &quot;screenshot&quot;}}
+    ]
+  }&#039;)
+
+TASK_ID=$(echo $RESPONSE | jq -r &#039;.taskId&#039;)
+echo &quot;Task submitted: $TASK_ID&quot;
+
+# Poll for completion
+while true; do
+  TASK=$(curl -s &quot;$BASE_URL/tasks/$TASK_ID&quot;)
+  STATUS=$(echo $TASK | jq -r &#039;.task.status&#039;)
+  echo &quot;Status: $STATUS&quot;
+
+  if [[ &quot;$STATUS&quot; == &quot;completed&quot; || &quot;$STATUS&quot; == &quot;failed&quot; || &quot;$STATUS&quot; == &quot;cancelled&quot; ]]; then
+    echo &quot;Final result:&quot;
+    echo $TASK | jq &#039;.task.commands[] | {intention, status}&#039;
+    break
+  fi
+
+  sleep 1
+done</code></pre>
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

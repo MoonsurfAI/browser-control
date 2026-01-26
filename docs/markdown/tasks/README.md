@@ -2,6 +2,8 @@
 
 The Task Execution System enables AI agents and developers to submit batched browser automation commands that execute sequentially with real-time progress reporting.
 
+> **Note:** This documentation covers the Task Execution System feature in detail. For general Moonsurf documentation, see the [main documentation hub](../README.md).
+
 ## Table of Contents
 
 ### For Users
@@ -88,3 +90,11 @@ A **Task** is a named sequence of browser automation commands that execute one a
 - **Building a client?** See [WebSocket API Reference](./websocket-api.md)
 - **Need examples?** Check [Examples](./examples.md)
 - **Contributing?** Read [Internals](./internals.md) and [Contributing](./contributing.md)
+
+## Related Documentation
+
+- [Main Documentation](../README.md) - Overview of all Moonsurf documentation
+- [WebSocket Protocol](../api-reference/websocket-protocol.md) - General WebSocket API reference
+- [HTTP Endpoints](../api-reference/http-endpoints.md) - REST API including task endpoints
+- [Tools Reference](../tools/README.md) - MCP tools used in task commands
+- [Guides](../guides/README.md) - Browser automation patterns and examples

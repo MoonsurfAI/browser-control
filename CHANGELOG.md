@@ -28,7 +28,7 @@ This changelog documents major version releases only.
 
 - Instance Manager now supports disconnect callbacks for external notification
 
-## [1.0.0] - 2024-12-01
+## [1.0.0] - 2025-12-25
 
 ### Added
 

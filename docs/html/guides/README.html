@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guides - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html" class="active">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Guides</h1>
+<p>Practical guides for common browser automation tasks with Moonsurf.</p>
+<h2>Overview</h2>
+<p>These guides provide step-by-step instructions for implementing real-world automation scenarios. Each guide includes complete examples you can adapt for your own projects.</p>
+<h2>Available Guides</h2>
+<h3><a href="form-filling.html">Form Filling</a></h3>
+<p>Automate form interactions including text input, dropdowns, checkboxes, file uploads, and multi-step forms.</p>
+<h3><a href="web-scraping.html">Web Scraping</a></h3>
+<p>Extract data from web pages using selectors, handle pagination, and work with dynamic content.</p>
+<h3><a href="file-downloads.html">File Downloads</a></h3>
+<p>Manage file downloads, track progress, and handle different file types.</p>
+<h3><a href="testing-workflows.html">Testing Workflows</a></h3>
+<p>Use Moonsurf for automated testing, including UI testing, regression testing, and CI/CD integration.</p>
+<h3><a href="handling-popups.html">Handling Popups</a></h3>
+<p>Deal with alerts, dialogs, authentication prompts, and popup windows.</p>
+<h3><a href="network-interception.html">Network Interception</a></h3>
+<p>Monitor, intercept, and modify network requests for testing and debugging.</p>
+<h3><a href="debugging-tips.html">Debugging Tips</a></h3>
+<p>Troubleshoot automation issues with screenshots, logging, and diagnostic tools.</p>
+<h2>Quick Reference</h2>
+<div class="table-wrapper"><table><thead><tr><th>Task</th><th>Primary Tool</th><th>Key Actions</th></tr></thead><tbody><tr><td>Fill text input</td><td><code>browser_interact</code></td><td><code>type</code></td></tr><tr><td>Click button</td><td><code>browser_interact</code></td><td><code>click</code></td></tr><tr><td>Select dropdown</td><td><code>browser_interact</code></td><td><code>select</code></td></tr><tr><td>Upload file</td><td><code>browser_interact</code></td><td><code>upload</code></td></tr><tr><td>Extract text</td><td><code>browser_content</code></td><td><code>extract</code></td></tr><tr><td>Take screenshot</td><td><code>browser_content</code></td><td><code>screenshot</code></td></tr><tr><td>Track download</td><td><code>browser_navigate</code></td><td><code>downloads</code></td></tr><tr><td>Monitor network</td><td><code>browser_network</code></td><td><code>intercept</code>, <code>requests</code></td></tr><tr><td>Execute JavaScript</td><td><code>browser_execute</code></td><td><code>evaluate</code></td></tr></tbody></table></div><h2>Prerequisites</h2>
+<p>Before following these guides, ensure you have:</p>
+<ol>
+<li><p><strong>Moonsurf installed and running</strong></p>
+<pre><code class="language-bash">npx @anthropic/browser-control</code></pre></li>
+<li><p><strong>A browser instance created</strong></p>
+<pre><code class="language-plaintext">browser_instance action=&quot;launch&quot;</code></pre></li>
+<li><p><strong>Basic understanding of CSS selectors</strong></p>
+<ul>
+<li>ID: <code>#my-element</code></li>
+<li>Class: <code>.my-class</code></li>
+<li>Attribute: <code>[name=&quot;email&quot;]</code></li>
+<li>Combination: <code>form#login input[type=&quot;submit&quot;]</code></li>
+</ul>
+</li>
+</ol>
+<h2>Common Patterns</h2>
+<h3>Wait for Element</h3>
+<p>Many actions require waiting for elements to appear:</p>
+<pre><code class="language-plaintext">browser_interact
+  action: &quot;click&quot;
+  selector: &quot;#submit-button&quot;
+  waitForSelector: true
+  timeout: 10000</code></pre><h3>Error Recovery</h3>
+<p>Handle failures gracefully:</p>
+<pre><code class="language-plaintext">1. Try the primary action
+2. If it fails, take a screenshot for debugging
+3. Check if the page state is as expected
+4. Retry or report the error</code></pre><h3>State Verification</h3>
+<p>Always verify actions succeeded:</p>
+<pre><code class="language-plaintext">1. Perform action (e.g., click submit)
+2. Wait for expected result (e.g., success message)
+3. Extract confirmation data
+4. Continue or handle failure</code></pre><h2>Best Practices</h2>
+<h3>Selectors</h3>
+<ol>
+<li><p><strong>Prefer stable selectors</strong></p>
+<ul>
+<li>Good: <code>[data-testid=&quot;submit&quot;]</code>, <code>#login-form</code></li>
+<li>Avoid: <code>.btn-primary:nth-child(3)</code>, complex XPath</li>
+</ul>
+</li>
+<li><p><strong>Use semantic selectors when possible</strong></p>
+<ul>
+<li>Good: <code>button[type=&quot;submit&quot;]</code>, <code>input[name=&quot;email&quot;]</code></li>
+<li>Avoid: <code>.sc-abc123</code>, dynamic class names</li>
+</ul>
+</li>
+<li><p><strong>Fall back gracefully</strong></p>
+<ul>
+<li>Try ID first, then name, then other attributes</li>
+</ul>
+</li>
+</ol>
+<h3>Timing</h3>
+<ol>
+<li><strong>Use explicit waits</strong> instead of fixed delays</li>
+<li><strong>Set appropriate timeouts</strong> for slow pages</li>
+<li><strong>Wait for network idle</strong> after navigation</li>
+</ol>
+<h3>Debugging</h3>
+<ol>
+<li><strong>Take screenshots</strong> at key points</li>
+<li><strong>Log page state</strong> when errors occur</li>
+<li><strong>Use visible mode</strong> during development</li>
+</ol>
+<h2>Related</h2>
+<ul>
+<li><a href="../tools/README.html">Tools Reference</a> - Complete tool documentation</li>
+<li><a href="../concepts/README.html">Concepts</a> - Understand how Moonsurf works</li>
+<li><a href="../api-reference/README.html">API Reference</a> - Detailed API documentation</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

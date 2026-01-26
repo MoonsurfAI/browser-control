@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testing - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html" class="active">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Testing</h1>
+<p>Guide to testing Moonsurf during development.</p>
+<h2>Overview</h2>
+<p>Moonsurf testing includes:</p>
+<ul>
+<li>Manual API testing with curl</li>
+<li>Integration testing with real browsers</li>
+<li>Automated test suites (when available)</li>
+</ul>
+<h2>Manual Testing</h2>
+<h3>Health Check</h3>
+<pre><code class="language-bash">curl http://localhost:3300/health</code></pre><p>Expected:</p>
+<pre><code class="language-json">{
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;version&quot;: &quot;2.0.0&quot;,
+  &quot;connectedInstances&quot;: 0,
+  &quot;sseClients&quot;: 0
+}</code></pre><h3>Server Info</h3>
+<pre><code class="language-bash">curl http://localhost:3300/info</code></pre><h3>List Tools</h3>
+<pre><code class="language-bash">curl -X POST http://localhost:3300/message \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#039;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:1,&quot;method&quot;:&quot;tools/list&quot;}&#039;</code></pre><h3>Launch Browser</h3>
+<pre><code class="language-bash">curl -X POST http://localhost:3300/message \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#039;{
+    &quot;jsonrpc&quot;:&quot;2.0&quot;,
+    &quot;id&quot;:1,
+    &quot;method&quot;:&quot;tools/call&quot;,
+    &quot;params&quot;:{
+      &quot;name&quot;:&quot;browser_instance&quot;,
+      &quot;arguments&quot;:{&quot;action&quot;:&quot;launch&quot;}
+    }
+  }&#039;</code></pre><h3>Navigate to URL</h3>
+<pre><code class="language-bash">curl -X POST http://localhost:3300/message \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#039;{
+    &quot;jsonrpc&quot;:&quot;2.0&quot;,
+    &quot;id&quot;:2,
+    &quot;method&quot;:&quot;tools/call&quot;,
+    &quot;params&quot;:{
+      &quot;name&quot;:&quot;browser_navigate&quot;,
+      &quot;arguments&quot;:{&quot;action&quot;:&quot;goto&quot;,&quot;url&quot;:&quot;https://example.com&quot;}
+    }
+  }&#039;</code></pre><h3>Take Screenshot</h3>
+<pre><code class="language-bash">curl -X POST http://localhost:3300/message \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#039;{
+    &quot;jsonrpc&quot;:&quot;2.0&quot;,
+    &quot;id&quot;:3,
+    &quot;method&quot;:&quot;tools/call&quot;,
+    &quot;params&quot;:{
+      &quot;name&quot;:&quot;browser_content&quot;,
+      &quot;arguments&quot;:{&quot;action&quot;:&quot;screenshot&quot;}
+    }
+  }&#039;</code></pre><h3>List Instances</h3>
+<pre><code class="language-bash">curl http://localhost:3300/instances</code></pre><h3>Close Browser</h3>
+<pre><code class="language-bash">curl -X POST http://localhost:3300/message \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#039;{
+    &quot;jsonrpc&quot;:&quot;2.0&quot;,
+    &quot;id&quot;:4,
+    &quot;method&quot;:&quot;tools/call&quot;,
+    &quot;params&quot;:{
+      &quot;name&quot;:&quot;browser_instance&quot;,
+      &quot;arguments&quot;:{&quot;action&quot;:&quot;close&quot;}
+    }
+  }&#039;</code></pre><h2>SSE Testing</h2>
+<h3>Connect to SSE</h3>
+<pre><code class="language-bash">curl -N http://localhost:3300/sse</code></pre><p>The <code>-N</code> flag disables buffering for real-time output.</p>
+<h3>Expected Output</h3>
+<pre><code class="language-plaintext">event: endpoint
+data: http://localhost:3300/message?sessionId=abc123-def456</code></pre><h2>WebSocket Testing</h2>
+<h3>Using wscat</h3>
+<p>Install wscat:</p>
+<pre><code class="language-bash">npm install -g wscat</code></pre><p>Connect:</p>
+<pre><code class="language-bash">wscat -c ws://localhost:3400</code></pre><h3>Submit Task</h3>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;task_submit&quot;,
+  &quot;task_name&quot;: &quot;Test Task&quot;,
+  &quot;commands&quot;: [
+    {&quot;tool_name&quot;: &quot;browser_navigate&quot;, &quot;args&quot;: {&quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://example.com&quot;}}
+  ]
+}</code></pre><h3>List Tasks</h3>
+<pre><code class="language-json">{&quot;type&quot;: &quot;task_list&quot;}</code></pre><h2>Testing with Different Browser Modes</h2>
+<h3>Chromium</h3>
+<pre><code class="language-bash">BROWSER_DEFAULT_MODE=chromium npm start</code></pre><h3>Chrome for Testing</h3>
+<pre><code class="language-bash">BROWSER_DEFAULT_MODE=testing npm start</code></pre><h3>System Chrome</h3>
+<pre><code class="language-bash">BROWSER_DEFAULT_MODE=chrome npm start</code></pre><h2>Testing Authentication</h2>
+<h3>Enable Auth</h3>
+<pre><code class="language-bash">AUTH_ENABLED=true AUTH_TOKENS=test-token npm start</code></pre><h3>Test Without Token</h3>
+<pre><code class="language-bash">curl http://localhost:3300/instances
+# Expected: 401 Unauthorized</code></pre><h3>Test With Token</h3>
+<pre><code class="language-bash">curl -H &quot;Authorization: Bearer test-token&quot; http://localhost:3300/instances
+# Expected: 200 OK</code></pre><h3>Token in URL</h3>
+<pre><code class="language-bash">curl &quot;http://localhost:3300/instances?token=test-token&quot;
+# Expected: 200 OK</code></pre><h2>Testing Rate Limiting</h2>
+<h3>Enable Rate Limiting</h3>
+<pre><code class="language-bash">RATE_LIMIT_ENABLED=true RATE_LIMIT_MAX_CALLS=5 npm start</code></pre><h3>Trigger Rate Limit</h3>
+<pre><code class="language-bash"># Send many requests quickly
+for i in {1..10}; do
+  curl http://localhost:3300/instances
+done
+
+# Eventually returns 429 Too Many Requests</code></pre><h2>Testing TLS</h2>
+<h3>Generate Self-Signed Certificate</h3>
+<pre><code class="language-bash">openssl req -x509 -nodes -days 365 \
+  -newkey rsa:2048 \
+  -keyout key.pem \
+  -out cert.pem \
+  -subj &quot;/CN=localhost&quot;</code></pre><h3>Start with TLS</h3>
+<pre><code class="language-bash">TLS_ENABLED=true \
+TLS_CERT_PATH=./cert.pem \
+TLS_KEY_PATH=./key.pem \
+npm start</code></pre><h3>Test HTTPS</h3>
+<pre><code class="language-bash">curl -k https://localhost:3300/health</code></pre><p>The <code>-k</code> flag accepts self-signed certificates.</p>
+<h2>Testing Task Execution</h2>
+<h3>Start Server with Tasks</h3>
+<pre><code class="language-bash">TASKS_ENABLED=true npm start</code></pre><h3>Submit Task via REST</h3>
+<pre><code class="language-bash">curl -X POST http://localhost:3300/tasks \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#039;{
+    &quot;task_name&quot;: &quot;E2E Test&quot;,
+    &quot;commands&quot;: [
+      {&quot;tool_name&quot;: &quot;browser_instance&quot;, &quot;args&quot;: {&quot;action&quot;: &quot;launch&quot;}},
+      {&quot;tool_name&quot;: &quot;browser_navigate&quot;, &quot;args&quot;: {&quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://example.com&quot;}},
+      {&quot;tool_name&quot;: &quot;browser_content&quot;, &quot;args&quot;: {&quot;action&quot;: &quot;screenshot&quot;}},
+      {&quot;tool_name&quot;: &quot;browser_instance&quot;, &quot;args&quot;: {&quot;action&quot;: &quot;close&quot;}}
+    ]
+  }&#039;</code></pre><h3>Check Task Status</h3>
+<pre><code class="language-bash">curl http://localhost:3300/tasks/&lt;taskId&gt;</code></pre><h2>Integration Test Script</h2>
+<p>Create a test script <code>test.sh</code>:</p>
+<pre><code class="language-bash">#!/bin/bash
+set -e
+
+BASE_URL=&quot;http://localhost:3300&quot;
+
+echo &quot;Testing health endpoint...&quot;
+curl -s &quot;$BASE_URL/health&quot; | jq .
+
+echo &quot;Testing tool listing...&quot;
+TOOLS=$(curl -s -X POST &quot;$BASE_URL/message&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#039;{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:1,&quot;method&quot;:&quot;tools/list&quot;}&#039;)
+echo &quot;$TOOLS&quot; | jq &#039;.result.tools | length&#039;
+
+echo &quot;Launching browser...&quot;
+LAUNCH=$(curl -s -X POST &quot;$BASE_URL/message&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#039;{
+    &quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:2,&quot;method&quot;:&quot;tools/call&quot;,
+    &quot;params&quot;:{&quot;name&quot;:&quot;browser_instance&quot;,&quot;arguments&quot;:{&quot;action&quot;:&quot;launch&quot;}}
+  }&#039;)
+echo &quot;$LAUNCH&quot; | jq .
+
+echo &quot;Navigating to example.com...&quot;
+curl -s -X POST &quot;$BASE_URL/message&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#039;{
+    &quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:3,&quot;method&quot;:&quot;tools/call&quot;,
+    &quot;params&quot;:{&quot;name&quot;:&quot;browser_navigate&quot;,&quot;arguments&quot;:{&quot;action&quot;:&quot;goto&quot;,&quot;url&quot;:&quot;https://example.com&quot;}}
+  }&#039; | jq .
+
+echo &quot;Taking screenshot...&quot;
+curl -s -X POST &quot;$BASE_URL/message&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#039;{
+    &quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:4,&quot;method&quot;:&quot;tools/call&quot;,
+    &quot;params&quot;:{&quot;name&quot;:&quot;browser_content&quot;,&quot;arguments&quot;:{&quot;action&quot;:&quot;screenshot&quot;}}
+  }&#039; | jq &#039;.result.content[0].text | length&#039;
+
+echo &quot;Closing browser...&quot;
+curl -s -X POST &quot;$BASE_URL/message&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d &#039;{
+    &quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:5,&quot;method&quot;:&quot;tools/call&quot;,
+    &quot;params&quot;:{&quot;name&quot;:&quot;browser_instance&quot;,&quot;arguments&quot;:{&quot;action&quot;:&quot;close&quot;}}
+  }&#039; | jq .
+
+echo &quot;All tests passed!&quot;</code></pre><p>Run:</p>
+<pre><code class="language-bash">chmod +x test.sh
+./test.sh</code></pre><h2>Testing with Claude Code</h2>
+<h3>Install Skill</h3>
+<pre><code class="language-bash">npm start -- --install-skill</code></pre><h3>Configure MCP</h3>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;moonsurf-dev&quot;: {
+      &quot;url&quot;: &quot;http://localhost:3300/sse&quot;
+    }
+  }
+}</code></pre><h3>Test in Claude</h3>
+<pre><code class="language-bash">claude &quot;Launch a browser, go to example.com, take a screenshot, and close the browser&quot;</code></pre><h2>Debugging Test Failures</h2>
+<h3>Enable Debug Logging</h3>
+<pre><code class="language-bash">LOG_LEVEL=debug npm start</code></pre><h3>Check Server Output</h3>
+<p>Watch for:</p>
+<ul>
+<li>Registration messages</li>
+<li>WebSocket connections</li>
+<li>Tool call details</li>
+<li>Error messages</li>
+</ul>
+<h3>Browser Console</h3>
+<p>If browser is visible:</p>
+<ol>
+<li>Open DevTools (F12)</li>
+<li>Check Console tab for errors</li>
+<li>Check Network tab for failed requests</li>
+</ol>
+<h3>Extension Logs</h3>
+<ol>
+<li>Go to <code>chrome://extensions</code></li>
+<li>Find Moonsurf extension</li>
+<li>Click &quot;Service worker&quot; to open DevTools</li>
+</ol>
+<h2>Test Checklist</h2>
+<h3>Basic Functionality</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Health endpoint responds</li>
+<li><input disabled="" type="checkbox"> Info endpoint shows configuration</li>
+<li><input disabled="" type="checkbox"> Tools list returns 9 tools</li>
+<li><input disabled="" type="checkbox"> Browser launches successfully</li>
+<li><input disabled="" type="checkbox"> Navigation works</li>
+<li><input disabled="" type="checkbox"> Screenshots capture correctly</li>
+<li><input disabled="" type="checkbox"> Browser closes cleanly</li>
+</ul>
+<h3>Authentication</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Requests fail without token</li>
+<li><input disabled="" type="checkbox"> Requests succeed with valid token</li>
+<li><input disabled="" type="checkbox"> Token works in header</li>
+<li><input disabled="" type="checkbox"> Token works in URL parameter</li>
+</ul>
+<h3>Tasks</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Task submission works</li>
+<li><input disabled="" type="checkbox"> Task progress updates received</li>
+<li><input disabled="" type="checkbox"> Task completion reported</li>
+<li><input disabled="" type="checkbox"> Task cancellation works</li>
+</ul>
+<h3>Multiple Instances</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Can launch multiple browsers</li>
+<li><input disabled="" type="checkbox"> Correct instance receives commands</li>
+<li><input disabled="" type="checkbox"> Close specific instance works</li>
+<li><input disabled="" type="checkbox"> Close all instances works</li>
+</ul>
+<h2>Related</h2>
+<ul>
+<li><a href="local-setup.html">Local Setup</a> - Development environment</li>
+<li><a href="debugging.html">Debugging</a> - Troubleshooting</li>
+<li><a href="../integration/ci-cd.html">CI/CD</a> - Automated testing</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

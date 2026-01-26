@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Scraping Guide - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html" class="active">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Web Scraping Guide</h1>
+<p>Extract data from web pages using Moonsurf&#39;s browser automation capabilities.</p>
+<h2>Overview</h2>
+<p>Moonsurf provides several approaches for data extraction:</p>
+<ol>
+<li><strong>Selector-based extraction</strong> - Extract text/HTML from specific elements</li>
+<li><strong>Full page content</strong> - Get entire page HTML or text</li>
+<li><strong>JavaScript evaluation</strong> - Run custom extraction scripts</li>
+<li><strong>Structured data</strong> - Parse JSON-LD, meta tags, tables</li>
+</ol>
+<h2>Basic Text Extraction</h2>
+<h3>Single Element</h3>
+<pre><code class="language-plaintext">browser_content
+  action: &quot;extract&quot;
+  selector: &quot;h1&quot;</code></pre><p>Returns:</p>
+<pre><code class="language-json">{
+  &quot;text&quot;: &quot;Page Title&quot;,
+  &quot;html&quot;: &quot;&lt;h1&gt;Page Title&lt;/h1&gt;&quot;
+}</code></pre><h3>Multiple Elements</h3>
+<pre><code class="language-plaintext">browser_content
+  action: &quot;extract&quot;
+  selector: &quot;.product-name&quot;
+  multiple: true</code></pre><p>Returns:</p>
+<pre><code class="language-json">{
+  &quot;elements&quot;: [
+    { &quot;text&quot;: &quot;Product 1&quot;, &quot;html&quot;: &quot;&lt;span class=\&quot;product-name\&quot;&gt;Product 1&lt;/span&gt;&quot; },
+    { &quot;text&quot;: &quot;Product 2&quot;, &quot;html&quot;: &quot;&lt;span class=\&quot;product-name\&quot;&gt;Product 2&lt;/span&gt;&quot; }
+  ]
+}</code></pre><h3>With Attributes</h3>
+<pre><code class="language-plaintext">browser_content
+  action: &quot;extract&quot;
+  selector: &quot;a.product-link&quot;
+  multiple: true
+  attributes: [&quot;href&quot;, &quot;data-id&quot;]</code></pre><p>Returns:</p>
+<pre><code class="language-json">{
+  &quot;elements&quot;: [
+    { &quot;text&quot;: &quot;Product 1&quot;, &quot;href&quot;: &quot;/products/1&quot;, &quot;data-id&quot;: &quot;prod-001&quot; },
+    { &quot;text&quot;: &quot;Product 2&quot;, &quot;href&quot;: &quot;/products/2&quot;, &quot;data-id&quot;: &quot;prod-002&quot; }
+  ]
+}</code></pre><h2>Full Page Content</h2>
+<h3>Get Page Text</h3>
+<pre><code class="language-plaintext">browser_content
+  action: &quot;text&quot;</code></pre><p>Returns all visible text on the page.</p>
+<h3>Get Page HTML</h3>
+<pre><code class="language-plaintext">browser_content
+  action: &quot;html&quot;</code></pre><p>Returns complete page HTML.</p>
+<h3>Get Page Title</h3>
+<pre><code class="language-plaintext">browser_content
+  action: &quot;title&quot;</code></pre><h2>Viewport DOM</h2>
+<p>Get the DOM structure visible in the current viewport:</p>
+<pre><code class="language-plaintext">browser_content
+  action: &quot;get_viewport_dom&quot;</code></pre><p>This returns a simplified DOM representation useful for understanding page structure.</p>
+<h2>Screenshots</h2>
+<h3>Full Page</h3>
+<pre><code class="language-plaintext">browser_content
+  action: &quot;screenshot&quot;
+  fullPage: true</code></pre><h3>Visible Area Only</h3>
+<pre><code class="language-plaintext">browser_content
+  action: &quot;screenshot&quot;</code></pre><h3>Specific Element</h3>
+<pre><code class="language-plaintext">browser_content
+  action: &quot;screenshot&quot;
+  selector: &quot;#product-gallery&quot;</code></pre><h3>Custom Format</h3>
+<pre><code class="language-plaintext">browser_content
+  action: &quot;screenshot&quot;
+  format: &quot;jpeg&quot;
+  quality: 80</code></pre><h2>Structured Data Extraction</h2>
+<h3>Tables</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const table = document.querySelector(&#039;table&#039;);
+    const headers = Array.from(table.querySelectorAll(&#039;th&#039;))
+      .map(th =&gt; th.textContent.trim());
+    const rows = Array.from(table.querySelectorAll(&#039;tbody tr&#039;))
+      .map(row =&gt; {
+        const cells = Array.from(row.querySelectorAll(&#039;td&#039;));
+        return cells.map(cell =&gt; cell.textContent.trim());
+      });
+    return { headers, rows };</code></pre><h3>JSON-LD</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const scripts = document.querySelectorAll(&#039;script[type=&quot;application/ld+json&quot;]&#039;);
+    return Array.from(scripts).map(s =&gt; JSON.parse(s.textContent));</code></pre><h3>Meta Tags</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const meta = {};
+    document.querySelectorAll(&#039;meta&#039;).forEach(m =&gt; {
+      const name = m.getAttribute(&#039;name&#039;) || m.getAttribute(&#039;property&#039;);
+      if (name) meta[name] = m.getAttribute(&#039;content&#039;);
+    });
+    return meta;</code></pre><h3>Open Graph Data</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const og = {};
+    document.querySelectorAll(&#039;meta[property^=&quot;og:&quot;]&#039;).forEach(m =&gt; {
+      const prop = m.getAttribute(&#039;property&#039;).replace(&#039;og:&#039;, &#039;&#039;);
+      og[prop] = m.getAttribute(&#039;content&#039;);
+    });
+    return og;</code></pre><h2>Product Page Scraping</h2>
+<h3>E-commerce Product</h3>
+<pre><code class="language-plaintext"># Navigate to product page
+browser_navigate
+  action: &quot;goto&quot;
+  url: &quot;https://shop.example.com/product/123&quot;
+  waitUntil: &quot;networkidle&quot;
+
+# Extract product data
+browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    return {
+      name: document.querySelector(&#039;h1.product-title&#039;)?.textContent.trim(),
+      price: document.querySelector(&#039;.price&#039;)?.textContent.trim(),
+      description: document.querySelector(&#039;.description&#039;)?.textContent.trim(),
+      images: Array.from(document.querySelectorAll(&#039;.gallery img&#039;))
+        .map(img =&gt; img.src),
+      rating: document.querySelector(&#039;.rating&#039;)?.textContent.trim(),
+      reviews: document.querySelector(&#039;.review-count&#039;)?.textContent.trim(),
+      availability: document.querySelector(&#039;.stock-status&#039;)?.textContent.trim(),
+      sku: document.querySelector(&#039;[itemprop=&quot;sku&quot;]&#039;)?.textContent.trim()
+    };</code></pre><h3>Product Listing Page</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    return Array.from(document.querySelectorAll(&#039;.product-card&#039;)).map(card =&gt; ({
+      name: card.querySelector(&#039;.product-name&#039;)?.textContent.trim(),
+      price: card.querySelector(&#039;.price&#039;)?.textContent.trim(),
+      url: card.querySelector(&#039;a&#039;)?.href,
+      image: card.querySelector(&#039;img&#039;)?.src
+    }));</code></pre><h2>Article/Blog Scraping</h2>
+<h3>Article Content</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    return {
+      title: document.querySelector(&#039;h1&#039;)?.textContent.trim(),
+      author: document.querySelector(&#039;.author&#039;)?.textContent.trim(),
+      date: document.querySelector(&#039;time&#039;)?.getAttribute(&#039;datetime&#039;),
+      content: document.querySelector(&#039;article&#039;)?.textContent.trim(),
+      tags: Array.from(document.querySelectorAll(&#039;.tag&#039;))
+        .map(t =&gt; t.textContent.trim())
+    };</code></pre><h3>News Article</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    // Try common article selectors
+    const selectors = {
+      title: [&#039;h1&#039;, &#039;article h1&#039;, &#039;.headline&#039;],
+      content: [&#039;article&#039;, &#039;.article-body&#039;, &#039;.post-content&#039;],
+      date: [&#039;time&#039;, &#039;.published-date&#039;, &#039;.date&#039;],
+      author: [&#039;.author&#039;, &#039;.byline&#039;, &#039;[rel=&quot;author&quot;]&#039;]
+    };
+
+    const find = (sels) =&gt; {
+      for (const sel of sels) {
+        const el = document.querySelector(sel);
+        if (el) return el.textContent.trim();
+      }
+      return null;
+    };
+
+    return {
+      title: find(selectors.title),
+      content: find(selectors.content),
+      date: find(selectors.date),
+      author: find(selectors.author)
+    };</code></pre><h2>Pagination Handling</h2>
+<h3>Next Button Pagination</h3>
+<pre><code class="language-plaintext">const allProducts = [];
+
+while (true) {
+  // Extract products from current page
+  const products = browser_execute
+    action: &quot;evaluate&quot;
+    script: |
+      return Array.from(document.querySelectorAll(&#039;.product&#039;))
+        .map(p =&gt; ({
+          name: p.querySelector(&#039;.name&#039;)?.textContent,
+          price: p.querySelector(&#039;.price&#039;)?.textContent
+        }));
+
+  allProducts.push(...products);
+
+  // Check for next button
+  const hasNext = browser_execute
+    action: &quot;evaluate&quot;
+    script: |
+      const next = document.querySelector(&#039;.pagination .next&#039;);
+      return next &amp;&amp; !next.disabled;
+
+  if (!hasNext) break;
+
+  // Click next and wait for load
+  browser_interact action=&quot;click&quot; selector=&quot;.pagination .next&quot;
+  browser_navigate action=&quot;waitForNavigation&quot;
+}</code></pre><h3>URL-Based Pagination</h3>
+<pre><code class="language-plaintext">const baseUrl = &quot;https://example.com/products?page=&quot;;
+let page = 1;
+const allProducts = [];
+
+while (page &lt;= 10) {
+  browser_navigate
+    action: &quot;goto&quot;
+    url: `${baseUrl}${page}`
+    waitUntil: &quot;networkidle&quot;
+
+  const products = browser_execute
+    action: &quot;evaluate&quot;
+    script: |
+      return Array.from(document.querySelectorAll(&#039;.product&#039;))
+        .map(p =&gt; p.textContent);
+
+  if (products.length === 0) break;
+
+  allProducts.push(...products);
+  page++;
+}</code></pre><h3>Infinite Scroll</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const items = [];
+    let lastHeight = 0;
+
+    while (true) {
+      // Scroll to bottom
+      window.scrollTo(0, document.body.scrollHeight);
+
+      // Wait for content to load
+      await new Promise(r =&gt; setTimeout(r, 2000));
+
+      // Check if we&#039;ve reached the end
+      const newHeight = document.body.scrollHeight;
+      if (newHeight === lastHeight) break;
+      lastHeight = newHeight;
+
+      // Don&#039;t scroll forever
+      if (items.length &gt; 1000) break;
+    }
+
+    // Extract all loaded items
+    return Array.from(document.querySelectorAll(&#039;.item&#039;))
+      .map(el =&gt; el.textContent);</code></pre><h2>Handling Dynamic Content</h2>
+<h3>Wait for Content to Load</h3>
+<pre><code class="language-plaintext"># Wait for specific element
+browser_interact
+  action: &quot;click&quot;
+  selector: &quot;.load-more&quot;
+
+browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    await new Promise(resolve =&gt; {
+      const check = () =&gt; {
+        const items = document.querySelectorAll(&#039;.product&#039;);
+        if (items.length &gt; 10) resolve();
+        else setTimeout(check, 100);
+      };
+      check();
+    });</code></pre><h3>React/Vue/Angular Apps</h3>
+<pre><code class="language-plaintext"># Wait for hydration
+browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    // Wait for React to hydrate
+    await new Promise(resolve =&gt; {
+      const check = () =&gt; {
+        if (document.querySelector(&#039;[data-reactroot]&#039;)) resolve();
+        else setTimeout(check, 100);
+      };
+      check();
+    });</code></pre><h3>Lazy-Loaded Images</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    // Scroll through page to trigger lazy loading
+    const totalHeight = document.body.scrollHeight;
+    const viewportHeight = window.innerHeight;
+
+    for (let pos = 0; pos &lt; totalHeight; pos += viewportHeight) {
+      window.scrollTo(0, pos);
+      await new Promise(r =&gt; setTimeout(r, 500));
+    }
+
+    // Now extract image sources
+    return Array.from(document.querySelectorAll(&#039;img&#039;))
+      .map(img =&gt; img.src || img.dataset.src);</code></pre><h2>Search Results Scraping</h2>
+<h3>Google Search Results</h3>
+<pre><code class="language-plaintext">browser_navigate
+  action: &quot;goto&quot;
+  url: &quot;https://www.google.com/search?q=moonsurf+browser&quot;
+
+browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    return Array.from(document.querySelectorAll(&#039;.g&#039;)).map(result =&gt; ({
+      title: result.querySelector(&#039;h3&#039;)?.textContent,
+      url: result.querySelector(&#039;a&#039;)?.href,
+      snippet: result.querySelector(&#039;.VwiC3b&#039;)?.textContent
+    })).filter(r =&gt; r.title);</code></pre><h3>Site Search</h3>
+<pre><code class="language-plaintext"># Enter search term
+browser_interact action=&quot;type&quot; selector=&quot;input[type=&#039;search&#039;]&quot; text=&quot;query&quot;
+browser_interact action=&quot;press&quot; key=&quot;Enter&quot;
+
+# Wait for results
+browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    await new Promise(r =&gt; setTimeout(r, 2000));
+    return Array.from(document.querySelectorAll(&#039;.search-result&#039;))
+      .map(r =&gt; r.textContent);</code></pre><h2>Data Cleaning</h2>
+<h3>Clean Extracted Text</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const raw = document.querySelector(&#039;.content&#039;)?.textContent || &#039;&#039;;
+    return raw
+      .replace(/\s+/g, &#039; &#039;)           // Normalize whitespace
+      .replace(/^\s+|\s+$/g, &#039;&#039;)      // Trim
+      .replace(/[^\x20-\x7E]/g, &#039;&#039;);  // Remove non-printable</code></pre><h3>Extract Numbers</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const priceText = document.querySelector(&#039;.price&#039;)?.textContent || &#039;&#039;;
+    const match = priceText.match(/[\d,]+\.?\d*/);
+    return match ? parseFloat(match[0].replace(&#039;,&#039;, &#039;&#039;)) : null;</code></pre><h3>Parse Dates</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const dateEl = document.querySelector(&#039;time&#039;);
+    const datetime = dateEl?.getAttribute(&#039;datetime&#039;);
+    if (datetime) return new Date(datetime).toISOString();
+
+    // Fallback to text parsing
+    const text = dateEl?.textContent;
+    return text ? new Date(text).toISOString() : null;</code></pre><h2>Error Handling</h2>
+<h3>Check Element Exists</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const el = document.querySelector(&#039;.product-title&#039;);
+    if (!el) throw new Error(&#039;Product title not found&#039;);
+    return el.textContent;</code></pre><h3>Handle Missing Data</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    return {
+      name: document.querySelector(&#039;.name&#039;)?.textContent?.trim() || &#039;Unknown&#039;,
+      price: document.querySelector(&#039;.price&#039;)?.textContent?.trim() || &#039;N/A&#039;,
+      inStock: document.querySelector(&#039;.in-stock&#039;) !== null
+    };</code></pre><h3>Retry on Failure</h3>
+<pre><code class="language-plaintext">let attempts = 0;
+let data = null;
+
+while (attempts &lt; 3 &amp;&amp; !data) {
+  try {
+    data = browser_execute
+      action: &quot;evaluate&quot;
+      script: |
+        const el = document.querySelector(&#039;.data&#039;);
+        if (!el) throw new Error(&#039;Not loaded&#039;);
+        return el.textContent;
+  } catch (e) {
+    attempts++;
+    browser_execute
+      action: &quot;evaluate&quot;
+      script: &quot;await new Promise(r =&gt; setTimeout(r, 1000))&quot;
+  }
+}</code></pre><h2>Best Practices</h2>
+<h3>1. Respect Rate Limits</h3>
+<p>Add delays between requests:</p>
+<pre><code class="language-plaintext">browser_navigate action=&quot;goto&quot; url=&quot;https://example.com/page1&quot;
+# ... extract data ...
+
+browser_execute
+  action: &quot;evaluate&quot;
+  script: &quot;await new Promise(r =&gt; setTimeout(r, 2000))&quot;
+
+browser_navigate action=&quot;goto&quot; url=&quot;https://example.com/page2&quot;</code></pre><h3>2. Use Stable Selectors</h3>
+<p>Prefer:</p>
+<ul>
+<li><code>[data-testid=&quot;product&quot;]</code></li>
+<li><code>[itemprop=&quot;name&quot;]</code></li>
+<li>Semantic elements like <code>article</code>, <code>main</code>, <code>nav</code></li>
+</ul>
+<p>Avoid:</p>
+<ul>
+<li>Dynamically generated class names</li>
+<li>Position-based selectors</li>
+<li>Overly complex selectors</li>
+</ul>
+<h3>3. Handle Consent Dialogs</h3>
+<pre><code class="language-plaintext"># Try to dismiss cookie consent
+browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const acceptBtn = document.querySelector(
+      &#039;[class*=&quot;accept&quot;], [class*=&quot;consent&quot;], #cookie-accept&#039;
+    );
+    if (acceptBtn) acceptBtn.click();</code></pre><h3>4. Verify Data Quality</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const data = { /* extracted data */ };
+
+    // Validate required fields
+    const required = [&#039;name&#039;, &#039;price&#039;, &#039;url&#039;];
+    for (const field of required) {
+      if (!data[field]) {
+        console.error(`Missing required field: ${field}`);
+      }
+    }
+
+    return data;</code></pre><h3>5. Take Screenshots for Debugging</h3>
+<pre><code class="language-plaintext"># Before extraction
+browser_content action=&quot;screenshot&quot; fullPage=true
+
+# If extraction fails, you have a record of what the page looked like</code></pre><h2>Legal Considerations</h2>
+<p>When scraping websites:</p>
+<ol>
+<li><strong>Check robots.txt</strong> - Respect crawl rules</li>
+<li><strong>Review Terms of Service</strong> - Some sites prohibit scraping</li>
+<li><strong>Rate limit requests</strong> - Don&#39;t overload servers</li>
+<li><strong>Don&#39;t scrape personal data</strong> - GDPR and privacy laws apply</li>
+<li><strong>Cache responses</strong> - Minimize repeat requests</li>
+<li><strong>Identify your bot</strong> - Use appropriate user-agent</li>
+</ol>
+<h2>Related</h2>
+<ul>
+<li><a href="../tools/browser-content.html">browser_content</a> - Content extraction tool</li>
+<li><a href="../tools/browser-execute.html">browser_execute</a> - JavaScript execution</li>
+<li><a href="network-interception.html">Network Interception</a> - Monitor API responses</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

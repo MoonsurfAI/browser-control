@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debugging Tips Guide - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html" class="active">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Debugging Tips Guide</h1>
+<p>Troubleshoot browser automation issues using screenshots, logging, console output, and diagnostic tools.</p>
+<h2>Overview</h2>
+<p>Effective debugging in browser automation requires:</p>
+<ol>
+<li><strong>Visual inspection</strong> - Screenshots at key points</li>
+<li><strong>Console monitoring</strong> - JavaScript errors and logs</li>
+<li><strong>Network analysis</strong> - Failed requests and timing</li>
+<li><strong>State inspection</strong> - DOM and variable state</li>
+<li><strong>Logging</strong> - Server-side debug output</li>
+</ol>
+<h2>Screenshots for Debugging</h2>
+<h3>Capture Current State</h3>
+<pre><code class="language-plaintext">browser_content
+  action: &quot;screenshot&quot;</code></pre><h3>Full Page Screenshot</h3>
+<pre><code class="language-plaintext">browser_content
+  action: &quot;screenshot&quot;
+  fullPage: true</code></pre><h3>Screenshot Specific Element</h3>
+<pre><code class="language-plaintext">browser_content
+  action: &quot;screenshot&quot;
+  selector: &quot;#problem-area&quot;</code></pre><h3>Screenshot Before/After Actions</h3>
+<pre><code class="language-plaintext"># Before clicking
+browser_content action=&quot;screenshot&quot;
+
+# Perform action
+browser_interact action=&quot;click&quot; selector=&quot;#button&quot;
+
+# After clicking
+browser_content action=&quot;screenshot&quot;
+
+# Compare to understand what changed</code></pre><h3>Screenshot on Error</h3>
+<pre><code class="language-plaintext">try {
+  browser_interact action=&quot;click&quot; selector=&quot;#missing-element&quot;
+} catch (error) {
+  browser_content action=&quot;screenshot&quot; fullPage=true
+  # Save screenshot for analysis
+  throw error;
+}</code></pre><h2>Console Monitoring</h2>
+<h3>Get Console Messages</h3>
+<pre><code class="language-plaintext">browser_debug
+  action: &quot;console&quot;</code></pre><p>Returns:</p>
+<pre><code class="language-json">{
+  &quot;messages&quot;: [
+    { &quot;type&quot;: &quot;log&quot;, &quot;text&quot;: &quot;App initialized&quot; },
+    { &quot;type&quot;: &quot;error&quot;, &quot;text&quot;: &quot;Failed to load resource&quot; },
+    { &quot;type&quot;: &quot;warning&quot;, &quot;text&quot;: &quot;Deprecated API used&quot; }
+  ]
+}</code></pre><h3>Check for JavaScript Errors</h3>
+<pre><code class="language-plaintext">browser_debug action=&quot;console&quot;
+
+# Look for messages with type: &quot;error&quot;
+# These indicate JavaScript issues</code></pre><h3>Monitor Console During Action</h3>
+<pre><code class="language-plaintext"># Clear existing messages
+browser_debug action=&quot;clear&quot;
+
+# Perform action
+browser_interact action=&quot;click&quot; selector=&quot;#submit&quot;
+
+# Check console for new messages
+browser_debug action=&quot;console&quot;</code></pre><h3>Log Custom Messages</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    console.log(&#039;Debug: Current state&#039;, {
+      url: location.href,
+      form: document.querySelector(&#039;form&#039;)?.innerHTML
+    });</code></pre><h2>DOM Inspection</h2>
+<h3>Get Element Information</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const el = document.querySelector(&#039;#target&#039;);
+    if (!el) return { found: false };
+
+    const rect = el.getBoundingClientRect();
+    const style = getComputedStyle(el);
+
+    return {
+      found: true,
+      tagName: el.tagName,
+      id: el.id,
+      className: el.className,
+      visible: style.display !== &#039;none&#039; &amp;&amp; style.visibility !== &#039;hidden&#039;,
+      dimensions: { width: rect.width, height: rect.height },
+      position: { top: rect.top, left: rect.left },
+      text: el.textContent?.slice(0, 100)
+    };</code></pre><h3>Check Element Exists</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const el = document.querySelector(&#039;.my-element&#039;);
+    return {
+      exists: !!el,
+      count: document.querySelectorAll(&#039;.my-element&#039;).length
+    };</code></pre><h3>Find Matching Elements</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const elements = document.querySelectorAll(&#039;button&#039;);
+    return Array.from(elements).map(el =&gt; ({
+      text: el.textContent.trim(),
+      id: el.id,
+      classes: el.className,
+      disabled: el.disabled
+    }));</code></pre><h3>Check Element Visibility</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const el = document.querySelector(&#039;#target&#039;);
+    if (!el) return { reason: &#039;not found&#039; };
+
+    const rect = el.getBoundingClientRect();
+    const style = getComputedStyle(el);
+
+    if (style.display === &#039;none&#039;) return { reason: &#039;display:none&#039; };
+    if (style.visibility === &#039;hidden&#039;) return { reason: &#039;visibility:hidden&#039; };
+    if (style.opacity === &#039;0&#039;) return { reason: &#039;opacity:0&#039; };
+    if (rect.width === 0 || rect.height === 0) return { reason: &#039;zero dimensions&#039; };
+
+    return { visible: true, rect };</code></pre><h3>Get Viewport DOM</h3>
+<pre><code class="language-plaintext">browser_content
+  action: &quot;get_viewport_dom&quot;</code></pre><p>Returns simplified DOM of visible elements.</p>
+<h2>Network Debugging</h2>
+<h3>Monitor All Requests</h3>
+<pre><code class="language-plaintext">browser_network action=&quot;intercept&quot; patterns=[&quot;**/*&quot;]
+
+# Perform actions
+browser_interact action=&quot;click&quot; selector=&quot;#load-data&quot;
+
+# Check requests
+browser_network action=&quot;requests&quot;</code></pre><h3>Find Failed Requests</h3>
+<pre><code class="language-plaintext">browser_network action=&quot;requests&quot;
+
+# Look for status &gt;= 400
+# Common issues:
+# - 401: Authentication required
+# - 403: Forbidden
+# - 404: Not found
+# - 500: Server error</code></pre><h3>Check Request Timing</h3>
+<pre><code class="language-plaintext">browser_network action=&quot;requests&quot;
+
+# Examine timing.duration for slow requests
+# Identify bottlenecks</code></pre><h3>Debug CORS Issues</h3>
+<pre><code class="language-plaintext">browser_debug action=&quot;console&quot;
+
+# Look for CORS errors like:
+# &quot;Access to fetch has been blocked by CORS policy&quot;</code></pre><h2>Page State Debugging</h2>
+<h3>Get Current URL</h3>
+<pre><code class="language-plaintext">browser_tab action=&quot;list&quot;
+# Returns current tab with URL</code></pre><h3>Check Page Load State</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    return {
+      readyState: document.readyState,
+      url: location.href,
+      title: document.title
+    };</code></pre><h3>Get Page HTML</h3>
+<pre><code class="language-plaintext">browser_content action=&quot;html&quot;</code></pre><h3>Get Page Text</h3>
+<pre><code class="language-plaintext">browser_content action=&quot;text&quot;</code></pre><h2>Form Debugging</h2>
+<h3>Get Form Values</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const form = document.querySelector(&#039;form&#039;);
+    const formData = new FormData(form);
+    return Object.fromEntries(formData);</code></pre><h3>Check Input State</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const input = document.querySelector(&#039;#email&#039;);
+    return {
+      value: input.value,
+      disabled: input.disabled,
+      readonly: input.readOnly,
+      required: input.required,
+      valid: input.checkValidity(),
+      validationMessage: input.validationMessage
+    };</code></pre><h3>Find Form Validation Errors</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const inputs = document.querySelectorAll(&#039;input, select, textarea&#039;);
+    return Array.from(inputs)
+      .filter(el =&gt; !el.checkValidity())
+      .map(el =&gt; ({
+        name: el.name,
+        message: el.validationMessage
+      }));</code></pre><h2>Server-Side Debugging</h2>
+<h3>Enable Debug Logging</h3>
+<pre><code class="language-bash">LOG_LEVEL=debug moonsurf</code></pre><p>This shows:</p>
+<ul>
+<li>WebSocket messages</li>
+<li>Tool call details</li>
+<li>Timing information</li>
+<li>Internal state changes</li>
+</ul>
+<h3>Log Output Example</h3>
+<pre><code class="language-plaintext">[Debug] WebSocket message received: {&quot;action&quot;:&quot;click&quot;,&quot;selector&quot;:&quot;#btn&quot;}
+[Debug] Tool call: browser_interact, duration: 145ms
+[Debug] Extension response: {&quot;success&quot;:true}</code></pre><h2>Common Issues and Solutions</h2>
+<h3>Element Not Found</h3>
+<p><strong>Symptoms:</strong> &quot;Element not found&quot; or timeout errors</p>
+<p><strong>Debug steps:</strong></p>
+<ol>
+<li>Take screenshot to see actual page state</li>
+<li>Check if element exists with JavaScript</li>
+<li>Verify selector is correct</li>
+<li>Check if element is in iframe</li>
+</ol>
+<pre><code class="language-plaintext"># Debug
+browser_content action=&quot;screenshot&quot; fullPage=true
+
+browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    return {
+      elementExists: !!document.querySelector(&#039;#target&#039;),
+      allButtons: Array.from(document.querySelectorAll(&#039;button&#039;))
+        .map(b =&gt; b.textContent)
+    };</code></pre><h3>Element Not Clickable</h3>
+<p><strong>Symptoms:</strong> Click doesn&#39;t work, no error</p>
+<p><strong>Debug steps:</strong></p>
+<ol>
+<li>Check element visibility</li>
+<li>Look for overlapping elements</li>
+<li>Verify element is not disabled</li>
+</ol>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const el = document.querySelector(&#039;#target&#039;);
+    const rect = el.getBoundingClientRect();
+
+    // What&#039;s at this position?
+    const elementAtPoint = document.elementFromPoint(
+      rect.left + rect.width/2,
+      rect.top + rect.height/2
+    );
+
+    return {
+      target: el.outerHTML.slice(0, 200),
+      elementAtPoint: elementAtPoint?.outerHTML.slice(0, 200),
+      sameElement: el === elementAtPoint
+    };</code></pre><h3>Page Not Loading</h3>
+<p><strong>Symptoms:</strong> Navigation timeout, blank page</p>
+<p><strong>Debug steps:</strong></p>
+<ol>
+<li>Check network requests</li>
+<li>Look for JavaScript errors</li>
+<li>Verify URL is correct</li>
+</ol>
+<pre><code class="language-plaintext">browser_network action=&quot;intercept&quot; patterns=[&quot;**/*&quot;]
+browser_navigate action=&quot;goto&quot; url=&quot;https://example.com&quot;
+browser_network action=&quot;requests&quot;
+browser_debug action=&quot;console&quot;</code></pre><h3>Form Not Submitting</h3>
+<p><strong>Symptoms:</strong> Click submit, nothing happens</p>
+<p><strong>Debug steps:</strong></p>
+<ol>
+<li>Check form validation</li>
+<li>Look for JavaScript errors</li>
+<li>Check if form has <code>onsubmit</code> handler</li>
+</ol>
+<pre><code class="language-plaintext">browser_debug action=&quot;console&quot;
+
+browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const form = document.querySelector(&#039;form&#039;);
+    return {
+      valid: form.checkValidity(),
+      action: form.action,
+      method: form.method,
+      hasSubmitHandler: !!form.onsubmit
+    };</code></pre><h3>Content Not Updating</h3>
+<p><strong>Symptoms:</strong> Action completed but content unchanged</p>
+<p><strong>Debug steps:</strong></p>
+<ol>
+<li>Wait longer for dynamic content</li>
+<li>Check for AJAX requests</li>
+<li>Look at network requests</li>
+</ol>
+<pre><code class="language-plaintext"># Wait for content update
+browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    await new Promise(r =&gt; setTimeout(r, 2000));
+    return document.querySelector(&#039;#dynamic-content&#039;)?.textContent;</code></pre><h3>Iframe Issues</h3>
+<p><strong>Symptoms:</strong> Can&#39;t find elements that visually exist</p>
+<p><strong>Debug steps:</strong></p>
+<ol>
+<li>Check for iframes</li>
+<li>Get iframe content</li>
+</ol>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const iframes = document.querySelectorAll(&#039;iframe&#039;);
+    return Array.from(iframes).map(iframe =&gt; ({
+      src: iframe.src,
+      id: iframe.id,
+      name: iframe.name
+    }));</code></pre><h2>Debug Checklist</h2>
+<p>When something isn&#39;t working:</p>
+<h3>1. Visual Check</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Take full page screenshot</li>
+<li><input disabled="" type="checkbox"> Screenshot specific area</li>
+<li><input disabled="" type="checkbox"> Compare with expected state</li>
+</ul>
+<h3>2. Console Check</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Look for JavaScript errors</li>
+<li><input disabled="" type="checkbox"> Check for warnings</li>
+<li><input disabled="" type="checkbox"> Review console logs</li>
+</ul>
+<h3>3. DOM Check</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Verify element exists</li>
+<li><input disabled="" type="checkbox"> Check element is visible</li>
+<li><input disabled="" type="checkbox"> Verify selector matches</li>
+</ul>
+<h3>4. Network Check</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Look for failed requests</li>
+<li><input disabled="" type="checkbox"> Check request timing</li>
+<li><input disabled="" type="checkbox"> Verify API responses</li>
+</ul>
+<h3>5. State Check</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Verify current URL</li>
+<li><input disabled="" type="checkbox"> Check page load state</li>
+<li><input disabled="" type="checkbox"> Review form values</li>
+</ul>
+<h2>Debugging Workflow</h2>
+<ol>
+<li><p><strong>Reproduce the issue</strong></p>
+<ul>
+<li>Use consistent browser mode (testing)</li>
+<li>Same steps each time</li>
+</ul>
+</li>
+<li><p><strong>Capture state</strong></p>
+<ul>
+<li>Screenshots before/after</li>
+<li>Console messages</li>
+<li>Network requests</li>
+</ul>
+</li>
+<li><p><strong>Isolate the problem</strong></p>
+<ul>
+<li>Remove unrelated steps</li>
+<li>Test individual actions</li>
+</ul>
+</li>
+<li><p><strong>Fix and verify</strong></p>
+<ul>
+<li>Make minimal change</li>
+<li>Rerun full workflow</li>
+</ul>
+</li>
+</ol>
+<h2>Advanced Debugging</h2>
+<h3>Pause Execution</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: &quot;debugger;&quot;</code></pre><p>Note: Only works in non-headless mode with DevTools open.</p>
+<h3>Performance Profiling</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    const start = performance.now();
+    // ... operations
+    return performance.now() - start;</code></pre><h3>Memory Usage</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    if (performance.memory) {
+      return {
+        usedJSHeapSize: performance.memory.usedJSHeapSize,
+        totalJSHeapSize: performance.memory.totalJSHeapSize
+      };
+    }
+    return null;</code></pre><h2>Best Practices</h2>
+<h3>1. Debug in Visible Mode First</h3>
+<pre><code class="language-bash">HEADLESS_DEFAULT=false moonsurf</code></pre><p>Watch the browser to understand what&#39;s happening.</p>
+<h3>2. Add Debug Points</h3>
+<pre><code class="language-plaintext"># Debug point 1
+browser_content action=&quot;screenshot&quot;
+console.log(&#039;Step 1 complete&#039;);
+
+# ... action ...
+
+# Debug point 2
+browser_content action=&quot;screenshot&quot;
+console.log(&#039;Step 2 complete&#039;);</code></pre><h3>3. Log Relevant State</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    console.log(&#039;Current state:&#039;, {
+      url: location.href,
+      elementCount: document.querySelectorAll(&#039;*&#039;).length,
+      forms: document.forms.length
+    });</code></pre><h3>4. Save Debug Artifacts</h3>
+<p>Save screenshots and logs with timestamps for comparison.</p>
+<h3>5. Use Testing Mode</h3>
+<pre><code class="language-bash">BROWSER_DEFAULT_MODE=testing moonsurf</code></pre><p>Clean state helps isolate issues.</p>
+<h2>Related</h2>
+<ul>
+<li><a href="../tools/browser-debug.html">browser_debug</a> - Debug tool reference</li>
+<li><a href="../tools/browser-content.html">browser_content</a> - Screenshots</li>
+<li><a href="../tools/browser-network.html">browser_network</a> - Network monitoring</li>
+<li><a href="testing-workflows.html">Testing Workflows</a> - Test debugging</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

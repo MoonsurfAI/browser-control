@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Client Integration - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html" class="active">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Custom Client Integration</h1>
+<p>Build your own client to connect to Moonsurf using SSE, HTTP, or WebSocket protocols.</p>
+<h2>Overview</h2>
+<p>Moonsurf exposes three connection methods:</p>
+<ol>
+<li><strong>SSE (Server-Sent Events)</strong> - Standard MCP transport for real-time communication</li>
+<li><strong>HTTP POST</strong> - Request/response for individual MCP messages</li>
+<li><strong>WebSocket</strong> - Task execution with real-time progress updates</li>
+</ol>
+<h2>SSE Connection (Recommended)</h2>
+<h3>Connecting</h3>
+<pre><code class="language-javascript">const eventSource = new EventSource(&#039;http://localhost:3300/sse&#039;);
+
+eventSource.onopen = () =&gt; {
+  console.log(&#039;Connected to Moonsurf&#039;);
+};
+
+eventSource.onmessage = (event) =&gt; {
+  const message = JSON.parse(event.data);
+  console.log(&#039;Received:&#039;, message);
+};
+
+eventSource.onerror = (error) =&gt; {
+  console.error(&#039;SSE Error:&#039;, error);
+};</code></pre><h3>With Authentication</h3>
+<pre><code class="language-javascript">// Token via URL parameter
+const eventSource = new EventSource(
+  &#039;https://mcp.example.com/sse?token=your-secret-token&#039;
+);</code></pre><h3>Session ID</h3>
+<p>The SSE connection receives a session ID for subsequent requests:</p>
+<pre><code class="language-javascript">eventSource.addEventListener(&#039;endpoint&#039;, (event) =&gt; {
+  const data = JSON.parse(event.data);
+  const sessionId = data.sessionId;
+  const messageEndpoint = data.messageEndpoint;
+  console.log(&#039;Session established:&#039;, sessionId);
+});</code></pre><h2>HTTP Message API</h2>
+<h3>Sending Requests</h3>
+<pre><code class="language-javascript">async function sendMcpRequest(sessionId, method, params = {}) {
+  const response = await fetch(
+    `http://localhost:3300/message?sessionId=${sessionId}`,
+    {
+      method: &#039;POST&#039;,
+      headers: {
+        &#039;Content-Type&#039;: &#039;application/json&#039;,
+        // &#039;Authorization&#039;: &#039;Bearer your-token&#039;  // For authenticated servers
+      },
+      body: JSON.stringify({
+        jsonrpc: &#039;2.0&#039;,
+        id: Date.now(),
+        method,
+        params
+      })
+    }
+  );
+
+  return response.json();
+}</code></pre><h3>List Available Tools</h3>
+<pre><code class="language-javascript">const tools = await sendMcpRequest(sessionId, &#039;tools/list&#039;);
+console.log(&#039;Available tools:&#039;, tools.result.tools);</code></pre><h3>Call a Tool</h3>
+<pre><code class="language-javascript">// Launch browser
+const result = await sendMcpRequest(sessionId, &#039;tools/call&#039;, {
+  name: &#039;browser_instance&#039;,
+  arguments: {
+    action: &#039;launch&#039;,
+    mode: &#039;chromium&#039;
+  }
+});
+
+console.log(&#039;Browser launched:&#039;, result);</code></pre><h2>Complete SSE Client Example</h2>
+<pre><code class="language-javascript">class MoonsurfClient {
+  constructor(baseUrl = &#039;http://localhost:3300&#039;, token = null) {
+    this.baseUrl = baseUrl;
+    this.token = token;
+    this.sessionId = null;
+    this.eventSource = null;
+    this.requestId = 0;
+  }
+
+  connect() {
+    return new Promise((resolve, reject) =&gt; {
+      const url = this.token
+        ? `${this.baseUrl}/sse?token=${this.token}`
+        : `${this.baseUrl}/sse`;
+
+      this.eventSource = new EventSource(url);
+
+      this.eventSource.addEventListener(&#039;endpoint&#039;, (event) =&gt; {
+        const data = JSON.parse(event.data);
+        this.sessionId = data.sessionId;
+        resolve(this.sessionId);
+      });
+
+      this.eventSource.onerror = (error) =&gt; {
+        reject(error);
+      };
+    });
+  }
+
+  disconnect() {
+    if (this.eventSource) {
+      this.eventSource.close();
+      this.eventSource = null;
+    }
+  }
+
+  async request(method, params = {}) {
+    if (!this.sessionId) {
+      throw new Error(&#039;Not connected. Call connect() first.&#039;);
+    }
+
+    const headers = {
+      &#039;Content-Type&#039;: &#039;application/json&#039;
+    };
+
+    if (this.token) {
+      headers[&#039;Authorization&#039;] = `Bearer ${this.token}`;
+    }
+
+    const response = await fetch(
+      `${this.baseUrl}/message?sessionId=${this.sessionId}`,
+      {
+        method: &#039;POST&#039;,
+        headers,
+        body: JSON.stringify({
+          jsonrpc: &#039;2.0&#039;,
+          id: ++this.requestId,
+          method,
+          params
+        })
+      }
+    );
+
+    const result = await response.json();
+
+    if (result.error) {
+      throw new Error(result.error.message);
+    }
+
+    return result.result;
+  }
+
+  // Convenience methods
+  async listTools() {
+    return this.request(&#039;tools/list&#039;);
+  }
+
+  async callTool(name, args) {
+    return this.request(&#039;tools/call&#039;, { name, arguments: args });
+  }
+}
+
+// Usage
+const client = new MoonsurfClient();
+await client.connect();
+
+// Launch browser
+await client.callTool(&#039;browser_instance&#039;, { action: &#039;launch&#039; });
+
+// Navigate
+await client.callTool(&#039;browser_navigate&#039;, {
+  action: &#039;goto&#039;,
+  url: &#039;https://example.com&#039;
+});
+
+// Take screenshot
+const screenshot = await client.callTool(&#039;browser_content&#039;, {
+  action: &#039;screenshot&#039;
+});
+
+// Close browser
+await client.callTool(&#039;browser_instance&#039;, { action: &#039;close&#039; });
+
+client.disconnect();</code></pre><h2>Python Client Example</h2>
+<pre><code class="language-python">import requests
+import sseclient
+import json
+import threading
+
+class MoonsurfClient:
+    def __init__(self, base_url=&#039;http://localhost:3300&#039;, token=None):
+        self.base_url = base_url
+        self.token = token
+        self.session_id = None
+        self.request_id = 0
+
+    def connect(self):
+        url = f&quot;{self.base_url}/sse&quot;
+        if self.token:
+            url += f&quot;?token={self.token}&quot;
+
+        response = requests.get(url, stream=True)
+        client = sseclient.SSEClient(response)
+
+        for event in client.events():
+            if event.event == &#039;endpoint&#039;:
+                data = json.loads(event.data)
+                self.session_id = data[&#039;sessionId&#039;]
+                break
+
+        return self.session_id
+
+    def request(self, method, params=None):
+        if not self.session_id:
+            raise Exception(&#039;Not connected&#039;)
+
+        self.request_id += 1
+
+        headers = {&#039;Content-Type&#039;: &#039;application/json&#039;}
+        if self.token:
+            headers[&#039;Authorization&#039;] = f&#039;Bearer {self.token}&#039;
+
+        response = requests.post(
+            f&quot;{self.base_url}/message?sessionId={self.session_id}&quot;,
+            headers=headers,
+            json={
+                &#039;jsonrpc&#039;: &#039;2.0&#039;,
+                &#039;id&#039;: self.request_id,
+                &#039;method&#039;: method,
+                &#039;params&#039;: params or {}
+            }
+        )
+
+        result = response.json()
+
+        if &#039;error&#039; in result:
+            raise Exception(result[&#039;error&#039;][&#039;message&#039;])
+
+        return result.get(&#039;result&#039;)
+
+    def call_tool(self, name, args):
+        return self.request(&#039;tools/call&#039;, {&#039;name&#039;: name, &#039;arguments&#039;: args})
+
+# Usage
+client = MoonsurfClient()
+client.connect()
+
+# Launch browser
+client.call_tool(&#039;browser_instance&#039;, {&#039;action&#039;: &#039;launch&#039;})
+
+# Navigate
+client.call_tool(&#039;browser_navigate&#039;, {&#039;action&#039;: &#039;goto&#039;, &#039;url&#039;: &#039;https://example.com&#039;})
+
+# Get page content
+content = client.call_tool(&#039;browser_content&#039;, {&#039;action&#039;: &#039;text&#039;})
+print(content)
+
+# Close
+client.call_tool(&#039;browser_instance&#039;, {&#039;action&#039;: &#039;close&#039;})</code></pre><h2>WebSocket Task API</h2>
+<p>For batched task execution with real-time progress:</p>
+<h3>Connect</h3>
+<pre><code class="language-javascript">const ws = new WebSocket(&#039;ws://localhost:3400&#039;);
+
+ws.onopen = () =&gt; {
+  console.log(&#039;Connected to task server&#039;);
+};
+
+ws.onmessage = (event) =&gt; {
+  const message = JSON.parse(event.data);
+  console.log(&#039;Task message:&#039;, message);
+};</code></pre><h3>Submit Task</h3>
+<pre><code class="language-javascript">ws.send(JSON.stringify({
+  type: &#039;task_submit&#039;,
+  task_name: &#039;Login Flow&#039;,
+  task_intention: &#039;Log into the website&#039;,
+  commands: [
+    {
+      tool_name: &#039;browser_navigate&#039;,
+      intention: &#039;Go to login page&#039;,
+      args: { action: &#039;goto&#039;, url: &#039;https://example.com/login&#039; }
+    },
+    {
+      tool_name: &#039;browser_interact&#039;,
+      intention: &#039;Enter email&#039;,
+      args: { action: &#039;type&#039;, selector: &#039;#email&#039;, text: &#039;user@example.com&#039; }
+    },
+    {
+      tool_name: &#039;browser_interact&#039;,
+      intention: &#039;Click login&#039;,
+      args: { action: &#039;click&#039;, selector: &#039;#submit&#039; }
+    }
+  ]
+}));</code></pre><h3>Handle Task Events</h3>
+<pre><code class="language-javascript">ws.onmessage = (event) =&gt; {
+  const message = JSON.parse(event.data);
+
+  switch (message.type) {
+    case &#039;welcome&#039;:
+      console.log(&#039;Session:&#039;, message.sessionId);
+      break;
+
+    case &#039;task_submit_response&#039;:
+      console.log(&#039;Task created:&#039;, message.taskId);
+      break;
+
+    case &#039;task_progress&#039;:
+      console.log(`Command ${message.commandIndex}: ${message.status}`);
+      if (message.error) console.error(message.error);
+      break;
+
+    case &#039;task_complete&#039;:
+      console.log(&#039;Task finished:&#039;, message.status);
+      console.log(&#039;Results:&#039;, message.results);
+      break;
+  }
+};</code></pre><h2>REST API Endpoints</h2>
+<h3>Health Check</h3>
+<pre><code class="language-bash">curl http://localhost:3300/health</code></pre><h3>Server Info</h3>
+<pre><code class="language-bash">curl http://localhost:3300/info</code></pre><h3>List Browser Instances</h3>
+<pre><code class="language-bash">curl http://localhost:3300/instances</code></pre><h3>List Tasks (with auth)</h3>
+<pre><code class="language-bash">curl -H &quot;Authorization: Bearer your-token&quot; \
+  http://localhost:3300/tasks</code></pre><h3>Submit Task (REST)</h3>
+<pre><code class="language-bash">curl -X POST http://localhost:3300/tasks \
+  -H &quot;Content-Type: application/json&quot; \
+  -H &quot;Authorization: Bearer your-token&quot; \
+  -d &#039;{
+    &quot;task_name&quot;: &quot;Test Task&quot;,
+    &quot;commands&quot;: [
+      {&quot;tool_name&quot;: &quot;browser_navigate&quot;, &quot;args&quot;: {&quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://example.com&quot;}}
+    ]
+  }&#039;</code></pre><h2>Error Handling</h2>
+<h3>MCP Errors</h3>
+<pre><code class="language-javascript">try {
+  const result = await client.callTool(&#039;browser_instance&#039;, { action: &#039;launch&#039; });
+} catch (error) {
+  if (error.code === -32600) {
+    console.error(&#039;Invalid request&#039;);
+  } else if (error.code === -32601) {
+    console.error(&#039;Tool not found&#039;);
+  } else {
+    console.error(&#039;Tool error:&#039;, error.message);
+  }
+}</code></pre><h3>Connection Errors</h3>
+<pre><code class="language-javascript">eventSource.onerror = (event) =&gt; {
+  if (eventSource.readyState === EventSource.CLOSED) {
+    console.error(&#039;Connection closed&#039;);
+    // Attempt reconnection
+    setTimeout(() =&gt; connect(), 5000);
+  }
+};</code></pre><h2>Authentication</h2>
+<h3>Query Parameter</h3>
+<pre><code class="language-javascript">const url = &#039;http://localhost:3300/sse?token=your-secret-token&#039;;</code></pre><h3>Authorization Header</h3>
+<pre><code class="language-javascript">// For HTTP requests
+headers[&#039;Authorization&#039;] = &#039;Bearer your-secret-token&#039;;</code></pre><h2>Best Practices</h2>
+<h3>1. Reuse Connections</h3>
+<p>Keep SSE connection open for multiple requests instead of reconnecting.</p>
+<h3>2. Handle Reconnection</h3>
+<pre><code class="language-javascript">function connect() {
+  const eventSource = new EventSource(url);
+
+  eventSource.onerror = () =&gt; {
+    eventSource.close();
+    setTimeout(connect, 5000);  // Reconnect after 5s
+  };
+}</code></pre><h3>3. Clean Up Resources</h3>
+<pre><code class="language-javascript">// Close browser instances when done
+await client.callTool(&#039;browser_instance&#039;, { action: &#039;close&#039; });
+
+// Disconnect when finished
+client.disconnect();</code></pre><h3>4. Use Timeouts</h3>
+<pre><code class="language-javascript">const controller = new AbortController();
+const timeout = setTimeout(() =&gt; controller.abort(), 30000);
+
+try {
+  const response = await fetch(url, { signal: controller.signal });
+} finally {
+  clearTimeout(timeout);
+}</code></pre><h3>5. Log for Debugging</h3>
+<pre><code class="language-javascript">eventSource.onmessage = (event) =&gt; {
+  console.debug(&#039;SSE message:&#039;, event.data);
+  // Process message
+};</code></pre><h2>Related</h2>
+<ul>
+<li><a href="../api-reference/README.html">API Reference</a> - Full API documentation</li>
+<li><a href="../api-reference/sse-protocol.html">SSE Protocol</a> - SSE details</li>
+<li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a> - Task WebSocket API</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

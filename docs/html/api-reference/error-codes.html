@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Error Codes - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html" class="active">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Error Codes</h1>
+<p>Reference for error codes, meanings, and troubleshooting guidance.</p>
+<h2>HTTP Status Codes</h2>
+<h3>200 OK</h3>
+<p>Request succeeded.</p>
+<h3>201 Created</h3>
+<p>Resource created successfully (e.g., task submitted).</p>
+<h3>204 No Content</h3>
+<p>Request succeeded with no response body (e.g., CORS preflight).</p>
+<h3>302 Found</h3>
+<p>Redirect (used in OAuth flow).</p>
+<h3>400 Bad Request</h3>
+<p>Invalid request format or parameters.</p>
+<pre><code class="language-json">{
+  &quot;error&quot;: &quot;Invalid request&quot;
+}</code></pre><p><strong>Causes:</strong></p>
+<ul>
+<li>Malformed JSON in request body</li>
+<li>Missing required fields</li>
+<li>Invalid parameter values</li>
+</ul>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li>Verify JSON syntax</li>
+<li>Check required parameters</li>
+<li>Validate parameter types</li>
+</ul>
+<h3>401 Unauthorized</h3>
+<p>Authentication required or invalid token.</p>
+<pre><code class="language-json">{
+  &quot;error&quot;: &quot;Authentication required&quot;
+}</code></pre><p><strong>Causes:</strong></p>
+<ul>
+<li>No token provided when auth is enabled</li>
+<li>Invalid or expired token</li>
+<li>Incorrect token format</li>
+</ul>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li>Include token in URL: <code>/sse?token=xxx</code></li>
+<li>Or use header: <code>Authorization: Bearer xxx</code></li>
+<li>Verify token matches server configuration</li>
+</ul>
+<h3>404 Not Found</h3>
+<p>Endpoint or resource not found.</p>
+<pre><code class="language-json">{
+  &quot;error&quot;: &quot;Not found&quot;
+}</code></pre><p><strong>Causes:</strong></p>
+<ul>
+<li>Invalid URL path</li>
+<li>Task ID doesn&#39;t exist</li>
+<li>Instance ID doesn&#39;t exist</li>
+</ul>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li>Check URL spelling</li>
+<li>Verify resource exists</li>
+<li>List resources first</li>
+</ul>
+<h3>429 Too Many Requests</h3>
+<p>Rate limit exceeded.</p>
+<pre><code class="language-http">HTTP/1.1 429 Too Many Requests
+Retry-After: 45
+
+{&quot;error&quot;: &quot;Too many requests&quot;, &quot;retryAfter&quot;: 45}</code></pre><p><strong>Causes:</strong></p>
+<ul>
+<li>Too many requests in short time</li>
+<li>Exceeds configured rate limit</li>
+</ul>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li>Wait for <code>Retry-After</code> seconds</li>
+<li>Reduce request frequency</li>
+<li>Request higher limits from admin</li>
+</ul>
+<h3>503 Service Unavailable</h3>
+<p>Server cannot handle request.</p>
+<pre><code class="language-json">{
+  &quot;error&quot;: &quot;No available ports&quot;
+}</code></pre><p><strong>Causes:</strong></p>
+<ul>
+<li>All WebSocket ports in use</li>
+<li>Too many browser instances</li>
+<li>Resource exhaustion</li>
+</ul>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li>Close unused browser instances</li>
+<li>Wait and retry</li>
+<li>Increase port range in config</li>
+</ul>
+<h2>JSON-RPC Error Codes</h2>
+<p>MCP uses JSON-RPC 2.0 error codes.</p>
+<h3>-32700 Parse Error</h3>
+<p>Invalid JSON.</p>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: null,
+  &quot;error&quot;: {
+    &quot;code&quot;: -32700,
+    &quot;message&quot;: &quot;Parse error&quot;
+  }
+}</code></pre><p><strong>Solutions:</strong></p>
+<ul>
+<li>Validate JSON syntax</li>
+<li>Check for unescaped characters</li>
+<li>Ensure proper encoding</li>
+</ul>
+<h3>-32600 Invalid Request</h3>
+<p>Request object invalid.</p>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 1,
+  &quot;error&quot;: {
+    &quot;code&quot;: -32600,
+    &quot;message&quot;: &quot;Invalid request&quot;
+  }
+}</code></pre><p><strong>Causes:</strong></p>
+<ul>
+<li>Missing <code>jsonrpc</code> field</li>
+<li>Missing <code>method</code> field</li>
+<li>Invalid <code>id</code> type</li>
+</ul>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li>Include all required fields</li>
+<li>Use valid JSON-RPC 2.0 format</li>
+</ul>
+<h3>-32601 Method Not Found</h3>
+<p>MCP method doesn&#39;t exist.</p>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 1,
+  &quot;error&quot;: {
+    &quot;code&quot;: -32601,
+    &quot;message&quot;: &quot;Method not found&quot;
+  }
+}</code></pre><p><strong>Valid methods:</strong></p>
+<ul>
+<li><code>initialize</code></li>
+<li><code>tools/list</code></li>
+<li><code>tools/call</code></li>
+<li><code>resources/list</code></li>
+<li><code>prompts/list</code></li>
+</ul>
+<h3>-32602 Invalid Params</h3>
+<p>Method parameters invalid.</p>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 1,
+  &quot;error&quot;: {
+    &quot;code&quot;: -32602,
+    &quot;message&quot;: &quot;Invalid params&quot;
+  }
+}</code></pre><p><strong>Causes:</strong></p>
+<ul>
+<li>Missing required parameter</li>
+<li>Wrong parameter type</li>
+<li>Invalid parameter value</li>
+</ul>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li>Check tool schema</li>
+<li>Verify parameter names</li>
+<li>Use correct types</li>
+</ul>
+<h3>-32603 Internal Error</h3>
+<p>Server error during execution.</p>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 1,
+  &quot;error&quot;: {
+    &quot;code&quot;: -32603,
+    &quot;message&quot;: &quot;Internal error&quot;
+  }
+}</code></pre><p><strong>Causes:</strong></p>
+<ul>
+<li>Unexpected server error</li>
+<li>Extension communication failure</li>
+<li>Resource unavailable</li>
+</ul>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li>Check server logs</li>
+<li>Retry the request</li>
+<li>Report if persistent</li>
+</ul>
+<h2>Tool Error Codes</h2>
+<p>Custom error codes for tool execution.</p>
+<h3>-1000 No Instance</h3>
+<p>No browser instance available.</p>
+<pre><code class="language-json">{
+  &quot;error&quot;: {
+    &quot;code&quot;: -1000,
+    &quot;message&quot;: &quot;No browser instance available&quot;
+  }
+}</code></pre><p><strong>Solutions:</strong></p>
+<ul>
+<li>Launch a browser instance first</li>
+<li>Specify correct <code>instanceId</code></li>
+<li>Check instance is still connected</li>
+</ul>
+<h3>-1001 Instance Not Found</h3>
+<p>Specified instance doesn&#39;t exist.</p>
+<pre><code class="language-json">{
+  &quot;error&quot;: {
+    &quot;code&quot;: -1001,
+    &quot;message&quot;: &quot;Instance not found&quot;
+  }
+}</code></pre><p><strong>Solutions:</strong></p>
+<ul>
+<li>List instances to verify</li>
+<li>Instance may have disconnected</li>
+<li>Launch new instance</li>
+</ul>
+<h3>-1002 Tool Timeout</h3>
+<p>Tool execution timed out.</p>
+<pre><code class="language-json">{
+  &quot;error&quot;: {
+    &quot;code&quot;: -1002,
+    &quot;message&quot;: &quot;Tool execution timed out&quot;
+  }
+}</code></pre><p><strong>Causes:</strong></p>
+<ul>
+<li>Page slow to load</li>
+<li>Element never appeared</li>
+<li>Network issues</li>
+</ul>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li>Increase timeout parameter</li>
+<li>Check network conditions</li>
+<li>Verify page accessibility</li>
+</ul>
+<h3>-1003 Element Not Found</h3>
+<p>Target element doesn&#39;t exist.</p>
+<pre><code class="language-json">{
+  &quot;error&quot;: {
+    &quot;code&quot;: -1003,
+    &quot;message&quot;: &quot;Element not found: #nonexistent&quot;
+  }
+}</code></pre><p><strong>Solutions:</strong></p>
+<ul>
+<li>Verify selector is correct</li>
+<li>Wait for element to load</li>
+<li>Check if element is in iframe</li>
+</ul>
+<h3>-1004 Navigation Error</h3>
+<p>Page navigation failed.</p>
+<pre><code class="language-json">{
+  &quot;error&quot;: {
+    &quot;code&quot;: -1004,
+    &quot;message&quot;: &quot;Navigation failed: net::ERR_NAME_NOT_RESOLVED&quot;
+  }
+}</code></pre><p><strong>Causes:</strong></p>
+<ul>
+<li>Invalid URL</li>
+<li>DNS resolution failed</li>
+<li>Network error</li>
+<li>SSL certificate error</li>
+</ul>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li>Check URL is valid</li>
+<li>Verify network connectivity</li>
+<li>Check DNS settings</li>
+</ul>
+<h3>-1005 Extension Error</h3>
+<p>Browser extension error.</p>
+<pre><code class="language-json">{
+  &quot;error&quot;: {
+    &quot;code&quot;: -1005,
+    &quot;message&quot;: &quot;Extension communication error&quot;
+  }
+}</code></pre><p><strong>Causes:</strong></p>
+<ul>
+<li>Extension disconnected</li>
+<li>Extension crashed</li>
+<li>WebSocket connection lost</li>
+</ul>
+<p><strong>Solutions:</strong></p>
+<ul>
+<li>Relaunch browser instance</li>
+<li>Check extension logs in browser</li>
+<li>Restart server</li>
+</ul>
+<h2>Task Error Messages</h2>
+<h3>No browser instance available</h3>
+<p>Task requires a browser but none exists.</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;task_submit_response&quot;,
+  &quot;status&quot;: &quot;rejected&quot;,
+  &quot;error&quot;: &quot;No browser instance available&quot;
+}</code></pre><p><strong>Solutions:</strong></p>
+<ul>
+<li>Launch browser first</li>
+<li>Specify valid <code>instanceId</code></li>
+<li>Wait for browser to connect</li>
+</ul>
+<h3>Task not found</h3>
+<p>Referenced task doesn&#39;t exist.</p>
+<pre><code class="language-json">{
+  &quot;error&quot;: &quot;Task not found&quot;
+}</code></pre><p><strong>Causes:</strong></p>
+<ul>
+<li>Invalid task ID</li>
+<li>Task was cleaned up</li>
+<li>Typo in task ID</li>
+</ul>
+<h3>Task not found or already completed</h3>
+<p>Can&#39;t cancel completed task.</p>
+<pre><code class="language-json">{
+  &quot;success&quot;: false,
+  &quot;error&quot;: &quot;Task not found or already completed&quot;
+}</code></pre><p><strong>Note:</strong> Only <code>queued</code> or <code>running</code> tasks can be cancelled.</p>
+<h3>Queue full</h3>
+<p>Too many pending tasks.</p>
+<pre><code class="language-json">{
+  &quot;error&quot;: &quot;Task queue is full&quot;
+}</code></pre><p><strong>Solutions:</strong></p>
+<ul>
+<li>Wait for tasks to complete</li>
+<li>Cancel unnecessary tasks</li>
+<li>Increase <code>TASKS_MAX_QUEUE_SIZE</code></li>
+</ul>
+<h2>WebSocket Errors</h2>
+<h3>Invalid message format</h3>
+<p>Message couldn&#39;t be parsed as JSON.</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;error&quot;,
+  &quot;message&quot;: &quot;Invalid message format&quot;
+}</code></pre><p><strong>Solutions:</strong></p>
+<ul>
+<li>Verify JSON syntax</li>
+<li>Check message encoding</li>
+</ul>
+<h3>Unknown message type</h3>
+<p>Unrecognized message type.</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;error&quot;,
+  &quot;message&quot;: &quot;Unknown message type: bad_type&quot;
+}</code></pre><p><strong>Valid types:</strong></p>
+<ul>
+<li><code>task_submit</code></li>
+<li><code>task_list</code></li>
+<li><code>task_status</code></li>
+<li><code>task_cancel</code></li>
+<li><code>subscribe_task</code></li>
+<li><code>subscribe_instance</code></li>
+</ul>
+<h2>Common Error Scenarios</h2>
+<h3>Scenario: &quot;Authentication required&quot; on every request</h3>
+<p><strong>Problem:</strong> Server has auth enabled but client isn&#39;t sending token.</p>
+<p><strong>Solution:</strong></p>
+<ol>
+<li>Check if auth is enabled: <code>curl http://localhost:3300/health</code></li>
+<li>Add token to URL: <code>/sse?token=your-token</code></li>
+<li>Or add header: <code>Authorization: Bearer your-token</code></li>
+</ol>
+<h3>Scenario: &quot;Element not found&quot; when element is visible</h3>
+<p><strong>Problem:</strong> Element exists but selector doesn&#39;t match or element is in iframe.</p>
+<p><strong>Solution:</strong></p>
+<ol>
+<li>Take screenshot to verify page state</li>
+<li>Use browser DevTools to test selector</li>
+<li>Check if element is inside iframe</li>
+<li>Add wait for element to load</li>
+</ol>
+<h3>Scenario: &quot;Tool execution timed out&quot; on slow pages</h3>
+<p><strong>Problem:</strong> Page takes longer to load than default timeout.</p>
+<p><strong>Solution:</strong></p>
+<ol>
+<li>Increase timeout: <code>{ &quot;timeout&quot;: 60000 }</code></li>
+<li>Use <code>waitUntil: &quot;networkidle&quot;</code> for full page load</li>
+<li>Check network conditions</li>
+</ol>
+<h3>Scenario: &quot;No browser instance available&quot; after launch</h3>
+<p><strong>Problem:</strong> Browser launched but extension didn&#39;t connect.</p>
+<p><strong>Solution:</strong></p>
+<ol>
+<li>Check server logs for registration</li>
+<li>Verify extension is loaded in browser</li>
+<li>Check browser console for errors</li>
+<li>Wait a few seconds after launch</li>
+</ol>
+<h3>Scenario: Rate limited despite low traffic</h3>
+<p><strong>Problem:</strong> IP-based rate limiting affects multiple users behind NAT.</p>
+<p><strong>Solution:</strong></p>
+<ol>
+<li>Increase rate limits: <code>RATE_LIMIT_MAX_CALLS=200</code></li>
+<li>Use different IPs for different clients</li>
+<li>Implement client-side throttling</li>
+</ol>
+<h2>Debugging Errors</h2>
+<h3>Enable Debug Logging</h3>
+<pre><code class="language-bash">LOG_LEVEL=debug moonsurf</code></pre><h3>Check Server Logs</h3>
+<pre><code class="language-bash"># Errors go to stderr
+moonsurf 2&gt;&amp;1 | grep ERROR</code></pre><h3>Test Endpoints</h3>
+<pre><code class="language-bash"># Health check
+curl http://localhost:3300/health
+
+# Info
+curl http://localhost:3300/info
+
+# List instances
+curl http://localhost:3300/instances</code></pre><h3>Capture Screenshots on Error</h3>
+<p>Always take screenshots when errors occur for visual debugging.</p>
+<h3>Check Browser Console</h3>
+<p>Open DevTools in the browser to see extension errors and JavaScript issues.</p>
+<h2>Related</h2>
+<ul>
+<li><a href="http-endpoints.html">HTTP Endpoints</a> - API reference</li>
+<li><a href="../guides/debugging-tips.html">Debugging Tips</a> - Troubleshooting guide</li>
+<li><a href="../configuration/README.html">Configuration</a> - Server settings</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

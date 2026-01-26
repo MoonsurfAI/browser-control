@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>First Automation - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html" class="active">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>First Automation</h1>
+<p>This guide walks you through creating your first browser automation with Moonsurf. We&#39;ll launch a browser, navigate to a website, interact with it, and take a screenshot.</p>
+<h2>Prerequisites</h2>
+<ul>
+<li>Moonsurf installed and running (<code>moonsurf</code>)</li>
+<li>An AI client connected, or you can follow along using curl</li>
+</ul>
+<h2>Understanding the Tools</h2>
+<p>Before we start, let&#39;s understand the tools we&#39;ll use:</p>
+<div class="table-wrapper"><table><thead><tr><th>Tool</th><th>Purpose</th></tr></thead><tbody><tr><td><code>browser_instance</code></td><td>Launch and manage browser instances</td></tr><tr><td><code>browser_navigate</code></td><td>Navigate to URLs, go back/forward</td></tr><tr><td><code>browser_interact</code></td><td>Click, type, scroll, select</td></tr><tr><td><code>browser_content</code></td><td>Take screenshots, get page content</td></tr></tbody></table></div><h2>Step 1: Launch a Browser</h2>
+<p>First, we launch a browser instance:</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_instance&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;new&quot;,
+    &quot;mode&quot;: &quot;chromium&quot;,
+    &quot;url&quot;: &quot;https://www.google.com&quot;
+  }
+}</code></pre><p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;instanceId&quot;: &quot;inst_1706234567890_abc123&quot;,
+  &quot;browserType&quot;: &quot;Chromium&quot;,
+  &quot;profile&quot;: &quot;(persistent)&quot;,
+  &quot;downloadDirectory&quot;: &quot;/Users/you/Downloads&quot;,
+  &quot;extensionAutoLoaded&quot;: true,
+  &quot;message&quot;: &quot;Browser launched with extension auto-loaded.&quot;
+}</code></pre><p><strong>Key points:</strong></p>
+<ul>
+<li><code>instanceId</code> is used for all subsequent commands</li>
+<li><code>mode: &quot;chromium&quot;</code> uses the persistent Chromium profile</li>
+<li>The extension is auto-loaded</li>
+</ul>
+<h2>Step 2: Navigate to a Page</h2>
+<p>Now let&#39;s navigate to a specific page:</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_navigate&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;goto&quot;,
+    &quot;instanceId&quot;: &quot;inst_1706234567890_abc123&quot;,
+    &quot;url&quot;: &quot;https://news.ycombinator.com&quot;,
+    &quot;waitUntil&quot;: &quot;domcontentloaded&quot;
+  }
+}</code></pre><p><strong>Response:</strong></p>
+<pre><code class="language-json">{
+  &quot;success&quot;: true,
+  &quot;url&quot;: &quot;https://news.ycombinator.com/&quot;,
+  &quot;title&quot;: &quot;Hacker News&quot;
+}</code></pre><h2>Step 3: Interact with the Page</h2>
+<p>Let&#39;s click on a link. First, we can query elements:</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_content&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;query&quot;,
+    &quot;instanceId&quot;: &quot;inst_1706234567890_abc123&quot;,
+    &quot;selector&quot;: &quot;.titleline a&quot;
+  }
+}</code></pre><p>This returns information about matching elements. Now let&#39;s click the first link:</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_interact&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;click&quot;,
+    &quot;instanceId&quot;: &quot;inst_1706234567890_abc123&quot;,
+    &quot;selector&quot;: &quot;.titleline a&quot;
+  }
+}</code></pre><h2>Step 4: Type into a Search Box</h2>
+<p>Let&#39;s go to Google and search for something:</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_navigate&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;goto&quot;,
+    &quot;instanceId&quot;: &quot;inst_1706234567890_abc123&quot;,
+    &quot;url&quot;: &quot;https://www.google.com&quot;
+  }
+}</code></pre><p>Type into the search box:</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_interact&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;type&quot;,
+    &quot;instanceId&quot;: &quot;inst_1706234567890_abc123&quot;,
+    &quot;selector&quot;: &quot;textarea[name=&#039;q&#039;]&quot;,
+    &quot;text&quot;: &quot;Moonsurf browser automation&quot;
+  }
+}</code></pre><p><strong>Note:</strong> The <code>type</code> action uses human-like typing with natural delays (100-200 WPM). This helps avoid detection and makes the automation more natural.</p>
+<p>Press Enter to search:</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_interact&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;press&quot;,
+    &quot;instanceId&quot;: &quot;inst_1706234567890_abc123&quot;,
+    &quot;key&quot;: &quot;Enter&quot;
+  }
+}</code></pre><h2>Step 5: Wait for Content</h2>
+<p>After navigation, wait for specific elements to appear:</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_navigate&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;wait&quot;,
+    &quot;instanceId&quot;: &quot;inst_1706234567890_abc123&quot;,
+    &quot;selector&quot;: &quot;#search&quot;,
+    &quot;timeout&quot;: 10000
+  }
+}</code></pre><p>You can also wait for JavaScript conditions:</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_navigate&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;wait&quot;,
+    &quot;instanceId&quot;: &quot;inst_1706234567890_abc123&quot;,
+    &quot;expression&quot;: &quot;document.querySelectorAll(&#039;.g&#039;).length &gt; 0&quot;,
+    &quot;timeout&quot;: 10000
+  }
+}</code></pre><h2>Step 6: Take a Screenshot</h2>
+<p>Capture what&#39;s on screen:</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_content&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;screenshot&quot;,
+    &quot;instanceId&quot;: &quot;inst_1706234567890_abc123&quot;,
+    &quot;format&quot;: &quot;png&quot;
+  }
+}</code></pre><p>For a full-page screenshot:</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_content&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;screenshot&quot;,
+    &quot;instanceId&quot;: &quot;inst_1706234567890_abc123&quot;,
+    &quot;fullPage&quot;: true,
+    &quot;format&quot;: &quot;png&quot;
+  }
+}</code></pre><h2>Step 7: Get Page Content</h2>
+<p>Extract the visible DOM elements:</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_content&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;get_viewport_dom&quot;,
+    &quot;instanceId&quot;: &quot;inst_1706234567890_abc123&quot;,
+    &quot;maxElements&quot;: 100,
+    &quot;domDepth&quot;: 3
+  }
+}</code></pre><p>This returns a structured representation of visible elements with their positions and text content.</p>
+<h2>Step 8: Close the Browser</h2>
+<p>When done, close the browser instance:</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_instance&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;close&quot;,
+    &quot;instanceId&quot;: &quot;inst_1706234567890_abc123&quot;
+  }
+}</code></pre><h2>Complete Example: Login Flow</h2>
+<p>Here&#39;s a complete example automating a login flow:</p>
+<pre><code class="language-json">// 1. Launch browser
+{ &quot;name&quot;: &quot;browser_instance&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;new&quot;, &quot;mode&quot;: &quot;chromium&quot; }}
+
+// 2. Navigate to login page
+{ &quot;name&quot;: &quot;browser_navigate&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://example.com/login&quot; }}
+
+// 3. Wait for form to load
+{ &quot;name&quot;: &quot;browser_navigate&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;wait&quot;, &quot;selector&quot;: &quot;#login-form&quot; }}
+
+// 4. Enter username
+{ &quot;name&quot;: &quot;browser_interact&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;type&quot;, &quot;selector&quot;: &quot;#username&quot;, &quot;text&quot;: &quot;myuser&quot; }}
+
+// 5. Enter password
+{ &quot;name&quot;: &quot;browser_interact&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;type&quot;, &quot;selector&quot;: &quot;#password&quot;, &quot;text&quot;: &quot;mypassword&quot; }}
+
+// 6. Click login button
+{ &quot;name&quot;: &quot;browser_interact&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;click&quot;, &quot;selector&quot;: &quot;#login-button&quot; }}
+
+// 7. Wait for dashboard
+{ &quot;name&quot;: &quot;browser_navigate&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;wait&quot;, &quot;selector&quot;: &quot;.dashboard&quot;, &quot;timeout&quot;: 10000 }}
+
+// 8. Take screenshot of result
+{ &quot;name&quot;: &quot;browser_content&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;screenshot&quot; }}</code></pre><h2>Tips for Effective Automation</h2>
+<h3>Use Robust Selectors</h3>
+<p>Prefer selectors that are unlikely to change:</p>
+<ul>
+<li><code>#unique-id</code> - IDs are most stable</li>
+<li><code>[data-testid=&quot;login&quot;]</code> - Test IDs are designed for automation</li>
+<li><code>button[type=&quot;submit&quot;]</code> - Semantic attributes</li>
+<li>Avoid: <code>.btn-primary-xl-2</code> - Class names often change</li>
+</ul>
+<h3>Handle Dynamic Content</h3>
+<p>Wait for elements before interacting:</p>
+<pre><code class="language-json">{ &quot;name&quot;: &quot;browser_navigate&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;wait&quot;, &quot;selector&quot;: &quot;#element&quot; }}
+{ &quot;name&quot;: &quot;browser_interact&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;click&quot;, &quot;selector&quot;: &quot;#element&quot; }}</code></pre><h3>Debug with Screenshots</h3>
+<p>Take screenshots at key points to see what the browser sees:</p>
+<pre><code class="language-json">{ &quot;name&quot;: &quot;browser_content&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;screenshot&quot; }}</code></pre><h3>Use Text-Based Selectors</h3>
+<p>When elements don&#39;t have good IDs, use text content:</p>
+<pre><code class="language-json">{ &quot;name&quot;: &quot;browser_interact&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;click&quot;, &quot;selector&quot;: &quot;text=Sign In&quot; }}</code></pre><p>Or find elements containing text:</p>
+<pre><code class="language-json">{ &quot;name&quot;: &quot;browser_interact&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;click&quot;, &quot;selector&quot;: &quot;button:has-text(Submit)&quot; }}</code></pre><h2>Next Steps</h2>
+<ul>
+<li><a href="connecting-ai-clients.html">Connecting AI Clients</a> - Connect Claude, Cursor, etc.</li>
+<li><a href="../tools/README.html">Tools Reference</a> - Complete tool documentation</li>
+<li><a href="../guides/README.html">Guides</a> - Common automation patterns</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

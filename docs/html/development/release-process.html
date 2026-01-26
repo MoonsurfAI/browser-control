@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Release Process - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html" class="active">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Release Process</h1>
+<p>Guide to versioning, changelog maintenance, and publishing releases.</p>
+<h2>Version Numbering</h2>
+<p>Moonsurf follows <a href="https://semver.org/">Semantic Versioning</a>:</p>
+<pre><code class="language-plaintext">MAJOR.MINOR.PATCH</code></pre><ul>
+<li><strong>MAJOR</strong> - Breaking changes to API or protocol</li>
+<li><strong>MINOR</strong> - New features, backwards compatible</li>
+<li><strong>PATCH</strong> - Bug fixes, backwards compatible</li>
+</ul>
+<h2>Pre-Release Checklist</h2>
+<p>Before creating a release:</p>
+<ul>
+<li><input disabled="" type="checkbox"> All tests pass</li>
+<li><input disabled="" type="checkbox"> TypeScript compiles without errors</li>
+<li><input disabled="" type="checkbox"> Documentation updated for new features</li>
+<li><input disabled="" type="checkbox"> CHANGELOG.md updated</li>
+<li><input disabled="" type="checkbox"> Version bumped in package.json</li>
+<li><input disabled="" type="checkbox"> README updated if needed</li>
+</ul>
+<h2>Release Steps</h2>
+<h3>1. Update Version</h3>
+<pre><code class="language-bash">npm version patch  # or minor, major</code></pre><p>This automatically:</p>
+<ul>
+<li>Updates package.json version</li>
+<li>Creates a git commit</li>
+<li>Creates a git tag</li>
+</ul>
+<p>Or manually:</p>
+<pre><code class="language-json">// package.json
+{
+  &quot;version&quot;: &quot;1.1.0&quot;
+}</code></pre><h3>2. Update Changelog</h3>
+<p>Edit <code>CHANGELOG.md</code>:</p>
+<pre><code class="language-markdown">## [1.1.0] - 2024-01-15
+
+### Added
+- New browser_cookies tool for cookie management
+- Support for multiple authentication tokens
+
+### Changed
+- Improved error messages for element not found
+
+### Fixed
+- Race condition in WebSocket reconnection
+- Memory leak in download watcher
+
+### Deprecated
+- Old authentication method (use Bearer tokens)</code></pre><h3>3. Update Version in Code</h3>
+<p>Check all version references:</p>
+<pre><code class="language-bash">grep -r &quot;version.*1.0&quot; src/</code></pre><p>Update <code>src/index.ts</code> if version is hardcoded:</p>
+<pre><code class="language-typescript">function showVersion(): void {
+  console.error(&#039;Moonsurf Browser Control v1.1.0&#039;);
+}</code></pre><h3>4. Build and Test</h3>
+<pre><code class="language-bash">npm run build
+npm start -- --version
+npm test  # if tests exist</code></pre><h3>5. Commit Changes</h3>
+<pre><code class="language-bash">git add -A
+git commit -m &quot;chore: release v1.1.0&quot;</code></pre><h3>6. Tag Release</h3>
+<pre><code class="language-bash">git tag -a v1.1.0 -m &quot;Release v1.1.0&quot;</code></pre><h3>7. Push to Repository</h3>
+<pre><code class="language-bash">git push origin main
+git push origin v1.1.0</code></pre><h3>8. Publish to npm</h3>
+<pre><code class="language-bash">npm publish</code></pre><p>For scoped package:</p>
+<pre><code class="language-bash">npm publish --access public</code></pre><h2>GitHub Release</h2>
+<h3>Create Release</h3>
+<ol>
+<li>Go to repository on GitHub</li>
+<li>Click &quot;Releases&quot;</li>
+<li>Click &quot;Create a new release&quot;</li>
+<li>Select the version tag</li>
+<li>Add release title: &quot;v1.1.0&quot;</li>
+<li>Add release notes from changelog</li>
+<li>Attach built artifacts if applicable</li>
+<li>Publish release</li>
+</ol>
+<h3>Release Notes Template</h3>
+<pre><code class="language-markdown">## What&#039;s New
+
+### Features
+- 🎉 New browser_cookies tool for managing cookies
+- 🔐 Support for multiple authentication tokens
+
+### Improvements
+- 📝 Better error messages
+- ⚡ Performance improvements
+
+### Bug Fixes
+- 🐛 Fixed WebSocket reconnection race condition
+- 🐛 Fixed memory leak in download watcher
+
+### Breaking Changes
+- ⚠️ None in this release
+
+## Installation
+
+```bash
+npm install -g @moonsurf/browser-control</code></pre><h2>Documentation</h2>
+<p>See <a href="https://github.com/MoonsurfAI/browser-control/tree/main/docs">documentation</a></p>
+<pre><code class="language-plaintext">
+## Extension Release
+
+If the Chrome extension is updated:
+
+### 1. Update Extension Version
+
+In `chrome-extension/manifest.json`:
+```json
+{
+  &quot;version&quot;: &quot;1.1.0&quot;
+}</code></pre><h3>2. Build Extension</h3>
+<pre><code class="language-bash">cd chrome-extension
+npm run build</code></pre><h3>3. Package Extension</h3>
+<pre><code class="language-bash">cd dist
+zip -r ../moonsurf-extension-v1.1.0.zip .</code></pre><h3>4. Publish to Chrome Web Store</h3>
+<p>(If publicly listed)</p>
+<h3>5. Update GitHub Release</h3>
+<p>Attach extension zip to the release.</p>
+<h3>6. Update Server Extension Download</h3>
+<p>If the server downloads the extension automatically, ensure the release asset is available.</p>
+<h2>Hotfix Process</h2>
+<p>For urgent fixes:</p>
+<h3>1. Create Hotfix Branch</h3>
+<pre><code class="language-bash">git checkout -b hotfix/critical-fix main</code></pre><h3>2. Make Fix</h3>
+<pre><code class="language-bash"># Edit files
+npm run build
+npm test</code></pre><h3>3. Bump Patch Version</h3>
+<pre><code class="language-bash">npm version patch</code></pre><h3>4. Update Changelog</h3>
+<p>Add to CHANGELOG.md under a new patch version.</p>
+<h3>5. Merge and Release</h3>
+<pre><code class="language-bash">git checkout main
+git merge hotfix/critical-fix
+git push origin main
+git push origin v1.0.1
+npm publish</code></pre><h2>Rollback Process</h2>
+<p>If a release has critical issues:</p>
+<h3>1. Deprecate npm Version</h3>
+<pre><code class="language-bash">npm deprecate @moonsurf/browser-control@1.1.0 &quot;Critical bug, use 1.0.x&quot;</code></pre><h3>2. Unpublish (within 72 hours)</h3>
+<pre><code class="language-bash">npm unpublish @moonsurf/browser-control@1.1.0</code></pre><h3>3. Revert Git</h3>
+<pre><code class="language-bash">git revert HEAD
+git push origin main</code></pre><h3>4. Create Fix Release</h3>
+<p>Follow normal release process for 1.1.1.</p>
+<h2>Continuous Integration</h2>
+<h3>GitHub Actions for Release</h3>
+<pre><code class="language-yaml">name: Release
+
+on:
+  push:
+    tags:
+      - &#039;v*&#039;
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: &#039;20&#039;
+          registry-url: &#039;https://registry.npmjs.org&#039;
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Publish to npm
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          generate_release_notes: true</code></pre><h2>Changelog Format</h2>
+<p>Use <a href="https://keepachangelog.com/">Keep a Changelog</a> format:</p>
+<pre><code class="language-markdown"># Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+### Added
+- Work in progress features
+
+## [1.1.0] - 2024-01-15
+
+### Added
+- New features
+
+### Changed
+- Changes in existing functionality
+
+### Deprecated
+- Features that will be removed
+
+### Removed
+- Features removed in this release
+
+### Fixed
+- Bug fixes
+
+### Security
+- Security fixes</code></pre><h2>Version Compatibility</h2>
+<h3>MCP Protocol Version</h3>
+<p>Document supported MCP versions:</p>
+<pre><code class="language-plaintext">Moonsurf 1.x - MCP Protocol 2024-11-05</code></pre><h3>Node.js Version</h3>
+<p>Document minimum Node.js version:</p>
+<pre><code class="language-plaintext">Requires Node.js 18+</code></pre><h3>Browser Compatibility</h3>
+<p>Document supported browsers:</p>
+<pre><code class="language-plaintext">Chrome 90+
+Chromium 90+
+Chrome for Testing (any version)</code></pre><h2>Related</h2>
+<ul>
+<li><a href="project-structure.html">Project Structure</a> - Code organization</li>
+<li><a href="testing.html">Testing</a> - Test procedures</li>
+<li><a href="../../README.html">README</a> - Main documentation</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

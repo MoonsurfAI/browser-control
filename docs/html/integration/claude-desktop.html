@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Desktop Integration - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html" class="active">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Claude Desktop Integration</h1>
+<p>Connect Moonsurf with Claude Desktop for browser automation through the desktop application.</p>
+<h2>Overview</h2>
+<p>Claude Desktop supports MCP servers through its configuration file. Once connected, you can ask Claude to automate browser tasks directly from the desktop app.</p>
+<h2>Configuration</h2>
+<h3>Config File Location</h3>
+<div class="table-wrapper"><table><thead><tr><th>Platform</th><th>Path</th></tr></thead><tbody><tr><td>macOS</td><td><code>~/Library/Application Support/Claude/claude_desktop_config.json</code></td></tr><tr><td>Windows</td><td><code>%APPDATA%\Claude\claude_desktop_config.json</code></td></tr><tr><td>Linux</td><td><code>~/.config/Claude/claude_desktop_config.json</code></td></tr></tbody></table></div><h3>Basic Configuration</h3>
+<p>Create or edit the config file:</p>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;moonsurf&quot;: {
+      &quot;url&quot;: &quot;http://localhost:3300/sse&quot;
+    }
+  }
+}</code></pre><h3>With Authentication (Remote Server)</h3>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;moonsurf&quot;: {
+      &quot;url&quot;: &quot;https://mcp.example.com/sse?token=your-secret-token&quot;
+    }
+  }
+}</code></pre><h2>Setup Steps</h2>
+<h3>1. Install Moonsurf</h3>
+<pre><code class="language-bash">npm install -g @moonsurf/browser-control</code></pre><p>Or use npx (no install needed):</p>
+<pre><code class="language-bash">npx @moonsurf/browser-control</code></pre><h3>2. Start the Server</h3>
+<pre><code class="language-bash">moonsurf
+# Or: npx @moonsurf/browser-control</code></pre><p>Keep this terminal open.</p>
+<h3>3. Create Config File</h3>
+<p>macOS/Linux:</p>
+<pre><code class="language-bash"># Create directory if needed
+mkdir -p &quot;~/Library/Application Support/Claude&quot;
+
+# Create config
+cat &gt; &quot;~/Library/Application Support/Claude/claude_desktop_config.json&quot; &lt;&lt; &#039;EOF&#039;
+{
+  &quot;mcpServers&quot;: {
+    &quot;moonsurf&quot;: {
+      &quot;url&quot;: &quot;http://localhost:3300/sse&quot;
+    }
+  }
+}
+EOF</code></pre><p>Windows (PowerShell):</p>
+<pre><code class="language-powershell"># Create directory
+New-Item -ItemType Directory -Force -Path &quot;$env:APPDATA\Claude&quot;
+
+# Create config
+@&#039;
+{
+  &quot;mcpServers&quot;: {
+    &quot;moonsurf&quot;: {
+      &quot;url&quot;: &quot;http://localhost:3300/sse&quot;
+    }
+  }
+}
+&#039;@ | Out-File &quot;$env:APPDATA\Claude\claude_desktop_config.json&quot; -Encoding utf8</code></pre><h3>4. Restart Claude Desktop</h3>
+<p>Close and reopen Claude Desktop to load the new configuration.</p>
+<h3>5. Verify Connection</h3>
+<p>In Claude Desktop, ask:</p>
+<pre><code class="language-plaintext">&quot;What browser automation tools do you have available?&quot;</code></pre><p>Claude should list the Moonsurf tools.</p>
+<h2>Usage</h2>
+<h3>Example Conversations</h3>
+<p><strong>Simple navigation:</strong></p>
+<pre><code class="language-plaintext">User: Navigate to github.com and tell me what&#039;s on the trending page
+
+Claude: I&#039;ll navigate to GitHub and check the trending repositories.
+[Uses browser tools]</code></pre><p><strong>Taking screenshots:</strong></p>
+<pre><code class="language-plaintext">User: Take a screenshot of the Apple website homepage
+
+Claude: I&#039;ll capture a screenshot of Apple&#039;s homepage for you.
+[Uses browser_content screenshot]</code></pre><p><strong>Form filling:</strong></p>
+<pre><code class="language-plaintext">User: Go to example.com/contact and fill out the form with:
+- Name: John Doe
+- Email: john@example.com
+- Message: Hello, this is a test
+
+Claude: I&#039;ll fill out that contact form for you.
+[Uses browser tools to navigate and fill form]</code></pre><p><strong>Data extraction:</strong></p>
+<pre><code class="language-plaintext">User: Get the current weather from weather.com for New York
+
+Claude: I&#039;ll check the weather for New York.
+[Uses browser to navigate and extract content]</code></pre><h2>Auto-Start Server (Optional)</h2>
+<h3>macOS (launchd)</h3>
+<p>Create <code>~/Library/LaunchAgents/com.moonsurf.browser-control.plist</code>:</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;dict&gt;
+    &lt;key&gt;Label&lt;/key&gt;
+    &lt;string&gt;com.moonsurf.browser-control&lt;/string&gt;
+    &lt;key&gt;ProgramArguments&lt;/key&gt;
+    &lt;array&gt;
+        &lt;string&gt;/usr/local/bin/node&lt;/string&gt;
+        &lt;string&gt;/usr/local/lib/node_modules/@moonsurf/browser-control/dist/index.js&lt;/string&gt;
+    &lt;/array&gt;
+    &lt;key&gt;RunAtLoad&lt;/key&gt;
+    &lt;true/&gt;
+    &lt;key&gt;KeepAlive&lt;/key&gt;
+    &lt;true/&gt;
+    &lt;key&gt;StandardOutPath&lt;/key&gt;
+    &lt;string&gt;/tmp/moonsurf.log&lt;/string&gt;
+    &lt;key&gt;StandardErrorPath&lt;/key&gt;
+    &lt;string&gt;/tmp/moonsurf.log&lt;/string&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;</code></pre><p>Load it:</p>
+<pre><code class="language-bash">launchctl load ~/Library/LaunchAgents/com.moonsurf.browser-control.plist</code></pre><h3>Windows (Task Scheduler)</h3>
+<ol>
+<li>Open Task Scheduler</li>
+<li>Create Basic Task</li>
+<li>Trigger: &quot;When I log on&quot;</li>
+<li>Action: Start a program</li>
+<li>Program: <code>node</code></li>
+<li>Arguments: <code>C:\Users\YourName\AppData\Roaming\npm\node_modules\@moonsurf\browser-control\dist\index.js</code></li>
+</ol>
+<h3>Linux (systemd)</h3>
+<p>Create <code>~/.config/systemd/user/moonsurf.service</code>:</p>
+<pre><code class="language-ini">[Unit]
+Description=Moonsurf Browser Control
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/npx @moonsurf/browser-control
+Restart=always
+
+[Install]
+WantedBy=default.target</code></pre><p>Enable:</p>
+<pre><code class="language-bash">systemctl --user enable moonsurf
+systemctl --user start moonsurf</code></pre><h2>Troubleshooting</h2>
+<h3>&quot;Tools not available&quot;</h3>
+<ol>
+<li><p><strong>Check server is running:</strong></p>
+<pre><code class="language-bash">curl http://localhost:3300/health</code></pre></li>
+<li><p><strong>Verify config file:</strong></p>
+<ul>
+<li>Check file exists at correct location</li>
+<li>Validate JSON syntax</li>
+<li>Confirm URL is correct</li>
+</ul>
+</li>
+<li><p><strong>Restart Claude Desktop:</strong></p>
+<ul>
+<li>Fully quit (not just close window)</li>
+<li>Reopen the app</li>
+</ul>
+</li>
+</ol>
+<h3>&quot;Connection refused&quot;</h3>
+<ol>
+<li>Start the Moonsurf server</li>
+<li>Check if port 3300 is in use:<pre><code class="language-bash">lsof -i :3300</code></pre></li>
+<li>Try a different port:<pre><code class="language-bash">PORT=3400 moonsurf</code></pre>Update config to match.</li>
+</ol>
+<h3>&quot;Browser not launching&quot;</h3>
+<ol>
+<li>Verify Chrome/Chromium is installed</li>
+<li>Check server logs for errors</li>
+<li>Try headless mode:<pre><code class="language-bash">HEADLESS_DEFAULT=true moonsurf</code></pre></li>
+</ol>
+<h3>Config file not found</h3>
+<p>Ensure the directory exists:</p>
+<pre><code class="language-bash"># macOS
+mkdir -p ~/Library/Application\ Support/Claude
+
+# Linux
+mkdir -p ~/.config/Claude
+
+# Windows (PowerShell)
+New-Item -ItemType Directory -Force -Path &quot;$env:APPDATA\Claude&quot;</code></pre><h2>Best Practices</h2>
+<h3>1. Keep Server Running</h3>
+<p>Moonsurf server must be running before you can use browser tools. Consider auto-start options above.</p>
+<h3>2. Use Visible Mode for Debugging</h3>
+<pre><code class="language-bash">HEADLESS_DEFAULT=false moonsurf</code></pre><p>Watch the browser to understand what&#39;s happening.</p>
+<h3>3. Close Instances When Done</h3>
+<p>Ask Claude to close browser windows when finished to free resources:</p>
+<pre><code class="language-plaintext">&quot;Please close the browser when you&#039;re done&quot;</code></pre><h3>4. Monitor Server Logs</h3>
+<p>Keep the server terminal visible to see activity and debug issues.</p>
+<h2>Security Notes</h2>
+<h3>Local Use</h3>
+<p>Default configuration is safe for local use - server binds to localhost only.</p>
+<h3>Remote Access</h3>
+<p>If running Moonsurf on a remote server:</p>
+<ol>
+<li><p>Enable authentication:</p>
+<pre><code class="language-bash">REMOTE_MODE=true AUTH_TOKENS=secret-token moonsurf</code></pre></li>
+<li><p>Use HTTPS:</p>
+<pre><code class="language-bash">TLS_ENABLED=true TLS_CERT_PATH=... TLS_KEY_PATH=... moonsurf</code></pre></li>
+<li><p>Include token in config:</p>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;moonsurf&quot;: {
+      &quot;url&quot;: &quot;https://your-server.com/sse?token=secret-token&quot;
+    }
+  }
+}</code></pre></li>
+</ol>
+<h2>Related</h2>
+<ul>
+<li><a href="../getting-started/installation.html">Installation</a> - Server setup</li>
+<li><a href="../configuration/README.html">Configuration</a> - Server options</li>
+<li><a href="../configuration/authentication.html">Authentication</a> - Security setup</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

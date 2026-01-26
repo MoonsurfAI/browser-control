@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Error Handling - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html" class="active">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Error Handling</h1>
+<p>This document covers error codes, states, recovery strategies, and debugging tips.</p>
+<h2>Error Hierarchy</h2>
+<pre><code class="language-plaintext">Task Error
+   │
+   ├── Validation Errors (pre-execution)
+   │   ├── NO_COMMANDS
+   │   ├── NO_INSTANCE
+   │   └── QUEUE_FULL
+   │
+   └── Execution Errors (during execution)
+       ├── EXECUTION_ERROR
+       ├── COMMAND_TIMEOUT
+       ├── INSTANCE_DISCONNECTED
+       └── CANCELLED</code></pre><hr>
+<h2>Error Codes</h2>
+<h3>Validation Errors</h3>
+<p>These occur during task submission.</p>
+<div class="table-wrapper"><table><thead><tr><th>Code</th><th>HTTP Status</th><th>Description</th><th>Recovery</th></tr></thead><tbody><tr><td><code>NO_COMMANDS</code></td><td>400</td><td>Commands array is empty</td><td>Add at least one command</td></tr><tr><td><code>NO_INSTANCE</code></td><td>503</td><td>No browser instance connected</td><td>Launch a browser first</td></tr><tr><td><code>INVALID_INSTANCE</code></td><td>400</td><td>Specified instanceId not found</td><td>Check instance ID or omit it</td></tr><tr><td><code>QUEUE_FULL</code></td><td>503</td><td>Instance queue at max capacity</td><td>Wait for tasks to complete</td></tr></tbody></table></div><h3>Execution Errors</h3>
+<p>These occur during task execution.</p>
+<div class="table-wrapper"><table><thead><tr><th>Code</th><th>Description</th><th>Recovery</th></tr></thead><tbody><tr><td><code>EXECUTION_ERROR</code></td><td>Tool returned an error</td><td>Check tool arguments, element existence</td></tr><tr><td><code>COMMAND_TIMEOUT</code></td><td>Command exceeded timeout (default 60s)</td><td>Increase timeout or simplify command</td></tr><tr><td><code>INSTANCE_DISCONNECTED</code></td><td>Browser disconnected mid-task</td><td>Reconnect browser and retry</td></tr><tr><td><code>CANCELLED</code></td><td>Task cancelled by user</td><td>Intentional, no recovery needed</td></tr></tbody></table></div><hr>
+<h2>Error Response Formats</h2>
+<h3>WebSocket Submit Error</h3>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;task_submit_response&quot;,
+  &quot;success&quot;: false,
+  &quot;error&quot;: &quot;No connected browser instances&quot;
+}</code></pre><h3>REST Submit Error</h3>
+<pre><code class="language-json">{
+  &quot;error&quot;: &quot;No commands provided&quot;
+}</code></pre><h3>Command Execution Error</h3>
+<p>In <code>task_progress</code>:</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;task_progress&quot;,
+  &quot;taskId&quot;: &quot;task_123&quot;,
+  &quot;commandId&quot;: &quot;task_123_cmd_1&quot;,
+  &quot;commandIndex&quot;: 1,
+  &quot;status&quot;: &quot;error&quot;,
+  &quot;tool_name&quot;: &quot;browser_interact&quot;,
+  &quot;intention&quot;: &quot;Click button&quot;,
+  &quot;error&quot;: {
+    &quot;code&quot;: &quot;EXECUTION_ERROR&quot;,
+    &quot;message&quot;: &quot;Element not found: #nonexistent-button&quot;
+  }
+}</code></pre><h3>Task Failure</h3>
+<p>In <code>task_complete</code>:</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;task_complete&quot;,
+  &quot;taskId&quot;: &quot;task_123&quot;,
+  &quot;status&quot;: &quot;failed&quot;,
+  &quot;error&quot;: {
+    &quot;code&quot;: &quot;EXECUTION_ERROR&quot;,
+    &quot;message&quot;: &quot;Element not found: #nonexistent-button&quot;,
+    &quot;commandId&quot;: &quot;task_123_cmd_1&quot;
+  },
+  &quot;summary&quot;: {
+    &quot;totalCommands&quot;: 3,
+    &quot;successfulCommands&quot;: 1,
+    &quot;failedCommandIndex&quot;: 1,
+    &quot;duration&quot;: 500
+  }
+}</code></pre><hr>
+<h2>Common Errors and Solutions</h2>
+<h3>Element Not Found</h3>
+<p><strong>Error:</strong></p>
+<pre><code class="language-plaintext">Element not found: #login-button</code></pre><p><strong>Causes:</strong></p>
+<ol>
+<li>Element doesn&#39;t exist on page</li>
+<li>Element hasn&#39;t loaded yet</li>
+<li>Selector is incorrect</li>
+<li>Element is in an iframe</li>
+</ol>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>Add a <code>wait_for</code> command before interacting:<pre><code class="language-json">{
+  &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+  &quot;intention&quot;: &quot;Wait for button&quot;,
+  &quot;args&quot;: { &quot;action&quot;: &quot;wait_for&quot;, &quot;selector&quot;: &quot;#login-button&quot;, &quot;timeout&quot;: 10000 }
+}</code></pre></li>
+<li>Verify selector in browser DevTools</li>
+<li>Use more specific selectors</li>
+<li>Check if element is in an iframe (not currently supported)</li>
+</ol>
+<h3>Navigation Timeout</h3>
+<p><strong>Error:</strong></p>
+<pre><code class="language-plaintext">Command timeout after 60000ms</code></pre><p><strong>Causes:</strong></p>
+<ol>
+<li>Page takes too long to load</li>
+<li>Network issues</li>
+<li>Page never finishes loading (infinite resources)</li>
+</ol>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>Increase command timeout via <code>TASKS_COMMAND_TIMEOUT</code> env variable</li>
+<li>Use explicit <code>wait_for</code> instead of relying on navigation complete</li>
+<li>Check network connectivity</li>
+</ol>
+<h3>Invalid Tool</h3>
+<p><strong>Error:</strong></p>
+<pre><code class="language-plaintext">Unknown tool: browser_nonexistent</code></pre><p><strong>Causes:</strong></p>
+<ol>
+<li>Typo in tool name</li>
+<li>Using a tool that doesn&#39;t exist</li>
+</ol>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>Check available tools in <a href="./task-format.html">Task Format</a></li>
+<li>Use exact tool names: <code>browser_navigate</code>, <code>browser_interact</code>, <code>browser_content</code>, <code>browser_execute</code></li>
+</ol>
+<h3>Invalid Arguments</h3>
+<p><strong>Error:</strong></p>
+<pre><code class="language-plaintext">Invalid arguments</code></pre><p><strong>Causes:</strong></p>
+<ol>
+<li>Missing required argument</li>
+<li>Wrong argument type</li>
+<li>Invalid action for tool</li>
+</ol>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>Check tool documentation for required arguments</li>
+<li>Verify argument types (strings, numbers, etc.)</li>
+<li>Ensure <code>action</code> is valid for the tool</li>
+</ol>
+<h3>Instance Disconnected</h3>
+<p><strong>Error:</strong></p>
+<pre><code class="language-plaintext">Browser instance disconnected</code></pre><p><strong>Causes:</strong></p>
+<ol>
+<li>Browser was closed</li>
+<li>Browser crashed</li>
+<li>Network disconnection (remote browsers)</li>
+<li>Extension was disabled/removed</li>
+</ol>
+<p><strong>Solutions:</strong></p>
+<ol>
+<li>Launch a new browser instance</li>
+<li>Check browser console for crash reasons</li>
+<li>Verify extension is installed and enabled</li>
+</ol>
+<hr>
+<h2>Error Handling Patterns</h2>
+<h3>Client-Side Retry Logic</h3>
+<pre><code class="language-javascript">async function submitWithRetry(task, maxRetries = 3) {
+  for (let attempt = 1; attempt &lt;= maxRetries; attempt++) {
+    try {
+      const result = await submitTask(task);
+
+      if (result.error) {
+        if (result.error.includes(&#039;No connected browser&#039;)) {
+          // Wait for browser to be available
+          await sleep(5000);
+          continue;
+        }
+        throw new Error(result.error);
+      }
+
+      return await waitForCompletion(result.taskId);
+
+    } catch (error) {
+      if (attempt === maxRetries) throw error;
+      console.log(`Attempt ${attempt} failed, retrying...`);
+      await sleep(1000 * attempt); // Exponential backoff
+    }
+  }
+}</code></pre><h3>Graceful Degradation</h3>
+<pre><code class="language-javascript">ws.on(&#039;message&#039;, (data) =&gt; {
+  const msg = JSON.parse(data);
+
+  if (msg.type === &#039;task_progress&#039; &amp;&amp; msg.status === &#039;error&#039;) {
+    // Log error but continue listening for other tasks
+    console.error(`Command ${msg.commandIndex} failed:`, msg.error.message);
+
+    // Optionally notify user or trigger alternative action
+    if (msg.error.code === &#039;EXECUTION_ERROR&#039;) {
+      notifyUser(`Action failed: ${msg.intention}`);
+    }
+  }
+
+  if (msg.type === &#039;task_complete&#039; &amp;&amp; msg.status === &#039;failed&#039;) {
+    // Analyze failure and decide on action
+    const { failedCommandIndex, successfulCommands, totalCommands } = msg.summary;
+
+    if (successfulCommands &gt; 0) {
+      console.log(`Partial success: ${successfulCommands}/${totalCommands} commands completed`);
+    }
+
+    // Check which command failed
+    const failedCommand = msg.results[failedCommandIndex];
+    handleFailedCommand(failedCommand);
+  }
+});</code></pre><h3>Pre-Validation</h3>
+<p>Validate tasks before submission to catch errors early:</p>
+<pre><code class="language-javascript">function validateTask(task) {
+  const errors = [];
+
+  if (!task.task_name) {
+    errors.push(&#039;task_name is required&#039;);
+  }
+
+  if (!task.commands || task.commands.length === 0) {
+    errors.push(&#039;At least one command is required&#039;);
+  }
+
+  const validTools = [&#039;browser_navigate&#039;, &#039;browser_interact&#039;, &#039;browser_content&#039;, &#039;browser_execute&#039;];
+
+  task.commands?.forEach((cmd, index) =&gt; {
+    if (!validTools.includes(cmd.tool_name)) {
+      errors.push(`Command ${index}: unknown tool &quot;${cmd.tool_name}&quot;`);
+    }
+    if (!cmd.args) {
+      errors.push(`Command ${index}: args is required`);
+    }
+  });
+
+  return errors;
+}
+
+// Usage
+const errors = validateTask(myTask);
+if (errors.length &gt; 0) {
+  console.error(&#039;Validation failed:&#039;, errors);
+  return;
+}
+submitTask(myTask);</code></pre><hr>
+<h2>Debugging</h2>
+<h3>Enable Verbose Logging</h3>
+<p>Server-side logs show detailed execution information:</p>
+<pre><code class="language-bash"># Server output shows:
+[TaskManager] Task task_123 queued for instance inst_456 (position: 1)
+[TaskManager] Starting task task_123: My Task
+[MCP] Tool call: browser_navigate { url: &#039;https://example.com&#039;, instanceId: &#039;inst_456&#039; }
+[MCP] Tool error: browser_interact Error: Element not found: #nonexistent
+[TaskManager] Command task_123_cmd_1 failed: Element not found: #nonexistent
+[TaskManager] Task task_123 failed (500ms)</code></pre><h3>Inspect Task State</h3>
+<p>Use the status endpoint to inspect task state:</p>
+<pre><code class="language-bash">curl http://localhost:3300/tasks/task_123 | jq</code></pre><p>Check:</p>
+<ul>
+<li><code>status</code> - Overall task status</li>
+<li><code>commands[].status</code> - Each command&#39;s status</li>
+<li><code>commands[].error</code> - Error details for failed commands</li>
+<li><code>commands[].result</code> - Results for successful commands</li>
+</ul>
+<h3>WebSocket Debugging</h3>
+<p>Capture all WebSocket messages for debugging:</p>
+<pre><code class="language-javascript">ws.on(&#039;message&#039;, (data) =&gt; {
+  const msg = JSON.parse(data);
+  console.log(`[${new Date().toISOString()}] ${msg.type}:`, JSON.stringify(msg, null, 2));
+});</code></pre><h3>Browser DevTools</h3>
+<ol>
+<li>Open the browser controlled by Moonsurf</li>
+<li>Open DevTools (F12)</li>
+<li>Check:<ul>
+<li>Console for JavaScript errors</li>
+<li>Network tab for failed requests</li>
+<li>Elements tab for selector verification</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2>Error Recovery Strategies</h2>
+<h3>Idempotent Tasks</h3>
+<p>Design tasks to be safely retriable:</p>
+<pre><code class="language-json">{
+  &quot;task_name&quot;: &quot;Navigate and Screenshot&quot;,
+  &quot;commands&quot;: [
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Go to page&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://example.com&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_content&quot;,
+      &quot;intention&quot;: &quot;Take screenshot&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;screenshot&quot; }
+    }
+  ]
+}</code></pre><p>This task can be safely retried without side effects.</p>
+<h3>Checkpoint Pattern</h3>
+<p>For long tasks, break into smaller checkpointable units:</p>
+<pre><code class="language-javascript">const subtasks = [
+  { name: &#039;Step 1: Login&#039;, commands: [...] },
+  { name: &#039;Step 2: Navigate&#039;, commands: [...] },
+  { name: &#039;Step 3: Extract Data&#039;, commands: [...] },
+];
+
+let lastCompleted = -1;
+
+for (let i = 0; i &lt; subtasks.length; i++) {
+  const result = await runTask(subtasks[i]);
+
+  if (result.status === &#039;completed&#039;) {
+    lastCompleted = i;
+  } else {
+    console.log(`Failed at step ${i + 1}, last completed: ${lastCompleted + 1}`);
+    // Can resume from lastCompleted + 1
+    break;
+  }
+}</code></pre><h3>Fallback Selectors</h3>
+<p>Include alternative selectors for robust element finding:</p>
+<pre><code class="language-javascript">// Instead of single selector:
+{ &quot;action&quot;: &quot;click&quot;, &quot;selector&quot;: &quot;#submit-btn&quot; }
+
+// Try multiple approaches:
+async function clickSubmit(ws) {
+  const selectors = [&#039;#submit-btn&#039;, &#039;button[type=submit]&#039;, &#039;.submit-button&#039;, &#039;input[value=Submit]&#039;];
+
+  for (const selector of selectors) {
+    try {
+      const result = await runCommand(ws, {
+        tool_name: &#039;browser_interact&#039;,
+        intention: &#039;Click submit&#039;,
+        args: { action: &#039;click&#039;, selector }
+      });
+      if (result.status === &#039;success&#039;) return;
+    } catch (e) {
+      continue;
+    }
+  }
+  throw new Error(&#039;Could not find submit button&#039;);
+}</code></pre><hr>
+<h2>Monitoring and Alerting</h2>
+<h3>Track Error Rates</h3>
+<pre><code class="language-javascript">const stats = {
+  submitted: 0,
+  completed: 0,
+  failed: 0,
+  errorCodes: {}
+};
+
+ws.on(&#039;message&#039;, (data) =&gt; {
+  const msg = JSON.parse(data);
+
+  if (msg.type === &#039;task_submit_response&#039; &amp;&amp; msg.success) {
+    stats.submitted++;
+  }
+
+  if (msg.type === &#039;task_complete&#039;) {
+    if (msg.status === &#039;completed&#039;) {
+      stats.completed++;
+    } else if (msg.status === &#039;failed&#039;) {
+      stats.failed++;
+      const code = msg.error?.code || &#039;UNKNOWN&#039;;
+      stats.errorCodes[code] = (stats.errorCodes[code] || 0) + 1;
+    }
+  }
+});
+
+// Periodically log stats
+setInterval(() =&gt; {
+  const successRate = stats.submitted &gt; 0
+    ? ((stats.completed / stats.submitted) * 100).toFixed(1)
+    : 0;
+  console.log(`Success rate: ${successRate}%, Errors:`, stats.errorCodes);
+}, 60000);</code></pre><h3>Alert on Failure Patterns</h3>
+<pre><code class="language-javascript">const recentFailures = [];
+const ALERT_THRESHOLD = 5;
+const WINDOW_MS = 60000;
+
+ws.on(&#039;message&#039;, (data) =&gt; {
+  const msg = JSON.parse(data);
+
+  if (msg.type === &#039;task_complete&#039; &amp;&amp; msg.status === &#039;failed&#039;) {
+    recentFailures.push(Date.now());
+
+    // Clean old failures
+    const cutoff = Date.now() - WINDOW_MS;
+    while (recentFailures.length &gt; 0 &amp;&amp; recentFailures[0] &lt; cutoff) {
+      recentFailures.shift();
+    }
+
+    // Check threshold
+    if (recentFailures.length &gt;= ALERT_THRESHOLD) {
+      sendAlert(`High failure rate: ${recentFailures.length} failures in last minute`);
+    }
+  }
+});</code></pre>
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

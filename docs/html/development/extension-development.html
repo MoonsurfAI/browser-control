@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Extension Development - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html" class="active">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Extension Development</h1>
+<p>Guide to developing the Chrome extension alongside the MCP server.</p>
+<h2>Overview</h2>
+<p>Moonsurf consists of two main components:</p>
+<ol>
+<li><strong>MCP Server</strong> (this repository) - Node.js server that handles MCP protocol</li>
+<li><strong>Chrome Extension</strong> (separate repository) - Executes commands in the browser</li>
+</ol>
+<p>This guide covers developing both together.</p>
+<h2>Extension Architecture</h2>
+<pre><code class="language-plaintext">MCP Server                    Chrome Extension
+    │                              │
+    │ ←── WebSocket ───────────────┤
+    │                              │
+    └── HTTP (/register) ──────────┘</code></pre><p>The extension:</p>
+<ol>
+<li>Registers with the server on startup</li>
+<li>Receives commands via WebSocket</li>
+<li>Executes actions in the browser</li>
+<li>Returns results via WebSocket</li>
+</ol>
+<h2>Repository Structure</h2>
+<pre><code class="language-plaintext">MoonsurfAI/
+├── browser-control/       # MCP Server (this repo)
+└── chrome-extension/      # Chrome Extension
+    ├── src/
+    │   ├── background.ts  # Service worker
+    │   ├── content.ts     # Content script
+    │   └── ...
+    ├── manifest.json      # Extension manifest
+    └── package.json</code></pre><h2>Setting Up Extension Development</h2>
+<h3>1. Clone Both Repositories</h3>
+<pre><code class="language-bash"># Clone extension alongside server
+cd ~/projects  # or wherever you keep projects
+git clone https://github.com/MoonsurfAI/browser-control
+git clone https://github.com/MoonsurfAI/chrome-extension</code></pre><h3>2. Install Extension Dependencies</h3>
+<pre><code class="language-bash">cd chrome-extension
+npm install</code></pre><h3>3. Build Extension</h3>
+<pre><code class="language-bash">npm run build</code></pre><p>Output goes to <code>dist/</code> directory.</p>
+<h3>4. Configure Server for Local Extension</h3>
+<pre><code class="language-bash">cd ../browser-control
+export EXTENSION_PATH=../chrome-extension/dist
+npm start</code></pre><h2>Development Workflow</h2>
+<h3>Recommended Setup</h3>
+<p>Use three terminals:</p>
+<p><strong>Terminal 1 - Extension Watch:</strong></p>
+<pre><code class="language-bash">cd chrome-extension
+npm run dev</code></pre><p><strong>Terminal 2 - Server Watch:</strong></p>
+<pre><code class="language-bash">cd browser-control
+npm run dev</code></pre><p><strong>Terminal 3 - Run Server:</strong></p>
+<pre><code class="language-bash">cd browser-control
+EXTENSION_PATH=../chrome-extension/dist npm start</code></pre><h3>Making Changes</h3>
+<ol>
+<li>Edit extension code in <code>chrome-extension/src/</code></li>
+<li>Extension rebuilds automatically (watch mode)</li>
+<li>Launch new browser instance to pick up changes</li>
+<li>Or reload extension in existing browser</li>
+</ol>
+<h3>Reloading Extension</h3>
+<p>If the browser is already running:</p>
+<ol>
+<li>Go to <code>chrome://extensions</code></li>
+<li>Find Moonsurf extension</li>
+<li>Click &quot;Reload&quot; button</li>
+<li>Re-register with server (may need new browser instance)</li>
+</ol>
+<h2>Extension Components</h2>
+<h3>Background Script (<code>background.ts</code>)</h3>
+<p>The service worker handles:</p>
+<ul>
+<li>Server registration</li>
+<li>WebSocket connection</li>
+<li>Message routing</li>
+<li>Tool execution coordination</li>
+</ul>
+<h3>Content Script (<code>content.ts</code>)</h3>
+<p>Injected into web pages to:</p>
+<ul>
+<li>Execute DOM operations</li>
+<li>Handle interactions</li>
+<li>Extract content</li>
+<li>Monitor events</li>
+</ul>
+<h3>Manifest (<code>manifest.json</code>)</h3>
+<p>Declares permissions and components:</p>
+<pre><code class="language-json">{
+  &quot;manifest_version&quot;: 3,
+  &quot;permissions&quot;: [
+    &quot;tabs&quot;,
+    &quot;activeTab&quot;,
+    &quot;scripting&quot;,
+    &quot;downloads&quot;,
+    &quot;webRequest&quot;
+  ]
+}</code></pre><h2>Communication Flow</h2>
+<h3>1. Registration</h3>
+<pre><code class="language-plaintext">Extension                    MCP Server
+    │                            │
+    │── POST /register ─────────→│
+    │   {extensionId, userAgent} │
+    │                            │
+    │←── {instanceId, port} ─────│
+    │                            │
+    │── WebSocket connect ──────→│
+    │   ws://localhost:{port}    │</code></pre><h3>2. Tool Execution</h3>
+<pre><code class="language-plaintext">Extension                    MCP Server                  AI Client
+    │                            │                          │
+    │                            │←── tools/call ──────────│
+    │                            │                          │
+    │←── WebSocket {command} ────│                          │
+    │                            │                          │
+    │── Execute in browser ──────│                          │
+    │                            │                          │
+    │── WebSocket {result} ─────→│                          │
+    │                            │                          │
+    │                            │── MCP response ─────────→│</code></pre><h2>Adding New Functionality</h2>
+<h3>Adding Server-Side Tool</h3>
+<p>In <code>browser-control/src/tool-definitions.ts</code>:</p>
+<pre><code class="language-typescript">// 1. Add to tools array
+{
+  name: &#039;browser_new_tool&#039;,
+  description: &#039;Description here&#039;,
+  inputSchema: {
+    type: &#039;object&#039;,
+    properties: {
+      action: { type: &#039;string&#039;, enum: [&#039;do_something&#039;] },
+      // ... parameters
+    }
+  }
+}
+
+// 2. Add execution handler
+async function executeTool(name, args) {
+  // ... existing code ...
+
+  if (name === &#039;browser_new_tool&#039;) {
+    return handleNewTool(args);
+  }
+}</code></pre><h3>Adding Extension Command Handler</h3>
+<p>In <code>chrome-extension/src/background.ts</code>:</p>
+<pre><code class="language-typescript">// Handle new command type
+function handleCommand(command) {
+  switch (command.type) {
+    case &#039;new_command&#039;:
+      return executeNewCommand(command.params);
+    // ... existing handlers
+  }
+}</code></pre><h3>Adding Content Script Functionality</h3>
+<p>In <code>chrome-extension/src/content.ts</code>:</p>
+<pre><code class="language-typescript">// Add new DOM operation
+function newOperation(params) {
+  // Execute in page context
+  return document.querySelector(params.selector)?.textContent;
+}
+
+// Register message handler
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) =&gt; {
+  if (message.type === &#039;new_operation&#039;) {
+    sendResponse(newOperation(message.params));
+  }
+});</code></pre><h2>Debugging Extension</h2>
+<h3>Background Script</h3>
+<ol>
+<li>Go to <code>chrome://extensions</code></li>
+<li>Find Moonsurf extension</li>
+<li>Click &quot;Service worker&quot; link</li>
+<li>DevTools opens for background script</li>
+</ol>
+<h3>Content Script</h3>
+<ol>
+<li>Open any web page</li>
+<li>Open DevTools (F12)</li>
+<li>Go to Sources tab</li>
+<li>Find content script under &quot;Content scripts&quot;</li>
+</ol>
+<h3>Console Logging</h3>
+<p>Background script logs appear in its DevTools.
+Content script logs appear in page DevTools.</p>
+<p>Add logging for debugging:</p>
+<pre><code class="language-typescript">console.log(&#039;[Moonsurf Extension]&#039;, &#039;message&#039;, data);</code></pre><h2>Testing Extension Changes</h2>
+<h3>Manual Testing</h3>
+<ol>
+<li>Make extension change</li>
+<li>Rebuild: <code>npm run build</code></li>
+<li>Launch browser: <code>npm start</code> (in server)</li>
+<li>Test functionality</li>
+</ol>
+<h3>With Debug Logging</h3>
+<pre><code class="language-bash">LOG_LEVEL=debug EXTENSION_PATH=../chrome-extension/dist npm start</code></pre><p>Shows WebSocket messages and tool calls.</p>
+<h2>Common Issues</h2>
+<h3>Extension Not Loading</h3>
+<ol>
+<li>Check manifest.json is valid</li>
+<li>Verify dist/ directory exists</li>
+<li>Check EXTENSION_PATH is correct</li>
+<li>Look for errors in chrome://extensions</li>
+</ol>
+<h3>WebSocket Connection Failed</h3>
+<ol>
+<li>Check server is running</li>
+<li>Verify port is available</li>
+<li>Check firewall settings</li>
+<li>Look for errors in extension DevTools</li>
+</ol>
+<h3>Content Script Not Injecting</h3>
+<ol>
+<li>Check permissions in manifest</li>
+<li>Verify URL patterns match</li>
+<li>Check for CSP restrictions</li>
+<li>Try different page</li>
+</ol>
+<h3>Changes Not Applying</h3>
+<ol>
+<li>Rebuild extension: <code>npm run build</code></li>
+<li>Reload extension in chrome://extensions</li>
+<li>Launch new browser instance</li>
+<li>Clear browser cache</li>
+</ol>
+<h2>Extension Best Practices</h2>
+<h3>1. Error Handling</h3>
+<p>Always handle errors gracefully:</p>
+<pre><code class="language-typescript">try {
+  const result = await executeCommand(cmd);
+  return { success: true, result };
+} catch (error) {
+  return { success: false, error: error.message };
+}</code></pre><h3>2. Message Validation</h3>
+<p>Validate incoming messages:</p>
+<pre><code class="language-typescript">if (!message.type || !message.params) {
+  throw new Error(&#039;Invalid message format&#039;);
+}</code></pre><h3>3. Resource Cleanup</h3>
+<p>Clean up on disconnect:</p>
+<pre><code class="language-typescript">ws.onclose = () =&gt; {
+  // Clean up timers, listeners, etc.
+  cleanup();
+};</code></pre><h3>4. Timeout Handling</h3>
+<p>Add timeouts for operations:</p>
+<pre><code class="language-typescript">const result = await Promise.race([
+  executeOperation(),
+  new Promise((_, reject) =&gt;
+    setTimeout(() =&gt; reject(new Error(&#039;Timeout&#039;)), 30000)
+  )
+]);</code></pre><h2>Related</h2>
+<ul>
+<li><a href="project-structure.html">Project Structure</a> - Server code organization</li>
+<li><a href="adding-tools.html">Adding Tools</a> - Extend tool functionality</li>
+<li><a href="debugging.html">Debugging</a> - Troubleshooting</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Network Interception Guide - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html" class="active">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Network Interception Guide</h1>
+<p>Monitor, intercept, and modify network requests for testing, debugging, and automation.</p>
+<h2>Overview</h2>
+<p>Moonsurf&#39;s network tools allow you to:</p>
+<ul>
+<li><strong>Monitor</strong> - See all requests and responses</li>
+<li><strong>Intercept</strong> - Pause and inspect requests</li>
+<li><strong>Mock</strong> - Return custom responses</li>
+<li><strong>Block</strong> - Prevent certain requests</li>
+<li><strong>Modify</strong> - Change requests/responses</li>
+</ul>
+<h2>Basic Request Monitoring</h2>
+<h3>Enable Interception</h3>
+<pre><code class="language-plaintext">browser_network
+  action: &quot;intercept&quot;
+  patterns: [&quot;**/*&quot;]</code></pre><p>This captures all requests. Use specific patterns for targeted monitoring.</p>
+<h3>View Captured Requests</h3>
+<pre><code class="language-plaintext">browser_network
+  action: &quot;requests&quot;</code></pre><p>Returns:</p>
+<pre><code class="language-json">{
+  &quot;requests&quot;: [
+    {
+      &quot;url&quot;: &quot;https://api.example.com/users&quot;,
+      &quot;method&quot;: &quot;GET&quot;,
+      &quot;status&quot;: 200,
+      &quot;type&quot;: &quot;fetch&quot;,
+      &quot;timing&quot;: { &quot;duration&quot;: 145 }
+    },
+    {
+      &quot;url&quot;: &quot;https://example.com/image.png&quot;,
+      &quot;method&quot;: &quot;GET&quot;,
+      &quot;status&quot;: 200,
+      &quot;type&quot;: &quot;image&quot;
+    }
+  ]
+}</code></pre><h3>Clear Request Log</h3>
+<pre><code class="language-plaintext">browser_network
+  action: &quot;clear&quot;</code></pre><h2>Pattern Matching</h2>
+<h3>URL Patterns</h3>
+<pre><code class="language-plaintext"># All API requests
+browser_network action=&quot;intercept&quot; patterns=[&quot;**/api/**&quot;]
+
+# Specific domain
+browser_network action=&quot;intercept&quot; patterns=[&quot;*://api.example.com/*&quot;]
+
+# Specific file types
+browser_network action=&quot;intercept&quot; patterns=[&quot;**/*.json&quot;]
+
+# Multiple patterns
+browser_network action=&quot;intercept&quot; patterns=[&quot;**/api/**&quot;, &quot;**/*.js&quot;]</code></pre><h3>Pattern Syntax</h3>
+<div class="table-wrapper"><table><thead><tr><th>Pattern</th><th>Matches</th></tr></thead><tbody><tr><td><code>*</code></td><td>Any characters except <code>/</code></td></tr><tr><td><code>**</code></td><td>Any characters including <code>/</code></td></tr><tr><td><code>?</code></td><td>Single character</td></tr><tr><td><code>[abc]</code></td><td>Character class</td></tr></tbody></table></div><p>Examples:</p>
+<ul>
+<li><code>**/api/users</code> - Any URL ending in <code>/api/users</code></li>
+<li><code>https://*.example.com/*</code> - Any subdomain of example.com</li>
+<li><code>**/*.{png,jpg,gif}</code> - Image files</li>
+</ul>
+<h2>Mocking Responses</h2>
+<h3>Return Custom JSON</h3>
+<pre><code class="language-plaintext">browser_network
+  action: &quot;intercept&quot;
+  patterns: [&quot;**/api/users&quot;]
+  mock: {
+    &quot;status&quot;: 200,
+    &quot;headers&quot;: { &quot;Content-Type&quot;: &quot;application/json&quot; },
+    &quot;body&quot;: &quot;{\&quot;users\&quot;: [{\&quot;id\&quot;: 1, \&quot;name\&quot;: \&quot;Mock User\&quot;}]}&quot;
+  }</code></pre><h3>Return Error Response</h3>
+<pre><code class="language-plaintext">browser_network
+  action: &quot;intercept&quot;
+  patterns: [&quot;**/api/data&quot;]
+  mock: {
+    &quot;status&quot;: 500,
+    &quot;body&quot;: &quot;{\&quot;error\&quot;: \&quot;Internal Server Error\&quot;}&quot;
+  }</code></pre><h3>Return Empty Response</h3>
+<pre><code class="language-plaintext">browser_network
+  action: &quot;intercept&quot;
+  patterns: [&quot;**/tracking/*&quot;]
+  mock: {
+    &quot;status&quot;: 204
+  }</code></pre><h3>Mock HTML Page</h3>
+<pre><code class="language-plaintext">browser_network
+  action: &quot;intercept&quot;
+  patterns: [&quot;**/page&quot;]
+  mock: {
+    &quot;status&quot;: 200,
+    &quot;headers&quot;: { &quot;Content-Type&quot;: &quot;text/html&quot; },
+    &quot;body&quot;: &quot;&lt;html&gt;&lt;body&gt;&lt;h1&gt;Mocked Page&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;&quot;
+  }</code></pre><h2>Blocking Requests</h2>
+<h3>Block Analytics</h3>
+<pre><code class="language-plaintext">browser_network
+  action: &quot;intercept&quot;
+  patterns: [&quot;**/google-analytics.com/**&quot;, &quot;**/gtag/**&quot;]
+  block: true</code></pre><h3>Block Ads</h3>
+<pre><code class="language-plaintext">browser_network
+  action: &quot;intercept&quot;
+  patterns: [&quot;**/ads/**&quot;, &quot;**/adserver/**&quot;, &quot;**/*.doubleclick.net/**&quot;]
+  block: true</code></pre><h3>Block Images (Performance Testing)</h3>
+<pre><code class="language-plaintext">browser_network
+  action: &quot;intercept&quot;
+  patterns: [&quot;**/*.png&quot;, &quot;**/*.jpg&quot;, &quot;**/*.gif&quot;, &quot;**/*.webp&quot;]
+  block: true</code></pre><h3>Block External Scripts</h3>
+<pre><code class="language-plaintext">browser_network
+  action: &quot;intercept&quot;
+  patterns: [&quot;https://cdn.example.com/**&quot;]
+  block: true</code></pre><h2>API Testing</h2>
+<h3>Verify API Calls</h3>
+<pre><code class="language-plaintext"># Start monitoring
+browser_network action=&quot;intercept&quot; patterns=[&quot;**/api/**&quot;]
+
+# Perform action that calls API
+browser_interact action=&quot;click&quot; selector=&quot;#submit-form&quot;
+
+# Wait for request
+browser_execute
+  action: &quot;evaluate&quot;
+  script: &quot;await new Promise(r =&gt; setTimeout(r, 2000))&quot;
+
+# Check requests
+browser_network action=&quot;requests&quot;
+
+# Verify expected API was called
+# Check method, URL, and response status</code></pre><h3>Test API Error Handling</h3>
+<pre><code class="language-plaintext"># Mock error before user action
+browser_network
+  action: &quot;intercept&quot;
+  patterns: [&quot;**/api/submit&quot;]
+  mock: {
+    &quot;status&quot;: 400,
+    &quot;body&quot;: &quot;{\&quot;error\&quot;: \&quot;Validation failed\&quot;}&quot;
+  }
+
+# Perform action
+browser_interact action=&quot;click&quot; selector=&quot;#submit&quot;
+
+# Verify error is handled in UI
+browser_content action=&quot;extract&quot; selector=&quot;.error-message&quot;</code></pre><h3>Test Slow Network</h3>
+<pre><code class="language-plaintext"># Add delay to responses
+browser_network
+  action: &quot;intercept&quot;
+  patterns: [&quot;**/api/**&quot;]
+  delay: 3000  # 3 second delay</code></pre><h3>Test Offline Mode</h3>
+<pre><code class="language-plaintext"># Block all requests
+browser_network
+  action: &quot;intercept&quot;
+  patterns: [&quot;**/*&quot;]
+  block: true
+
+# Verify offline handling
+browser_content action=&quot;extract&quot; selector=&quot;.offline-message&quot;</code></pre><h2>Request Inspection</h2>
+<h3>View Request Details</h3>
+<p>After capturing requests:</p>
+<pre><code class="language-plaintext">browser_network action=&quot;requests&quot;</code></pre><p>Each request includes:</p>
+<ul>
+<li><code>url</code> - Full request URL</li>
+<li><code>method</code> - HTTP method</li>
+<li><code>status</code> - Response status code</li>
+<li><code>type</code> - Resource type (document, script, fetch, etc.)</li>
+<li><code>headers</code> - Request headers</li>
+<li><code>timing</code> - Timing information</li>
+</ul>
+<h3>Filter by Type</h3>
+<pre><code class="language-plaintext">browser_execute
+  action: &quot;evaluate&quot;
+  script: |
+    // Get requests from previous capture
+    // Filter in your processing logic
+    // Type can be: document, script, stylesheet, image, font, fetch, xhr</code></pre><h3>Check for Specific Requests</h3>
+<pre><code class="language-plaintext"># Verify tracking pixel was sent
+browser_network action=&quot;requests&quot;
+
+# Look for request to tracking endpoint
+# Check that conversion tracking fired</code></pre><h2>Response Modification</h2>
+<h3>Modify Response Headers</h3>
+<pre><code class="language-plaintext">browser_network
+  action: &quot;intercept&quot;
+  patterns: [&quot;**/api/**&quot;]
+  modifyHeaders: {
+    &quot;Access-Control-Allow-Origin&quot;: &quot;*&quot;,
+    &quot;Cache-Control&quot;: &quot;no-cache&quot;
+  }</code></pre><h3>Inject CORS Headers</h3>
+<pre><code class="language-plaintext">browser_network
+  action: &quot;intercept&quot;
+  patterns: [&quot;**/external-api/**&quot;]
+  modifyHeaders: {
+    &quot;Access-Control-Allow-Origin&quot;: &quot;*&quot;,
+    &quot;Access-Control-Allow-Methods&quot;: &quot;GET, POST, OPTIONS&quot;,
+    &quot;Access-Control-Allow-Headers&quot;: &quot;Content-Type&quot;
+  }</code></pre><h2>Authentication Testing</h2>
+<h3>Test with Auth Token</h3>
+<pre><code class="language-plaintext"># Intercept and add auth header
+browser_network
+  action: &quot;intercept&quot;
+  patterns: [&quot;**/api/**&quot;]
+  modifyHeaders: {
+    &quot;Authorization&quot;: &quot;Bearer test-token-123&quot;
+  }</code></pre><h3>Test Token Expiration</h3>
+<pre><code class="language-plaintext"># Mock expired token response
+browser_network
+  action: &quot;intercept&quot;
+  patterns: [&quot;**/api/**&quot;]
+  mock: {
+    &quot;status&quot;: 401,
+    &quot;body&quot;: &quot;{\&quot;error\&quot;: \&quot;Token expired\&quot;}&quot;
+  }
+
+# Verify refresh logic</code></pre><h2>Performance Analysis</h2>
+<h3>Measure Request Timing</h3>
+<pre><code class="language-plaintext">browser_network action=&quot;intercept&quot; patterns=[&quot;**/*&quot;]
+browser_navigate action=&quot;goto&quot; url=&quot;https://example.com&quot;
+
+# Get timing data
+browser_network action=&quot;requests&quot;
+
+# Analyze timing information
+# - Total requests
+# - Slowest requests
+# - Request waterfall</code></pre><h3>Find Large Resources</h3>
+<pre><code class="language-plaintext">browser_network action=&quot;requests&quot;
+
+# Filter for large responses
+# Check content-length headers
+# Identify optimization opportunities</code></pre><h3>Check Caching</h3>
+<pre><code class="language-plaintext"># Make request
+browser_navigate action=&quot;goto&quot; url=&quot;https://example.com&quot;
+
+# Check cache headers in responses
+browser_network action=&quot;requests&quot;
+
+# Look for Cache-Control, ETag, Last-Modified</code></pre><h2>Common Scenarios</h2>
+<h3>E2E Test with Mocked Backend</h3>
+<pre><code class="language-plaintext"># Mock all API endpoints
+browser_network
+  action: &quot;intercept&quot;
+  patterns: [&quot;**/api/users&quot;]
+  mock: { &quot;status&quot;: 200, &quot;body&quot;: &quot;[{\&quot;id\&quot;:1,\&quot;name\&quot;:\&quot;Test\&quot;}]&quot; }
+
+browser_network
+  action: &quot;intercept&quot;
+  patterns: [&quot;**/api/products&quot;]
+  mock: { &quot;status&quot;: 200, &quot;body&quot;: &quot;[{\&quot;id\&quot;:1,\&quot;price\&quot;:99}]&quot; }
+
+# Run UI tests with predictable data
+browser_navigate action=&quot;goto&quot; url=&quot;https://app.example.com&quot;</code></pre><h3>Debug Failed Requests</h3>
+<pre><code class="language-plaintext"># Enable full monitoring
+browser_network action=&quot;intercept&quot; patterns=[&quot;**/*&quot;]
+
+# Reproduce the issue
+browser_navigate action=&quot;goto&quot; url=&quot;https://app.example.com&quot;
+browser_interact action=&quot;click&quot; selector=&quot;#problematic-action&quot;
+
+# Check for failed requests
+browser_network action=&quot;requests&quot;
+
+# Look for 4xx/5xx status codes
+# Check request payloads</code></pre><h3>Test Third-Party Integrations</h3>
+<pre><code class="language-plaintext"># Mock third-party service
+browser_network
+  action: &quot;intercept&quot;
+  patterns: [&quot;**/api.stripe.com/**&quot;]
+  mock: {
+    &quot;status&quot;: 200,
+    &quot;body&quot;: &quot;{\&quot;id\&quot;: \&quot;mock_payment_intent\&quot;}&quot;
+  }
+
+# Test payment flow with mocked Stripe</code></pre><h3>Capture API Responses</h3>
+<pre><code class="language-plaintext"># Monitor API calls
+browser_network action=&quot;intercept&quot; patterns=[&quot;**/api/**&quot;]
+
+# Trigger API call
+browser_interact action=&quot;click&quot; selector=&quot;#load-data&quot;
+
+# Get captured response
+browser_network action=&quot;requests&quot;
+
+# Response body available in request log</code></pre><h2>WebSocket Monitoring</h2>
+<p>WebSocket connections are tracked separately:</p>
+<pre><code class="language-plaintext">browser_network action=&quot;intercept&quot; patterns=[&quot;wss://**&quot;]
+
+# WebSocket messages in request log
+browser_network action=&quot;requests&quot;</code></pre><h2>Best Practices</h2>
+<h3>1. Be Specific with Patterns</h3>
+<pre><code class="language-plaintext"># Good - specific pattern
+browser_network action=&quot;intercept&quot; patterns=[&quot;**/api/users/*&quot;]
+
+# Avoid - too broad
+browser_network action=&quot;intercept&quot; patterns=[&quot;**/*&quot;]</code></pre><h3>2. Clean Up After Tests</h3>
+<pre><code class="language-plaintext"># Clear interception rules
+browser_network action=&quot;clear&quot;</code></pre><h3>3. Mock Realistically</h3>
+<pre><code class="language-plaintext"># Include proper headers
+browser_network
+  action: &quot;intercept&quot;
+  patterns: [&quot;**/api/**&quot;]
+  mock: {
+    &quot;status&quot;: 200,
+    &quot;headers&quot;: {
+      &quot;Content-Type&quot;: &quot;application/json&quot;,
+      &quot;X-Request-Id&quot;: &quot;mock-123&quot;
+    },
+    &quot;body&quot;: &quot;{...}&quot;
+  }</code></pre><h3>4. Test Edge Cases</h3>
+<pre><code class="language-plaintext"># Empty responses
+mock: { &quot;status&quot;: 200, &quot;body&quot;: &quot;[]&quot; }
+
+# Malformed JSON
+mock: { &quot;status&quot;: 200, &quot;body&quot;: &quot;not json&quot; }
+
+# Slow responses
+delay: 5000
+
+# Timeouts
+block: true</code></pre><h3>5. Document Mocked Endpoints</h3>
+<p>Keep track of what&#39;s mocked in tests for debugging.</p>
+<h2>Troubleshooting</h2>
+<h3>Interception Not Working</h3>
+<ol>
+<li>Check pattern syntax</li>
+<li>Verify interception is enabled before navigation</li>
+<li>Check for HTTPS/HTTP mismatch</li>
+</ol>
+<h3>Requests Still Going Through</h3>
+<ol>
+<li>Pattern may not match URL</li>
+<li>Request may happen before interception enabled</li>
+<li>Check for redirects</li>
+</ol>
+<h3>Mock Not Returning</h3>
+<ol>
+<li>Verify JSON is valid</li>
+<li>Check Content-Type header</li>
+<li>Ensure pattern matches request URL</li>
+</ol>
+<h2>Related</h2>
+<ul>
+<li><a href="../tools/browser-network.html">browser_network</a> - Network tool reference</li>
+<li><a href="testing-workflows.html">Testing Workflows</a> - API testing patterns</li>
+<li><a href="debugging-tips.html">Debugging Tips</a> - Network debugging</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

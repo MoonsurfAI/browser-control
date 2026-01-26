@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Extension Communication - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html" class="active">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Extension Communication</h1>
+<p>This document explains how the Moonsurf MCP server communicates with the Chrome extension.</p>
+<h2>Overview</h2>
+<p>The server and extension communicate via WebSocket. Each browser instance has its own WebSocket connection on a unique port.</p>
+<pre><code class="language-plaintext">MCP Server                           Chrome Extension
+    │                                      │
+    │◄────── POST /register ───────────────│
+    │                                      │
+    │─────── { instanceId, port } ────────►│
+    │                                      │
+    │◄══════ WebSocket Connect ════════════│
+    │        (localhost:{port})            │
+    │                                      │
+    │◄────── { type: &quot;hello&quot; } ────────────│
+    │                                      │
+    │─────── { type: &quot;welcome&quot; } ─────────►│
+    │                                      │
+    │═══════ Bidirectional Messages ═══════│</code></pre><h2>Connection Flow</h2>
+<h3>1. Extension Registration</h3>
+<p>When the browser launches with the extension:</p>
+<p><strong>Extension → Server:</strong></p>
+<pre><code class="language-http">POST /register HTTP/1.1
+Content-Type: application/json
+
+{
+  &quot;userAgent&quot;: &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) ...&quot;,
+  &quot;windowId&quot;: 123
+}</code></pre><p><strong>Server → Extension:</strong></p>
+<pre><code class="language-json">{
+  &quot;instanceId&quot;: &quot;inst_1706234567890_abc123&quot;,
+  &quot;port&quot;: 3301,
+  &quot;websocketUrl&quot;: &quot;ws://localhost:3301&quot;
+}</code></pre><h3>2. WebSocket Connection</h3>
+<p>Extension connects to the assigned port:</p>
+<pre><code class="language-javascript">const ws = new WebSocket(`ws://localhost:${port}`);</code></pre><p><strong>Key point:</strong> WebSocket is always <code>localhost</code>, even when the MCP server accepts remote HTTP connections.</p>
+<h3>3. Hello/Welcome Handshake</h3>
+<p><strong>Extension → Server:</strong></p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;hello&quot;,
+  &quot;instanceId&quot;: &quot;inst_1706234567890_abc123&quot;
+}</code></pre><p><strong>Server → Extension:</strong></p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;welcome&quot;,
+  &quot;instanceId&quot;: &quot;inst_1706234567890_abc123&quot;,
+  &quot;serverVersion&quot;: &quot;2.0.0&quot;
+}</code></pre><h2>Message Types</h2>
+<h3>Server → Extension</h3>
+<h4>tool_call</h4>
+<p>Server requests extension to execute a tool.</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;tool_call&quot;,
+  &quot;id&quot;: &quot;call_1&quot;,
+  &quot;name&quot;: &quot;browser_navigate&quot;,
+  &quot;args&quot;: {
+    &quot;url&quot;: &quot;https://example.com&quot;,
+    &quot;waitUntil&quot;: &quot;domcontentloaded&quot;
+  }
+}</code></pre><p>Fields:</p>
+<ul>
+<li><code>type</code> - Always <code>&quot;tool_call&quot;</code></li>
+<li><code>id</code> - Unique call ID for response matching</li>
+<li><code>name</code> - Original tool name (after consolidation)</li>
+<li><code>args</code> - Tool arguments</li>
+</ul>
+<h3>Extension → Server</h3>
+<h4>hello</h4>
+<p>Initial handshake message.</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;hello&quot;,
+  &quot;instanceId&quot;: &quot;inst_xxx&quot;
+}</code></pre><h4>tool_result</h4>
+<p>Successful tool execution result.</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;tool_result&quot;,
+  &quot;id&quot;: &quot;call_1&quot;,
+  &quot;result&quot;: {
+    &quot;success&quot;: true,
+    &quot;url&quot;: &quot;https://example.com/&quot;,
+    &quot;title&quot;: &quot;Example Domain&quot;
+  }
+}</code></pre><p>Fields:</p>
+<ul>
+<li><code>type</code> - Always <code>&quot;tool_result&quot;</code></li>
+<li><code>id</code> - Matches the <code>tool_call</code> id</li>
+<li><code>result</code> - Tool-specific result data</li>
+</ul>
+<h4>tool_error</h4>
+<p>Tool execution failure.</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;tool_error&quot;,
+  &quot;id&quot;: &quot;call_1&quot;,
+  &quot;error&quot;: {
+    &quot;code&quot;: &quot;ELEMENT_NOT_FOUND&quot;,
+    &quot;message&quot;: &quot;No element matches selector: #nonexistent&quot;
+  }
+}</code></pre><p>Fields:</p>
+<ul>
+<li><code>type</code> - Always <code>&quot;tool_error&quot;</code></li>
+<li><code>id</code> - Matches the <code>tool_call</code> id</li>
+<li><code>error.code</code> - Error code</li>
+<li><code>error.message</code> - Human-readable error message</li>
+</ul>
+<h2>Message Flow Examples</h2>
+<h3>Navigation</h3>
+<pre><code class="language-plaintext">Server                                  Extension
+   │                                        │
+   │  tool_call: browser_navigate           │
+   │  { url: &quot;https://google.com&quot; }         │
+   │ ─────────────────────────────────────► │
+   │                                        │ Navigate
+   │                                        │ ────────► Browser
+   │                                        │
+   │                                        │ ◄──────── Page loaded
+   │  tool_result                           │
+   │  { success: true, title: &quot;Google&quot; }    │
+   │ ◄───────────────────────────────────── │</code></pre><h3>Click</h3>
+<pre><code class="language-plaintext">Server                                  Extension
+   │                                        │
+   │  tool_call: browser_mouse_click        │
+   │  { selector: &quot;#button&quot; }               │
+   │ ─────────────────────────────────────► │
+   │                                        │ Find element
+   │                                        │ Click
+   │                                        │
+   │  tool_result                           │
+   │  { clicked: true }                     │
+   │ ◄───────────────────────────────────── │</code></pre><h3>Error Case</h3>
+<pre><code class="language-plaintext">Server                                  Extension
+   │                                        │
+   │  tool_call: browser_mouse_click        │
+   │  { selector: &quot;#nonexistent&quot; }          │
+   │ ─────────────────────────────────────► │
+   │                                        │ Element not found
+   │                                        │
+   │  tool_error                            │
+   │  { code: &quot;ELEMENT_NOT_FOUND&quot;, ... }    │
+   │ ◄───────────────────────────────────── │</code></pre><h2>Call ID Tracking</h2>
+<p>The server tracks pending calls with timeouts:</p>
+<pre><code class="language-javascript">// Server sends tool_call
+const callId = `call_${++counter}`;
+const timeout = setTimeout(() =&gt; {
+  pendingCalls.delete(callId);
+  reject(new Error(&#039;Tool call timeout&#039;));
+}, 30000);
+
+pendingCalls.set(callId, { resolve, reject, timeout });
+ws.send(JSON.stringify({
+  type: &#039;tool_call&#039;,
+  id: callId,
+  name: toolName,
+  args: args
+}));
+
+// When result received
+pendingCalls.get(message.id).resolve(message.result);
+clearTimeout(pendingCalls.get(message.id).timeout);
+pendingCalls.delete(message.id);</code></pre><h2>Keep-Alive</h2>
+<p>WebSocket connections are kept alive with pings:</p>
+<pre><code class="language-javascript">// Server pings every 30 seconds
+setInterval(() =&gt; {
+  if (ws.readyState === WebSocket.OPEN) {
+    ws.ping();
+  }
+}, 30000);</code></pre><h2>Connection Loss Handling</h2>
+<h3>Extension Disconnects</h3>
+<pre><code class="language-javascript">ws.on(&#039;close&#039;, () =&gt; {
+  console.log(&#039;Extension disconnected&#039;);
+  instanceManager.unregister(instanceId);
+  // Triggers cleanup: download watcher, tasks, etc.
+});</code></pre><h3>Server Detects Timeout</h3>
+<p>If no response within timeout:</p>
+<pre><code class="language-javascript">setTimeout(() =&gt; {
+  pendingCalls.delete(callId);
+  reject(new Error(&#039;Tool call timeout: browser_navigate&#039;));
+}, 30000);</code></pre><h2>Tool Name Mapping</h2>
+<p>The server maps consolidated tools to original tool names before sending to extension:</p>
+<pre><code class="language-javascript">// AI calls
+{ name: &quot;browser_navigate&quot;, arguments: { action: &quot;goto&quot;, url: &quot;...&quot; } }
+
+// Server resolves to
+{ name: &quot;browser_navigate&quot;, args: { url: &quot;...&quot; } }
+
+// Or for other actions
+{ name: &quot;browser_navigate&quot;, arguments: { action: &quot;wait&quot;, selector: &quot;...&quot; } }
+// Becomes
+{ name: &quot;browser_wait_for&quot;, args: { selector: &quot;...&quot; } }</code></pre><h2>Port Security</h2>
+<p>WebSocket connections are always on localhost:</p>
+<pre><code class="language-javascript">const wss = new WebSocketServer({
+  port: port,
+  host: &#039;localhost&#039;  // Never 0.0.0.0
+});</code></pre><p>This ensures:</p>
+<ul>
+<li>Browser communication stays local</li>
+<li>No external access to WebSocket</li>
+<li>Remote AI clients can connect via HTTP, but browsers run locally</li>
+</ul>
+<h2>Debugging WebSocket</h2>
+<p>To see WebSocket traffic, set log level to debug:</p>
+<pre><code class="language-bash">LOG_LEVEL=debug moonsurf</code></pre><p>Output:</p>
+<pre><code class="language-plaintext">[WebSocket:3301] New connection
+[WebSocket:3301] Instance inst_xxx connected
+[WebSocket:3301] Received: {&quot;type&quot;:&quot;tool_result&quot;,&quot;id&quot;:&quot;call_1&quot;,...}</code></pre><h2>Related Topics</h2>
+<ul>
+<li><a href="architecture.html">Architecture</a> - System overview</li>
+<li><a href="instance-lifecycle.html">Instance Lifecycle</a> - Instance management</li>
+<li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a> - Full protocol reference</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

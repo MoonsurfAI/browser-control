@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tools Reference - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html" class="active">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Tools Reference</h1>
+<p>Moonsurf provides 9 consolidated MCP tools for browser automation. This design reduces the number of tools AI agents need to understand while providing full functionality.</p>
+<h2>Design Philosophy</h2>
+<p>Traditional browser automation libraries expose 50+ individual methods:</p>
+<pre><code class="language-plaintext">click(), type(), navigate(), reload(), goBack(), goForward(),
+screenshot(), pdf(), getCookies(), setCookie(), ...</code></pre><p>Moonsurf consolidates these into 9 unified tools with <code>action</code> parameters:</p>
+<pre><code class="language-plaintext">browser_instance   action: list | new | close | profiles
+browser_tab        action: list | new | close | close_others | activate
+browser_navigate   action: goto | reload | back | forward | wait
+browser_content    action: screenshot | pdf | get | query | attribute | get_viewport_dom
+browser_interact   action: click | move | type | press | scroll | hover | select | upload
+browser_execute    (no action - direct JavaScript execution)
+browser_network    action: get_cookies | set_cookie | clear_cookies | set_headers | intercept | get_storage | set_storage | clear_storage
+browser_emulate    action: viewport | user_agent | geolocation | timezone | device | offline | throttle
+browser_debug      action: dialog | console | performance | trace_start | trace_stop | downloads | download_wait</code></pre><p><strong>Benefits:</strong></p>
+<ul>
+<li>Reduced context window usage</li>
+<li>Easier for AI to understand the tool landscape</li>
+<li>Consistent parameter patterns across tools</li>
+<li>Natural language mapping (action names are descriptive)</li>
+</ul>
+<h2>Tools at a Glance</h2>
+<div class="table-wrapper"><table><thead><tr><th>Tool</th><th>Purpose</th><th>Actions</th></tr></thead><tbody><tr><td><a href="browser-instance.html">browser_instance</a></td><td>Manage browser instances</td><td>list, new, close, profiles</td></tr><tr><td><a href="browser-tab.html">browser_tab</a></td><td>Tab management</td><td>list, new, close, close_others, activate</td></tr><tr><td><a href="browser-navigate.html">browser_navigate</a></td><td>Navigation and waiting</td><td>goto, reload, back, forward, wait</td></tr><tr><td><a href="browser-content.html">browser_content</a></td><td>Content extraction</td><td>screenshot, pdf, get, query, attribute, get_viewport_dom</td></tr><tr><td><a href="browser-interact.html">browser_interact</a></td><td>User input simulation</td><td>click, move, type, press, scroll, hover, select, upload</td></tr><tr><td><a href="browser-execute.html">browser_execute</a></td><td>JavaScript execution</td><td>(none)</td></tr><tr><td><a href="browser-network.html">browser_network</a></td><td>Network and storage</td><td>get_cookies, set_cookie, clear_cookies, set_headers, intercept, get_storage, set_storage, clear_storage</td></tr><tr><td><a href="browser-emulate.html">browser_emulate</a></td><td>Device emulation</td><td>viewport, user_agent, geolocation, timezone, device, offline, throttle</td></tr><tr><td><a href="browser-debug.html">browser_debug</a></td><td>Debugging tools</td><td>dialog, console, performance, trace_start, trace_stop, downloads, download_wait</td></tr></tbody></table></div><h2>Common Parameters</h2>
+<p>Most tools share these parameters:</p>
+<div class="table-wrapper"><table><thead><tr><th>Parameter</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>action</code></td><td>string</td><td>The specific operation to perform</td></tr><tr><td><code>instanceId</code></td><td>string</td><td>Target browser instance (optional - uses first if not specified)</td></tr><tr><td><code>tabId</code></td><td>number</td><td>Target tab ID (optional - uses active tab if not specified)</td></tr></tbody></table></div><h2>Quick Reference</h2>
+<h3>Launch a Browser</h3>
+<pre><code class="language-json">{ &quot;name&quot;: &quot;browser_instance&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;new&quot;, &quot;mode&quot;: &quot;chromium&quot; } }</code></pre><h3>Navigate to URL</h3>
+<pre><code class="language-json">{ &quot;name&quot;: &quot;browser_navigate&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://example.com&quot; } }</code></pre><h3>Click an Element</h3>
+<pre><code class="language-json">{ &quot;name&quot;: &quot;browser_interact&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;click&quot;, &quot;selector&quot;: &quot;#button&quot; } }</code></pre><h3>Type Text</h3>
+<pre><code class="language-json">{ &quot;name&quot;: &quot;browser_interact&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;type&quot;, &quot;selector&quot;: &quot;#input&quot;, &quot;text&quot;: &quot;Hello&quot; } }</code></pre><h3>Take Screenshot</h3>
+<pre><code class="language-json">{ &quot;name&quot;: &quot;browser_content&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;screenshot&quot; } }</code></pre><h3>Execute JavaScript</h3>
+<pre><code class="language-json">{ &quot;name&quot;: &quot;browser_execute&quot;, &quot;arguments&quot;: { &quot;expression&quot;: &quot;document.title&quot; } }</code></pre><h3>Close Browser</h3>
+<pre><code class="language-json">{ &quot;name&quot;: &quot;browser_instance&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;close&quot;, &quot;instanceId&quot;: &quot;inst_xxx&quot; } }</code></pre><h2>Selector Syntax</h2>
+<p>Most interaction tools accept CSS selectors with extensions:</p>
+<div class="table-wrapper"><table><thead><tr><th>Selector Type</th><th>Example</th><th>Description</th></tr></thead><tbody><tr><td>CSS ID</td><td><code>#login-button</code></td><td>Element with ID</td></tr><tr><td>CSS Class</td><td><code>.btn-primary</code></td><td>Element with class</td></tr><tr><td>CSS Attribute</td><td><code>[data-testid=&quot;submit&quot;]</code></td><td>Element with attribute</td></tr><tr><td>Tag</td><td><code>button</code></td><td>Element by tag name</td></tr><tr><td>Text</td><td><code>text=Sign In</code></td><td>Element containing exact text</td></tr><tr><td>Has Text</td><td><code>button:has-text(Submit)</code></td><td>Element containing text</td></tr><tr><td>Nth</td><td><code>li:nth-child(2)</code></td><td>Positional selector</td></tr></tbody></table></div><h2>Error Handling</h2>
+<p>Tool errors are returned in a consistent format:</p>
+<pre><code class="language-json">{
+  &quot;content&quot;: [{
+    &quot;type&quot;: &quot;text&quot;,
+    &quot;text&quot;: &quot;{\&quot;error\&quot;:{\&quot;code\&quot;:\&quot;ELEMENT_NOT_FOUND\&quot;,\&quot;message\&quot;:\&quot;No element matches selector: #nonexistent\&quot;}}&quot;
+  }],
+  &quot;isError&quot;: true
+}</code></pre><p>Common error codes:</p>
+<ul>
+<li><code>NO_INSTANCE</code> - Browser instance not found</li>
+<li><code>NOT_CONNECTED</code> - Instance WebSocket not connected</li>
+<li><code>ELEMENT_NOT_FOUND</code> - Selector didn&#39;t match any element</li>
+<li><code>TIMEOUT</code> - Operation timed out</li>
+<li><code>TOOL_ERROR</code> - General tool error</li>
+</ul>
+<h2>Tool Categories</h2>
+<h3>Lifecycle Tools</h3>
+<ul>
+<li><code>browser_instance</code> - Manage browser processes</li>
+</ul>
+<h3>Navigation Tools</h3>
+<ul>
+<li><code>browser_tab</code> - Manage browser tabs</li>
+<li><code>browser_navigate</code> - Page navigation</li>
+</ul>
+<h3>Interaction Tools</h3>
+<ul>
+<li><code>browser_interact</code> - User input simulation</li>
+<li><code>browser_execute</code> - JavaScript execution</li>
+</ul>
+<h3>Content Tools</h3>
+<ul>
+<li><code>browser_content</code> - Extract page content</li>
+</ul>
+<h3>State Tools</h3>
+<ul>
+<li><code>browser_network</code> - Cookies, headers, storage</li>
+<li><code>browser_emulate</code> - Device and network emulation</li>
+</ul>
+<h3>Debug Tools</h3>
+<ul>
+<li><code>browser_debug</code> - Debugging and monitoring</li>
+</ul>
+<h2>Next Steps</h2>
+<ul>
+<li><a href="browser-instance.html">browser_instance</a> - Start with browser management</li>
+<li><a href="browser-interact.html">browser_interact</a> - Learn interaction patterns</li>
+<li><a href="../guides/README.html">Guides</a> - Common automation patterns</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

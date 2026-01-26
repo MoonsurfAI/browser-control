@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Execution System Documentation - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html" class="active">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Task Execution System Documentation</h1>
+<p>The Task Execution System enables AI agents and developers to submit batched browser automation commands that execute sequentially with real-time progress reporting.</p>
+<blockquote>
+<p><strong>Note:</strong> This documentation covers the Task Execution System feature in detail. For general Moonsurf documentation, see the <a href="../index.html">main documentation hub</a>.</p>
+</blockquote>
+<h2>Table of Contents</h2>
+<h3>For Users</h3>
+<ol>
+<li><a href="./getting-started.html"><strong>Getting Started</strong></a> - Quick introduction and first task</li>
+<li><a href="./architecture.html"><strong>Architecture Overview</strong></a> - How the system works</li>
+<li><a href="./websocket-api.html"><strong>WebSocket API Reference</strong></a> - Real-time task submission and monitoring</li>
+<li><a href="./rest-api.html"><strong>REST API Reference</strong></a> - HTTP endpoints for task management</li>
+<li><a href="./task-format.html"><strong>Task Format</strong></a> - Task and command structure</li>
+<li><a href="./error-handling.html"><strong>Error Handling</strong></a> - Error codes, states, and recovery</li>
+<li><a href="./examples.html"><strong>Examples</strong></a> - Common use cases and patterns</li>
+</ol>
+<h3>For Developers</h3>
+<ol start="8">
+<li><a href="./configuration.html"><strong>Configuration</strong></a> - Environment variables and settings</li>
+<li><a href="./internals.html"><strong>Internals</strong></a> - Code structure and implementation details</li>
+<li><a href="./contributing.html"><strong>Contributing</strong></a> - Development setup and guidelines</li>
+</ol>
+<hr>
+<h2>Quick Overview</h2>
+<h3>What is a Task?</h3>
+<p>A <strong>Task</strong> is a named sequence of browser automation commands that execute one after another. Each command uses an existing MCP tool (like <code>browser_navigate</code>, <code>browser_interact</code>, etc.) with specified arguments.</p>
+<pre><code class="language-json">{
+  &quot;task_name&quot;: &quot;Login Flow&quot;,
+  &quot;task_intention&quot;: &quot;Log into the application&quot;,
+  &quot;commands&quot;: [
+    { &quot;tool_name&quot;: &quot;browser_navigate&quot;, &quot;intention&quot;: &quot;Go to login&quot;, &quot;args&quot;: { &quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://app.example.com/login&quot; } },
+    { &quot;tool_name&quot;: &quot;browser_interact&quot;, &quot;intention&quot;: &quot;Enter email&quot;, &quot;args&quot;: { &quot;action&quot;: &quot;type&quot;, &quot;selector&quot;: &quot;#email&quot;, &quot;text&quot;: &quot;user@example.com&quot; } },
+    { &quot;tool_name&quot;: &quot;browser_interact&quot;, &quot;intention&quot;: &quot;Enter password&quot;, &quot;args&quot;: { &quot;action&quot;: &quot;type&quot;, &quot;selector&quot;: &quot;#password&quot;, &quot;text&quot;: &quot;secret&quot; } },
+    { &quot;tool_name&quot;: &quot;browser_interact&quot;, &quot;intention&quot;: &quot;Click login&quot;, &quot;args&quot;: { &quot;action&quot;: &quot;click&quot;, &quot;selector&quot;: &quot;button[type=submit]&quot; } }
+  ]
+}</code></pre><h3>Key Features</h3>
+<ul>
+<li><strong>Sequential Execution</strong>: Commands run one after another in order</li>
+<li><strong>Real-time Progress</strong>: WebSocket updates for each command (running → success/error)</li>
+<li><strong>Error Handling</strong>: Execution stops on first error, remaining commands are skipped</li>
+<li><strong>Task Queue</strong>: Multiple tasks are queued per browser instance</li>
+<li><strong>Cancellation</strong>: Running tasks can be cancelled mid-execution</li>
+</ul>
+<h3>Endpoints</h3>
+<div class="table-wrapper"><table><thead><tr><th>Protocol</th><th>Endpoint</th><th>Purpose</th></tr></thead><tbody><tr><td>WebSocket</td><td><code>ws://localhost:3400</code></td><td>Real-time task submission and progress</td></tr><tr><td>HTTP</td><td><code>GET /tasks</code></td><td>List all tasks</td></tr><tr><td>HTTP</td><td><code>GET /tasks/:id</code></td><td>Get task details</td></tr><tr><td>HTTP</td><td><code>POST /tasks</code></td><td>Submit a new task</td></tr><tr><td>HTTP</td><td><code>POST /tasks/:id/cancel</code></td><td>Cancel a task</td></tr></tbody></table></div><h3>Task Lifecycle</h3>
+<pre><code class="language-plaintext">                    ┌──────────┐
+    Submit Task ───►│  queued  │
+                    └────┬─────┘
+                         │
+                         ▼
+                    ┌──────────┐
+                    │ running  │◄─── Commands execute sequentially
+                    └────┬─────┘
+                         │
+           ┌─────────────┼─────────────┐
+           │             │             │
+           ▼             ▼             ▼
+      ┌─────────┐  ┌──────────┐  ┌───────────┐
+      │completed│  │  failed  │  │ cancelled │
+      └─────────┘  └──────────┘  └───────────┘
+       All OK      Error in cmd   User cancel</code></pre><hr>
+<h2>Next Steps</h2>
+<ul>
+<li><strong>New to the system?</strong> Start with <a href="./getting-started.html">Getting Started</a></li>
+<li><strong>Building a client?</strong> See <a href="./websocket-api.html">WebSocket API Reference</a></li>
+<li><strong>Need examples?</strong> Check <a href="./examples.html">Examples</a></li>
+<li><strong>Contributing?</strong> Read <a href="./internals.html">Internals</a> and <a href="./contributing.html">Contributing</a></li>
+</ul>
+<h2>Related Documentation</h2>
+<ul>
+<li><a href="../index.html">Main Documentation</a> - Overview of all Moonsurf documentation</li>
+<li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a> - General WebSocket API reference</li>
+<li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a> - REST API including task endpoints</li>
+<li><a href="../tools/README.html">Tools Reference</a> - MCP tools used in task commands</li>
+<li><a href="../guides/README.html">Guides</a> - Browser automation patterns and examples</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

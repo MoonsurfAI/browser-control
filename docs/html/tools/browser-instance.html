@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>browser_instance - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html" class="active">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>browser_instance</h1>
+<p>Manage browser instances. Launch new browsers, list connected instances, close browsers, and list Chrome profiles.</p>
+<h2>Actions</h2>
+<div class="table-wrapper"><table><thead><tr><th>Action</th><th>Description</th></tr></thead><tbody><tr><td><code>list</code></td><td>List all connected browser instances</td></tr><tr><td><code>new</code></td><td>Launch a new browser instance</td></tr><tr><td><code>close</code></td><td>Close a browser instance</td></tr><tr><td><code>profiles</code></td><td>List available Chrome profiles</td></tr></tbody></table></div><h2>Parameters</h2>
+<div class="table-wrapper"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>action</code></td><td>string</td><td>Yes</td><td>One of: <code>list</code>, <code>new</code>, <code>close</code>, <code>profiles</code></td></tr><tr><td><code>instanceId</code></td><td>string</td><td>For <code>close</code></td><td>Instance ID to close</td></tr><tr><td><code>url</code></td><td>string</td><td>No</td><td>URL to open on launch</td></tr><tr><td><code>mode</code></td><td>string</td><td>No</td><td>Browser mode: <code>chrome</code>, <code>testing</code>, <code>chromium</code></td></tr><tr><td><code>headless</code></td><td>boolean</td><td>No</td><td>Run headless (chromium mode only)</td></tr><tr><td><code>profile</code></td><td>string</td><td>No</td><td>Chrome profile name (chrome mode only)</td></tr><tr><td><code>extensions</code></td><td>string[]</td><td>No</td><td>Additional extension paths</td></tr><tr><td><code>closeOtherTabs</code></td><td>boolean</td><td>No</td><td>Close other tabs after launch</td></tr></tbody></table></div><h2>Action: list</h2>
+<p>List all connected browser instances.</p>
+<h3>Request</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_instance&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;list&quot;
+  }
+}</code></pre><h3>Response</h3>
+<pre><code class="language-json">{
+  &quot;instances&quot;: [
+    {
+      &quot;id&quot;: &quot;inst_1706234567890_abc123&quot;,
+      &quot;browserType&quot;: &quot;Chromium&quot;,
+      &quot;profile&quot;: &quot;(persistent)&quot;,
+      &quot;port&quot;: 3301,
+      &quot;userAgent&quot;: &quot;Mozilla/5.0 ...&quot;,
+      &quot;windowId&quot;: 123,
+      &quot;connectedAt&quot;: 1706234567890,
+      &quot;lastActivity&quot;: 1706234567900
+    }
+  ]
+}</code></pre><h2>Action: new</h2>
+<p>Launch a new browser instance.</p>
+<h3>Basic Launch</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_instance&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;new&quot;
+  }
+}</code></pre><h3>With URL</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_instance&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;new&quot;,
+    &quot;url&quot;: &quot;https://example.com&quot;
+  }
+}</code></pre><h3>Chromium Mode (Default)</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_instance&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;new&quot;,
+    &quot;mode&quot;: &quot;chromium&quot;
+  }
+}</code></pre><h3>Testing Mode</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_instance&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;new&quot;,
+    &quot;mode&quot;: &quot;testing&quot;
+  }
+}</code></pre><h3>Chrome with Profile</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_instance&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;new&quot;,
+    &quot;mode&quot;: &quot;chrome&quot;,
+    &quot;profile&quot;: &quot;Default&quot;
+  }
+}</code></pre><h3>Headless Mode</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_instance&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;new&quot;,
+    &quot;mode&quot;: &quot;chromium&quot;,
+    &quot;headless&quot;: true
+  }
+}</code></pre><h3>With Additional Extensions</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_instance&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;new&quot;,
+    &quot;mode&quot;: &quot;chromium&quot;,
+    &quot;extensions&quot;: [&quot;/path/to/extension1&quot;, &quot;/path/to/extension2&quot;]
+  }
+}</code></pre><h3>Close Other Tabs on Launch</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_instance&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;new&quot;,
+    &quot;url&quot;: &quot;https://example.com&quot;,
+    &quot;closeOtherTabs&quot;: true
+  }
+}</code></pre><h3>Response</h3>
+<pre><code class="language-json">{
+  &quot;instanceId&quot;: &quot;inst_1706234567890_abc123&quot;,
+  &quot;browserType&quot;: &quot;Chromium&quot;,
+  &quot;profile&quot;: &quot;(persistent)&quot;,
+  &quot;downloadDirectory&quot;: &quot;/Users/you/Downloads&quot;,
+  &quot;extensionAutoLoaded&quot;: true,
+  &quot;message&quot;: &quot;Browser launched with extension auto-loaded.&quot;
+}</code></pre><h3>Profile Selection Required Response</h3>
+<p>If Chrome mode is used with multiple profiles and no profile specified:</p>
+<pre><code class="language-json">{
+  &quot;action&quot;: &quot;profile_selection_required&quot;,
+  &quot;profiles&quot;: [
+    { &quot;id&quot;: &quot;Default&quot;, &quot;name&quot;: &quot;Personal&quot; },
+    { &quot;id&quot;: &quot;Profile 1&quot;, &quot;name&quot;: &quot;Work&quot; }
+  ],
+  &quot;message&quot;: &quot;Multiple Chrome profiles found. Please specify which profile to use.&quot;,
+  &quot;hint&quot;: &quot;Use browser_instance with action:\&quot;new\&quot; and profile parameter, or mode:\&quot;testing\&quot;/\&quot;chromium\&quot;&quot;
+}</code></pre><h2>Action: close</h2>
+<p>Close a browser instance.</p>
+<h3>Request</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_instance&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;close&quot;,
+    &quot;instanceId&quot;: &quot;inst_1706234567890_abc123&quot;
+  }
+}</code></pre><h3>Response</h3>
+<pre><code class="language-json">{
+  &quot;success&quot;: true,
+  &quot;message&quot;: &quot;Browser instance closed&quot;
+}</code></pre><h3>Not Found Response</h3>
+<pre><code class="language-json">{
+  &quot;success&quot;: false,
+  &quot;message&quot;: &quot;Instance not found&quot;
+}</code></pre><h2>Action: profiles</h2>
+<p>List available Chrome profiles.</p>
+<h3>Request</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_instance&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;profiles&quot;
+  }
+}</code></pre><h3>Response</h3>
+<pre><code class="language-json">{
+  &quot;profiles&quot;: [
+    { &quot;directory&quot;: &quot;Default&quot;, &quot;name&quot;: &quot;Personal&quot; },
+    { &quot;directory&quot;: &quot;Profile 1&quot;, &quot;name&quot;: &quot;Work&quot; },
+    { &quot;directory&quot;: &quot;Profile 2&quot;, &quot;name&quot;: &quot;Testing&quot; }
+  ]
+}</code></pre><h2>Browser Modes</h2>
+<h3>chromium (Default)</h3>
+<ul>
+<li>Uses standalone Chromium</li>
+<li>Persistent profile at <code>~/.moonsurf/</code></li>
+<li>Extension auto-loaded</li>
+<li>Supports headless mode</li>
+</ul>
+<h3>testing</h3>
+<ul>
+<li>Uses Chrome for Testing</li>
+<li>Temporary profile (deleted after close)</li>
+<li>Extension auto-loaded</li>
+<li>Clean state each time</li>
+</ul>
+<h3>chrome</h3>
+<ul>
+<li>Uses Google Chrome</li>
+<li>Uses your existing profiles</li>
+<li>Extension must be manually installed</li>
+<li>Access to saved logins and cookies</li>
+</ul>
+<h2>Examples</h2>
+<h3>Launch and Use Browser</h3>
+<pre><code class="language-json">// 1. Launch browser
+{ &quot;name&quot;: &quot;browser_instance&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;new&quot;, &quot;mode&quot;: &quot;chromium&quot; }}
+// Response: { &quot;instanceId&quot;: &quot;inst_xxx&quot;, ... }
+
+// 2. Navigate
+{ &quot;name&quot;: &quot;browser_navigate&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;goto&quot;, &quot;instanceId&quot;: &quot;inst_xxx&quot;, &quot;url&quot;: &quot;https://google.com&quot; }}
+
+// 3. Do work...
+
+// 4. Close browser
+{ &quot;name&quot;: &quot;browser_instance&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;close&quot;, &quot;instanceId&quot;: &quot;inst_xxx&quot; }}</code></pre><h3>Check for Running Browsers</h3>
+<pre><code class="language-json">// List instances
+{ &quot;name&quot;: &quot;browser_instance&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;list&quot; }}
+
+// If none, launch one
+{ &quot;name&quot;: &quot;browser_instance&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;new&quot; }}</code></pre><h3>Use Specific Chrome Profile</h3>
+<pre><code class="language-json">// 1. List profiles
+{ &quot;name&quot;: &quot;browser_instance&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;profiles&quot; }}
+// Response: { &quot;profiles&quot;: [{ &quot;directory&quot;: &quot;Default&quot;, &quot;name&quot;: &quot;Work&quot; }, ...] }
+
+// 2. Launch with profile
+{ &quot;name&quot;: &quot;browser_instance&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;new&quot;, &quot;mode&quot;: &quot;chrome&quot;, &quot;profile&quot;: &quot;Work&quot; }}</code></pre><h2>Errors</h2>
+<div class="table-wrapper"><table><thead><tr><th>Error</th><th>Cause</th><th>Solution</th></tr></thead><tbody><tr><td>&quot;Chromium not found&quot;</td><td>Chromium not installed</td><td>Install Chromium</td></tr><tr><td>&quot;Chrome for Testing not found&quot;</td><td>Chrome for Testing not installed</td><td>Run <code>npx @puppeteer/browsers install chrome@stable</code></td></tr><tr><td>&quot;No available ports&quot;</td><td>99 instances already running</td><td>Close some instances</td></tr><tr><td>&quot;Extension failed to connect&quot;</td><td>Extension didn&#39;t connect in 30s</td><td>Check extension is built, browser launched correctly</td></tr><tr><td>&quot;Profile not found&quot;</td><td>Specified profile doesn&#39;t exist</td><td>Use <code>action: profiles</code> to list available profiles</td></tr></tbody></table></div><h2>Notes</h2>
+<ul>
+<li>Maximum concurrent instances: 99 (ports 3301-3399)</li>
+<li>Default timeout waiting for extension: 30 seconds</li>
+<li>Extension is auto-downloaded on first use (if not using <code>EXTENSION_PATH</code>)</li>
+<li>When no <code>instanceId</code> is specified in other tools, the first connected instance is used</li>
+</ul>
+<h2>Related</h2>
+<ul>
+<li><a href="../concepts/browser-modes.html">Browser Modes</a> - Detailed mode comparison</li>
+<li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a> - How instances work</li>
+<li><a href="browser-tab.html">browser_tab</a> - Tab management</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

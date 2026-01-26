@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>browser_navigate - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html" class="active">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>browser_navigate</h1>
+<p>Navigate pages and browser history. Go to URLs, reload pages, navigate back/forward, and wait for conditions.</p>
+<h2>Actions</h2>
+<div class="table-wrapper"><table><thead><tr><th>Action</th><th>Description</th></tr></thead><tbody><tr><td><code>goto</code></td><td>Navigate to a URL</td></tr><tr><td><code>reload</code></td><td>Reload the current page</td></tr><tr><td><code>back</code></td><td>Go back in history</td></tr><tr><td><code>forward</code></td><td>Go forward in history</td></tr><tr><td><code>wait</code></td><td>Wait for a selector or condition</td></tr></tbody></table></div><h2>Parameters</h2>
+<div class="table-wrapper"><table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>action</code></td><td>string</td><td>Yes</td><td>One of: <code>goto</code>, <code>reload</code>, <code>back</code>, <code>forward</code>, <code>wait</code></td></tr><tr><td><code>instanceId</code></td><td>string</td><td>No</td><td>Target browser instance</td></tr><tr><td><code>tabId</code></td><td>number</td><td>No</td><td>Target tab ID</td></tr><tr><td><code>url</code></td><td>string</td><td>For <code>goto</code></td><td>URL to navigate to</td></tr><tr><td><code>waitUntil</code></td><td>string</td><td>No</td><td>When to consider navigation complete: <code>load</code>, <code>domcontentloaded</code></td></tr><tr><td><code>ignoreCache</code></td><td>boolean</td><td>For <code>reload</code></td><td>Bypass cache when reloading</td></tr><tr><td><code>selector</code></td><td>string</td><td>For <code>wait</code></td><td>CSS selector to wait for</td></tr><tr><td><code>expression</code></td><td>string</td><td>For <code>wait</code></td><td>JavaScript expression to wait for (truthy)</td></tr><tr><td><code>timeout</code></td><td>number</td><td>For <code>wait</code></td><td>Maximum wait time in milliseconds</td></tr></tbody></table></div><h2>Action: goto</h2>
+<p>Navigate to a URL.</p>
+<h3>Basic Navigation</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_navigate&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;goto&quot;,
+    &quot;url&quot;: &quot;https://example.com&quot;
+  }
+}</code></pre><h3>Wait for DOM Content Loaded</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_navigate&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;goto&quot;,
+    &quot;url&quot;: &quot;https://example.com&quot;,
+    &quot;waitUntil&quot;: &quot;domcontentloaded&quot;
+  }
+}</code></pre><h3>Wait for Full Load</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_navigate&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;goto&quot;,
+    &quot;url&quot;: &quot;https://example.com&quot;,
+    &quot;waitUntil&quot;: &quot;load&quot;
+  }
+}</code></pre><h3>Response</h3>
+<pre><code class="language-json">{
+  &quot;success&quot;: true,
+  &quot;url&quot;: &quot;https://example.com/&quot;,
+  &quot;title&quot;: &quot;Example Domain&quot;
+}</code></pre><h2>Action: reload</h2>
+<p>Reload the current page.</p>
+<h3>Basic Reload</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_navigate&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;reload&quot;
+  }
+}</code></pre><h3>Hard Reload (Ignore Cache)</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_navigate&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;reload&quot;,
+    &quot;ignoreCache&quot;: true
+  }
+}</code></pre><h3>Response</h3>
+<pre><code class="language-json">{
+  &quot;success&quot;: true,
+  &quot;url&quot;: &quot;https://example.com/&quot;,
+  &quot;title&quot;: &quot;Example Domain&quot;
+}</code></pre><h2>Action: back</h2>
+<p>Navigate back in browser history.</p>
+<h3>Request</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_navigate&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;back&quot;
+  }
+}</code></pre><h3>Response</h3>
+<pre><code class="language-json">{
+  &quot;success&quot;: true,
+  &quot;url&quot;: &quot;https://previous-page.com/&quot;,
+  &quot;title&quot;: &quot;Previous Page&quot;
+}</code></pre><h2>Action: forward</h2>
+<p>Navigate forward in browser history.</p>
+<h3>Request</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_navigate&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;forward&quot;
+  }
+}</code></pre><h3>Response</h3>
+<pre><code class="language-json">{
+  &quot;success&quot;: true,
+  &quot;url&quot;: &quot;https://next-page.com/&quot;,
+  &quot;title&quot;: &quot;Next Page&quot;
+}</code></pre><h2>Action: wait</h2>
+<p>Wait for a condition before proceeding.</p>
+<h3>Wait for CSS Selector</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_navigate&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;wait&quot;,
+    &quot;selector&quot;: &quot;#main-content&quot;
+  }
+}</code></pre><h3>Wait with Timeout</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_navigate&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;wait&quot;,
+    &quot;selector&quot;: &quot;.dynamic-element&quot;,
+    &quot;timeout&quot;: 10000
+  }
+}</code></pre><h3>Wait for JavaScript Condition</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_navigate&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;wait&quot;,
+    &quot;expression&quot;: &quot;document.querySelectorAll(&#039;.item&#039;).length &gt; 5&quot;
+  }
+}</code></pre><h3>Wait for Page Load State</h3>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;browser_navigate&quot;,
+  &quot;arguments&quot;: {
+    &quot;action&quot;: &quot;wait&quot;,
+    &quot;expression&quot;: &quot;document.readyState === &#039;complete&#039;&quot;
+  }
+}</code></pre><h3>Response</h3>
+<pre><code class="language-json">{
+  &quot;success&quot;: true,
+  &quot;waited&quot;: true,
+  &quot;selector&quot;: &quot;#main-content&quot;
+}</code></pre><h2>Wait Until Options</h2>
+<div class="table-wrapper"><table><thead><tr><th>Option</th><th>Description</th><th>Use When</th></tr></thead><tbody><tr><td><code>domcontentloaded</code></td><td>DOM is ready, subresources may still load</td><td>Need to interact with page quickly</td></tr><tr><td><code>load</code></td><td>Page fully loaded including images/styles</td><td>Need all resources available</td></tr></tbody></table></div><h2>Examples</h2>
+<h3>Navigate and Wait for Content</h3>
+<pre><code class="language-json">// 1. Navigate to page
+{ &quot;name&quot;: &quot;browser_navigate&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://spa-app.com&quot; }}
+
+// 2. Wait for dynamic content to load
+{ &quot;name&quot;: &quot;browser_navigate&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;wait&quot;, &quot;selector&quot;: &quot;.content-loaded&quot;, &quot;timeout&quot;: 10000 }}
+
+// 3. Now interact with the content
+{ &quot;name&quot;: &quot;browser_interact&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;click&quot;, &quot;selector&quot;: &quot;.content-button&quot; }}</code></pre><h3>Navigate Back After Following Link</h3>
+<pre><code class="language-json">// 1. On a page with links
+{ &quot;name&quot;: &quot;browser_interact&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;click&quot;, &quot;selector&quot;: &quot;a.details-link&quot; }}
+
+// 2. View the details page
+{ &quot;name&quot;: &quot;browser_navigate&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;wait&quot;, &quot;selector&quot;: &quot;.details-content&quot; }}
+
+// 3. Go back to the list
+{ &quot;name&quot;: &quot;browser_navigate&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;back&quot; }}</code></pre><h3>Refresh to Get Latest Data</h3>
+<pre><code class="language-json">// 1. Hard refresh to bypass cache
+{ &quot;name&quot;: &quot;browser_navigate&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;reload&quot;, &quot;ignoreCache&quot;: true }}
+
+// 2. Wait for fresh data
+{ &quot;name&quot;: &quot;browser_navigate&quot;, &quot;arguments&quot;: { &quot;action&quot;: &quot;wait&quot;, &quot;selector&quot;: &quot;.data-loaded&quot; }}</code></pre><h3>Wait for API-Loaded Content</h3>
+<pre><code class="language-json">// Wait for items to be fetched and rendered
+{ &quot;name&quot;: &quot;browser_navigate&quot;, &quot;arguments&quot;: {
+  &quot;action&quot;: &quot;wait&quot;,
+  &quot;expression&quot;: &quot;window.dataLoaded === true &amp;&amp; document.querySelectorAll(&#039;.item&#039;).length &gt; 0&quot;,
+  &quot;timeout&quot;: 15000
+}}</code></pre><h2>Timeout Behavior</h2>
+<ul>
+<li>Default timeout varies by action</li>
+<li>For <code>wait</code>, if timeout expires, an error is returned</li>
+<li>Navigation actions (<code>goto</code>, <code>reload</code>) have implicit timeouts</li>
+</ul>
+<h2>Notes</h2>
+<ul>
+<li>URLs should include the protocol (<code>https://</code> or <code>http://</code>)</li>
+<li>Relative URLs are resolved against the current page</li>
+<li><code>waitUntil: &quot;load&quot;</code> waits longer but ensures all resources are loaded</li>
+<li>Wait expressions run in page context and can access any global variables</li>
+</ul>
+<h2>Errors</h2>
+<div class="table-wrapper"><table><thead><tr><th>Error</th><th>Cause</th><th>Solution</th></tr></thead><tbody><tr><td>&quot;Navigation timeout&quot;</td><td>Page took too long to load</td><td>Increase timeout or check URL</td></tr><tr><td>&quot;Wait timeout&quot;</td><td>Selector/condition not met within timeout</td><td>Increase timeout or check selector</td></tr><tr><td>&quot;Cannot go back&quot;</td><td>No history to go back to</td><td>Check navigation history</td></tr><tr><td>&quot;Invalid URL&quot;</td><td>Malformed URL</td><td>Include protocol (https://)</td></tr></tbody></table></div><h2>Related</h2>
+<ul>
+<li><a href="browser-tab.html">browser_tab</a> - Open new tabs</li>
+<li><a href="browser-interact.html">browser_interact</a> - Interact with page elements</li>
+<li><a href="browser-content.html">browser_content</a> - Get page content</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

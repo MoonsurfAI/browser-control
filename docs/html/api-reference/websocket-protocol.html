@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebSocket Protocol - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html" class="active">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>WebSocket Protocol</h1>
+<p>Task execution WebSocket API for batched commands with real-time progress updates.</p>
+<h2>Overview</h2>
+<p>The Task WebSocket server provides:</p>
+<ul>
+<li><strong>Task submission</strong> - Submit batched commands</li>
+<li><strong>Real-time progress</strong> - Get updates as commands execute</li>
+<li><strong>Subscriptions</strong> - Monitor specific tasks or instances</li>
+<li><strong>Task management</strong> - List, query, and cancel tasks</li>
+</ul>
+<h2>Connection</h2>
+<h3>Default URL</h3>
+<pre><code class="language-plaintext">ws://localhost:3400</code></pre><h3>Connect</h3>
+<pre><code class="language-javascript">const ws = new WebSocket(&#039;ws://localhost:3400&#039;);
+
+ws.onopen = () =&gt; {
+  console.log(&#039;Connected to task server&#039;);
+};
+
+ws.onmessage = (event) =&gt; {
+  const message = JSON.parse(event.data);
+  handleMessage(message);
+};
+
+ws.onerror = (error) =&gt; {
+  console.error(&#039;WebSocket error:&#039;, error);
+};
+
+ws.onclose = () =&gt; {
+  console.log(&#039;Disconnected&#039;);
+};</code></pre><h2>Message Format</h2>
+<p>All messages are JSON objects with a <code>type</code> field.</p>
+<h3>Client → Server Messages</h3>
+<div class="table-wrapper"><table><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>task_submit</code></td><td>Submit a new task</td></tr><tr><td><code>task_list</code></td><td>List tasks</td></tr><tr><td><code>task_status</code></td><td>Get task details</td></tr><tr><td><code>task_cancel</code></td><td>Cancel a task</td></tr><tr><td><code>subscribe_task</code></td><td>Subscribe to task updates</td></tr><tr><td><code>subscribe_instance</code></td><td>Subscribe to instance updates</td></tr></tbody></table></div><h3>Server → Client Messages</h3>
+<div class="table-wrapper"><table><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>welcome</code></td><td>Connection established</td></tr><tr><td><code>task_submit_response</code></td><td>Task submission result</td></tr><tr><td><code>task_list_response</code></td><td>Task list</td></tr><tr><td><code>task_status_response</code></td><td>Task details</td></tr><tr><td><code>task_cancel_response</code></td><td>Cancel result</td></tr><tr><td><code>subscribe_ack</code></td><td>Subscription confirmed</td></tr><tr><td><code>task_progress</code></td><td>Command progress update</td></tr><tr><td><code>task_complete</code></td><td>Task finished</td></tr><tr><td><code>error</code></td><td>Error message</td></tr></tbody></table></div><h2>Client Messages</h2>
+<h3>task_submit</h3>
+<p>Submit a new task with commands.</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;task_submit&quot;,
+  &quot;task_name&quot;: &quot;Login Flow&quot;,
+  &quot;task_intention&quot;: &quot;Log into the application&quot;,
+  &quot;instanceId&quot;: &quot;inst_abc123&quot;,
+  &quot;commands&quot;: [
+    {
+      &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+      &quot;intention&quot;: &quot;Go to login page&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://example.com/login&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Enter email&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;type&quot;, &quot;selector&quot;: &quot;#email&quot;, &quot;text&quot;: &quot;user@example.com&quot; }
+    },
+    {
+      &quot;tool_name&quot;: &quot;browser_interact&quot;,
+      &quot;intention&quot;: &quot;Click login&quot;,
+      &quot;args&quot;: { &quot;action&quot;: &quot;click&quot;, &quot;selector&quot;: &quot;#submit&quot; }
+    }
+  ]
+}</code></pre><p><strong>Fields:</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>type</code></td><td>string</td><td>Yes</td><td>Must be &quot;task_submit&quot;</td></tr><tr><td><code>task_name</code></td><td>string</td><td>Yes</td><td>Display name for the task</td></tr><tr><td><code>task_intention</code></td><td>string</td><td>No</td><td>Description of task purpose</td></tr><tr><td><code>instanceId</code></td><td>string</td><td>No</td><td>Target browser instance ID</td></tr><tr><td><code>commands</code></td><td>array</td><td>Yes</td><td>Array of commands</td></tr></tbody></table></div><p><strong>Command Format:</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>tool_name</code></td><td>string</td><td>Yes</td><td>MCP tool to execute</td></tr><tr><td><code>intention</code></td><td>string</td><td>No</td><td>Purpose of this command</td></tr><tr><td><code>args</code></td><td>object</td><td>Yes</td><td>Tool arguments</td></tr></tbody></table></div><h3>task_list</h3>
+<p>List tasks with optional filters.</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;task_list&quot;,
+  &quot;instanceId&quot;: &quot;inst_abc123&quot;,
+  &quot;status&quot;: &quot;running&quot;
+}</code></pre><p><strong>Fields:</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>type</code></td><td>string</td><td>Yes</td><td>Must be &quot;task_list&quot;</td></tr><tr><td><code>instanceId</code></td><td>string</td><td>No</td><td>Filter by instance</td></tr><tr><td><code>status</code></td><td>string</td><td>No</td><td>Filter by status</td></tr></tbody></table></div><p><strong>Status Values:</strong> <code>queued</code>, <code>running</code>, <code>completed</code>, <code>failed</code>, <code>cancelled</code>, <code>all</code></p>
+<h3>task_status</h3>
+<p>Get detailed status of a specific task.</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;task_status&quot;,
+  &quot;taskId&quot;: &quot;task_xyz789&quot;
+}</code></pre><h3>task_cancel</h3>
+<p>Cancel a running or queued task.</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;task_cancel&quot;,
+  &quot;taskId&quot;: &quot;task_xyz789&quot;
+}</code></pre><h3>subscribe_task</h3>
+<p>Subscribe to updates for a specific task.</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;subscribe_task&quot;,
+  &quot;taskId&quot;: &quot;task_xyz789&quot;
+}</code></pre><h3>subscribe_instance</h3>
+<p>Subscribe to updates for all tasks on an instance.</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;subscribe_instance&quot;,
+  &quot;instanceId&quot;: &quot;inst_abc123&quot;
+}</code></pre><h2>Server Messages</h2>
+<h3>welcome</h3>
+<p>Sent immediately on connection.</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;welcome&quot;,
+  &quot;sessionId&quot;: &quot;session_abc123-def456&quot;,
+  &quot;serverVersion&quot;: &quot;2.0.0&quot;
+}</code></pre><h3>task_submit_response</h3>
+<p>Response to task submission.</p>
+<p><strong>Success:</strong></p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;task_submit_response&quot;,
+  &quot;taskId&quot;: &quot;task_xyz789&quot;,
+  &quot;status&quot;: &quot;accepted&quot;,
+  &quot;queuePosition&quot;: 0
+}</code></pre><p><strong>Failure:</strong></p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;task_submit_response&quot;,
+  &quot;taskId&quot;: &quot;&quot;,
+  &quot;status&quot;: &quot;rejected&quot;,
+  &quot;error&quot;: &quot;No browser instance available&quot;
+}</code></pre><h3>task_list_response</h3>
+<p>List of tasks.</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;task_list_response&quot;,
+  &quot;tasks&quot;: [
+    {
+      &quot;id&quot;: &quot;task_xyz789&quot;,
+      &quot;name&quot;: &quot;Login Flow&quot;,
+      &quot;status&quot;: &quot;running&quot;,
+      &quot;instanceId&quot;: &quot;inst_abc123&quot;,
+      &quot;currentCommandIndex&quot;: 2,
+      &quot;totalCommands&quot;: 5,
+      &quot;createdAt&quot;: &quot;2024-01-15T10:30:00.000Z&quot;,
+      &quot;startedAt&quot;: &quot;2024-01-15T10:30:01.000Z&quot;
+    }
+  ]
+}</code></pre><h3>task_status_response</h3>
+<p>Detailed task information.</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;task_status_response&quot;,
+  &quot;task&quot;: {
+    &quot;id&quot;: &quot;task_xyz789&quot;,
+    &quot;name&quot;: &quot;Login Flow&quot;,
+    &quot;intention&quot;: &quot;Log into the application&quot;,
+    &quot;status&quot;: &quot;running&quot;,
+    &quot;instanceId&quot;: &quot;inst_abc123&quot;,
+    &quot;commands&quot;: [
+      {
+        &quot;tool_name&quot;: &quot;browser_navigate&quot;,
+        &quot;intention&quot;: &quot;Go to login page&quot;,
+        &quot;args&quot;: { &quot;action&quot;: &quot;goto&quot;, &quot;url&quot;: &quot;https://example.com/login&quot; },
+        &quot;status&quot;: &quot;success&quot;,
+        &quot;result&quot;: { &quot;content&quot;: [{ &quot;type&quot;: &quot;text&quot;, &quot;text&quot;: &quot;Navigated&quot; }] },
+        &quot;startedAt&quot;: &quot;2024-01-15T10:30:01.000Z&quot;,
+        &quot;completedAt&quot;: &quot;2024-01-15T10:30:03.000Z&quot;
+      },
+      {
+        &quot;tool_name&quot;: &quot;browser_interact&quot;,
+        &quot;intention&quot;: &quot;Enter email&quot;,
+        &quot;args&quot;: { &quot;action&quot;: &quot;type&quot;, &quot;selector&quot;: &quot;#email&quot;, &quot;text&quot;: &quot;user@example.com&quot; },
+        &quot;status&quot;: &quot;running&quot;,
+        &quot;startedAt&quot;: &quot;2024-01-15T10:30:03.000Z&quot;
+      }
+    ],
+    &quot;currentCommandIndex&quot;: 1,
+    &quot;createdAt&quot;: &quot;2024-01-15T10:30:00.000Z&quot;,
+    &quot;startedAt&quot;: &quot;2024-01-15T10:30:01.000Z&quot;
+  }
+}</code></pre><p><strong>Task not found:</strong></p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;task_status_response&quot;,
+  &quot;task&quot;: null,
+  &quot;error&quot;: &quot;Task not found&quot;
+}</code></pre><h3>task_cancel_response</h3>
+<p>Result of cancel request.</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;task_cancel_response&quot;,
+  &quot;taskId&quot;: &quot;task_xyz789&quot;,
+  &quot;success&quot;: true
+}</code></pre><p>Or:</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;task_cancel_response&quot;,
+  &quot;taskId&quot;: &quot;task_xyz789&quot;,
+  &quot;success&quot;: false,
+  &quot;error&quot;: &quot;Task not found or already completed&quot;
+}</code></pre><h3>subscribe_ack</h3>
+<p>Subscription confirmed.</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;subscribe_ack&quot;,
+  &quot;taskId&quot;: &quot;task_xyz789&quot;
+}</code></pre><p>Or:</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;subscribe_ack&quot;,
+  &quot;instanceId&quot;: &quot;inst_abc123&quot;
+}</code></pre><h3>task_progress</h3>
+<p>Real-time progress update for a command.</p>
+<p><strong>Command starting:</strong></p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;task_progress&quot;,
+  &quot;taskId&quot;: &quot;task_xyz789&quot;,
+  &quot;commandIndex&quot;: 1,
+  &quot;status&quot;: &quot;running&quot;,
+  &quot;tool_name&quot;: &quot;browser_interact&quot;,
+  &quot;intention&quot;: &quot;Enter email&quot;
+}</code></pre><p><strong>Command completed:</strong></p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;task_progress&quot;,
+  &quot;taskId&quot;: &quot;task_xyz789&quot;,
+  &quot;commandIndex&quot;: 1,
+  &quot;status&quot;: &quot;success&quot;,
+  &quot;tool_name&quot;: &quot;browser_interact&quot;,
+  &quot;intention&quot;: &quot;Enter email&quot;,
+  &quot;result&quot;: { &quot;content&quot;: [{ &quot;type&quot;: &quot;text&quot;, &quot;text&quot;: &quot;Typed text&quot; }] }
+}</code></pre><p><strong>Command failed:</strong></p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;task_progress&quot;,
+  &quot;taskId&quot;: &quot;task_xyz789&quot;,
+  &quot;commandIndex&quot;: 1,
+  &quot;status&quot;: &quot;error&quot;,
+  &quot;tool_name&quot;: &quot;browser_interact&quot;,
+  &quot;intention&quot;: &quot;Enter email&quot;,
+  &quot;error&quot;: &quot;Element not found: #email&quot;
+}</code></pre><p><strong>Status Values:</strong> <code>pending</code>, <code>running</code>, <code>success</code>, <code>error</code>, <code>skipped</code></p>
+<h3>task_complete</h3>
+<p>Task execution finished.</p>
+<p><strong>Success:</strong></p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;task_complete&quot;,
+  &quot;taskId&quot;: &quot;task_xyz789&quot;,
+  &quot;status&quot;: &quot;completed&quot;,
+  &quot;results&quot;: [
+    { &quot;status&quot;: &quot;success&quot;, &quot;result&quot;: {...} },
+    { &quot;status&quot;: &quot;success&quot;, &quot;result&quot;: {...} },
+    { &quot;status&quot;: &quot;success&quot;, &quot;result&quot;: {...} }
+  ],
+  &quot;completedAt&quot;: &quot;2024-01-15T10:30:10.000Z&quot;
+}</code></pre><p><strong>Failed:</strong></p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;task_complete&quot;,
+  &quot;taskId&quot;: &quot;task_xyz789&quot;,
+  &quot;status&quot;: &quot;failed&quot;,
+  &quot;results&quot;: [
+    { &quot;status&quot;: &quot;success&quot;, &quot;result&quot;: {...} },
+    { &quot;status&quot;: &quot;error&quot;, &quot;error&quot;: &quot;Element not found&quot; },
+    { &quot;status&quot;: &quot;skipped&quot; }
+  ],
+  &quot;completedAt&quot;: &quot;2024-01-15T10:30:05.000Z&quot;
+}</code></pre><p><strong>Cancelled:</strong></p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;task_complete&quot;,
+  &quot;taskId&quot;: &quot;task_xyz789&quot;,
+  &quot;status&quot;: &quot;cancelled&quot;,
+  &quot;results&quot;: [
+    { &quot;status&quot;: &quot;success&quot;, &quot;result&quot;: {...} },
+    { &quot;status&quot;: &quot;skipped&quot; },
+    { &quot;status&quot;: &quot;skipped&quot; }
+  ],
+  &quot;completedAt&quot;: &quot;2024-01-15T10:30:03.000Z&quot;
+}</code></pre><p><strong>Task Status Values:</strong> <code>completed</code>, <code>failed</code>, <code>cancelled</code></p>
+<h3>error</h3>
+<p>Error message.</p>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;error&quot;,
+  &quot;message&quot;: &quot;Invalid message format&quot;
+}</code></pre><h2>Complete Client Example</h2>
+<pre><code class="language-javascript">class TaskClient {
+  constructor(url = &#039;ws://localhost:3400&#039;) {
+    this.url = url;
+    this.ws = null;
+    this.sessionId = null;
+    this.handlers = new Map();
+  }
+
+  connect() {
+    return new Promise((resolve, reject) =&gt; {
+      this.ws = new WebSocket(this.url);
+
+      this.ws.onopen = () =&gt; {
+        console.log(&#039;Connected&#039;);
+      };
+
+      this.ws.onmessage = (event) =&gt; {
+        const message = JSON.parse(event.data);
+        this.handleMessage(message);
+
+        if (message.type === &#039;welcome&#039;) {
+          this.sessionId = message.sessionId;
+          resolve(this.sessionId);
+        }
+      };
+
+      this.ws.onerror = (error) =&gt; {
+        reject(error);
+      };
+    });
+  }
+
+  handleMessage(message) {
+    // Call registered handlers
+    const handler = this.handlers.get(message.type);
+    if (handler) {
+      handler(message);
+    }
+
+    // Log for debugging
+    console.log(&#039;Received:&#039;, message.type, message);
+  }
+
+  on(type, handler) {
+    this.handlers.set(type, handler);
+  }
+
+  send(message) {
+    this.ws.send(JSON.stringify(message));
+  }
+
+  submitTask(name, commands, instanceId = null) {
+    return new Promise((resolve) =&gt; {
+      const handler = (response) =&gt; {
+        this.handlers.delete(&#039;task_submit_response&#039;);
+        resolve(response);
+      };
+      this.handlers.set(&#039;task_submit_response&#039;, handler);
+
+      this.send({
+        type: &#039;task_submit&#039;,
+        task_name: name,
+        instanceId,
+        commands
+      });
+    });
+  }
+
+  subscribeToTask(taskId) {
+    this.send({
+      type: &#039;subscribe_task&#039;,
+      taskId
+    });
+  }
+
+  cancelTask(taskId) {
+    this.send({
+      type: &#039;task_cancel&#039;,
+      taskId
+    });
+  }
+
+  listTasks(instanceId = null, status = null) {
+    return new Promise((resolve) =&gt; {
+      const handler = (response) =&gt; {
+        this.handlers.delete(&#039;task_list_response&#039;);
+        resolve(response.tasks);
+      };
+      this.handlers.set(&#039;task_list_response&#039;, handler);
+
+      this.send({
+        type: &#039;task_list&#039;,
+        instanceId,
+        status
+      });
+    });
+  }
+
+  disconnect() {
+    if (this.ws) {
+      this.ws.close();
+    }
+  }
+}
+
+// Usage
+const client = new TaskClient();
+await client.connect();
+
+// Handle progress updates
+client.on(&#039;task_progress&#039;, (msg) =&gt; {
+  console.log(`Command ${msg.commandIndex}: ${msg.status}`);
+});
+
+// Handle task completion
+client.on(&#039;task_complete&#039;, (msg) =&gt; {
+  console.log(`Task ${msg.taskId} finished: ${msg.status}`);
+});
+
+// Submit a task
+const response = await client.submitTask(&#039;Login&#039;, [
+  { tool_name: &#039;browser_navigate&#039;, args: { action: &#039;goto&#039;, url: &#039;https://example.com&#039; } },
+  { tool_name: &#039;browser_interact&#039;, args: { action: &#039;click&#039;, selector: &#039;#login&#039; } }
+]);
+
+if (response.status === &#039;accepted&#039;) {
+  console.log(&#039;Task submitted:&#039;, response.taskId);
+  client.subscribeToTask(response.taskId);
+}</code></pre><h2>Task States</h2>
+<h3>Task Status Flow</h3>
+<pre><code class="language-plaintext">queued → running → completed
+                 → failed
+                 → cancelled</code></pre><h3>Command Status Flow</h3>
+<pre><code class="language-plaintext">pending → running → success
+                  → error
+pending → skipped (if previous command failed)</code></pre><h2>Subscriptions</h2>
+<p>When you submit a task, you&#39;re automatically subscribed to updates for that task.</p>
+<p>To subscribe to additional tasks:</p>
+<pre><code class="language-json">{ &quot;type&quot;: &quot;subscribe_task&quot;, &quot;taskId&quot;: &quot;task_xyz789&quot; }</code></pre><p>To receive updates for all tasks on an instance:</p>
+<pre><code class="language-json">{ &quot;type&quot;: &quot;subscribe_instance&quot;, &quot;instanceId&quot;: &quot;inst_abc123&quot; }</code></pre><h2>Keep-Alive</h2>
+<p>The server sends periodic ping frames to keep connections alive. No action required from clients.</p>
+<h2>Error Handling</h2>
+<h3>Invalid Message Format</h3>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;error&quot;,
+  &quot;message&quot;: &quot;Invalid message format&quot;
+}</code></pre><h3>Unknown Message Type</h3>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;error&quot;,
+  &quot;message&quot;: &quot;Unknown message type: invalid_type&quot;
+}</code></pre><h3>Task Submission Errors</h3>
+<pre><code class="language-json">{
+  &quot;type&quot;: &quot;task_submit_response&quot;,
+  &quot;taskId&quot;: &quot;&quot;,
+  &quot;status&quot;: &quot;rejected&quot;,
+  &quot;error&quot;: &quot;No browser instance available&quot;
+}</code></pre><h2>Best Practices</h2>
+<h3>1. Handle All Message Types</h3>
+<pre><code class="language-javascript">client.on(&#039;task_progress&#039;, handleProgress);
+client.on(&#039;task_complete&#039;, handleComplete);
+client.on(&#039;error&#039;, handleError);</code></pre><h3>2. Reconnect on Disconnect</h3>
+<pre><code class="language-javascript">ws.onclose = () =&gt; {
+  setTimeout(() =&gt; client.connect(), 5000);
+};</code></pre><h3>3. Track Pending Tasks</h3>
+<p>Keep track of submitted tasks for proper cleanup.</p>
+<h3>4. Handle Command Failures</h3>
+<p>When a command fails, remaining commands are skipped. Check the <code>task_complete</code> results.</p>
+<h3>5. Use Intentions</h3>
+<p>Add <code>intention</code> fields for better debugging:</p>
+<pre><code class="language-json">{
+  &quot;tool_name&quot;: &quot;browser_interact&quot;,
+  &quot;intention&quot;: &quot;Enter user email into login form&quot;,
+  &quot;args&quot;: {...}
+}</code></pre><h2>Related</h2>
+<ul>
+<li><a href="http-endpoints.html">HTTP Endpoints</a> - REST API for tasks</li>
+<li><a href="sse-protocol.html">SSE Protocol</a> - MCP connection</li>
+<li><a href="../integration/custom-clients.html">Custom Clients</a> - Integration examples</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

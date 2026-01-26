@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internals - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html" class="active">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Internals</h1>
+<p>This document covers the internal implementation details of the Task Execution System for developers maintaining or extending the codebase.</p>
+<h2>File Structure</h2>
+<pre><code class="language-plaintext">src/
+├── task-manager.ts         # Core task queue and execution logic
+├── task-websocket-server.ts # WebSocket server for task operations
+├── types.ts                # Type definitions (Task, Command, messages)
+├── config.ts               # Configuration loading (tasks section)
+├── http-server.ts          # REST endpoints for tasks
+├── instance-manager.ts     # Browser instance management (disconnect hooks)
+└── index.ts                # Server startup (task server initialization)</code></pre><hr>
+<h2>Task Manager (<code>src/task-manager.ts</code>)</h2>
+<p>The Task Manager is the core of the system. It&#39;s a singleton that manages all task operations.</p>
+<h3>Class Structure</h3>
+<pre><code class="language-typescript">class TaskManager extends EventEmitter {
+  private queues = new Map&lt;string, TaskQueue&gt;();  // Per-instance queues
+  private tasks = new Map&lt;string, Task&gt;();        // All tasks by ID
+  private taskIdCounter = 0;                      // For unique IDs
+
+  // Public API
+  submitTask(message: TaskSubmitMessage): { taskId, queuePosition } | { error }
+  cancelTask(taskId: string): boolean
+  getTask(taskId: string): Task | undefined
+  listTasks(instanceId?, status?): Task[]
+  handleInstanceDisconnect(instanceId: string): void
+  cleanupTasks(maxAge: number): number
+
+  // Private execution
+  private processQueue(instanceId: string): Promise&lt;void&gt;
+  private executeTask(task: Task): Promise&lt;void&gt;
+  private executeCommand(task: Task, command: TaskCommand, index: number): Promise&lt;void&gt;
+  private executeWithTimeout&lt;T&gt;(promise: Promise&lt;T&gt;, timeout: number): Promise&lt;T&gt;
+  private markRemainingCommandsSkipped(task: Task, fromIndex: number): void
+  private emitProgress(task: Task, command: TaskCommand, index: number): void
+  private emitTaskComplete(task: Task): void
+}
+
+export const taskManager = new TaskManager();</code></pre><h3>Task Queue Structure</h3>
+<pre><code class="language-typescript">interface TaskQueue {
+  instanceId: string;
+  tasks: Task[];          // FIFO array
+  isProcessing: boolean;  // Prevents concurrent processing
+}</code></pre><h3>Task Submission Flow</h3>
+<pre><code class="language-plaintext">submitTask()
+    │
+    ├── Validate instance (exists, connected)
+    │   └── Return error if invalid
+    │
+    ├── Validate commands (non-empty)
+    │   └── Return error if invalid
+    │
+    ├── Check queue size
+    │   └── Return error if full
+    │
+    ├── Generate task ID: task_{timestamp}_{counter.toString(36)}
+    │
+    ├── Create Task object with status &#039;queued&#039;
+    │
+    ├── Store in this.tasks Map
+    │
+    ├── Add to instance queue
+    │
+    ├── setImmediate(() =&gt; processQueue(instanceId))
+    │   └── Defers execution to allow subscriber setup
+    │
+    └── Return { taskId, queuePosition }</code></pre><h3>Queue Processing</h3>
+<pre><code class="language-typescript">private async processQueue(instanceId: string): Promise&lt;void&gt; {
+  const queue = this.queues.get(instanceId);
+
+  // Guard: no queue or already processing
+  if (!queue || queue.isProcessing) return;
+
+  queue.isProcessing = true;
+
+  while (queue.tasks.length &gt; 0) {
+    const task = queue.tasks[0];
+
+    // Skip cancelled tasks
+    if (task.status === &#039;cancelled&#039;) {
+      queue.tasks.shift();
+      continue;
+    }
+
+    await this.executeTask(task);
+    queue.tasks.shift();
+  }
+
+  queue.isProcessing = false;
+}</code></pre><p><strong>Key Design Points:</strong></p>
+<ol>
+<li><strong>Single processor per instance</strong>: The <code>isProcessing</code> flag ensures only one task runs at a time per instance</li>
+<li><strong>FIFO order</strong>: Tasks are processed in submission order</li>
+<li><strong>Cancelled tasks</strong>: Skipped during queue processing</li>
+<li><strong>Continuous draining</strong>: Processes all tasks until queue is empty</li>
+</ol>
+<h3>Command Execution</h3>
+<pre><code class="language-typescript">private async executeCommand(task: Task, command: TaskCommand, index: number): Promise&lt;void&gt; {
+  command.status = &#039;running&#039;;
+  command.startedAt = Date.now();
+
+  // Emit progress: running
+  this.emitProgress(task, command, index);
+
+  try {
+    // Build MCP request
+    const mcpRequest = {
+      jsonrpc: &#039;2.0&#039;,
+      id: `${task.id}_${command.id}`,
+      method: &#039;tools/call&#039;,
+      params: {
+        name: command.tool_name,
+        arguments: { ...command.args, instanceId: task.instanceId }
+      }
+    };
+
+    // Execute with timeout
+    const result = await this.executeWithTimeout(
+      handleMCPRequest(mcpRequest),
+      config.tasks.commandTimeout
+    );
+
+    // Check for errors
+    if (result.error || result.result?.isError) {
+      throw new Error(/* error message */);
+    }
+
+    command.status = &#039;success&#039;;
+    command.result = result.result;
+
+  } catch (error) {
+    command.status = &#039;error&#039;;
+    command.error = {
+      code: &#039;EXECUTION_ERROR&#039;,
+      message: error.message
+    };
+  }
+
+  command.completedAt = Date.now();
+  this.emitProgress(task, command, index);
+}</code></pre><p><strong>Integration with MCP:</strong></p>
+<p>The task system reuses existing MCP infrastructure by calling <code>handleMCPRequest()</code>:</p>
+<pre><code class="language-plaintext">Task Command
+    │
+    ▼
+Build MCP Request
+    │
+    ▼
+handleMCPRequest()  ← src/mcp-handler.ts
+    │
+    ▼
+InstanceManager     ← src/instance-manager.ts
+    │
+    ▼
+Browser WebSocket
+    │
+    ▼
+Chrome Extension</code></pre><h3>Timeout Implementation</h3>
+<pre><code class="language-typescript">private executeWithTimeout&lt;T&gt;(promise: Promise&lt;T&gt;, timeout: number): Promise&lt;T&gt; {
+  return new Promise((resolve, reject) =&gt; {
+    const timer = setTimeout(() =&gt; {
+      reject(new Error(`Command timeout after ${timeout}ms`));
+    }, timeout);
+
+    promise
+      .then((result) =&gt; {
+        clearTimeout(timer);
+        resolve(result);
+      })
+      .catch((error) =&gt; {
+        clearTimeout(timer);
+        reject(error);
+      });
+  });
+}</code></pre><h3>Event Emission</h3>
+<p>The Task Manager extends EventEmitter and emits two types of events:</p>
+<pre><code class="language-typescript">// Progress events (per command)
+this.emit(&#039;progress&#039;, {
+  type: &#039;task_progress&#039;,
+  taskId, commandId, commandIndex, totalCommands,
+  status, timestamp, tool_name, intention,
+  result?, error?
+});
+
+// Completion events (per task)
+this.emit(&#039;complete&#039;, {
+  type: &#039;task_complete&#039;,
+  taskId, status, timestamp,
+  summary: { totalCommands, successfulCommands, failedCommandIndex?, duration },
+  error?, results[]
+});</code></pre><p>Subscribers (WebSocket server) listen to these events and broadcast to clients.</p>
+<hr>
+<h2>Task WebSocket Server (<code>src/task-websocket-server.ts</code>)</h2>
+<p>Handles WebSocket connections and message routing.</p>
+<h3>Architecture</h3>
+<pre><code class="language-plaintext">Client A ─────┐
+              │
+Client B ─────┼───► Task WebSocket Server ───► Task Manager
+              │          │
+Client C ─────┘          │
+                         ▼
+                   Subscriptions Map
+                   (taskId → Set&lt;WebSocket&gt;)
+                   (instanceId → Set&lt;WebSocket&gt;)</code></pre><h3>Connection Handling</h3>
+<pre><code class="language-typescript">wss.on(&#039;connection&#039;, (ws) =&gt; {
+  const sessionId = uuidv4();
+
+  // Send welcome
+  ws.send(JSON.stringify({
+    type: &#039;welcome&#039;,
+    sessionId,
+    message: &#039;Connected to Moonsurf Task Server&#039;
+  }));
+
+  // Handle messages
+  ws.on(&#039;message&#039;, (data) =&gt; {
+    const msg = JSON.parse(data);
+    handleMessage(ws, sessionId, msg);
+  });
+
+  // Handle disconnect
+  ws.on(&#039;close&#039;, () =&gt; {
+    cleanupSubscriptions(ws);
+  });
+});</code></pre><h3>Message Routing</h3>
+<pre><code class="language-typescript">function handleMessage(ws: WebSocket, sessionId: string, msg: any) {
+  switch (msg.type) {
+    case &#039;task_submit&#039;:
+      handleTaskSubmit(ws, msg);
+      break;
+    case &#039;task_list&#039;:
+      handleTaskList(ws, msg);
+      break;
+    case &#039;task_status&#039;:
+      handleTaskStatus(ws, msg);
+      break;
+    case &#039;task_cancel&#039;:
+      handleTaskCancel(ws, msg);
+      break;
+    case &#039;subscribe_task&#039;:
+      subscribeToTask(ws, msg.taskId);
+      break;
+    case &#039;subscribe_instance&#039;:
+      subscribeToInstance(ws, msg.instanceId);
+      break;
+    default:
+      ws.send(JSON.stringify({ type: &#039;error&#039;, error: &#039;Unknown message type&#039; }));
+  }
+}</code></pre><h3>Subscription Management</h3>
+<pre><code class="language-typescript">const taskSubscriptions = new Map&lt;string, Set&lt;WebSocket&gt;&gt;();
+const instanceSubscriptions = new Map&lt;string, Set&lt;WebSocket&gt;&gt;();
+
+// Subscribe
+function subscribeToTask(ws: WebSocket, taskId: string) {
+  if (!taskSubscriptions.has(taskId)) {
+    taskSubscriptions.set(taskId, new Set());
+  }
+  taskSubscriptions.get(taskId)!.add(ws);
+}
+
+// Broadcast progress
+taskManager.on(&#039;progress&#039;, (msg) =&gt; {
+  // Send to task subscribers
+  const taskSubs = taskSubscriptions.get(msg.taskId);
+  taskSubs?.forEach(ws =&gt; {
+    if (ws.readyState === WebSocket.OPEN) {
+      ws.send(JSON.stringify(msg));
+    }
+  });
+
+  // Send to instance subscribers
+  const task = taskManager.getTask(msg.taskId);
+  if (task) {
+    const instanceSubs = instanceSubscriptions.get(task.instanceId);
+    instanceSubs?.forEach(ws =&gt; {
+      if (ws.readyState === WebSocket.OPEN) {
+        ws.send(JSON.stringify(msg));
+      }
+    });
+  }
+});</code></pre><h3>Auto-Subscribe on Submit</h3>
+<p>When a client submits a task, they are automatically subscribed:</p>
+<pre><code class="language-typescript">function handleTaskSubmit(ws: WebSocket, msg: TaskSubmitMessage) {
+  const result = taskManager.submitTask(msg);
+
+  if (&#039;error&#039; in result) {
+    ws.send(JSON.stringify({
+      type: &#039;task_submit_response&#039;,
+      success: false,
+      error: result.error
+    }));
+    return;
+  }
+
+  // Auto-subscribe to task updates
+  subscribeToTask(ws, result.taskId);
+
+  ws.send(JSON.stringify({
+    type: &#039;task_submit_response&#039;,
+    success: true,
+    taskId: result.taskId,
+    queuePosition: result.queuePosition
+  }));
+}</code></pre><hr>
+<h2>HTTP Server Extensions (<code>src/http-server.ts</code>)</h2>
+<p>REST endpoints are added to the existing HTTP server.</p>
+<h3>Endpoint Implementation</h3>
+<pre><code class="language-typescript">// POST /tasks - Submit task
+app.post(&#039;/tasks&#039;, (req, res) =&gt; {
+  const result = taskManager.submitTask(req.body);
+
+  if (&#039;error&#039; in result) {
+    return res.status(400).json({ error: result.error });
+  }
+
+  res.json({
+    taskId: result.taskId,
+    queuePosition: result.queuePosition,
+    wsEndpoint: `ws://localhost:${config.tasks.wsPort}`
+  });
+});
+
+// GET /tasks - List tasks
+app.get(&#039;/tasks&#039;, (req, res) =&gt; {
+  const { instanceId, status } = req.query;
+  const tasks = taskManager.listTasks(instanceId, status);
+  res.json({ tasks: tasks.map(formatTaskSummary) });
+});
+
+// GET /tasks/:id - Get task details
+app.get(&#039;/tasks/:id&#039;, (req, res) =&gt; {
+  const task = taskManager.getTask(req.params.id);
+  if (!task) {
+    return res.status(404).json({ error: &#039;Task not found&#039; });
+  }
+  res.json({ task });
+});
+
+// POST /tasks/:id/cancel - Cancel task
+app.post(&#039;/tasks/:id/cancel&#039;, (req, res) =&gt; {
+  const task = taskManager.getTask(req.params.id);
+  if (!task) {
+    return res.status(404).json({ error: &#039;Task not found&#039; });
+  }
+
+  const success = taskManager.cancelTask(req.params.id);
+  res.json({ success, taskId: req.params.id });
+});</code></pre><hr>
+<h2>Instance Manager Integration (<code>src/instance-manager.ts</code>)</h2>
+<p>The Instance Manager notifies the Task Manager when browsers disconnect.</p>
+<h3>Callback Registration</h3>
+<pre><code class="language-typescript">class InstanceManager {
+  private disconnectCallbacks: Array&lt;(instanceId: string) =&gt; void&gt; = [];
+
+  onDisconnect(callback: (instanceId: string) =&gt; void): void {
+    this.disconnectCallbacks.push(callback);
+  }
+
+  // Called when browser disconnects
+  private handleDisconnect(instanceId: string): void {
+    this.disconnectCallbacks.forEach(cb =&gt; cb(instanceId));
+  }
+}</code></pre><h3>Registration at Module Load</h3>
+<pre><code class="language-typescript">// At end of task-manager.ts
+instanceManager.onDisconnect((instanceId: string) =&gt; {
+  taskManager.handleInstanceDisconnect(instanceId);
+});</code></pre><h3>Disconnect Handling</h3>
+<pre><code class="language-typescript">handleInstanceDisconnect(instanceId: string): void {
+  const queue = this.queues.get(instanceId);
+
+  if (queue) {
+    // Fail all queued/running tasks
+    for (const task of queue.tasks) {
+      if (task.status === &#039;queued&#039; || task.status === &#039;running&#039;) {
+        task.status = &#039;failed&#039;;
+        task.error = {
+          code: &#039;INSTANCE_DISCONNECTED&#039;,
+          message: &#039;Browser instance disconnected&#039;
+        };
+        task.completedAt = Date.now();
+        this.emitTaskComplete(task);
+      }
+    }
+
+    queue.tasks = [];
+    queue.isProcessing = false;
+  }
+}</code></pre><hr>
+<h2>Type Definitions (<code>src/types.ts</code>)</h2>
+<h3>Core Types</h3>
+<pre><code class="language-typescript">export type TaskStatus = &#039;queued&#039; | &#039;running&#039; | &#039;completed&#039; | &#039;failed&#039; | &#039;cancelled&#039;;
+export type CommandStatus = &#039;pending&#039; | &#039;running&#039; | &#039;success&#039; | &#039;error&#039; | &#039;skipped&#039;;
+
+export interface TaskCommand {
+  id: string;
+  tool_name: string;
+  intention: string;
+  args: Record&lt;string, unknown&gt;;
+  status: CommandStatus;
+  startedAt?: number;
+  completedAt?: number;
+  result?: unknown;
+  error?: { code: string; message: string };
+}
+
+export interface Task {
+  id: string;
+  instanceId: string;
+  name: string;
+  intention: string;
+  commands: TaskCommand[];
+  status: TaskStatus;
+  currentCommandIndex: number;
+  createdAt: number;
+  startedAt?: number;
+  completedAt?: number;
+  error?: { code: string; message: string; commandId?: string };
+  metadata?: Record&lt;string, unknown&gt;;
+}</code></pre><h3>Message Types</h3>
+<pre><code class="language-typescript">export interface TaskSubmitMessage {
+  type: &#039;task_submit&#039;;
+  task_name: string;
+  task_intention: string;
+  instanceId?: string;
+  commands: Array&lt;{
+    tool_name: string;
+    intention: string;
+    args: Record&lt;string, unknown&gt;;
+  }&gt;;
+  metadata?: Record&lt;string, unknown&gt;;
+}
+
+export interface TaskProgressMessage {
+  type: &#039;task_progress&#039;;
+  taskId: string;
+  commandId: string;
+  commandIndex: number;
+  totalCommands: number;
+  status: CommandStatus;
+  timestamp: number;
+  tool_name: string;
+  intention: string;
+  result?: unknown;
+  error?: { code: string; message: string };
+}
+
+export interface TaskCompleteMessage {
+  type: &#039;task_complete&#039;;
+  taskId: string;
+  status: &#039;completed&#039; | &#039;failed&#039; | &#039;cancelled&#039;;
+  timestamp: number;
+  summary: {
+    totalCommands: number;
+    successfulCommands: number;
+    failedCommandIndex?: number;
+    duration: number;
+  };
+  error?: { code: string; message: string; commandId?: string };
+  results: Array&lt;{
+    commandId: string;
+    status: CommandStatus;
+    result?: unknown;
+    error?: { code: string; message: string };
+  }&gt;;
+}</code></pre><hr>
+<h2>Memory Management</h2>
+<h3>Task Cleanup</h3>
+<p>Old tasks are automatically cleaned up:</p>
+<pre><code class="language-typescript">// At module load (task-manager.ts)
+setInterval(() =&gt; {
+  const cleaned = taskManager.cleanupTasks();
+  if (cleaned &gt; 0) {
+    console.error(`[TaskManager] Cleaned up ${cleaned} old tasks`);
+  }
+}, 3600000); // Every hour
+
+cleanupTasks(maxAge: number = 3600000): number {
+  const cutoff = Date.now() - maxAge;
+  let cleaned = 0;
+
+  for (const [taskId, task] of this.tasks) {
+    if (
+      [&#039;completed&#039;, &#039;failed&#039;, &#039;cancelled&#039;].includes(task.status) &amp;&amp;
+      task.completedAt &amp;&amp;
+      task.completedAt &lt; cutoff
+    ) {
+      this.tasks.delete(taskId);
+      cleaned++;
+    }
+  }
+
+  return cleaned;
+}</code></pre><h3>WebSocket Cleanup</h3>
+<p>When WebSocket connections close:</p>
+<pre><code class="language-typescript">ws.on(&#039;close&#039;, () =&gt; {
+  // Remove from all subscriptions
+  for (const [taskId, subs] of taskSubscriptions) {
+    subs.delete(ws);
+    if (subs.size === 0) {
+      taskSubscriptions.delete(taskId);
+    }
+  }
+
+  for (const [instanceId, subs] of instanceSubscriptions) {
+    subs.delete(ws);
+    if (subs.size === 0) {
+      instanceSubscriptions.delete(instanceId);
+    }
+  }
+});</code></pre><hr>
+<h2>Testing Strategies</h2>
+<h3>Unit Testing Task Manager</h3>
+<pre><code class="language-typescript">describe(&#039;TaskManager&#039;, () =&gt; {
+  let taskManager: TaskManager;
+
+  beforeEach(() =&gt; {
+    taskManager = new TaskManager();
+    // Mock instanceManager
+  });
+
+  it(&#039;should queue tasks correctly&#039;, () =&gt; {
+    const result = taskManager.submitTask({
+      task_name: &#039;Test&#039;,
+      task_intention: &#039;Testing&#039;,
+      commands: [{ tool_name: &#039;browser_navigate&#039;, intention: &#039;Test&#039;, args: {} }]
+    });
+
+    expect(result).toHaveProperty(&#039;taskId&#039;);
+    expect(result).toHaveProperty(&#039;queuePosition&#039;, 1);
+  });
+
+  it(&#039;should emit progress events&#039;, (done) =&gt; {
+    taskManager.on(&#039;progress&#039;, (msg) =&gt; {
+      expect(msg.type).toBe(&#039;task_progress&#039;);
+      done();
+    });
+
+    taskManager.submitTask(/* ... */);
+  });
+});</code></pre><h3>Integration Testing</h3>
+<pre><code class="language-typescript">describe(&#039;Task System Integration&#039;, () =&gt; {
+  it(&#039;should execute task end-to-end&#039;, async () =&gt; {
+    // Start server
+    const server = await startServer();
+
+    // Submit task via WebSocket
+    const ws = new WebSocket(&#039;ws://localhost:3400&#039;);
+    const result = await submitTask(ws, {
+      task_name: &#039;Integration Test&#039;,
+      commands: [/* ... */]
+    });
+
+    expect(result.status).toBe(&#039;completed&#039;);
+  });
+});</code></pre><hr>
+<h2>Debugging Tips</h2>
+<h3>Enable Detailed Logging</h3>
+<p>Add console.error statements in key places:</p>
+<pre><code class="language-typescript">// In executeCommand
+console.error(`[TaskManager] Executing: ${command.tool_name} ${JSON.stringify(command.args)}`);
+
+// In processQueue
+console.error(`[TaskManager] Queue state: ${queue.tasks.length} tasks, processing: ${queue.isProcessing}`);</code></pre><h3>Inspect Internal State</h3>
+<pre><code class="language-typescript">// Expose debug methods (development only)
+if (process.env.NODE_ENV === &#039;development&#039;) {
+  taskManager.debugState = () =&gt; ({
+    tasks: Array.from(this.tasks.entries()),
+    queues: Array.from(this.queues.entries()).map(([id, q]) =&gt; ({
+      id,
+      taskCount: q.tasks.length,
+      isProcessing: q.isProcessing
+    }))
+  });
+}</code></pre><h3>WebSocket Message Tracing</h3>
+<pre><code class="language-typescript">// In task-websocket-server.ts
+ws.on(&#039;message&#039;, (data) =&gt; {
+  const msg = JSON.parse(data.toString());
+  console.error(`[TaskWS] Received: ${msg.type}`);
+  handleMessage(ws, sessionId, msg);
+});</code></pre>
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

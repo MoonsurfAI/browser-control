@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connecting AI Clients - Moonsurf Documentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=block" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block" as="style">
+  <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+  <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="../index.html" class="logo">Moonsurf</a>
+  </div>
+  <ul class="nav-list">
+    <li><a href="../index.html">Moonsurf Browser Control Documentation</a></li>
+    <li class="nav-section open">
+      <span class="section-title"><i data-lucide="rocket"></i>Getting Started</span>
+      <ul class="section-items">
+        <li><a href="../getting-started/README.html">Overview</a></li>
+        <li><a href="../getting-started/connecting-ai-clients.html" class="active">Connecting AI Clients</a></li>
+        <li><a href="../getting-started/first-automation.html">First Automation</a></li>
+        <li><a href="../getting-started/installation.html">Installation</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="lightbulb"></i>Concepts</span>
+      <ul class="section-items">
+        <li><a href="../concepts/README.html">Overview</a></li>
+        <li><a href="../concepts/architecture.html">Architecture</a></li>
+        <li><a href="../concepts/browser-modes.html">Browser Modes</a></li>
+        <li><a href="../concepts/extension-communication.html">Extension Communication</a></li>
+        <li><a href="../concepts/instance-lifecycle.html">Instance Lifecycle</a></li>
+        <li><a href="../concepts/mcp-protocol.html">MCP Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="wrench"></i>Tools</span>
+      <ul class="section-items">
+        <li><a href="../tools/README.html">Overview</a></li>
+        <li><a href="../tools/browser-content.html">browser_content</a></li>
+        <li><a href="../tools/browser-debug.html">browser_debug</a></li>
+        <li><a href="../tools/browser-emulate.html">browser_emulate</a></li>
+        <li><a href="../tools/browser-execute.html">browser_execute</a></li>
+        <li><a href="../tools/browser-instance.html">browser_instance</a></li>
+        <li><a href="../tools/browser-interact.html">browser_interact</a></li>
+        <li><a href="../tools/browser-navigate.html">browser_navigate</a></li>
+        <li><a href="../tools/browser-network.html">browser_network</a></li>
+        <li><a href="../tools/browser-tab.html">browser_tab</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="settings"></i>Configuration</span>
+      <ul class="section-items">
+        <li><a href="../configuration/README.html">Overview</a></li>
+        <li><a href="../configuration/authentication.html">Authentication</a></li>
+        <li><a href="../configuration/environment-variables.html">Environment Variables</a></li>
+        <li><a href="../configuration/local-mode.html">Local Mode</a></li>
+        <li><a href="../configuration/remote-mode.html">Remote Mode</a></li>
+        <li><a href="../configuration/security-hardening.html">Security Hardening</a></li>
+        <li><a href="../configuration/tls-setup.html">TLS Setup</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="book-open"></i>Guides</span>
+      <ul class="section-items">
+        <li><a href="../guides/README.html">Overview</a></li>
+        <li><a href="../guides/debugging-tips.html">Debugging Tips Guide</a></li>
+        <li><a href="../guides/file-downloads.html">File Downloads Guide</a></li>
+        <li><a href="../guides/form-filling.html">Form Filling Guide</a></li>
+        <li><a href="../guides/handling-popups.html">Handling Popups Guide</a></li>
+        <li><a href="../guides/network-interception.html">Network Interception Guide</a></li>
+        <li><a href="../guides/testing-workflows.html">Testing Workflows Guide</a></li>
+        <li><a href="../guides/web-scraping.html">Web Scraping Guide</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="plug"></i>Integration</span>
+      <ul class="section-items">
+        <li><a href="../integration/README.html">Overview</a></li>
+        <li><a href="../integration/ci-cd.html">CI/CD Integration</a></li>
+        <li><a href="../integration/claude-code.html">Claude Code Integration</a></li>
+        <li><a href="../integration/claude-desktop.html">Claude Desktop Integration</a></li>
+        <li><a href="../integration/cursor.html">Cursor Integration</a></li>
+        <li><a href="../integration/custom-clients.html">Custom Client Integration</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="code"></i>Api Reference</span>
+      <ul class="section-items">
+        <li><a href="../api-reference/README.html">Overview</a></li>
+        <li><a href="../api-reference/error-codes.html">Error Codes</a></li>
+        <li><a href="../api-reference/http-endpoints.html">HTTP Endpoints</a></li>
+        <li><a href="../api-reference/sse-protocol.html">SSE Protocol</a></li>
+        <li><a href="../api-reference/websocket-protocol.html">WebSocket Protocol</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="list-checks"></i>Tasks</span>
+      <ul class="section-items">
+        <li><a href="../tasks/README.html">Overview</a></li>
+        <li><a href="../tasks/architecture.html">Architecture Overview</a></li>
+        <li><a href="../tasks/configuration.html">Configuration</a></li>
+        <li><a href="../tasks/contributing.html">Contributing</a></li>
+        <li><a href="../tasks/error-handling.html">Error Handling</a></li>
+        <li><a href="../tasks/examples.html">Examples</a></li>
+        <li><a href="../tasks/getting-started.html">Getting Started</a></li>
+        <li><a href="../tasks/internals.html">Internals</a></li>
+        <li><a href="../tasks/rest-api.html">REST API Reference</a></li>
+        <li><a href="../tasks/task-format.html">Task Format</a></li>
+        <li><a href="../tasks/websocket-api.html">WebSocket API Reference</a></li>
+      </ul>
+    </li>
+    <li class="nav-section">
+      <span class="section-title"><i data-lucide="terminal"></i>Development</span>
+      <ul class="section-items">
+        <li><a href="../development/README.html">Overview</a></li>
+        <li><a href="../development/adding-tools.html">Adding Tools</a></li>
+        <li><a href="../development/debugging.html">Debugging</a></li>
+        <li><a href="../development/extension-development.html">Extension Development</a></li>
+        <li><a href="../development/internals.html">Internals</a></li>
+        <li><a href="../development/local-setup.html">Local Development Setup</a></li>
+        <li><a href="../development/project-structure.html">Project Structure</a></li>
+        <li><a href="../development/release-process.html">Release Process</a></li>
+        <li><a href="../development/testing.html">Testing</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="version">v2.0.0</div>
+    <div class="generated">Generated 2026-01-26</div>
+  </div>
+</nav>
+
+  <main class="content">
+    <article>
+      <h1>Connecting AI Clients</h1>
+<p>This guide explains how to connect various AI clients to Moonsurf for browser automation.</p>
+<h2>How It Works</h2>
+<p>Moonsurf implements the Model Context Protocol (MCP), a standard for connecting AI assistants to external tools. The connection works as follows:</p>
+<ol>
+<li><strong>Start Moonsurf server</strong> - Exposes an SSE endpoint at <code>http://localhost:3300/sse</code></li>
+<li><strong>Configure AI client</strong> - Point it to the Moonsurf SSE endpoint</li>
+<li><strong>AI discovers tools</strong> - Client calls <code>tools/list</code> to discover available browser tools</li>
+<li><strong>AI uses tools</strong> - Client can now automate browsers</li>
+</ol>
+<h2>Claude Code</h2>
+<p>Claude Code is Anthropic&#39;s official CLI for Claude with built-in MCP support.</p>
+<h3>Option 1: Install the Skill (Recommended)</h3>
+<pre><code class="language-bash">moonsurf --install-skill</code></pre><p>This installs a Claude Code skill that makes browser automation tools available.</p>
+<p><strong>Verify installation:</strong></p>
+<pre><code class="language-bash">moonsurf --skill-status</code></pre><p><strong>Usage in Claude Code:</strong></p>
+<pre><code class="language-plaintext">/moonsurf-browser</code></pre><h3>Option 2: Manual MCP Configuration</h3>
+<p>Add to your Claude Code MCP configuration (<code>~/.claude/mcp.json</code>):</p>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;moonsurf&quot;: {
+      &quot;url&quot;: &quot;http://localhost:3300/sse&quot;
+    }
+  }
+}</code></pre><h2>Claude Desktop</h2>
+<p>Claude Desktop supports MCP servers through its configuration file.</p>
+<h3>Configuration</h3>
+<ol>
+<li>Open Claude Desktop settings</li>
+<li>Navigate to the MCP section</li>
+<li>Add a new server:</li>
+</ol>
+<p><strong>macOS</strong> (<code>~/Library/Application Support/Claude/mcp.json</code>):</p>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;moonsurf&quot;: {
+      &quot;url&quot;: &quot;http://localhost:3300/sse&quot;
+    }
+  }
+}</code></pre><p><strong>Windows</strong> (<code>%APPDATA%\Claude\mcp.json</code>):</p>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;moonsurf&quot;: {
+      &quot;url&quot;: &quot;http://localhost:3300/sse&quot;
+    }
+  }
+}</code></pre><ol start="4">
+<li>Restart Claude Desktop</li>
+<li>Look for the browser tools in the tools menu</li>
+</ol>
+<h2>Cursor IDE</h2>
+<p>Cursor supports MCP through its settings.</p>
+<h3>Configuration</h3>
+<ol>
+<li>Open Cursor Settings (Cmd/Ctrl + ,)</li>
+<li>Search for &quot;MCP&quot;</li>
+<li>Add Moonsurf:</li>
+</ol>
+<pre><code class="language-json">{
+  &quot;mcp.servers&quot;: {
+    &quot;moonsurf&quot;: {
+      &quot;url&quot;: &quot;http://localhost:3300/sse&quot;
+    }
+  }
+}</code></pre><p>Or add to <code>.cursor/mcp.json</code> in your project:</p>
+<pre><code class="language-json">{
+  &quot;servers&quot;: {
+    &quot;moonsurf&quot;: {
+      &quot;url&quot;: &quot;http://localhost:3300/sse&quot;
+    }
+  }
+}</code></pre><h2>Custom MCP Clients</h2>
+<p>You can build your own MCP client to connect to Moonsurf.</p>
+<h3>Basic Connection Flow</h3>
+<pre><code class="language-javascript">// 1. Connect to SSE endpoint
+const eventSource = new EventSource(&#039;http://localhost:3300/sse&#039;);
+
+// 2. Get the message endpoint from the &#039;endpoint&#039; event
+let messageEndpoint;
+eventSource.addEventListener(&#039;endpoint&#039;, (event) =&gt; {
+  messageEndpoint = event.data;
+  console.log(&#039;Message endpoint:&#039;, messageEndpoint);
+});
+
+// 3. Listen for messages
+eventSource.addEventListener(&#039;message&#039;, (event) =&gt; {
+  const response = JSON.parse(event.data);
+  console.log(&#039;Response:&#039;, response);
+});
+
+// 4. Initialize the connection
+await fetch(messageEndpoint, {
+  method: &#039;POST&#039;,
+  headers: { &#039;Content-Type&#039;: &#039;application/json&#039; },
+  body: JSON.stringify({
+    jsonrpc: &#039;2.0&#039;,
+    id: 1,
+    method: &#039;initialize&#039;,
+    params: {}
+  })
+});
+
+// 5. List available tools
+await fetch(messageEndpoint, {
+  method: &#039;POST&#039;,
+  headers: { &#039;Content-Type&#039;: &#039;application/json&#039; },
+  body: JSON.stringify({
+    jsonrpc: &#039;2.0&#039;,
+    id: 2,
+    method: &#039;tools/list&#039;
+  })
+});
+
+// 6. Call a tool
+await fetch(messageEndpoint, {
+  method: &#039;POST&#039;,
+  headers: { &#039;Content-Type&#039;: &#039;application/json&#039; },
+  body: JSON.stringify({
+    jsonrpc: &#039;2.0&#039;,
+    id: 3,
+    method: &#039;tools/call&#039;,
+    params: {
+      name: &#039;browser_instance&#039;,
+      arguments: {
+        action: &#039;new&#039;,
+        mode: &#039;chromium&#039;
+      }
+    }
+  })
+});</code></pre><h3>Python Example</h3>
+<pre><code class="language-python">import requests
+import sseclient
+import json
+
+# Connect to SSE
+response = requests.get(&#039;http://localhost:3300/sse&#039;, stream=True)
+client = sseclient.SSEClient(response)
+
+message_endpoint = None
+
+for event in client.events():
+    if event.event == &#039;endpoint&#039;:
+        message_endpoint = event.data
+        break
+
+# Initialize
+requests.post(message_endpoint, json={
+    &#039;jsonrpc&#039;: &#039;2.0&#039;,
+    &#039;id&#039;: 1,
+    &#039;method&#039;: &#039;initialize&#039;,
+    &#039;params&#039;: {}
+})
+
+# List tools
+resp = requests.post(message_endpoint, json={
+    &#039;jsonrpc&#039;: &#039;2.0&#039;,
+    &#039;id&#039;: 2,
+    &#039;method&#039;: &#039;tools/list&#039;
+})
+tools = resp.json()[&#039;result&#039;][&#039;tools&#039;]
+print(f&quot;Available tools: {[t[&#039;name&#039;] for t in tools]}&quot;)
+
+# Launch browser
+resp = requests.post(message_endpoint, json={
+    &#039;jsonrpc&#039;: &#039;2.0&#039;,
+    &#039;id&#039;: 3,
+    &#039;method&#039;: &#039;tools/call&#039;,
+    &#039;params&#039;: {
+        &#039;name&#039;: &#039;browser_instance&#039;,
+        &#039;arguments&#039;: {&#039;action&#039;: &#039;new&#039;, &#039;mode&#039;: &#039;chromium&#039;}
+    }
+})
+print(resp.json())</code></pre><h2>With Authentication</h2>
+<p>If Moonsurf is running with authentication enabled:</p>
+<h3>Bearer Token in Header</h3>
+<pre><code class="language-javascript">const eventSource = new EventSource(
+  &#039;http://localhost:3300/sse?token=your-auth-token&#039;
+);
+
+await fetch(messageEndpoint, {
+  method: &#039;POST&#039;,
+  headers: {
+    &#039;Content-Type&#039;: &#039;application/json&#039;,
+    &#039;Authorization&#039;: &#039;Bearer your-auth-token&#039;
+  },
+  body: JSON.stringify({ ... })
+});</code></pre><h3>MCP Configuration with Token</h3>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;moonsurf&quot;: {
+      &quot;url&quot;: &quot;http://localhost:3300/sse?token=your-auth-token&quot;
+    }
+  }
+}</code></pre><h2>Remote Connection</h2>
+<p>If Moonsurf is running on a remote server:</p>
+<h3>Server Setup</h3>
+<pre><code class="language-bash">REMOTE_MODE=true AUTH_TOKENS=secret-token-123 moonsurf</code></pre><h3>Client Configuration</h3>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;moonsurf&quot;: {
+      &quot;url&quot;: &quot;https://your-server.com:3300/sse?token=secret-token-123&quot;
+    }
+  }
+}</code></pre><h2>Verifying Connection</h2>
+<h3>Check Server Health</h3>
+<pre><code class="language-bash">curl http://localhost:3300/health</code></pre><p>Response:</p>
+<pre><code class="language-json">{
+  &quot;status&quot;: &quot;ok&quot;,
+  &quot;version&quot;: &quot;2.0.0&quot;,
+  &quot;connectedInstances&quot;: 0,
+  &quot;sseClients&quot;: 1
+}</code></pre><h3>List Connected Instances</h3>
+<p>After launching a browser:</p>
+<pre><code class="language-bash">curl http://localhost:3300/instances</code></pre><p>Response:</p>
+<pre><code class="language-json">{
+  &quot;instances&quot;: [{
+    &quot;id&quot;: &quot;inst_123...&quot;,
+    &quot;port&quot;: 3301,
+    &quot;browserType&quot;: &quot;Chromium&quot;,
+    &quot;connectedAt&quot;: 1706234567890
+  }]
+}</code></pre><h2>Troubleshooting</h2>
+<h3>&quot;Connection refused&quot;</h3>
+<p>Ensure Moonsurf is running:</p>
+<pre><code class="language-bash">moonsurf</code></pre><h3>&quot;Authentication required&quot;</h3>
+<p>If auth is enabled, include the token:</p>
+<pre><code class="language-plaintext">http://localhost:3300/sse?token=your-token</code></pre><h3>&quot;No tools available&quot;</h3>
+<p>Verify the SSE connection and call <code>initialize</code> before <code>tools/list</code>.</p>
+<h3>&quot;Tool not found&quot;</h3>
+<p>Moonsurf uses 9 consolidated tools. Make sure you&#39;re using the correct tool names:</p>
+<ul>
+<li><code>browser_instance</code></li>
+<li><code>browser_tab</code></li>
+<li><code>browser_navigate</code></li>
+<li><code>browser_content</code></li>
+<li><code>browser_interact</code></li>
+<li><code>browser_execute</code></li>
+<li><code>browser_network</code></li>
+<li><code>browser_emulate</code></li>
+<li><code>browser_debug</code></li>
+</ul>
+<h2>Next Steps</h2>
+<ul>
+<li><a href="../tools/README.html">Tools Reference</a> - Complete tool documentation</li>
+<li><a href="../configuration/README.html">Configuration</a> - Server configuration options</li>
+<li><a href="../guides/README.html">Guides</a> - Common automation patterns</li>
+</ul>
+
+    </article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Initialize syntax highlighting
+    hljs.highlightAll();
+
+    // Toggle sections
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>
