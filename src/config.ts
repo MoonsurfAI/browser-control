@@ -54,6 +54,14 @@ export interface ServerConfig {
         level: 'debug' | 'info' | 'warn' | 'error';
         auditEnabled: boolean;
     };
+
+    // Task execution
+    tasks: {
+        enabled: boolean;
+        wsPort: number;
+        commandTimeout: number;
+        maxQueueSize: number;
+    };
 }
 
 function parseBoolean(value: string | undefined, defaultValue: boolean): boolean {
@@ -123,6 +131,14 @@ export function loadConfig(): ServerConfig {
         logging: {
             level: (process.env.LOG_LEVEL as 'debug' | 'info' | 'warn' | 'error') || 'info',
             auditEnabled: parseBoolean(process.env.AUDIT_LOG_ENABLED, isRemote),
+        },
+
+        // Task execution
+        tasks: {
+            enabled: parseBoolean(process.env.TASKS_ENABLED, true),
+            wsPort: parseNumber(process.env.TASKS_WS_PORT, 3400),
+            commandTimeout: parseNumber(process.env.TASKS_COMMAND_TIMEOUT, 60000),
+            maxQueueSize: parseNumber(process.env.TASKS_MAX_QUEUE_SIZE, 100),
         },
     };
 }
@@ -198,6 +214,7 @@ export function printConfigSummary(config: ServerConfig): void {
     console.error(`[Config]   CORS: ${config.cors.enabled ? 'ENABLED' : 'disabled'}`);
     console.error(`[Config]   Rate Limit: ${config.rateLimit.enabled ? 'ENABLED' : 'disabled'} (max: ${config.rateLimit.maxCallsPerMinute}/min)`);
     console.error(`[Config]   Headless Default: ${config.browser.headlessDefault}`);
+    console.error(`[Config]   Tasks: ${config.tasks.enabled ? 'ENABLED' : 'disabled'} (port: ${config.tasks.wsPort}, timeout: ${config.tasks.commandTimeout}ms)`);
 
     const validation = validateConfig(config);
     if (validation.warnings.length > 0) {

@@ -62,10 +62,17 @@ class BrowserLauncher {
     private instances = new Map<string, LaunchedInstance>();
     private extensionPath: string;
     private extensionReady: boolean = false;
+    private useLocalExtension: boolean = false;
 
     constructor() {
-        // Extension is downloaded to ~/.moonsurf/extension
-        this.extensionPath = join(homedir(), '.moonsurf', 'extension');
+        // Use EXTENSION_PATH env var for local development, otherwise download to ~/.moonsurf/extension
+        if (process.env.EXTENSION_PATH) {
+            this.extensionPath = process.env.EXTENSION_PATH;
+            this.useLocalExtension = true;
+            console.error(`[BrowserLauncher] Using local extension: ${this.extensionPath}`);
+        } else {
+            this.extensionPath = join(homedir(), '.moonsurf', 'extension');
+        }
     }
 
     private async downloadFile(url: string, destPath: string): Promise<void> {
@@ -136,6 +143,11 @@ class BrowserLauncher {
             console.error('[BrowserLauncher] Extension already installed');
             this.extensionReady = true;
             return;
+        }
+
+        // If using local extension path, don't try to download
+        if (this.useLocalExtension) {
+            throw new Error(`Local extension not found at ${this.extensionPath}. Build the extension first with: cd chrome-extension && npm run build`);
         }
 
         console.error('[BrowserLauncher] Downloading extension from CDN...');

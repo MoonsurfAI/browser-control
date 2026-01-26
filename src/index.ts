@@ -3,6 +3,7 @@
 import { startHttpServer } from './http-server.js';
 import { getConfig } from './config.js';
 import { installSkill, uninstallSkill, showSkillStatus } from './skill-installer.js';
+import { startTaskWebSocketServer } from './task-websocket-server.js';
 
 function showHelp(): void {
     console.error(`
@@ -86,6 +87,12 @@ async function main(): Promise<void> {
     console.error(`[Server] SSE endpoint: ${sseEndpoint}`);
 
     startHttpServer();
+
+    // Start task WebSocket server if enabled
+    if (config.tasks.enabled) {
+        startTaskWebSocketServer(config.tasks.wsPort);
+        console.error(`[Server] Task WebSocket: ws://localhost:${config.tasks.wsPort}`);
+    }
 }
 
 main().catch((error) => {

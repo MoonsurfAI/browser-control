@@ -11,6 +11,7 @@ class InstanceManager {
         reject: (error: Error) => void;
     }>();
     private callIdCounter = 0;
+    private disconnectCallbacks: Array<(instanceId: string) => void> = [];
 
     getNextAvailablePort(): number | null {
         for (let port = config.instancePortStart; port <= config.instancePortEnd; port++) {
@@ -108,7 +109,23 @@ class InstanceManager {
             this.portToInstance.delete(instance.port);
             this.instances.delete(instanceId);
             console.log(`[InstanceManager] Unregistered instance ${instanceId}`);
+
+            // Notify disconnect callbacks (e.g., task manager)
+            for (const cb of this.disconnectCallbacks) {
+                try {
+                    cb(instanceId);
+                } catch (error) {
+                    console.error(`[InstanceManager] Disconnect callback error:`, error);
+                }
+            }
         }
+    }
+
+    /**
+     * Register a callback to be called when an instance disconnects
+     */
+    onDisconnect(callback: (instanceId: string) => void): void {
+        this.disconnectCallbacks.push(callback);
     }
 
     unregisterByPort(port: number): void {

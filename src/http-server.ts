@@ -16,7 +16,9 @@ import { instanceManager } from './instance-manager.js';
 import { startWebSocketServer, getWebSocketServerUrl } from './websocket-server.js';
 import { handleMCPRequest } from './mcp-handler.js';
 import { getConfig, printConfigSummary, validateConfig, ServerConfig } from './config.js';
-import type { RegistrationRequest } from './types.js';
+import { taskManager } from './task-manager.js';
+import { getTaskWebSocketUrl } from './task-websocket-server.js';
+import type { RegistrationRequest, TaskSubmitMessage, TaskStatus } from './types.js';
 
 interface SSEClient {
     res: ServerResponse;
@@ -290,7 +292,7 @@ function createRequestHandler(config: ServerConfig) {
         }
 
         // Authentication check for protected endpoints
-        const protectedPaths = ['/sse', '/message', '/register', '/instances'];
+        const protectedPaths = ['/sse', '/message', '/register', '/instances', '/tasks'];
         if (protectedPaths.some(p => url.pathname.startsWith(p))) {
             if (!isAuthenticated(config, req, url)) {
                 auditLog(config, 'AUTH_FAILED', { ip: clientIP, path: url.pathname });
@@ -412,6 +414,102 @@ function createRequestHandler(config: ServerConfig) {
                 })),
             }, config, origin);
             return;
+        }
+
+        // ====================================================================
+        // Task Execution Endpoints
+        // ====================================================================
+
+        // List tasks
+        if (url.pathname === '/tasks' && req.method === 'GET') {
+            const instanceId = url.searchParams.get('instanceId') || undefined;
+            const status = url.searchParams.get('status') as TaskStatus | 'all' | undefined;
+
+            const tasks = taskManager.listTasks(instanceId, status);
+            sendJson(res, 200, {
+                tasks: tasks.map(t => ({
+                    id: t.id,
+                    name: t.name,
+                    status: t.status,
+                    instanceId: t.instanceId,
+                    currentCommandIndex: t.currentCommandIndex,
+                    totalCommands: t.commands.length,
+                    createdAt: t.createdAt,
+                    startedAt: t.startedAt,
+                    completedAt: t.completedAt,
+                })),
+                wsEndpoint: getTaskWebSocketUrl(),
+            }, config, origin);
+            return;
+        }
+
+        // Submit task
+        if (url.pathname === '/tasks' && req.method === 'POST') {
+            try {
+                const body = await parseBody(req);
+                const request = JSON.parse(body) as TaskSubmitMessage;
+                request.type = 'task_submit';
+
+                const result = taskManager.submitTask(request);
+
+                if ('error' in result) {
+                    sendJson(res, 400, { error: result.error }, config, origin);
+                    return;
+                }
+
+                auditLog(config, 'TASK_SUBMITTED', {
+                    taskId: result.taskId,
+                    queuePosition: result.queuePosition,
+                    ip: clientIP,
+                });
+
+                sendJson(res, 201, {
+                    taskId: result.taskId,
+                    queuePosition: result.queuePosition,
+                    wsEndpoint: getTaskWebSocketUrl(),
+                }, config, origin);
+            } catch (error) {
+                console.error('[HTTP] Task submit error:', error);
+                sendError(res, 400, 'Invalid request', config, origin);
+            }
+            return;
+        }
+
+        // Get task details or cancel task
+        if (url.pathname.startsWith('/tasks/') && url.pathname !== '/tasks/') {
+            const pathParts = url.pathname.slice(7).split('/'); // Remove '/tasks/'
+            const taskId = pathParts[0];
+            const action = pathParts[1];
+
+            // Cancel task: POST /tasks/:id/cancel
+            if (action === 'cancel' && req.method === 'POST') {
+                const success = taskManager.cancelTask(taskId);
+
+                auditLog(config, 'TASK_CANCELLED', {
+                    taskId,
+                    success,
+                    ip: clientIP,
+                });
+
+                sendJson(res, 200, {
+                    success,
+                    message: success ? 'Task cancelled' : 'Task not found or already completed',
+                }, config, origin);
+                return;
+            }
+
+            // Get task details: GET /tasks/:id
+            if (!action && req.method === 'GET') {
+                const task = taskManager.getTask(taskId);
+
+                if (!task) {
+                    sendError(res, 404, 'Task not found', config, origin);
+                    return;
+                }
+
+                sendJson(res, 200, { task }, config, origin);
+                return;
+            }
         }
 
         // OAuth endpoints for compatibility
