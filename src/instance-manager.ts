@@ -37,6 +37,7 @@ class InstanceManager {
             windowId: request.windowId,
             connectedAt: Date.now(),
             lastActivity: Date.now(),
+            lastPong: Date.now(),
         };
 
         this.instances.set(instanceId, instance);
@@ -128,6 +129,24 @@ class InstanceManager {
         this.disconnectCallbacks.push(callback);
     }
 
+    updateLastPong(instanceId: string): void {
+        const instance = this.instances.get(instanceId);
+        if (instance) {
+            instance.lastPong = Date.now();
+        }
+    }
+
+    /**
+     * Check if an instance has a live connection (WebSocket open and pong received recently).
+     */
+    private isAlive(instance: BrowserInstance): boolean {
+        if (!instance.ws || instance.ws.readyState !== 1) {
+            return false;
+        }
+        // Consider dead if no pong received in 45 seconds
+        return (Date.now() - instance.lastPong) < 45000;
+    }
+
     unregisterByPort(port: number): void {
         const instanceId = this.portToInstance.get(port);
         if (instanceId) {
@@ -146,7 +165,7 @@ class InstanceManager {
 
     getFirstConnectedInstance(): BrowserInstance | undefined {
         for (const instance of this.instances.values()) {
-            if (instance.ws && instance.ws.readyState === 1) {
+            if (this.isAlive(instance)) {
                 return instance;
             }
         }
@@ -159,7 +178,7 @@ class InstanceManager {
 
     getConnectedInstances(): BrowserInstance[] {
         return Array.from(this.instances.values()).filter(
-            inst => inst.ws && inst.ws.readyState === 1
+            inst => this.isAlive(inst)
         );
     }
 

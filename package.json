@@ -1,6 +1,6 @@
 {
     "name": "@moonsurf/browser-control",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "AI-native browser automation. MCP server that gives AI agents complete control over web browsers.",
     "type": "module",
     "main": "dist/index.js",

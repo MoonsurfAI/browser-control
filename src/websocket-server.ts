@@ -47,7 +47,18 @@ function setupWebSocketHandlers(wss: WebSocketServer, port: number): void {
 
         ws.on('message', (data: Buffer) => {
             try {
-                const message = JSON.parse(data.toString()) as ExtensionMessage;
+                const raw = JSON.parse(data.toString()) as { type: string };
+
+                // Handle application-level keepalive before casting to ExtensionMessage
+                if (raw.type === 'ping') {
+                    if (instanceId) {
+                        lastPongTime = Date.now();
+                        instanceManager.updateLastPong(instanceId);
+                    }
+                    return;
+                }
+
+                const message = raw as ExtensionMessage;
 
                 if (message.type === 'hello') {
                     const hello = message as HelloMessage;
@@ -81,16 +92,37 @@ function setupWebSocketHandlers(wss: WebSocketServer, port: number): void {
 
         ws.on('error', (error) => {
             console.error(`[WebSocket:${port}] Error:`, error);
+            if (instanceId) {
+                instanceManager.unregister(instanceId);
+            }
         });
 
-        // Keep connection alive with pings
+        // Keep connection alive with pings and detect dead connections via pong tracking.
+        // If no pong is received within 2 ping cycles, the connection is considered dead.
+        let lastPongTime = Date.now();
+        const PING_INTERVAL = 20000;
+        const PONG_TIMEOUT = 45000;
+
+        ws.on('pong', () => {
+            lastPongTime = Date.now();
+            if (instanceId) {
+                instanceManager.updateLastPong(instanceId);
+            }
+        });
+
         const pingInterval = setInterval(() => {
             if (ws.readyState === WebSocket.OPEN) {
-                ws.ping();
+                if (Date.now() - lastPongTime > PONG_TIMEOUT) {
+                    console.error(`[WebSocket:${port}] Pong timeout, closing dead connection`);
+                    clearInterval(pingInterval);
+                    ws.terminate();
+                } else {
+                    ws.ping();
+                }
             } else {
                 clearInterval(pingInterval);
             }
-        }, 30000);
+        }, PING_INTERVAL);
 
         ws.on('close', () => clearInterval(pingInterval));
     });

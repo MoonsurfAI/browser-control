@@ -8,6 +8,7 @@ export interface BrowserInstance {
     windowId: number;
     connectedAt: number;
     lastActivity: number;
+    lastPong: number;
 }
 
 export interface RegistrationRequest {
