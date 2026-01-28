@@ -85,7 +85,7 @@ function setupEventHandlers(wss: WebSocketServer): void {
         const welcomeMsg: WelcomeMessage = {
             type: 'welcome',
             sessionId,
-            serverVersion: '2.0.0',
+            serverVersion: '2.1.0',
         };
         sendMessage(ws, welcomeMsg);
 

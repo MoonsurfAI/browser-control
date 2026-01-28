@@ -14,7 +14,7 @@ import { createServer as createHttpsServer } from 'https';
 import { readFileSync } from 'fs';
 import { instanceManager } from './instance-manager.js';
 import { startWebSocketServer, getWebSocketServerUrl } from './websocket-server.js';
-import { handleMCPRequest } from './mcp-handler.js';
+import { handleMCPRequest, getMCPToolsList, executeToolREST } from './mcp-handler.js';
 import { getConfig, printConfigSummary, validateConfig, ServerConfig } from './config.js';
 import { taskManager } from './task-manager.js';
 import { getTaskWebSocketUrl } from './task-websocket-server.js';
@@ -255,7 +255,7 @@ function createRequestHandler(config: ServerConfig) {
         if (url.pathname === '/health' && req.method === 'GET') {
             sendJson(res, 200, {
                 status: 'ok',
-                version: '2.0.0',
+                version: '2.1.0',
                 connectedInstances: instanceManager.getConnectedInstances().length,
                 sseClients: sseClients.size,
                 auth: config.auth.enabled ? 'enabled' : 'disabled',
@@ -271,12 +271,16 @@ function createRequestHandler(config: ServerConfig) {
         if (url.pathname === '/info' && req.method === 'GET') {
             sendJson(res, 200, {
                 name: 'moonsurf-mcp',
-                version: '2.0.0',
+                version: '2.1.0',
                 endpoints: {
                     sse: `${baseUrl}/sse`,
                     message: `${baseUrl}/message`,
                     register: `${baseUrl}/register`,
                     health: `${baseUrl}/health`,
+                    rest_api: {
+                        list_tools: `${baseUrl}/api/tools`,
+                        execute_tool: `${baseUrl}/api/tools/{toolName}`,
+                    },
                 },
                 websocket: {
                     protocol: config.tls.enabled ? 'wss' : 'ws',
@@ -292,7 +296,7 @@ function createRequestHandler(config: ServerConfig) {
         }
 
         // Authentication check for protected endpoints
-        const protectedPaths = ['/sse', '/message', '/register', '/instances', '/tasks'];
+        const protectedPaths = ['/sse', '/message', '/register', '/instances', '/tasks', '/api'];
         if (protectedPaths.some(p => url.pathname.startsWith(p))) {
             if (!isAuthenticated(config, req, url)) {
                 auditLog(config, 'AUTH_FAILED', { ip: clientIP, path: url.pathname });
@@ -512,6 +516,53 @@ function createRequestHandler(config: ServerConfig) {
             }
         }
 
+        // ====================================================================
+        // REST API Endpoints
+        // ====================================================================
+
+        // List available tools
+        if (url.pathname === '/api/tools' && req.method === 'GET') {
+            sendJson(res, 200, { tools: getMCPToolsList() }, config, origin);
+            return;
+        }
+
+        // Execute a tool
+        if (url.pathname.startsWith('/api/tools/') && req.method === 'POST') {
+            const toolName = url.pathname.slice('/api/tools/'.length);
+
+            if (!toolName) {
+                sendError(res, 400, 'Missing tool name', config, origin);
+                return;
+            }
+
+            try {
+                const body = await parseBody(req);
+                const args = body ? JSON.parse(body) : {};
+
+                auditLog(config, 'REST_TOOL_CALL', {
+                    tool: toolName,
+                    ip: clientIP,
+                });
+
+                const result = await executeToolREST(toolName, args);
+
+                if (!result.success) {
+                    const status = result.error?.code === 'TOOL_NOT_FOUND' ? 404 : 400;
+                    sendJson(res, status, result, config, origin);
+                    return;
+                }
+
+                sendJson(res, 200, result, config, origin);
+            } catch (error) {
+                console.error('[REST] Error:', error);
+                sendJson(res, 400, {
+                    success: false,
+                    error: { code: 'PARSE_ERROR', message: 'Invalid JSON body' },
+                }, config, origin);
+            }
+            return;
+        }
+
         // OAuth endpoints for compatibility
         if (url.pathname === '/.well-known/oauth-authorization-server' && req.method === 'GET') {
             sendJson(res, 200, {
@@ -612,6 +663,7 @@ export function startHttpServer(): void {
         console.error(`[HTTP] MCP SSE endpoint: ${baseUrl}/sse`);
         console.error(`[HTTP] Extension registration: ${baseUrl}/register`);
         console.error(`[HTTP] Health check: ${baseUrl}/health`);
+        console.error(`[HTTP] REST API: ${baseUrl}/api/tools`);
 
         if (config.auth.enabled) {
             console.error(`[HTTP] Authentication: REQUIRED (use Bearer token or ?token= parameter)`);

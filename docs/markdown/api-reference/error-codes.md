@@ -120,6 +120,147 @@ Server cannot handle request.
 - Wait and retry
 - Increase port range in config
 
+## REST API Error Codes
+
+The REST Tools API (`/api/tools/*`) returns errors in a consistent format:
+
+```json
+{
+  "success": false,
+  "error": {
+    "code": "ERROR_CODE",
+    "message": "Human-readable description"
+  }
+}
+```
+
+### TOOL_NOT_FOUND
+
+Tool name does not exist. HTTP status: 404.
+
+```json
+{
+  "success": false,
+  "error": {
+    "code": "TOOL_NOT_FOUND",
+    "message": "Unknown tool: nonexistent"
+  }
+}
+```
+
+**Causes:**
+- Typo in tool name
+- Using original tool name instead of consolidated name (e.g., `browser_mouse_click` instead of `browser_interact`)
+
+**Solutions:**
+- Check tool name against `GET /api/tools`
+- Use consolidated tool names: `browser_instance`, `browser_tab`, `browser_navigate`, `browser_content`, `browser_interact`, `browser_execute`, `browser_network`, `browser_emulate`, `browser_debug`, `sleep`
+
+### TOOL_ERROR
+
+Tool execution failed. HTTP status: 400.
+
+```json
+{
+  "success": false,
+  "error": {
+    "code": "TOOL_ERROR",
+    "message": "Invalid action \"bogus\" for tool \"browser_tab\""
+  }
+}
+```
+
+**Causes:**
+- Invalid `action` value for the tool
+- Missing required parameters
+- Browser instance not connected
+- Element not found
+- Navigation failure
+
+**Solutions:**
+- Check the tool's `inputSchema` from `GET /api/tools`
+- Verify action is valid for the tool
+- Ensure a browser instance is running
+
+### PARSE_ERROR
+
+Request body is not valid JSON. HTTP status: 400.
+
+```json
+{
+  "success": false,
+  "error": {
+    "code": "PARSE_ERROR",
+    "message": "Invalid JSON body"
+  }
+}
+```
+
+**Solutions:**
+- Validate JSON syntax
+- Set `Content-Type: application/json` header
+- Ensure request body is not empty (use `{}` for no arguments)
+
+### MCP_ERROR
+
+Internal MCP protocol error. HTTP status: 400.
+
+```json
+{
+  "success": false,
+  "error": {
+    "code": "MCP_ERROR",
+    "message": "Missing tool name"
+  }
+}
+```
+
+**Causes:**
+- Internal routing error
+- Missing required fields at the protocol level
+
+**Solutions:**
+- Check server logs for details
+- Retry the request
+- Report if persistent
+
+### NO_INSTANCE
+
+No browser instance connected. HTTP status: 400.
+
+```json
+{
+  "success": false,
+  "error": {
+    "code": "NO_INSTANCE",
+    "message": "No connected browser instances"
+  }
+}
+```
+
+**Solutions:**
+- Launch a browser first: `POST /api/tools/browser_instance` with `{"action": "new"}`
+- Check connected instances: `POST /api/tools/browser_instance` with `{"action": "list"}`
+
+### DOWNLOAD_ERROR
+
+Download operation failed. HTTP status: 400.
+
+```json
+{
+  "success": false,
+  "error": {
+    "code": "DOWNLOAD_ERROR",
+    "message": "Download timed out"
+  }
+}
+```
+
+**Solutions:**
+- Increase timeout parameter
+- Verify download started
+- Check file system permissions
+
 ## JSON-RPC Error Codes
 
 MCP uses JSON-RPC 2.0 error codes.

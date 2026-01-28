@@ -66,7 +66,11 @@ curl http://localhost:3300/info
     "sse": "http://localhost:3300/sse",
     "message": "http://localhost:3300/message",
     "register": "http://localhost:3300/register",
-    "health": "http://localhost:3300/health"
+    "health": "http://localhost:3300/health",
+    "rest_api": {
+      "list_tools": "http://localhost:3300/api/tools",
+      "execute_tool": "http://localhost:3300/api/tools/{toolName}"
+    }
   },
   "websocket": {
     "protocol": "ws",
@@ -228,6 +232,89 @@ curl -H "Authorization: Bearer your-token" \
   ]
 }
 ```
+
+## REST Tools API
+
+Execute browser automation tools directly via HTTP without the MCP protocol. See [REST API](rest-api.md) for the full reference with examples for every tool.
+
+### GET /api/tools
+
+List all available tools with their schemas. **Authentication required** (when enabled).
+
+**Request:**
+```bash
+curl http://localhost:3300/api/tools
+```
+
+**Response:**
+```json
+{
+  "tools": [
+    {
+      "name": "browser_instance",
+      "description": "Manage browser instances...",
+      "inputSchema": { ... }
+    },
+    {
+      "name": "browser_tab",
+      "description": "..."
+    }
+  ]
+}
+```
+
+### POST /api/tools/{toolName}
+
+Execute a tool by name. **Authentication required** (when enabled).
+
+**Request:**
+```bash
+curl -X POST http://localhost:3300/api/tools/browser_instance \
+  -H "Content-Type: application/json" \
+  -d '{"action": "list"}'
+```
+
+**URL Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `toolName` | string | Tool name (e.g., `browser_instance`, `browser_tab`, `sleep`) |
+
+**Request Body:** Tool arguments as JSON. Include `action` for consolidated tools.
+
+**Success Response (200):**
+```json
+{
+  "success": true,
+  "result": {
+    "instances": []
+  }
+}
+```
+
+**Error Response (400):**
+```json
+{
+  "success": false,
+  "error": {
+    "code": "TOOL_ERROR",
+    "message": "Invalid action \"bogus\" for tool \"browser_tab\""
+  }
+}
+```
+
+**Error Response (404):**
+```json
+{
+  "success": false,
+  "error": {
+    "code": "TOOL_NOT_FOUND",
+    "message": "Unknown tool: nonexistent"
+  }
+}
+```
+
+**Available tools:** `browser_instance`, `browser_tab`, `browser_navigate`, `browser_content`, `browser_interact`, `browser_execute`, `browser_network`, `browser_emulate`, `browser_debug`, `sleep`
 
 ## Task Endpoints
 

@@ -564,6 +564,20 @@ export const toolDefinitions = [
             required: ['action'],
         },
     },
+    {
+        name: 'sleep',
+        description: 'Wait for a specified duration before continuing. Useful as a delay between task commands.',
+        inputSchema: {
+            type: 'object' as const,
+            properties: {
+                duration: {
+                    type: 'number',
+                    description: 'Duration to wait in milliseconds',
+                },
+            },
+            required: ['duration'],
+        },
+    },
 ];
 
 /**

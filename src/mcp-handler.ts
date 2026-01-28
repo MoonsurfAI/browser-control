@@ -32,13 +32,90 @@ interface MCPResponse {
 
 const SERVER_INFO = {
     name: 'moonsurf-mcp',
-    version: '2.0.0',
+    version: '2.1.0',
 };
 
 const PROTOCOL_VERSION = '2024-11-05';
 
 export function getMCPToolsList() {
     return toolDefinitions;
+}
+
+export interface RESTToolResult {
+    success: boolean;
+    result?: unknown;
+    error?: { code: string; message: string };
+}
+
+export async function executeToolREST(
+    toolName: string,
+    args: Record<string, unknown>
+): Promise<RESTToolResult> {
+    // Validate tool exists
+    const validTools = toolDefinitions.map(t => t.name);
+    if (!validTools.includes(toolName)) {
+        return {
+            success: false,
+            error: { code: 'TOOL_NOT_FOUND', message: `Unknown tool: ${toolName}` },
+        };
+    }
+
+    try {
+        const { resolvedName, resolvedArgs } = resolveToolCall(toolName, args);
+        console.error(`[REST] Tool call: ${toolName}${toolName !== resolvedName ? ` -> ${resolvedName}` : ''}`, resolvedArgs);
+
+        const response = await executeOriginalTool(0, resolvedName, resolvedArgs);
+
+        // Unwrap MCP response
+        if (response.error) {
+            return {
+                success: false,
+                error: { code: 'MCP_ERROR', message: response.error.message },
+            };
+        }
+
+        const result = response.result as { content?: Array<{ type: string; text?: string }>; isError?: boolean } | undefined;
+        if (!result?.content?.length) {
+            return { success: true, result: null };
+        }
+
+        // Parse text content back to object for clean REST output
+        const content = result.content[0];
+        let parsed: unknown;
+        if (content.type === 'text' && content.text) {
+            try {
+                parsed = JSON.parse(content.text);
+            } catch {
+                parsed = content.text;
+            }
+        } else {
+            parsed = content;
+        }
+
+        if (result.isError) {
+            const errorObj = typeof parsed === 'object' && parsed !== null && 'error' in parsed
+                ? (parsed as { error: { code?: string; message?: string } }).error
+                : { code: 'TOOL_ERROR', message: String(parsed) };
+            return {
+                success: false,
+                error: {
+                    code: errorObj.code || 'TOOL_ERROR',
+                    message: errorObj.message || String(parsed),
+                },
+            };
+        }
+
+        return { success: true, result: parsed };
+    } catch (error) {
+        console.error(`[REST] Tool error: ${toolName}`, error);
+        return {
+            success: false,
+            error: {
+                code: 'TOOL_ERROR',
+                message: error instanceof Error ? error.message : String(error),
+            },
+        };
+    }
 }
 
 export async function handleMCPRequest(request: MCPRequest): Promise<MCPResponse> {
@@ -189,6 +266,21 @@ async function executeOriginalTool(
 
         case 'browser_download_wait':
             return handleDownloadWait(id, args);
+
+        case 'sleep': {
+            const duration = (args.duration as number) || 0;
+            await new Promise(resolve => setTimeout(resolve, duration));
+            return {
+                jsonrpc: '2.0' as const,
+                id,
+                result: {
+                    content: [{
+                        type: 'text',
+                        text: JSON.stringify({ slept: duration }),
+                    }],
+                },
+            };
+        }
     }
 
     // Extension-side tools (routed to browser)

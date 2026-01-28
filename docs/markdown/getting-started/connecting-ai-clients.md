@@ -227,6 +227,93 @@ resp = requests.post(message_endpoint, json={
 print(resp.json())
 ```
 
+## REST API (Non-MCP Clients)
+
+If your application doesn't support the MCP protocol, you can use the REST API to call tools directly via HTTP. No SSE connection or JSON-RPC is needed.
+
+### Quick start
+
+```bash
+# List available tools
+curl http://localhost:3300/api/tools
+
+# Launch a browser
+curl -X POST http://localhost:3300/api/tools/browser_instance \
+  -H "Content-Type: application/json" \
+  -d '{"action": "new", "mode": "testing", "url": "https://example.com"}'
+
+# Take a screenshot
+curl -X POST http://localhost:3300/api/tools/browser_content \
+  -H "Content-Type: application/json" \
+  -d '{"action": "screenshot", "instanceId": "inst_xxx"}'
+```
+
+### Python example
+
+```python
+import requests
+
+BASE = "http://localhost:3300/api/tools"
+
+def call_tool(tool, args):
+    resp = requests.post(f"{BASE}/{tool}", json=args)
+    data = resp.json()
+    if not data["success"]:
+        raise Exception(data["error"]["message"])
+    return data["result"]
+
+# Launch browser
+result = call_tool("browser_instance", {"action": "new", "mode": "testing"})
+instance_id = result["instanceId"]
+
+# Navigate
+call_tool("browser_navigate", {
+    "action": "goto",
+    "instanceId": instance_id,
+    "url": "https://example.com"
+})
+
+# Get page title
+result = call_tool("browser_execute", {
+    "instanceId": instance_id,
+    "expression": "document.title"
+})
+print(f"Title: {result['value']}")
+
+# Close
+call_tool("browser_instance", {"action": "close", "instanceId": instance_id})
+```
+
+### JavaScript/Node.js example
+
+```javascript
+const BASE = 'http://localhost:3300/api/tools';
+
+async function callTool(tool, args) {
+  const resp = await fetch(`${BASE}/${tool}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(args),
+  });
+  const data = await resp.json();
+  if (!data.success) throw new Error(data.error.message);
+  return data.result;
+}
+
+const { instanceId } = await callTool('browser_instance', {
+  action: 'new', mode: 'testing', url: 'https://example.com'
+});
+
+const { value: title } = await callTool('browser_execute', {
+  instanceId, expression: 'document.title'
+});
+console.log('Title:', title);
+
+await callTool('browser_instance', { action: 'close', instanceId });
+```
+
+For the full REST API reference, see [REST Tools API](../api-reference/rest-api.md).
+
 ## With Authentication
 
 If Moonsurf is running with authentication enabled:
@@ -341,7 +428,7 @@ Verify the SSE connection and call `initialize` before `tools/list`.
 
 ### "Tool not found"
 
-Moonsurf uses 9 consolidated tools. Make sure you're using the correct tool names:
+Moonsurf uses 10 consolidated tools. Make sure you're using the correct tool names:
 - `browser_instance`
 - `browser_tab`
 - `browser_navigate`
@@ -351,6 +438,7 @@ Moonsurf uses 9 consolidated tools. Make sure you're using the correct tool name
 - `browser_network`
 - `browser_emulate`
 - `browser_debug`
+- `sleep`
 
 ## Next Steps
 

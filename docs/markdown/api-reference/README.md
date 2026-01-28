@@ -9,6 +9,7 @@ Moonsurf exposes multiple APIs for different use cases:
 | API | Transport | Port | Purpose |
 |-----|-----------|------|---------|
 | HTTP REST | HTTP/HTTPS | 3300 | Health checks, info, instance management |
+| REST Tools API | HTTP/HTTPS | 3300 | Execute browser tools via simple HTTP calls |
 | MCP | SSE + HTTP | 3300 | AI client tool integration |
 | Tasks | WebSocket | 3400 | Batched command execution |
 | Extension | WebSocket | 3301-3399 | Browser extension communication |
@@ -17,6 +18,9 @@ Moonsurf exposes multiple APIs for different use cases:
 
 ### [HTTP Endpoints](http-endpoints.md)
 REST API for server management, health checks, and task operations.
+
+### [REST Tools API](rest-api.md)
+Execute browser automation tools via simple HTTP POST requests. No MCP protocol or SSE required.
 
 ### [SSE Protocol](sse-protocol.md)
 Server-Sent Events protocol for MCP client connections.
@@ -80,6 +84,8 @@ Authorization: Bearer your-token
 
 | Method | Path | Description |
 |--------|------|-------------|
+| GET | `/api/tools` | List available tools (REST API) |
+| POST | `/api/tools/{name}` | Execute a tool (REST API) |
 | GET | `/sse` | SSE connection for MCP |
 | POST | `/message` | MCP request handling |
 | POST | `/register` | Extension registration |
@@ -105,6 +111,27 @@ Authorization: Bearer your-token
 ```json
 {
   "error": "Error message"
+}
+```
+
+### REST API Response
+
+```json
+{
+  "success": true,
+  "result": { ... }
+}
+```
+
+### REST API Error
+
+```json
+{
+  "success": false,
+  "error": {
+    "code": "TOOL_ERROR",
+    "message": "Error description"
+  }
 }
 ```
 

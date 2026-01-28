@@ -69,7 +69,7 @@ function setupWebSocketHandlers(wss: WebSocketServer, port: number): void {
                         ws.send(JSON.stringify({
                             type: 'welcome',
                             instanceId,
-                            serverVersion: '2.0.0',
+                            serverVersion: '2.1.0',
                         }));
                     } else {
                         console.error(`[WebSocket:${port}] Unknown instance ${instanceId}`);

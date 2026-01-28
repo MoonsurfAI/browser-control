@@ -30,7 +30,7 @@ Understand how Moonsurf works.
 - **[Extension Communication](concepts/extension-communication.md)** - Server-extension WebSocket protocol
 
 ### Tools Reference
-Complete reference for all 9 MCP tools.
+Complete reference for all 10 MCP tools.
 
 - **[Tools Overview](tools/README.md)** - Consolidated tool design philosophy
 - **[browser_instance](tools/browser-instance.md)** - Manage browser instances
@@ -42,6 +42,7 @@ Complete reference for all 9 MCP tools.
 - **[browser_network](tools/browser-network.md)** - Cookies, headers, storage
 - **[browser_emulate](tools/browser-emulate.md)** - Device and network emulation
 - **[browser_debug](tools/browser-debug.md)** - Debugging and monitoring
+- **[sleep](tools/sleep.md)** - Wait for a specified duration
 
 ### Task Execution
 Submit batched commands with real-time progress.
@@ -89,6 +90,7 @@ Connect Moonsurf to your tools.
 Technical specifications.
 
 - **[API Overview](api-reference/README.md)** - Available APIs
+- **[REST Tools API](api-reference/rest-api.md)** - Execute tools via simple HTTP calls
 - **[HTTP Endpoints](api-reference/http-endpoints.md)** - All HTTP routes
 - **[SSE Protocol](api-reference/sse-protocol.md)** - SSE message format
 - **[WebSocket Protocol](api-reference/websocket-protocol.md)** - Extension messages
@@ -109,8 +111,8 @@ For Moonsurf contributors.
 
 ## Key Features
 
-### 9 Consolidated Tools
-Moonsurf reduces 50+ individual browser operations to 9 unified tools with action parameters. This significantly reduces context window usage for AI agents while maintaining full functionality.
+### 10 Consolidated Tools
+Moonsurf reduces 50+ individual browser operations to 10 unified tools with action parameters. This significantly reduces context window usage for AI agents while maintaining full functionality.
 
 ### Three Browser Modes
 - **Chrome** - Use your existing Chrome with saved profiles and extensions
@@ -130,4 +132,4 @@ Built-in support for authentication, TLS, rate limiting, CORS, and audit logging
 
 ## Version
 
-This documentation is for Moonsurf Browser Control v2.0.0.
+This documentation is for Moonsurf Browser Control v2.1.0.

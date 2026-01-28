@@ -1,6 +1,6 @@
 # Tools Reference
 
-Moonsurf provides 9 consolidated MCP tools for browser automation. This design reduces the number of tools AI agents need to understand while providing full functionality.
+Moonsurf provides 10 consolidated MCP tools for browser automation. This design reduces the number of tools AI agents need to understand while providing full functionality.
 
 ## Design Philosophy
 
@@ -10,7 +10,7 @@ click(), type(), navigate(), reload(), goBack(), goForward(),
 screenshot(), pdf(), getCookies(), setCookie(), ...
 ```
 
-Moonsurf consolidates these into 9 unified tools with `action` parameters:
+Moonsurf consolidates these into 10 unified tools with `action` parameters:
 ```
 browser_instance   action: list | new | close | profiles
 browser_tab        action: list | new | close | close_others | activate
@@ -21,6 +21,7 @@ browser_execute    (no action - direct JavaScript execution)
 browser_network    action: get_cookies | set_cookie | clear_cookies | set_headers | intercept | get_storage | set_storage | clear_storage
 browser_emulate    action: viewport | user_agent | geolocation | timezone | device | offline | throttle
 browser_debug      action: dialog | console | performance | trace_start | trace_stop | downloads | download_wait
+sleep              (no action - wait for a specified duration)
 ```
 
 **Benefits:**
@@ -42,6 +43,7 @@ browser_debug      action: dialog | console | performance | trace_start | trace_
 | [browser_network](browser-network.md) | Network and storage | get_cookies, set_cookie, clear_cookies, set_headers, intercept, get_storage, set_storage, clear_storage |
 | [browser_emulate](browser-emulate.md) | Device emulation | viewport, user_agent, geolocation, timezone, device, offline, throttle |
 | [browser_debug](browser-debug.md) | Debugging tools | dialog, console, performance, trace_start, trace_stop, downloads, download_wait |
+| [sleep](sleep.md) | Wait/delay | (none) |
 
 ## Common Parameters
 
@@ -89,6 +91,42 @@ Most tools share these parameters:
 ```json
 { "name": "browser_instance", "arguments": { "action": "close", "instanceId": "inst_xxx" } }
 ```
+
+## Using tools via REST API
+
+All tools can be called directly via HTTP without the MCP protocol. Send a POST request to `/api/tools/{toolName}` with the arguments as JSON body:
+
+```bash
+# Launch a browser
+curl -X POST http://localhost:3300/api/tools/browser_instance \
+  -H "Content-Type: application/json" \
+  -d '{"action": "new", "mode": "testing"}'
+
+# Navigate to URL
+curl -X POST http://localhost:3300/api/tools/browser_navigate \
+  -H "Content-Type: application/json" \
+  -d '{"action": "goto", "instanceId": "inst_xxx", "url": "https://example.com"}'
+
+# Click an element
+curl -X POST http://localhost:3300/api/tools/browser_interact \
+  -H "Content-Type: application/json" \
+  -d '{"action": "click", "instanceId": "inst_xxx", "selector": "#button"}'
+
+# Execute JavaScript
+curl -X POST http://localhost:3300/api/tools/browser_execute \
+  -H "Content-Type: application/json" \
+  -d '{"instanceId": "inst_xxx", "expression": "document.title"}'
+```
+
+REST API responses use a clean format:
+```json
+{
+  "success": true,
+  "result": { "value": "Example Domain", "tabId": 12345 }
+}
+```
+
+For the full reference, see [REST Tools API](../api-reference/rest-api.md).
 
 ## Selector Syntax
 
@@ -147,6 +185,9 @@ Common error codes:
 
 ### Debug Tools
 - `browser_debug` - Debugging and monitoring
+
+### Utility Tools
+- `sleep` - Wait for a specified duration
 
 ## Next Steps
 
